@@ -1,0 +1,6 @@
+# NO PERMITIR LA VISTA DE LOS DIRECTORIOS DEL SITIO
+Options +FollowSymLinks
+Options All -Indexes
+RewriteEngine on
+ErrorDocument 403 http://localhost:90/CrediAgil/controlador/cGestionesCrediAgil.php?crediagilgestion=error-403
+

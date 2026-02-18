@@ -1,0 +1,665 @@
+/* ============================================
+   CREDIAGIL - CORPORATE COLOR SCHEME
+   ============================================
+   
+   Primary Colors:
+   - Blue: #001F5C (Corporate Navy)
+   - Orange: #FF8C42 (Brand Orange)
+   - White: #FFFFFF
+   
+   ============================================ */
+
+:root {
+    --crediagil-blue: #001F5C;
+    --crediagil-orange: #FF8C42;
+    --crediagil-white: #FFFFFF;
+    --crediagil-blue-light: #003087;
+    --crediagil-orange-light: #FFB380;
+    --crediagil-gray-light: #F5F7FA;
+}
+
+/* ============================================
+   PRIMARY BUTTONS - Orange
+   ============================================ */
+.btn-primary,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active {
+    background-color: var(--crediagil-orange) !important;
+    border-color: var(--crediagil-orange) !important;
+    color: var(--crediagil-white) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--crediagil-orange-light) !important;
+    border-color: var(--crediagil-orange-light) !important;
+    color: var(--crediagil-white) !important;
+}
+
+/* ============================================
+   SIDEBAR - Blue Navy
+   ============================================ */
+.deznav {
+    background-color: var(--crediagil-blue) !important;
+}
+
+.deznav .metismenu>li>a {
+    color: var(--crediagil-white) !important;
+}
+
+.deznav .metismenu>li:hover>a,
+.deznav .metismenu>li:focus>a,
+.deznav .metismenu>li.mm-active>a {
+    background-color: var(--crediagil-blue-light) !important;
+    color: var(--crediagil-orange) !important;
+}
+
+.deznav .metismenu ul a {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.deznav .metismenu ul a:hover,
+.deznav .metismenu ul a:focus {
+    color: var(--crediagil-orange) !important;
+}
+
+/* ============================================
+   HEADER - White with Blue accents
+   ============================================ */
+.header {
+    background-color: var(--crediagil-white) !important;
+    border-bottom: 2px solid var(--crediagil-blue) !important;
+}
+
+.header-left .logo-abbr {
+    background-color: transparent !important;
+}
+
+.nav-header {
+    background-color: var(--crediagil-blue) !important;
+}
+
+/* ============================================
+   LINKS AND ACCENTS - Orange
+   ============================================ */
+a {
+    color: var(--crediagil-orange);
+}
+
+a:hover,
+a:focus {
+    color: var(--crediagil-blue);
+}
+
+/* ============================================
+   CARDS - White with subtle borders
+   ============================================ */
+.card {
+    background-color: var(--crediagil-white);
+    border: 1px solid #E0E6ED;
+}
+
+.card-header {
+    background-color: var(--crediagil-gray-light);
+    border-bottom: 2px solid var(--crediagil-orange);
+}
+
+/* ============================================
+   BADGES AND LABELS
+   ============================================ */
+.badge-primary {
+    background-color: var(--crediagil-orange) !important;
+}
+
+.badge-info {
+    background-color: var(--crediagil-blue) !important;
+}
+
+/* ============================================
+   FORM CONTROLS - Orange focus
+   ============================================ */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--crediagil-orange) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 140, 66, 0.25) !important;
+}
+
+/* ============================================
+   TABLES - Striped with brand colors
+   ============================================ */
+.table thead th {
+    background-color: var(--crediagil-blue);
+    color: var(--crediagil-white);
+    border-color: var(--crediagil-blue);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 31, 92, 0.03);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(255, 140, 66, 0.1);
+}
+
+/* ============================================
+   PAGINATION - Orange active state
+   ============================================ */
+.page-item.active .page-link {
+    background-color: var(--crediagil-orange) !important;
+    border-color: var(--crediagil-orange) !important;
+}
+
+.page-link {
+    color: var(--crediagil-blue);
+}
+
+.page-link:hover {
+    color: var(--crediagil-orange);
+    background-color: var(--crediagil-gray-light);
+}
+
+/* ============================================
+   ALERTS
+   ============================================ */
+.alert-primary {
+    background-color: rgba(255, 140, 66, 0.1);
+    border-color: var(--crediagil-orange);
+    color: #8B4513;
+}
+
+.alert-info {
+    background-color: rgba(0, 31, 92, 0.1);
+    border-color: var(--crediagil-blue);
+    color: var(--crediagil-blue);
+}
+
+/* ============================================
+   PROGRESS BARS - Orange
+   ============================================ */
+.progress-bar {
+    background-color: var(--crediagil-orange) !important;
+}
+
+/* ============================================
+   DROPDOWN MENUS
+   ============================================ */
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: rgba(255, 140, 66, 0.1);
+    color: var(--crediagil-blue);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: var(--crediagil-orange);
+    color: var(--crediagil-white);
+}
+
+/* ============================================
+   MODAL HEADERS - Blue
+   ============================================ */
+.modal-header {
+    background-color: var(--crediagil-blue);
+    color: var(--crediagil-white);
+}
+
+.modal-header .close {
+    color: var(--crediagil-white);
+    opacity: 0.8;
+}
+
+.modal-header .close:hover {
+    opacity: 1;
+}
+
+/* ============================================
+   TABS - Orange active state
+   ============================================ */
+.nav-tabs .nav-link.active {
+    color: var(--crediagil-orange) !important;
+    border-bottom: 3px solid var(--crediagil-orange) !important;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--crediagil-orange);
+}
+
+/* ============================================
+   STEPPER (for Nuevo Cliente)
+   ============================================ */
+.stepper-wrapper .stepper-item.completed .step-counter {
+    background-color: var(--crediagil-orange) !important;
+    border-color: var(--crediagil-orange) !important;
+}
+
+.stepper-wrapper .stepper-item.active .step-counter {
+    background-color: var(--crediagil-blue) !important;
+    border-color: var(--crediagil-blue) !important;
+}
+
+.stepper-wrapper .stepper-item .step-name {
+    color: var(--crediagil-blue);
+}
+
+/* ============================================
+   BREADCRUMBS
+   ============================================ */
+.breadcrumb-item.active {
+    color: var(--crediagil-orange);
+}
+
+.breadcrumb-item a {
+    color: var(--crediagil-blue);
+}
+
+.breadcrumb-item a:hover {
+    color: var(--crediagil-orange);
+}
+
+/* ============================================
+   WIDGETS AND STATS CARDS
+   ============================================ */
+.widget-stat .media .media-body h4 {
+    color: var(--crediagil-blue);
+}
+
+.widget-stat .progress {
+    background-color: rgba(0, 31, 92, 0.1);
+}
+
+/* ============================================
+   SCROLLBAR - Custom styling
+   ============================================ */
+::-webkit-scrollbar-thumb {
+    background-color: var(--crediagil-orange);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--crediagil-gray-light);
+}
+
+/* ============================================
+   LOGIN PAGE SPECIFIC
+   ============================================ */
+.auth-form {
+    background-color: var(--crediagil-white);
+    border: 1px solid #E0E6ED;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.auth-form h4 {
+    color: var(--crediagil-blue);
+    font-weight: 600;
+}
+
+.auth-form .btn-primary {
+    background-color: var(--crediagil-orange) !important;
+    border-color: var(--crediagil-orange) !important;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+}
+
+.auth-form .input-group-text {
+    background-color: var(--crediagil-blue);
+    color: var(--crediagil-white);
+    border-color: var(--crediagil-blue);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background-color: var(--crediagil-white);
+    border-top: 2px solid var(--crediagil-blue);
+    color: var(--crediagil-blue);
+}
+
+.footer a {
+    color: var(--crediagil-orange);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 767px) {
+    .deznav {
+        background-color: #2e2e2e !important;
+    }
+}
+
+/* ============================================
+   FIXES & REFINEMENTS
+   ============================================ */
+
+/* ============================================
+   FIXES & REFINEMENTS - FINAL CORPORATE IDENTITY
+   ============================================ */
+
+/* 1. HEADER & SEARCH - WHITE BACKGROUND, DARK TEXT */
+.header {
+    background-color: var(--crediagil-white) !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* Soft shadow */
+}
+
+.header-left .dashboard_bar {
+    color: var(--crediagil-blue) !important;
+    font-weight: 700;
+}
+
+.header-right .header-profile>a.nav-link {
+    background-color: #ffffff !important;
+    /* Pure white background */
+    /* Remove blue bg */
+    border: 1px solid #e0e0e0;
+    padding: 5px 15px;
+    /* Add some padding for better look */
+    border-radius: 8px;
+    /* Soft corners */
+}
+
+.header-right .header-profile>a.nav-link .header-info span {
+    color: #333 !important;
+    /* Dark text for name */
+}
+
+.header-right .header-profile>a.nav-link .header-info small {
+    color: #666 !important;
+    /* Gray text for role */
+}
+
+/* User Profile Image container */
+.header-right .header-profile img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. SIDEBAR - DARK NAVY / GRAPHITE */
+.deznav {
+    background-color: #001F5C !important;
+    /* Corporate Blue as base, or keep graphite if requested */
+    /* If user wants Graphite specifically: background-color: #2e2e2e !important; */
+    /* Updating to #001F5C as per "Todo lo que era morado... ahora es azul marino" instruction implies strong blue presence, 
+       but "sidebar maintains institutional blue" from request 1 contradicts "menu color ... graphite" from previous.
+       User says: "Solo el sidebar mantiene el azul institucional." -> So #001F5C. */
+}
+
+/* 3. LOGO OPTIMIZATION - MAX VISIBILITY */
+.nav-header {
+    background-color: var(--crediagil-blue) !important;
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    /* Logo left, Control right */
+    align-items: center;
+    padding: 0 15px;
+    /* Side breathing room */
+}
+
+.nav-header .nav-control {
+    position: relative !important;
+    left: auto !important;
+    right: 0 !important;
+}
+
+.nav-header .brand-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0 0 0;
+    /* Added space at the top as requested */
+    height: 100%;
+    width: 100%;
+}
+
+.nav-header .brand-logo img {
+    display: none !important;
+    /* Hide original individual imgs */
+}
+
+/* Show ONLY the full logo, styled to fit */
+.nav-header .brand-logo .logo-abbr {
+    display: block !important;
+    max-width: 110% !important;
+    /* Enlarged from 85% to 110% for expanded state */
+    max-height: 110% !important;
+    /* Enlarged from 85% to 110% */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+/* Weather Section Refinement */
+.left-panel.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+    height: 100%;
+}
+
+.left-panel .dateweather h4 {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.left-panel .city h2 {
+    padding: 0 !important;
+    margin-bottom: 0.5rem;
+    color: var(--crediagil-blue);
+}
+
+.left-panel .temp {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.left-panel .temp img {
+    width: 5rem !important;
+}
+
+.left-panel .temp span {
+    line-height: 1;
+}
+
+/* Specific adjustment for mini-sidebar to ensure it looks elegant (PERFECT SIZE maintained) */
+[data-sidebar-style="mini"] .nav-header .brand-logo {
+    padding-top: 20px;
+}
+
+[data-sidebar-style="mini"] .nav-header .brand-logo .logo-abbr {
+    max-width: 70% !important;
+    max-height: 70% !important;
+    /* Keeping this size as requested */
+}
+
+/* 4. DASHBOARD METRICS - SHADOWS & ALIGNMENT */
+.card-tech-detail {
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-tech-detail .info {
+    flex-grow: 1;
+}
+
+.card-tech-detail .info span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #888;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-tech-detail .info h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+}
+
+.card-tech-detail .icon-box {
+    width: 65px;
+    height: 65px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card-tech-detail .icon-box img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+/* Colors from image */
+.tech-users {
+    background-color: #FFF9F0;
+    border: 1.5px solid #FFD6A5;
+}
+
+.tech-products {
+    background-color: #FAF0FF;
+    border: 1.5px solid #EAC8FF;
+}
+
+.tech-errors {
+    background-color: #F0F8FF;
+    border: 1.5px solid #A5D8FF;
+}
+
+.tech-recovery {
+    background-color: #F5F5F5;
+    border: 1.5px solid #D6D6D6;
+}
+
+.tech-installments {
+    background-color: #F0FFF4;
+    border: 1.5px solid #C6F6D5;
+}
+
+.tech-transactions {
+    background-color: #FFF5F5;
+    border: 1.5px solid #FED7D7;
+}
+
+/* Dashboard layout specific */
+.dashboard-grid-2x2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.dashboard-grid-2x2>div {
+    padding: 10px;
+}
+
+.card {
+    border: none !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05) !important;
+    /* Soft Shadow applied globally */
+    border-radius: 12px;
+}
+
+/* Fix for "Detalles Técnicos" grid to ensure row alignment */
+.row.sp16 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-xl-3 {
+    width: 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+@media (max-width: 1200px) {
+    .col-xl-3 {
+        width: 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .col-xl-3 {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Metric Card Colors - OVERRIDE ALL PURPLE */
+/* Backgrounds for icons/widgets that were purple/secondary */
+.bgl-primary,
+.bgl-secondary,
+.bgl-info,
+.alert-secondary,
+.alert-purple {
+    background-color: rgba(0, 31, 92, 0.08) !important;
+    /* Very light blue tint */
+    border-color: var(--crediagil-blue) !important;
+    color: var(--crediagil-blue) !important;
+}
+
+/* Text & Borders */
+.text-secondary,
+.text-purple {
+    color: var(--crediagil-blue) !important;
+}
+
+.border-secondary,
+.border-purple {
+    border-color: var(--crediagil-blue) !important;
+}
+
+/* Icons in metrics */
+.widget-stat .media .media-body h4,
+.widget-stat .media .media-body h2 {
+    color: #333 !important;
+    /* Dark text for numbers/titles */
+}
+
+/* 5. ACTIONS & HIGHLIGHTS - ORANGE */
+.btn-primary,
+.badge-primary,
+.nav-tabs .nav-link.active {
+    background-color: var(--crediagil-orange) !important;
+    border-color: var(--crediagil-orange) !important;
+    color: #FFF !important;
+}
+
+a:hover {
+    color: var(--crediagil-orange) !important;
+}
+
+/* 6. GENERAL CLEANUP */
+/* Remove copyright container if it persists via CSS */
+.copyright,
+.add-menu-sidebar {
+    display: none !important;
+}
+
+/* Fix hamburger menu color */
+.hamburger .line {
+    background: var(--crediagil-blue) !important;
+}

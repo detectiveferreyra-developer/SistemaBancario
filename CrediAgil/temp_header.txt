@@ -1,0 +1,150 @@
+﻿<?php
+// IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
+require('../modelo/mAPIClima_Openweathermap.php');
+// IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
+require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
+// IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
+require('../modelo/mConteoMensajesBandejaEntrada_MensajeriaInterna.php');
+// DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
+setlocale(LC_TIME, "spanish");
+date_default_timezone_set('America/El_Salvador');
+// OBTENER HORA LOCAL
+$hora = new DateTime("now");
+/*
+	-> VALIDACION DE PARAMETROS PRINCIPALES DEL SISTEMA
+*/
+// VALIDACION DE PARAMETRO CrediAgilgestion -> SI NO EXISTE MOSTRAR PAGINA 404 ERROR
+if (!isset($_GET['CrediAgilgestion'])) {
+	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
+}
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
+	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
+	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
+} else {
+	?>
+	<!-- 
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+░░              CrediAgil S.A DE C.V                                                  
+░░          SISTEMA FINANCIERO / BANCARIO 
+░░≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡                      
+░░                                                                               
+░░ -> AUTOR: DANIEL RIVERA                                                               
+░░ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+░░ -> GITHUB: (danielrivera03)                                             
+░░     https://github.com/DanielRivera03                              
+░░ -> TODOS LOS DERECHOS RESERVADOS                           
+░░     © 2021 - 2022    
+░░                                                      
+░░ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+░░    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+░░
+░░          ♥♥ HECHO CON MUCHAS TAZAS DE CAFE ♥♥
+░░                                                                               
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+-->
+	<!DOCTYPE html>
+	<html lang="ES-SV">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>CrediAgil | Inicio</title>
+		<!-- Favicon icon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"
+			href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+		<link rel="manifest" href="<?php echo $UrlGlobal; ?>vista/images/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+		<link href="<?php echo $UrlGlobal; ?>vista/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="<?php echo $UrlGlobal; ?>vista/vendor/chartist/css/chartist.min.css">
+		<link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
+			rel="stylesheet">
+		<link href="<?php echo $UrlGlobal; ?>vista/css/style.css" rel="stylesheet">
+		<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+		<link href="<?php echo $UrlGlobal; ?>vista/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+		<style>
+			@media (max-width: 700px) {
+				.right-panel img {
+					display: none;
+				}
+			}
+
+			@media (min-width: 701px) and (max-width: 1100px) {
+				.right-panel img {
+					padding: 1.2rem;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!--*******************
+		Preloader start
+	********************-->
+		<div id="preloader">
+			<div class="sk-three-bounce">
+				<div class="sk-child sk-bounce1"></div>
+				<div class="sk-child sk-bounce2"></div>
+				<div class="sk-child sk-bounce3"></div>
+			</div>
+		</div>
+		<!--*******************
+		Preloader end
+	********************-->
+
+		<!--**********************************
+		Main wrapper start
+	***********************************-->
+		<div id="main-wrapper">
+
+			<!--**********************************
+			Nav header start
+		***********************************-->
+			<div class="nav-header">
+				<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores"
+					class="brand-logo">
+					<img class="logo-abbr" src="<?php echo $UrlGlobal; ?>vista/images/logo.png" alt="">
+					<img class="logo-compact" src="<?php echo $UrlGlobal; ?>vista/images/logo-text.png" alt="">
+					<img class="brand-title" src="<?php echo $UrlGlobal; ?>vista/images/logo-text.png" alt="">
+				</a>
+
+				<div class="nav-control">
+					<div class="hamburger">
+						<span class="line"></span><span class="line"></span><span class="line"></span>
+					</div>
+				</div>
+			</div>
+			<!--**********************************
+			Nav header end
+		***********************************-->
+
+			<!--**********************************
+			Header start
+		***********************************-->
+			<div class="header">
+				<div class="header-content">
+					<nav class="navbar navbar-expand">
+						<div class="collapse navbar-collapse justify-content-between">
+							<div class="header-left">
+								<div class="dashboard_bar">

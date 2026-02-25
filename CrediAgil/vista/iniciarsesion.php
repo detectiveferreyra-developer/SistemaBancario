@@ -80,9 +80,8 @@ if (empty($_SESSION['id_usuario'])) {
                                 <div class="col-xl-12">
                                     <div class="auth-form">
                                         <img class="logo-abbr logo-formulario"
-                                            src="<?php echo $UrlGlobal; ?>images/CrediAgil_azul.jpg" alt="logo-simple"
-                                            style="max-width: 280px; margin-bottom: 1.5rem;">
-                                        <h4 class="text-center mb-4">CrediAgil | Iniciar Sesi&oacute;n</h4>
+                                            src="<?php echo $UrlGlobal; ?>images/CrediAgil_azul.jpg" alt="logo-simple">
+                                        <h4 class="text-center">CrediAgil | Iniciar Sesi&oacute;n</h4>
                                         <form id="accesos-usuarios" class="form-valide-with-icon" method="POST"
                                             action="<?php echo $UrlGlobal; ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=validar-sesiones"
                                             autocomplete="off">

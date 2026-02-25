@@ -24,18 +24,6 @@ if ($_SESSION['id_rol'] == 1) {
                     </ul>
                 </li>
                 <li><a class="ai-icon"
-                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=modulo-estadisticas"
-                        aria-expanded="true">
-                        <svg class="w-6 h-6" fill="none" stroke="LightSlateGrey" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                            </path>
-                        </svg>
-                        <span class="nav-text">Estadísticas</span>
-                    </a>
-                </li>
-                <li><a class="ai-icon"
                         href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=nuevo-cliente"
                         aria-expanded="true">
                         <svg class="w-6 h-6" fill="none" stroke="LightSlateGrey" viewBox="0 0 24 24"
@@ -84,6 +72,20 @@ if ($_SESSION['id_rol'] == 1) {
                     </ul>
                 </li>
 
+                <li <?php if ($_GET['CrediAgilgestion'] == "estadisticas-generales") {
+                    echo 'class="mm-active"';
+                } ?>><a   class="ai-icon"
+                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales"
+                        aria-expanded="true">
+                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M2 13h6v8H2v-8zm14-5h6v13h-6V8zM9 3h6v18H9V3zM4 15v4h2v-4H4zm7-10v14h2V5h-2zm7 5v9h2v-9h-2z" />
+                        </svg>
+                        <span class="nav-text">Estad&iacute;sticas</span>
+                    </a>
+                </li>
 
                 <li <?php if ($_GET['CrediAgilgestion'] == "consulta-especifica-tickets-reportes-plataforma") {
                     echo 'class="mm-active"';

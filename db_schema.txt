@@ -1,0 +1,109 @@
+﻿Field	Type	Null	Key	Default	Extra
+idcreditos	int	NO	PRI	NULL	auto_increment
+idusuarios	int	NO	MUL	NULL	
+idproducto	int	NO	MUL	NULL	
+tipocliente	varchar(50)	NO		NULL	
+montocredito	decimal(9,2)	NO		NULL	
+interescredito	float	NO		NULL	
+plazocredito	int	NO		NULL	
+cuotamensual	decimal(9,2)	NO		NULL	
+fechasolicitud	date	NO		NULL	
+salariocliente	decimal(9,2)	NO		NULL	
+saldocredito	decimal(15,6)	YES		NULL	
+estado	varchar(30)	NO		en proceso	
+observaciones	varchar(1500)	YES		NULL	
+observacion_gerencia	varchar(1500)	YES		NULL	
+observacion_presidencia	varchar(1500)	YES		NULL	
+usuario_empleado	varchar(255)	NO		NULL	
+progreso_solicitud	tinyint	NO		10	
+progreso_pagocredito	tinyint	NO		0	
+fecha_ultimarevision	timestamp	YES		NULL	
+usuario_gestionando	varchar(255)	YES		NULL	
+cuotas_generadas	char(2)	NO		no	
+copiacontratocliente	varchar(255)	YES		NULL	
+estadocrediticio	varchar(255)	NO		Nuevo Cliente	
+proceso_finalizado	char(2)	NO		no	
+enviaralhistorico	char(2)	NO		no	
+ocultartransacciones_clientes	char(2)	NO		no	
+creditoactivo	char(2)	NO		si	
+Field	Type	Null	Key	Default	Extra
+idcuotas	int	NO	PRI	NULL	auto_increment
+idcreditos	int	NO	MUL	NULL	
+idproducto	int	NO	MUL	NULL	
+idusuarios	int	NO	MUL	NULL	
+montocancelar	decimal(9,2)	NO		NULL	
+estadocuota	varchar(30)	NO		pendiente	
+nombreproducto	varchar(255)	NO		NULL	
+montocapital	decimal(9,2)	NO		NULL	
+fechavencimiento	date	NO		NULL	
+incumplimiento_pago	char(2)	NO		NO	
+disponiblehistorico	char(2)	NO		no	
+Field	Type	Null	Key	Default	Extra
+idtransaccion	int	NO	PRI	NULL	auto_increment
+idusuarios	int	NO	MUL	NULL	
+idproducto	int	NO	MUL	NULL	
+idcreditos	int	NO	MUL	NULL	
+idcuotas	int	NO	MUL	NULL	
+referencia	varchar(255)	NO		NULL	
+monto	decimal(9,2)	NO		NULL	
+fecha	timestamp	NO		CURRENT_TIMESTAMP	DEFAULT_GENERATED
+dias_incumplimiento	int	NO		NULL	
+empleado_gestion	varchar(255)	NO		NULL	
+Field	Type	Null	Key	Default	Extra
+idproducto	int	NO	PRI	NULL	auto_increment
+codigo	varchar(255)	NO		NULL	
+nombreproducto	varchar(255)	NO		NULL	
+descripcionproducto	varchar(255)	NO		NULL	
+requisitosproductos	varchar(1000)	NO		NULL	
+estado	varchar(15)	NO		NULL	
+Field	Type	Null	Key	Default	Extra
+idusuarios	int	NO	PRI	NULL	auto_increment
+nombres	varchar(255)	NO		NULL	
+apellidos	varchar(255)	NO		NULL	
+codigousuario	varchar(255)	NO	UNI	NULL	
+contrasenia	varchar(255)	NO		NULL	
+correo	varchar(255)	NO	UNI	NULL	
+fotoperfil	varchar(255)	YES		foto_usuarios_nuevos.png	
+idrol	int	NO	MUL	NULL	
+estado_usuario	varchar(25)	NO		activo	
+completoperfil	varchar(2)	NO		no	
+habilitarsistema	char(2)	NO		no	
+nuevousuario	char(2)	NO		si	
+poseecuenta	char(2)	NO		no	
+poseecredito	char(2)	NO		no	
+habilitarnuevoscreditos	char(2)	NO		si	
+quienregistro	varchar(255)	NO		NULL	
+Field	Type	Null	Key	Default	Extra
+idhistorico	int	NO	PRI	NULL	auto_increment
+idusuarios	int	NO	MUL	NULL	
+idproducto	int	NO	MUL	NULL	
+idcreditos	int	NO	MUL	NULL	
+montocredito	decimal(9,2)	NO		NULL	
+interescredito	float	NO		NULL	
+plazocredito	int	NO		NULL	
+cuotamensual	decimal(9,2)	NO		NULL	
+estado	varchar(30)	NO		NULL	
+Field	Type	Null	Key	Default	Extra
+idhistorico	int	NO	PRI	NULL	auto_increment
+idcreditos	int	NO	MUL	NULL	
+idproducto	int	NO	MUL	NULL	
+idusuarios	int	NO	MUL	NULL	
+montocancelar	decimal(9,2)	NO		NULL	
+nombreproducto	varchar(255)	NO		NULL	
+montocapital	decimal(9,2)	NO		NULL	
+fechavencimiento	date	NO		NULL	
+Field	Type	Null	Key	Default	Extra
+idreferencias	int	NO	PRI	NULL	auto_increment
+idcreditos	int	NO	MUL	NULL	
+idusuarios	int	NO	MUL	NULL	
+idproducto	int	NO	MUL	NULL	
+nombres_referencia1	varchar(255)	NO		NULL	
+apellidos_referencia1	varchar(255)	NO		NULL	
+empresa_referencia1	varchar(255)	NO		NULL	
+profesion_oficioreferencia1	varchar(255)	NO		NULL	
+telefono_referencia1	varchar(9)	NO		NULL	
+nombres_referencia2	varchar(255)	NO		NULL	
+apellidos_referencia2	varchar(255)	NO		NULL	
+empresa_referencia2	varchar(255)	NO		NULL	
+profesion_oficioreferencia2	varchar(255)	NO		NULL	
+telefono_referencia2	varchar(9)	NO		NULL	

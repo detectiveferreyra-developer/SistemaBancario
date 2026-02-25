@@ -280,31 +280,120 @@ a:focus {
 }
 
 /* ============================================
-   LOGIN PAGE SPECIFIC
+   LOGIN PAGE SPECIFIC - PROFESSIONAL DESIGN
    ============================================ */
+.authincation {
+    background-color: #f8f9fa;
+    /* Light background to make the form pop */
+}
+
 .auth-form {
-    background-color: var(--crediagil-white);
-    border: 1px solid #E0E6ED;
-    border-radius: 8px;
-    padding: 2rem;
+    background-color: #00014D !important;
+    /* Matched to Logo Background */
+    border: none;
+    border-radius: 12px;
+    padding: 3.5rem 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 31, 92, 0.2);
+    /* Depth with brand color shadow */
+    transition: transform 0.3s ease;
+}
+
+.auth-form:hover {
+    transform: translateY(-5px);
+}
+
+.auth-form .logo-formulario {
+    display: block;
+    margin: 0 auto 2.5rem auto !important;
+    max-width: 250px !important;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .auth-form h4 {
-    color: var(--crediagil-blue);
-    font-weight: 600;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 2rem !important;
+    letter-spacing: 0.5px;
+}
+
+.auth-form .text-label {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.auth-form .form-control {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #333333;
+    border-radius: 8px;
+    padding: 1.2rem 1rem;
+    height: auto;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.auth-form .form-control:focus {
+    background-color: #FFFFFF;
+    border-color: var(--crediagil-orange) !important;
+    box-shadow: 0 0 0 4px rgba(255, 140, 66, 0.2) !important;
+}
+
+.auth-form .input-group-text {
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+    color: #001F5C !important;
+    border-radius: 8px 0 0 8px;
+}
+
+.auth-form .form-control {
+    border-left: none;
 }
 
 .auth-form .btn-primary {
     background-color: var(--crediagil-orange) !important;
-    border-color: var(--crediagil-orange) !important;
-    padding: 0.75rem 2rem;
-    font-weight: 500;
+    border: none !important;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+    transition: all 0.3s ease;
 }
 
-.auth-form .input-group-text {
-    background-color: var(--crediagil-blue);
-    color: var(--crediagil-white);
-    border-color: var(--crediagil-blue);
+.auth-form .btn-primary:hover {
+    background-color: #e67e35 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
+}
+
+.auth-form a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.auth-form a:hover {
+    color: var(--crediagil-orange) !important;
+    text-decoration: none;
+}
+
+.auth-form .custom-control-label {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.85rem;
+}
+
+.auth-form .show-pass .btn-dark {
+    background-color: #f1f1f1 !important;
+    border: none;
+    color: #001F5C !important;
+    border-radius: 0 8px 8px 0;
 }
 
 /* ============================================

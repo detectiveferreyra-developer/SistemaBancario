@@ -123,6 +123,8 @@ class GestionesClientes
     private $NumeroChasisGrabado;
     private $NumeroChasisVin;
     private $ColorVehiculo;
+    // -> ID UNICO DATOS VEHICULOS
+    private $IdDatosVehiculos;
     // -> DATOS DE CUOTAS GENERADAS CLIENTES CrediÃgil -> CONSULTAS ESPECIFICAS Y COMPLETAS
     private $IdCuotasClientes;
     private $IdCuotasClientesHistorico; //-> PARA MOSTRAR COMPROBANTES HISTORICOS DE CLIENTES [CREDITOS CANCELADOS Y FINALIZADOS]
@@ -393,11 +395,11 @@ class GestionesClientes
     // FOTO DUI USUARIOS - REVERSO
     public function setFotoDuiReversoUsuarios($valor_retorno)
     {
-        $this->FotoDuiReversoUsuariosUsuarios = $valor_retorno;
+        $this->FotoDuiReversoUsuarios = $valor_retorno;
     }
     public function getFotoDuiReversoUsuarios()
     {
-        return $this->FotoDuiReversoUsuariosUsuarios;
+        return $this->FotoDuiReversoUsuarios;
     }
     // FOTO NIT USUARIOS
     public function setFotoNitUsuarios($valor_retorno)
@@ -2371,6 +2373,9 @@ class GestionesClientes
     // CONSULTA ESPECIFICA -> DETALLE CUOTA A PAGAR [CANCELAR] -> ORDEN DE PAGOS CLIENTES
     public function ConsultarCuotas_OrdenPagoClientes($conectarsistema, $IdUsuarios, $IdCuotas)
     {
+        // VALIDACION DE VALORES ENTEROS -> EVITAR ERROR Incorrect integer value: '' PARA STORED PROCEDURES
+        $IdUsuarios = (empty($IdUsuarios)) ? 0 : $IdUsuarios;
+        $IdCuotas = (empty($IdCuotas)) ? 0 : $IdCuotas;
         $resultado = mysqli_query($conectarsistema, "CALL ConsultaEspecificaCuotasClientes_OrdenPagoSistemaPagos('" . $IdUsuarios . "','" . $IdCuotas . "');");
         $Gestiones = mysqli_fetch_array($resultado); // RECORRIDO EN BUSCA DE REGISTRO CONSULTADO
         // EXTRAER DETALLES DE USUARIOS SOLAMENTE SI EXISTEN REGISTROS QUE SE SEAN ASOCIADOS

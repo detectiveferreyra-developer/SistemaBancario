@@ -52,10 +52,8 @@ require '../PHPMailer/SMTP.php';
 require('../modelo/conexion.php');
 // IMPORTANDO MODELO RECUPERACION DE GESTIONES EMPRESARIALES CREDIÁGIL.
 require('../modelo/mGestionesCrediAgil.php');
-require('../modelo/EstadisticasModel.php');
 // INICIALIZANDO VARIABLE GLOBAL DE CLASE
 $Gestiones = new GestionesClientes();
-$Estadisticas = new EstadisticasModel();
 /*
         -> IMPORTANTE: ESTE PROYECTO CUENTA CON LA CONFIGURACION HORARIA DISPONIBLE EN LA REGION [PAIS -> EL SALVADOR] UTC-6. EN CASO DE FUTURAS ADECUACIONES ESTE DEBE SER MODIFICADO SEGUN LA REGION A IMPLEMENTAR.
 
@@ -102,38 +100,23 @@ switch ($peticion_url) {
             $conectarsistema3->close(); // CERRANDO CONEXION AUXILIAR 3
             $conectarsistema4->close(); // CERRANDO CONEXION AUXILIAR 4
         } else {
-            header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
-        }
+            // SI EL USUARIO SE ENCUENTRA LOGUEADO, REDIRECCIONA A PAGINA PRINCIPAL DE PORTAL SEGUN SU ROL DE USUARIO ASIGNADO
+            header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
+        } // CIERRE if ($_SESSION['id_rol'] == 1)
         break;
-    // PÁGINA DE ESTADÍSTICAS Y KPI'S -> INTERFAZ ADMINISTRADORES
-    case "modulo-estadisticas":
+    // MÓDULO DE ESTADÍSTICAS -> INTERFAZ USUARIOS LOGUEADOS NIVEL -> ADMINISTRADORES
+    case "estadisticas-generales":
         // VISTA VALIDA SOLO PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIOS
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema, $IdUsuarios);
-
-            // OBTENER DATOS PARA KPI'S
-            $totalColocacion = $Estadisticas->getTotalColocacion($conectarsistema1);
-            $capitalRiesgo = $Estadisticas->getCapitalEnRiesgo($conectarsistema2);
-            $ticketPromedio = $Estadisticas->getTicketPromedio($conectarsistema3);
-            $efectividad = $Estadisticas->getEfectividad($conectarsistema4);
-
-            // OBTENER DATOS PARA GRÁFICOS
-            $distribucionProductos = $Estadisticas->getDistribucionProductos($conectarsistema5);
-            $carteraEstado = $Estadisticas->getCarteraPorEstado($conectarsistema6);
-
-            require("../vista/Administradores/estadisticas.php");
-
-            $conectarsistema->close(); // CERRANDO CONEXION PRINCIPAL
-            $conectarsistema1->close();
+            require("../vista/Administradores/estadisticas-generales.php");
+            $conectarsistema->close();
             $conectarsistema2->close();
-            $conectarsistema3->close();
-            $conectarsistema4->close();
-            $conectarsistema5->close();
-            $conectarsistema6->close();
+            $conectarsistemaEstadisticas->close();
         } else {
-            header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
+            header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         }
         break;
     // NUEVO CLIENTE - FORMULARIO STEPPER

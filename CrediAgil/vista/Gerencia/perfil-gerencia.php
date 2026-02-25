@@ -15,7 +15,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
 } else {
-?>
+    ?>
     <!-- 
 
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -49,16 +49,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>CrediAgil | Mi Perfil</title>
         <!-- Favicon icon -->
-        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
+        <link rel="apple-touch-icon" sizes="57x57"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"
+            href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
@@ -66,7 +76,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-        <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
+            rel="stylesheet">
         <link href="<?php echo $UrlGlobal; ?>vista/css/style.css" rel="stylesheet">
         <!-- CrediAgil Corporate Theme -->
         <link href="<?php echo $UrlGlobal; ?>vista/css/crediagil-theme.css" rel="stylesheet">
@@ -77,7 +88,9 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <!-- asColorpicker -->
         <link href="<?php echo $UrlGlobal; ?>vista/vendor/jquery-asColorPicker/css/asColorPicker.min.css" rel="stylesheet">
         <!-- Material color picker -->
-        <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+        <link
+            href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+            rel="stylesheet">
         <!-- Pick date -->
         <link rel="stylesheet" href="<?php echo $UrlGlobal; ?>vista/vendor/pickadate/themes/default.css">
         <link rel="stylesheet" href="<?php echo $UrlGlobal; ?>vista/vendor/pickadate/themes/default.date.css">
@@ -117,7 +130,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
             Nav header start
         ***********************************-->
             <div class="nav-header">
-                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=iniciogerencia" class="brand-logo">
+                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=iniciogerencia"
+                    class="brand-logo">
                     <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
                     <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
                     <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
@@ -149,11 +163,14 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                             <ul class="navbar-nav header-right">
                                 <li class="nav-item dropdown notification_dropdown">
                                     <a class="nav-link  ai-icon" href="#" role="button" data-toggle="dropdown">
-                                        <svg fill="#6418C3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <svg fill="#6418C3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            width="24" height="24">
                                             <path fill="none" d="M0 0h24v24H0z" />
-                                            <path d="M22 20H2v-2h1v-6.969C3 6.043 7.03 2 12 2s9 4.043 9 9.031V18h1v2zM5 18h14v-6.969C19 7.148 15.866 4 12 4s-7 3.148-7 7.031V18zm4.5 3h5a2.5 2.5 0 1 1-5 0z" />
+                                            <path
+                                                d="M22 20H2v-2h1v-6.969C3 6.043 7.03 2 12 2s9 4.043 9 9.031V18h1v2zM5 18h14v-6.969C19 7.148 15.866 4 12 4s-7 3.148-7 7.031V18zm4.5 3h5a2.5 2.5 0 1 1-5 0z" />
                                         </svg>
-                                        <span class="badge light text-white bg-primary"><?php echo NumeroNotificacionesRecibidasUsuarios($conectarsistema4, $_SESSION['id_usuario']); ?></span>
+                                        <span
+                                            class="badge light text-white bg-primary"><?php echo NumeroNotificacionesRecibidasUsuarios($conectarsistema4, $_SESSION['id_usuario']); ?></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div id="DZ_W_Notification1" class="widget-media dz-scroll p-3 height380">
@@ -216,10 +233,12 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 
                                             </ul>
                                         </div>
-                                        <a class="all-notification" href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=visualizar-mis-notificaciones-usuarios-gerencia">Ver Mis Notificaciones <i class="ti-arrow-right"></i></a>
+                                        <a class="all-notification"
+                                            href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=visualizar-mis-notificaciones-usuarios-gerencia">Ver
+                                            Mis Notificaciones <i class="ti-arrow-right"></i></a>
                                     </div>
                                 </li>
-                                
+
                                 <li class="nav-item dropdown notification_dropdown">
                                     <script type="text/javascript">
                                         function startTime() {
@@ -239,75 +258,75 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                             }
                                             return i;
                                         }
-                                        window.onload = function() {
+                                        window.onload = function () {
                                             startTime();
                                         }
                                     </script>
                                     <div id="reloj"></div>
                                     <?php
                                     /*
-										-> VALIDACION GENERICA SIN CONSULTA DE API CLIMATOLOGICA
-											--> TOTALMENTE OPERATIVO <--
-									*/
+                                        -> VALIDACION GENERICA SIN CONSULTA DE API CLIMATOLOGICA
+                                            --> TOTALMENTE OPERATIVO <--
+                                    */
                                     // VALIDACION SEGUN HORA DETECTADA
                                     /*
-										-> 04:00 HRS A 05:00 HRS -> A.M
-									*/
+                                        -> 04:00 HRS A 05:00 HRS -> A.M
+                                    */
                                     /*
-									if($hora->format('G')>=4 && $hora->format('G')<5){
-										echo '
-										<div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/moonrise.svg" alt="icono-clima-noche"/></div>
-										';
-									/*
-										-> 05:00 HRS A 07:00 HRS -> A.M
-									*/
+                                    if($hora->format('G')>=4 && $hora->format('G')<5){
+                                        echo '
+                                        <div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/moonrise.svg" alt="icono-clima-noche"/></div>
+                                        ';
                                     /*
-									}else if($hora->format('G')>=5 && $hora->format('G')<7){
-										echo '
-										<svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.083 13a6 6 0 1 1 11.834 0h-2.043a4 4 0 1 0-7.748 0H6.083zM2 15h10v2H2v-2zm12 0h8v2h-8v-2zm2 4h4v2h-4v-2zM4 19h10v2H4v-2zm7-18h2v3h-2V1zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM19.07 3.515l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="rgba(230,126,34,1)"/></svg>
-										';
-									/*
-										-> 07:00 HRS A 12:00 HRS -> A.M
-									*/
+                                        -> 05:00 HRS A 07:00 HRS -> A.M
+                                    */
                                     /*
-									}else if($hora->format('G')>=7 && $hora->format('G')<12){
-										echo '
-										<svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="rgba(241,196,14,1)"/></svg>
-										';
-									/*
-										-> 12:00 HRS A 03:00 HRS -> P.M
-									*/
+                                    }else if($hora->format('G')>=5 && $hora->format('G')<7){
+                                        echo '
+                                        <svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.083 13a6 6 0 1 1 11.834 0h-2.043a4 4 0 1 0-7.748 0H6.083zM2 15h10v2H2v-2zm12 0h8v2h-8v-2zm2 4h4v2h-4v-2zM4 19h10v2H4v-2zm7-18h2v3h-2V1zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM19.07 3.515l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="rgba(230,126,34,1)"/></svg>
+                                        ';
                                     /*
-									}else if($hora->format('G')>=12 && $hora->format('G')<16){
-										echo '
-										<svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M9.984 5.06a6.5 6.5 0 1 1 11.286 6.436A5.5 5.5 0 0 1 17.5 21L9 20.999a8 8 0 1 1 .984-15.94zm2.071.544a8.026 8.026 0 0 1 4.403 4.495 5.529 5.529 0 0 1 3.12.307 4.5 4.5 0 0 0-7.522-4.802zM17.5 19a3.5 3.5 0 1 0-2.5-5.95V13a6 6 0 1 0-6 6h8.5z" fill="rgba(239,191,81,1)"/></svg>
-										';
-									/*
-										-> 16:00 HRS A 06:00 HRS -> P.M
-									*/
+                                        -> 07:00 HRS A 12:00 HRS -> A.M
+                                    */
                                     /*
-									}else if($hora->format('G')>=16 && $hora->format('G')<18){
-										echo '
-										<svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 12h2v2H4v-2h2a6 6 0 1 1 6 6v-2a4 4 0 1 0-4-4zm-2 8h9v2H6v-2zm-4-4h8v2H2v-2zm9-15h2v3h-2V1zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3z" fill="rgba(230,126,34,1)"/></svg>
-										';
-									/*
-										-> 06:00 HRS A 11:00 HRS -> P.M
-									*/
+                                    }else if($hora->format('G')>=7 && $hora->format('G')<12){
+                                        echo '
+                                        <svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="rgba(241,196,14,1)"/></svg>
+                                        ';
                                     /*
-									}else if($hora->format('G')>=18 && $hora->format('G')<=23){
-										echo '
-										<div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/clear-night.svg" alt="icono-clima-noche"/></div>
-										';
-									/*
-										-> 00:00 HRS A 03:00 HRS -> A.M
-									*/
+                                        -> 12:00 HRS A 03:00 HRS -> P.M
+                                    */
                                     /*
-									}else if($hora->format('G')>=0 && $hora->format('G')<=3){
-										echo '
-										<div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/haze-night.svg" alt="icono-clima-noche"/></div>
-										';
-									}
-									*/
+                                    }else if($hora->format('G')>=12 && $hora->format('G')<16){
+                                        echo '
+                                        <svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M9.984 5.06a6.5 6.5 0 1 1 11.286 6.436A5.5 5.5 0 0 1 17.5 21L9 20.999a8 8 0 1 1 .984-15.94zm2.071.544a8.026 8.026 0 0 1 4.403 4.495 5.529 5.529 0 0 1 3.12.307 4.5 4.5 0 0 0-7.522-4.802zM17.5 19a3.5 3.5 0 1 0-2.5-5.95V13a6 6 0 1 0-6 6h8.5z" fill="rgba(239,191,81,1)"/></svg>
+                                        ';
+                                    /*
+                                        -> 16:00 HRS A 06:00 HRS -> P.M
+                                    */
+                                    /*
+                                    }else if($hora->format('G')>=16 && $hora->format('G')<18){
+                                        echo '
+                                        <svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 12h2v2H4v-2h2a6 6 0 1 1 6 6v-2a4 4 0 1 0-4-4zm-2 8h9v2H6v-2zm-4-4h8v2H2v-2zm9-15h2v3h-2V1zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3z" fill="rgba(230,126,34,1)"/></svg>
+                                        ';
+                                    /*
+                                        -> 06:00 HRS A 11:00 HRS -> P.M
+                                    */
+                                    /*
+                                    }else if($hora->format('G')>=18 && $hora->format('G')<=23){
+                                        echo '
+                                        <div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/clear-night.svg" alt="icono-clima-noche"/></div>
+                                        ';
+                                    /*
+                                        -> 00:00 HRS A 03:00 HRS -> A.M
+                                    */
+                                    /*
+                                    }else if($hora->format('G')>=0 && $hora->format('G')<=3){
+                                        echo '
+                                        <div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/haze-night.svg" alt="icono-clima-noche"/></div>
+                                        ';
+                                    }
+                                    */
                                     // RANGO DE HORAS DESDE 06:00 HASTA 18:00 [A.M -> P.M -> [[DIA]]]
                                     if ($hora->format('G') >= 6 && $hora->format('G') < 18) {
                                         if (strtolower(ucwords($data->weather[0]->description)) == "broken clouds") {
@@ -630,14 +649,16 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 
 
                                     ?>
-                                    <span style="font-size: .6rem" class="badge light text-light bg-primary"><?php echo number_format($data->main->temp, 1) ?>&deg;C</span>
+                                    <span style="font-size: .6rem"
+                                        class="badge light text-light bg-primary"><?php echo number_format($data->main->temp, 1) ?>&deg;C</span>
                                 </li>
                                 <li class="nav-item dropdown header-profile">
                                     <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                         <div class="header-info">
-                                            <span class="text-black">Hola, <strong><?php $Nombre = $_SESSION['nombre_usuario'];
-                                                                                    $PrimerNombre = explode(' ', $Nombre, 2);
-                                                                                    print_r($PrimerNombre[0]); ?></strong></span>
+                                            <span class="text-black">Hola,
+                                                <strong><?php $Nombre = $_SESSION['nombre_usuario'];
+                                                $PrimerNombre = explode(' ', $Nombre, 2);
+                                                print_r($PrimerNombre[0]); ?></strong></span>
                                             <p class="fs-12 mb-0">
                                                 <!-- VALIDACION SEGUN ROLES DE USUARIOS -->
                                                 <?php if ($_SESSION['id_rol'] == 1) {
@@ -651,19 +672,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                 } ?>
                                             </p>
                                         </div>
-                                        <img src="<?php echo $UrlGlobal; ?>vista/images/fotoperfil/<?php echo $_SESSION['foto_perfil']; ?>" width="20" alt="" />
+                                        <img src="<?php echo $UrlGlobal; ?>vista/images/fotoperfil/<?php echo $_SESSION['foto_perfil']; ?>"
+                                            width="20" alt="" />
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="<?php echo $UrlGlobal ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=perfilgerencia" class="dropdown-item ai-icon">
-                                            <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <a href="<?php echo $UrlGlobal ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=perfilgerencia"
+                                            class="dropdown-item ai-icon">
+                                            <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
+                                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                 <circle cx="12" cy="7" r="4"></circle>
                                             </svg>
                                             <span class="ml-2">Mi Perfil </span>
                                         </a>
-                                        
-                                        <a href="<?php echo $UrlGlobal ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=cerrarsesion" class="dropdown-item ai-icon">
-                                            <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                                        <a href="<?php echo $UrlGlobal ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=cerrarsesion"
+                                            class="dropdown-item ai-icon">
+                                            <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
+                                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                                                 <polyline points="16 17 21 12 16 7"></polyline>
                                                 <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -713,37 +741,43 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                     </div>
                                     <div class="profile-info">
                                         <div class="profile-photo">
-                                            <img src="<?php echo $UrlGlobal; ?>vista/images/fotoperfil/<?php echo $Gestiones->getFotoUsuarios(); ?>" class="img-fluid rounded-circle" alt="">
+                                            <img src="<?php echo $UrlGlobal; ?>vista/images/fotoperfil/<?php echo $Gestiones->getFotoUsuarios(); ?>"
+                                                class="img-fluid rounded-circle" alt="">
                                         </div>
                                         <div class="profile-details">
                                             <div class="profile-name px-3 pt-2">
-                                                <h4 class="text-primary mb-0"><?php echo $Gestiones->getNombresUsuarios();
-                                                                                echo " ";
-                                                                                echo $Gestiones->getApellidosUsuarios() ?></h4>
+                                                <h4 class="text-primary mb-0">
+                                                    <?php echo $Gestiones->getNombresUsuarios();
+                                                    echo " ";
+                                                    echo $Gestiones->getApellidosUsuarios() ?></h4>
                                                 <p><span><i class="mdi mdi-coffee-to-go"></i></span> Rol: Gerencia </p>
                                             </div>
                                             <div class="profile-email px-2 pt-2">
-                                                <h4 class="text-muted mb-0"><?php echo $Gestiones->getCodigoUsuarios() ?></h4>
+                                                <h4 class="text-muted mb-0"><?php echo $Gestiones->getCodigoUsuarios() ?>
+                                                </h4>
                                                 <p><span><i class="mdi mdi-lan-pending"></i></span> Usuario</p>
                                             </div>
                                             <div class="profile-email px-2 pt-2">
                                                 <h4 class="text-muted mb-0"><?php if ($Gestiones->getEstadoUsuarios() == "activo") {
-                                                                                echo '<span style="color: #00b894;">usuario ';
-                                                                                echo $Gestiones->getEstadoUsuarios();
-                                                                                echo '</span>';
-                                                                            } else if ($Gestiones->getEstadoUsuarios() == "bloqueado") {
-                                                                                echo '<span style="color: #d63031;">usuario ';
-                                                                                echo $Gestiones->getEstadoUsuarios();
-                                                                                echo '</span>';
-                                                                            } else if ($Gestiones->getEstadoUsuarios() == "inactivo") {
-                                                                                echo '<span style="color: #fdcb6e;">usuario ';
-                                                                                echo $Gestiones->getEstadoUsuarios();
-                                                                                echo '</span>';
-                                                                            }  ?></h4>
+                                                    echo '<span style="color: #00b894;">usuario ';
+                                                    echo $Gestiones->getEstadoUsuarios();
+                                                    echo '</span>';
+                                                } else if ($Gestiones->getEstadoUsuarios() == "bloqueado") {
+                                                    echo '<span style="color: #d63031;">usuario ';
+                                                    echo $Gestiones->getEstadoUsuarios();
+                                                    echo '</span>';
+                                                } else if ($Gestiones->getEstadoUsuarios() == "inactivo") {
+                                                    echo '<span style="color: #fdcb6e;">usuario ';
+                                                    echo $Gestiones->getEstadoUsuarios();
+                                                    echo '</span>';
+                                                } ?></h4>
                                                 <p><span><i class="mdi mdi-file-account"></i></span> Estado</p>
                                             </div>
                                             <div class="dropdown ml-auto">
-                                                <a href="#" class="btn btn-primary light sharp" data-toggle="dropdown" aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                                <a href="#" class="btn btn-primary light sharp" data-toggle="dropdown"
+                                                    aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="18px"
+                                                        height="18px" viewBox="0 0 24 24" version="1.1">
                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                             <rect x="0" y="0" width="24" height="24"></rect>
                                                             <circle fill="#000000" cx="5" cy="12" r="2"></circle>
@@ -752,7 +786,9 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                         </g>
                                                     </svg></a>
                                                 <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i> Preguntas Frecuentes</li>
+                                                    <li class="dropdown-item"><i
+                                                            class="fa fa-user-circle text-primary mr-2"></i> Preguntas
+                                                        Frecuentes</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -768,13 +804,17 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                 <div class="profile-tab">
                                     <div class="custom-tab-1">
                                         <ul class="nav nav-tabs">
-                                            <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link active show">Sobre M&iacute;</a>
+                                            <li class="nav-item"><a href="#about-me" data-toggle="tab"
+                                                    class="nav-link active show">Sobre M&iacute;</a>
                                             </li>
-                                            <li class="nav-item"><a href="#configuration" data-toggle="tab" class="nav-link">Configuraci&oacute;n cuenta</a>
+                                            <li class="nav-item"><a href="#configuration" data-toggle="tab"
+                                                    class="nav-link">Configuraci&oacute;n cuenta</a>
                                             </li>
-                                            <li class="nav-item"><a href="#profile-details" data-toggle="tab" class="nav-link">Detalles de usuario</a>
+                                            <li class="nav-item"><a href="#profile-details" data-toggle="tab"
+                                                    class="nav-link">Detalles de usuario</a>
                                             </li>
-                                            <li class="nav-item"><a href="#session-details" data-toggle="tab" class="nav-link">Detalles de Sesi&oacute;n</a>
+                                            <li class="nav-item"><a href="#session-details" data-toggle="tab"
+                                                    class="nav-link">Detalles de Sesi&oacute;n</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">
@@ -786,7 +826,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                             <h5 class="f-w-500">Nombres <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getNombresUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getNombresUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
@@ -794,15 +835,18 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                             <h5 class="f-w-500">Apellidos <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo  $Gestiones->getApellidosUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getApellidosUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Correo Electr&oacute;nico <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Correo Electr&oacute;nico <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getCorreoUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getCorreoUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
@@ -810,7 +854,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                             <h5 class="f-w-500">Dui <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getDuiUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getDuiUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
@@ -818,19 +863,21 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                             <h5 class="f-w-500">Nit <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getNitUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getNitUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Tel&eacute;fono Principal <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Tel&eacute;fono Principal <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
                                                         <div class="col-9"><span><?php if ($Gestiones->getTelefonoUsuarios() == "") {
-                                                                                        echo "No Disponible";
-                                                                                    } else {
-                                                                                        echo $Gestiones->getTelefonoUsuarios();
-                                                                                    } ?></span>
+                                                            echo "No Disponible";
+                                                        } else {
+                                                            echo $Gestiones->getTelefonoUsuarios();
+                                                        } ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
@@ -839,114 +886,126 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                             </h5>
                                                         </div>
                                                         <div class="col-9"><span><?php if ($Gestiones->getCelularUsuarios() == "") {
-                                                                                        echo "No Disponible";
-                                                                                    } else {
-                                                                                        echo $Gestiones->getCelularUsuarios();
-                                                                                    } ?></span>
+                                                            echo "No Disponible";
+                                                        } else {
+                                                            echo $Gestiones->getCelularUsuarios();
+                                                        } ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Estado Civil <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Estado Civil <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getEstadoCivilUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getEstadoCivilUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">G&eacute;nero <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">G&eacute;nero <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
                                                         <div class="col-9"><span><?php if ($Gestiones->getGeneroUsuarios() == "m") {
-                                                                                        echo "Hombre";
-                                                                                    } else if ($Gestiones->getGeneroUsuarios() == "f") {
-                                                                                        echo "Mujer";
-                                                                                    } ?></span>
+                                                            echo "Hombre";
+                                                        } else if ($Gestiones->getGeneroUsuarios() == "f") {
+                                                            echo "Mujer";
+                                                        } ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Direcci&oacute;n Completa <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Direcci&oacute;n Completa <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getDireccionUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getDireccionUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Empresa d&oacute;nde labora <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Empresa d&oacute;nde labora <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getEmpresaUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getEmpresaUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Cargo <span class="pull-right">:</span></h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getCargoEmpresaUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getCargoEmpresaUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Direcci&oacute;n Trabajo <span class="pull-right">:</span></h5>
+                                                            <h5 class="f-w-500">Direcci&oacute;n Trabajo <span
+                                                                    class="pull-right">:</span></h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $Gestiones->getDireccionTrabajoUsuarios(); ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $Gestiones->getDireccionTrabajoUsuarios(); ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Tel&eacute;fono Trabajo <span class="pull-right">:</span></h5>
+                                                            <h5 class="f-w-500">Tel&eacute;fono Trabajo <span
+                                                                    class="pull-right">:</span></h5>
                                                         </div>
                                                         <div class="col-9"><span><?php if ($Gestiones->getTelefonoTrabajoUsuarios() == "") {
-                                                                                        echo "No disponible";
-                                                                                    } else {
-                                                                                        echo $Gestiones->getTelefonoTrabajoUsuarios();
-                                                                                    } ?></span>
+                                                            echo "No disponible";
+                                                        } else {
+                                                            echo $Gestiones->getTelefonoTrabajoUsuarios();
+                                                        } ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Fecha Nacimiento <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Fecha Nacimiento <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
                                                         <div class="col-9"><span><?php $Fecha = $Gestiones->getFechaNacimientoUsuarios();
-                                                                                    $FechaCompleta = strtotime($Fecha);
-                                                                                    $ObtenerMes = date("m", $FechaCompleta);
-                                                                                    $ObtenerDia = date("d", $FechaCompleta);
-                                                                                    echo $ObtenerDia;
-                                                                                    echo " de ";
-                                                                                    // VALIDACIONES SEGUN MES OBTENIDO
-                                                                                    if ($ObtenerMes == 1) {
-                                                                                        echo "Enero";
-                                                                                    } else if ($ObtenerMes == 2) {
-                                                                                        echo "Febrero";
-                                                                                    } else if ($ObtenerMes == 3) {
-                                                                                        echo "Marzo";
-                                                                                    } else if ($ObtenerMes == 4) {
-                                                                                        echo "Abril";
-                                                                                    } else if ($ObtenerMes == 5) {
-                                                                                        echo "Mayo";
-                                                                                    } else if ($ObtenerMes == 6) {
-                                                                                        echo "Junio";
-                                                                                    } else if ($ObtenerMes == 7) {
-                                                                                        echo "Julio";
-                                                                                    } else if ($ObtenerMes == 8) {
-                                                                                        echo "Agosto";
-                                                                                    } else if ($ObtenerMes == 9) {
-                                                                                        echo "Septiembre";
-                                                                                    } else if ($ObtenerMes == 10) {
-                                                                                        echo "Octubre";
-                                                                                    } else if ($ObtenerMes == 11) {
-                                                                                        echo "Noviembre";
-                                                                                    } else if ($ObtenerMes == 12) {
-                                                                                        echo "Diciembre";
-                                                                                    }
-                                                                                    $ObtenerAnio = date("Y", $FechaCompleta);
-                                                                                    echo " ";
-                                                                                    echo $ObtenerAnio;
-                                                                                    ?></span>
+                                                        $FechaCompleta = strtotime($Fecha);
+                                                        $ObtenerMes = date("m", $FechaCompleta);
+                                                        $ObtenerDia = date("d", $FechaCompleta);
+                                                        echo $ObtenerDia;
+                                                        echo " de ";
+                                                        // VALIDACIONES SEGUN MES OBTENIDO
+                                                        if ($ObtenerMes == 1) {
+                                                            echo "Enero";
+                                                        } else if ($ObtenerMes == 2) {
+                                                            echo "Febrero";
+                                                        } else if ($ObtenerMes == 3) {
+                                                            echo "Marzo";
+                                                        } else if ($ObtenerMes == 4) {
+                                                            echo "Abril";
+                                                        } else if ($ObtenerMes == 5) {
+                                                            echo "Mayo";
+                                                        } else if ($ObtenerMes == 6) {
+                                                            echo "Junio";
+                                                        } else if ($ObtenerMes == 7) {
+                                                            echo "Julio";
+                                                        } else if ($ObtenerMes == 8) {
+                                                            echo "Agosto";
+                                                        } else if ($ObtenerMes == 9) {
+                                                            echo "Septiembre";
+                                                        } else if ($ObtenerMes == 10) {
+                                                            echo "Octubre";
+                                                        } else if ($ObtenerMes == 11) {
+                                                            echo "Noviembre";
+                                                        } else if ($ObtenerMes == 12) {
+                                                            echo "Diciembre";
+                                                        }
+                                                        $ObtenerAnio = date("Y", $FechaCompleta);
+                                                        echo " ";
+                                                        echo $ObtenerAnio;
+                                                        ?></span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
@@ -954,25 +1013,27 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                             <h5 class="f-w-500">Edad <span class="pull-right">:</span></h5>
                                                         </div>
                                                         <div class="col-9"><span><?php // OBTENER FECHA COMPLETA REGISTRADA
-                                                                                    $Fecha = $Gestiones->getFechaNacimientoUsuarios();
-                                                                                    // CALCULAR EDAD ANTES DE CUMPLEAÑOS
-                                                                                    $FechaCumpleanos = new DateTime($Fecha);
-                                                                                    $Ahora = new DateTime();
-                                                                                    // COMPRUEBA SEGUN AÑO -> MES -> DIA
-                                                                                    $CalcularEdad = $Ahora->diff($FechaCumpleanos);
-                                                                                    echo $CalcularEdad->y;
-                                                                                    echo " A&ntilde;os";
-                                                                                    ?></span>
+                                                            $Fecha = $Gestiones->getFechaNacimientoUsuarios();
+                                                            // CALCULAR EDAD ANTES DE CUMPLEAÑOS
+                                                            $FechaCumpleanos = new DateTime($Fecha);
+                                                            $Ahora = new DateTime();
+                                                            // COMPRUEBA SEGUN AÑO -> MES -> DIA
+                                                            $CalcularEdad = $Ahora->diff($FechaCumpleanos);
+                                                            echo $CalcularEdad->y;
+                                                            echo " A&ntilde;os";
+                                                            ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="session-details" class="tab-pane fade"><br>
                                                 <div class="profile-personal-info">
-                                                    <h4 class="text-primary mb-4">Detalles de Sesi&oacute;n Activa de Usuarios</h4>
+                                                    <h4 class="text-primary mb-4">Detalles de Sesi&oacute;n Activa de
+                                                        Usuarios</h4>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Nombre del Equipo <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Nombre del Equipo <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
                                                         <div class="col-9"><span><?php echo php_uname('n'); ?></span>
@@ -980,7 +1041,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Sistema Operativo <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Sistema Operativo <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
                                                         <div class="col-9"><span><?php echo php_uname('s'); ?></span>
@@ -988,7 +1050,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Versi&oacute;n <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Versi&oacute;n <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
                                                         <div class="col-9"><span><?php echo php_uname('v'); ?></span>
@@ -996,7 +1059,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Especificaci&oacute;n Completa <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Especificaci&oacute;n Completa <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
                                                         <div class="col-9"><span><?php echo php_uname('a'); ?></span>
@@ -1004,14 +1068,17 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-3">
-                                                            <h5 class="f-w-500">Direcci&oacute;n IP <span class="pull-right">:</span>
+                                                            <h5 class="f-w-500">Direcci&oacute;n IP <span
+                                                                    class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span><?php echo $_SERVER['REMOTE_ADDR']; ?></span>
+                                                        <div class="col-9">
+                                                            <span><?php echo $_SERVER['REMOTE_ADDR']; ?></span>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <h4 class="text-primary mb-4">Detalle completo inicios de sesi&oacute;n asociados a su cuenta</h4>
+                                                    <h4 class="text-primary mb-4">Detalle completo inicios de sesi&oacute;n
+                                                        asociados a su cuenta</h4>
                                                     <div class="table-responsive">
                                                         <table style="width: 100%" id="example4">
                                                             <thead>
@@ -1099,89 +1166,143 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                             <div id="configuration" class="tab-pane fade"><br>
                                                 <div class="pt-3">
                                                     <div class="settings-form">
-                                                        <div class="alert alert-light alert-dismissible alert-alt solid fade show">
-                                                            <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span></button>
-                                                            <strong>Tomar Nota: </strong> Estimado(a) <?php echo $Gestiones->getNombresUsuarios(); ?> no es obligatorio cambiar su fotograf&iacute;a de perfil. <br>S&iacute; decide hacerlo por favor tome en cuenta los requisitos de subidas de archivos.
+                                                        <div
+                                                            class="alert alert-light alert-dismissible alert-alt solid fade show">
+                                                            <button type="button" class="close h-100" data-dismiss="alert"
+                                                                aria-label="Close"><span><i
+                                                                        class="mdi mdi-close"></i></span></button>
+                                                            <strong>Tomar Nota: </strong> Estimado(a)
+                                                            <?php echo $Gestiones->getNombresUsuarios(); ?> no es
+                                                            obligatorio cambiar su fotograf&iacute;a de perfil.
+                                                            <br>S&iacute; decide hacerlo por favor tome en cuenta los
+                                                            requisitos de subidas de archivos.
                                                         </div>
-                                                        <h4 class="text-primary">Configuraci&oacute;n principal de su cuenta</h4><br>
-                                                        <form id="actualizar-configuracion-cuenta" class="form-valide1" method="post" autocomplete="off" enctype="multipart/form-data">
+                                                        <h4 class="text-primary">Configuraci&oacute;n principal de su cuenta
+                                                        </h4><br>
+                                                        <form id="actualizar-configuracion-cuenta" class="form-valide1"
+                                                            method="post" autocomplete="off" enctype="multipart/form-data">
                                                             <div class="row form-validation">
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
-                                                                        <label class="text-label">Nombres <span class="text-danger">*</span></label>
+                                                                        <label class="text-label">Nombres <span
+                                                                                class="text-danger">*</span></label>
                                                                         <div class="col-lg-12">
-                                                                            <input type="text" class="form-control" id="val-nombreusuario" name="val-nombreusuario" placeholder="Ingrese sus nombres completos" value="<?php echo $Gestiones->getNombresUsuarios(); ?>">
+                                                                            <input type="text" class="form-control"
+                                                                                id="val-nombreusuario"
+                                                                                name="val-nombreusuario"
+                                                                                placeholder="Ingrese sus nombres completos"
+                                                                                value="<?php echo $Gestiones->getNombresUsuarios(); ?>">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
-                                                                        <label class="text-label">Apellidos <span class="text-danger">*</span></label>
+                                                                        <label class="text-label">Apellidos <span
+                                                                                class="text-danger">*</span></label>
                                                                         <div class="col-lg-12">
-                                                                            <input type="text" class="form-control" id="val-apellidousuario" name="val-apellidousuario" placeholder="Ingrese sus apellidos completos" value="<?php echo $Gestiones->getApellidosUsuarios(); ?>">
+                                                                            <input type="text" class="form-control"
+                                                                                id="val-apellidousuario"
+                                                                                name="val-apellidousuario"
+                                                                                placeholder="Ingrese sus apellidos completos"
+                                                                                value="<?php echo $Gestiones->getApellidosUsuarios(); ?>">
                                                                         </div>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
-                                                                        <label class="text-label">Correo Electr&oacute;nico <span class="text-danger">*</span></label>
+                                                                        <label class="text-label">Correo Electr&oacute;nico
+                                                                            <span class="text-danger">*</span></label>
                                                                         <div class="col-lg-12">
-                                                                            <input type="email" class="form-control" id="val-correo" name="val-correo" placeholder="Ingrese su correo electr&oacute;nico v&aacute;lido" value="<?php echo $Gestiones->getCorreoUsuarios(); ?>" onBlur="comprobarCorreoPerfilUsuario()">
+                                                                            <input type="email" class="form-control"
+                                                                                id="val-correo" name="val-correo"
+                                                                                placeholder="Ingrese su correo electr&oacute;nico v&aacute;lido"
+                                                                                value="<?php echo $Gestiones->getCorreoUsuarios(); ?>"
+                                                                                onBlur="comprobarCorreoPerfilUsuario()">
                                                                             <div class="col-md-12">
                                                                                 <span id="estadocorreo"></span>
                                                                             </div>
-                                                                            <p><img style="width: 25px; margin: 1rem 0 0 0; display:none;" src="../vista/images/Spinner.svg" id="loaderIcon1" /></p>
+                                                                            <p><img style="width: 25px; margin: 1rem 0 0 0; display:none;"
+                                                                                    src="../vista/images/Spinner.svg"
+                                                                                    id="loaderIcon1" /></p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
-                                                                        <label class="text-label">Ingrese su nueva contrase&ntilde;a <span class="text-danger">*</span></label>
+                                                                        <label class="text-label">Ingrese su nueva
+                                                                            contrase&ntilde;a <span
+                                                                                class="text-danger">*</span></label>
                                                                         <div class="col-lg-12">
-                                                                            <input type="password" class="form-control" id="val-contrasenia" name="val-contrasenia" placeholder="Ingrese su contrase&ntilde;a">
+                                                                            <input type="password" class="form-control"
+                                                                                id="val-contrasenia" name="val-contrasenia"
+                                                                                placeholder="Ingrese su contrase&ntilde;a">
                                                                             <span id="passstrength"></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-12 mb-2">
                                                                     <div class="form-group">
-                                                                        <label class="text-label">Repita su nueva contrase&ntilde;a <span class="text-danger">*</span></label>
+                                                                        <label class="text-label">Repita su nueva
+                                                                            contrase&ntilde;a <span
+                                                                                class="text-danger">*</span></label>
                                                                         <div class="col-lg-12">
-                                                                            <input type="password" class="form-control" id="val-confirmar-contrasenia" name="val-confirmar-contrasenia" placeholder="Repita nuevamente su contrase&ntilde;a">
+                                                                            <input type="password" class="form-control"
+                                                                                id="val-confirmar-contrasenia"
+                                                                                name="val-confirmar-contrasenia"
+                                                                                placeholder="Repita nuevamente su contrase&ntilde;a">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-12 mb-2">
                                                                     <div class="form-group">
-                                                                        <label class="text-label">Fotograf&iacute;a de Perfil <span class="text-danger"></span></label>
+                                                                        <label class="text-label">Fotograf&iacute;a de
+                                                                            Perfil <span class="text-danger"></span></label>
                                                                         <div class="col-lg-12">
-                                                                            <input type="file" name="fotoperfilusuarios" id="input-file-max-fs" class="dropify" data-max-file-size="1M" data-max-width="800" data-min-width="400" data-max-height="800" data-min-height="400" accept="image/x-png,image/jpeg,image/jpg,image/gif" data-allowed-file-extensions='["png", "jpeg","jpg","gif"]' data-default-file="<?php echo $UrlGlobal ?>vista/images/fotoperfil/<?php echo $Gestiones->getFotoUsuarios(); ?>" />
+                                                                            <input type="file" name="fotoperfilusuarios"
+                                                                                id="input-file-max-fs" class="dropify"
+                                                                                data-max-file-size="1M" data-max-width="800"
+                                                                                data-min-width="400" data-max-height="800"
+                                                                                data-min-height="400"
+                                                                                accept="image/x-png,image/jpeg,image/jpg,image/gif"
+                                                                                data-allowed-file-extensions='["png", "jpeg","jpg","gif"]'
+                                                                                data-default-file="<?php echo $UrlGlobal ?>vista/images/fotoperfil/<?php echo $Gestiones->getFotoUsuarios(); ?>" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <button class="btn btn-primary" type="submit">Cambiar Configuraci&oacute;n</button>
+                                                            <button class="btn btn-primary" type="submit">Cambiar
+                                                                Configuraci&oacute;n</button>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="profile-details" class="tab-pane fade">
                                                 <div class="my-post-content pt-3">
-                                                    <div class="alert alert-light alert-dismissible alert-alt solid fade show">
-                                                        <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span></button>
-                                                        <strong>Tomar Nota: </strong> Estimado(a) <?php echo $Gestiones->getNombresUsuarios(); ?> los campos de tel&eacute;fono principal, celular y trabajo no son obligatorios.
+                                                    <div
+                                                        class="alert alert-light alert-dismissible alert-alt solid fade show">
+                                                        <button type="button" class="close h-100" data-dismiss="alert"
+                                                            aria-label="Close"><span><i
+                                                                    class="mdi mdi-close"></i></span></button>
+                                                        <strong>Tomar Nota: </strong> Estimado(a)
+                                                        <?php echo $Gestiones->getNombresUsuarios(); ?> los campos de
+                                                        tel&eacute;fono principal, celular y trabajo no son obligatorios.
                                                     </div>
                                                     <div class="settings-form"><br>
                                                         <h4 class="text-primary">Detalles de su usuario</h4><br>
                                                         <div class="form-validation">
-                                                            <form id="actualizar-perfil-detalles-usuarios" class="form-valide" method="post" autocomplete="off">
+                                                            <form id="actualizar-perfil-detalles-usuarios"
+                                                                class="form-valide" method="post" autocomplete="off">
                                                                 <div class="row form-validation">
                                                                     <div class="col-lg-6 mb-2">
                                                                         <div class="form-group">
                                                                             <!--label class="text-label">Dui <span class="text-danger">*</span></label -->
                                                                             <div class="col-lg-12">
-                                                                                <input type="hidden" class="form-control" id="val-dui" name="val-dui" placeholder="XXXXXXXX-X" value="<?php echo $Gestiones->getDuiUsuarios(); ?>" onkeypress="return (event.charCode <= 57)">
+                                                                                <input type="hidden" class="form-control"
+                                                                                    id="val-dui" name="val-dui"
+                                                                                    placeholder="XXXXXXXX-X"
+                                                                                    value="<?php echo $Gestiones->getDuiUsuarios(); ?>"
+                                                                                    onkeypress="return (event.charCode <= 57)">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1189,15 +1310,24 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                         <div class="form-group">
                                                                             <!--label class="text-label">Nit <span class="text-danger">*</span></label-->
                                                                             <div class="col-lg-12">
-                                                                                <input type="hidden" class="form-control" id="val-nit" name="val-nit" placeholder="XXXX-XXXXXX-XXX-X" value="<?php echo $Gestiones->getNitUsuarios(); ?>" onkeypress="return (event.charCode <= 57)">
+                                                                                <input type="hidden" class="form-control"
+                                                                                    id="val-nit" name="val-nit"
+                                                                                    placeholder="XXXX-XXXXXX-XXX-X"
+                                                                                    value="<?php echo $Gestiones->getNitUsuarios(); ?>"
+                                                                                    onkeypress="return (event.charCode <= 57)">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6 mb-2">
                                                                         <div class="form-group">
-                                                                            <label class="text-label">Tel&eacute;fono </label>
+                                                                            <label class="text-label">Tel&eacute;fono
+                                                                            </label>
                                                                             <div class="col-lg-12">
-                                                                                <input type="text" class="form-control" id="val-telefono1" name="val-telefono1" placeholder="XXXX-XXXX" value="<?php echo $Gestiones->getTelefonoUsuarios(); ?>" onkeypress="return (event.charCode <= 57)">
+                                                                                <input type="text" class="form-control"
+                                                                                    id="val-telefono1" name="val-telefono1"
+                                                                                    placeholder="XXXX-XXXX"
+                                                                                    value="<?php echo $Gestiones->getTelefonoUsuarios(); ?>"
+                                                                                    onkeypress="return (event.charCode <= 57)">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1205,47 +1335,80 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                         <div class="form-group">
                                                                             <label class="text-label">Celular</label>
                                                                             <div class="col-lg-12">
-                                                                                <input type="text" class="form-control" id="val-telefono2" name="val-telefono2" placeholder="XXXX-XXXX" value="<?php echo $Gestiones->getCelularUsuarios(); ?>" onkeypress="return (event.charCode <= 57)">
+                                                                                <input type="text" class="form-control"
+                                                                                    id="val-telefono2" name="val-telefono2"
+                                                                                    placeholder="XXXX-XXXX"
+                                                                                    value="<?php echo $Gestiones->getCelularUsuarios(); ?>"
+                                                                                    onkeypress="return (event.charCode <= 57)">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-12 mb-2">
                                                                         <div class="form-group">
-                                                                            <label class="text-label">Direcci&oacute;n Residencia Completa <span class="text-danger">*</span></label>
+                                                                            <label class="text-label">Direcci&oacute;n
+                                                                                Residencia Completa <span
+                                                                                    class="text-danger">*</span></label>
                                                                             <div class="col-lg-12">
-                                                                                <textarea class="form-control" placeholder="Ingrese su direcci&oacute;n de residencia completa" id="val-direccion1" name="val-direccion1" rows="3"><?php echo $Gestiones->getDireccionUsuarios(); ?></textarea>
+                                                                                <textarea class="form-control"
+                                                                                    placeholder="Ingrese su direcci&oacute;n de residencia completa"
+                                                                                    id="val-direccion1"
+                                                                                    name="val-direccion1"
+                                                                                    rows="3"><?php echo $Gestiones->getDireccionUsuarios(); ?></textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6 mb-2">
                                                                         <div class="form-group">
-                                                                            <label class="text-label">Nombre empresa donde labora <span class="text-danger">*</span></label>
+                                                                            <label class="text-label">Nombre empresa donde
+                                                                                labora <span
+                                                                                    class="text-danger">*</span></label>
                                                                             <div class="col-lg-12">
-                                                                                <input type="text" class="form-control" id="val-nombreempresa" name="val-nombreempresa" placeholder="Ingrese nombre de empresa d&oacute;nde labora" value="<?php echo $Gestiones->getEmpresaUsuarios(); ?>">
+                                                                                <input type="text" class="form-control"
+                                                                                    id="val-nombreempresa"
+                                                                                    name="val-nombreempresa"
+                                                                                    placeholder="Ingrese nombre de empresa d&oacute;nde labora"
+                                                                                    value="<?php echo $Gestiones->getEmpresaUsuarios(); ?>">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6 mb-2">
                                                                         <div class="form-group">
-                                                                            <label class="text-label">Cargo que desempe&ntilde;a <span class="text-danger">*</span></label>
+                                                                            <label class="text-label">Cargo que
+                                                                                desempe&ntilde;a <span
+                                                                                    class="text-danger">*</span></label>
                                                                             <div class="col-lg-12">
-                                                                                <input type="text" class="form-control" id="val-cargoempresa" name="val-cargoempresa" placeholder="Ingrese el cargo que desempe&ntilde;a" value="<?php echo $Gestiones->getCargoEmpresaUsuarios(); ?>">
+                                                                                <input type="text" class="form-control"
+                                                                                    id="val-cargoempresa"
+                                                                                    name="val-cargoempresa"
+                                                                                    placeholder="Ingrese el cargo que desempe&ntilde;a"
+                                                                                    value="<?php echo $Gestiones->getCargoEmpresaUsuarios(); ?>">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-12 mb-2">
                                                                         <div class="form-group">
-                                                                            <label class="text-label">Direcci&oacute;n donde trabaja completa <span class="text-danger">*</span></label>
+                                                                            <label class="text-label">Direcci&oacute;n donde
+                                                                                trabaja completa <span
+                                                                                    class="text-danger">*</span></label>
                                                                             <div class="col-lg-12">
-                                                                                <textarea class="form-control" placeholder="Ingrese direcci&oacute;n completa d&oacute;nde labora" id="val-direccion2" name="val-direccion2" rows="3"><?php echo $Gestiones->getDireccionTrabajoUsuarios(); ?></textarea>
+                                                                                <textarea class="form-control"
+                                                                                    placeholder="Ingrese direcci&oacute;n completa d&oacute;nde labora"
+                                                                                    id="val-direccion2"
+                                                                                    name="val-direccion2"
+                                                                                    rows="3"><?php echo $Gestiones->getDireccionTrabajoUsuarios(); ?></textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-12 mb-2">
                                                                         <div class="form-group">
-                                                                            <label class="text-label">Tel&eacute;fono empresa donde labora </label>
+                                                                            <label class="text-label">Tel&eacute;fono
+                                                                                empresa donde labora </label>
                                                                             <div class="col-lg-12">
-                                                                                <input type="text" class="form-control" id="val-telefono3" name="val-telefono3" placeholder="XXXX-XXXX" value="<?php echo $Gestiones->getTelefonoTrabajoUsuarios(); ?>" onkeypress="return (event.charCode <= 57)">
+                                                                                <input type="text" class="form-control"
+                                                                                    id="val-telefono3" name="val-telefono3"
+                                                                                    placeholder="XXXX-XXXX"
+                                                                                    value="<?php echo $Gestiones->getTelefonoTrabajoUsuarios(); ?>"
+                                                                                    onkeypress="return (event.charCode <= 57)">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1253,23 +1416,29 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                         <div class="form-group">
                                                                             <!--label class="text-label">Fecha de Nacimiento <span class="text-danger">*</span></label-->
                                                                             <!--div class="col-lg-12" -->
-                                                                            <input type="hidden" class=" form-control" id="val-fechanacimiento" name="val-fechanacimiento" placeholder="Ingrese su fecha de nacimiento" value="<?php echo $Gestiones->getFechaNacimientoUsuarios(); ?>">
+                                                                            <input type="hidden" class=" form-control"
+                                                                                id="val-fechanacimiento"
+                                                                                name="val-fechanacimiento"
+                                                                                placeholder="Ingrese su fecha de nacimiento"
+                                                                                value="<?php echo $Gestiones->getFechaNacimientoUsuarios(); ?>">
                                                                             <!--/div-->
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6 mb-2">
                                                                         <div class="form-group">
-                                                                            <label class="text-label">G&eacute;nero <span class="text-danger">*</span></label>
+                                                                            <label class="text-label">G&eacute;nero <span
+                                                                                    class="text-danger">*</span></label>
                                                                             <div class="col-lg-12">
-                                                                                <select class="form-control" id="val-genero" name="val-genero">
+                                                                                <select class="form-control" id="val-genero"
+                                                                                    name="val-genero">
                                                                                     <?php
                                                                                     if ($Gestiones->getGeneroUsuarios() == "m") {
-                                                                                    ?>
+                                                                                        ?>
                                                                                         <option value="m">Masculino</option>
                                                                                         <option value="f">Femenino</option>
                                                                                     <?php } else if ($Gestiones->getGeneroUsuarios() == "f") { ?>
-                                                                                        <option value="f">Femenino</option>
-                                                                                        <option value="m">Masculino</option>
+                                                                                            <option value="f">Femenino</option>
+                                                                                            <option value="m">Masculino</option>
                                                                                     <?php } ?>
                                                                                 </select>
                                                                             </div>
@@ -1277,102 +1446,126 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                     </div>
                                                                     <div class="col-lg-6 mb-2">
                                                                         <div class="form-group">
-                                                                            <label class="text-label">Estado Civil <span class="text-danger">*</span></label>
+                                                                            <label class="text-label">Estado Civil <span
+                                                                                    class="text-danger">*</span></label>
                                                                             <div class="col-lg-12">
-                                                                                <select class="form-control" id="val-estadocivil" name="val-estadocivil">
+                                                                                <select class="form-control"
+                                                                                    id="val-estadocivil"
+                                                                                    name="val-estadocivil">
                                                                                     <?php
                                                                                     if ($Gestiones->getGeneroUsuarios() == "m") {
-                                                                                    ?>
+                                                                                        ?>
                                                                                         <?php
                                                                                         if ($Gestiones->getEstadoCivilUsuarios() == "Soltero") {
-                                                                                        ?>
+                                                                                            ?>
                                                                                             <option value="Soltero">Soltero</option>
                                                                                             <option value="Casado">Casado</option>
-                                                                                            <option value="Divorciado">Divorciado</option>
-                                                                                            <option value="Comprometido">Comprometido</option>
+                                                                                            <option value="Divorciado">Divorciado
+                                                                                            </option>
+                                                                                            <option value="Comprometido">
+                                                                                                Comprometido</option>
                                                                                             <option value="Viudo">Viudo</option>
-                                                                                        <?php
+                                                                                            <?php
                                                                                         } else if ($Gestiones->getEstadoCivilUsuarios() == "Casado") {
-                                                                                        ?>
-                                                                                            <option value="Casado">Casado</option>
-                                                                                            <option value="Divorciado">Divorciado</option>
-                                                                                            <option value="Comprometido">Comprometido</option>
-                                                                                            <option value="Viudo">Viudo</option>
-                                                                                            <option value="Soltero">Soltero</option>
-                                                                                        <?php
+                                                                                            ?>
+                                                                                                <option value="Casado">Casado</option>
+                                                                                                <option value="Divorciado">Divorciado
+                                                                                                </option>
+                                                                                                <option value="Comprometido">
+                                                                                                    Comprometido</option>
+                                                                                                <option value="Viudo">Viudo</option>
+                                                                                                <option value="Soltero">Soltero</option>
+                                                                                            <?php
                                                                                         } else if ($Gestiones->getEstadoCivilUsuarios() == "Divorciado") {
-                                                                                        ?>
-                                                                                            <option value="Divorciado">Divorciado</option>
-                                                                                            <option value="Comprometido">Comprometido</option>
-                                                                                            <option value="Viudo">Viudo</option>
-                                                                                            <option value="Soltero">Soltero</option>
-                                                                                            <option value="Casado">Casado</option>
-                                                                                        <?php
+                                                                                            ?>
+                                                                                                    <option value="Divorciado">Divorciado
+                                                                                                    </option>
+                                                                                                    <option value="Comprometido">
+                                                                                                        Comprometido</option>
+                                                                                                    <option value="Viudo">Viudo</option>
+                                                                                                    <option value="Soltero">Soltero</option>
+                                                                                                    <option value="Casado">Casado</option>
+                                                                                            <?php
                                                                                         } else if ($Gestiones->getEstadoCivilUsuarios() == "Comprometido") {
-                                                                                        ?>
-                                                                                            <option value="Comprometido">Comprometido</option>
-                                                                                            <option value="Viudo">Viudo</option>
-                                                                                            <option value="Soltero">Soltero</option>
-                                                                                            <option value="Casado">Casado</option>
-                                                                                            <option value="Divorciado">Divorciado</option>
-                                                                                        <?php
+                                                                                            ?>
+                                                                                                        <option value="Comprometido">
+                                                                                                            Comprometido</option>
+                                                                                                        <option value="Viudo">Viudo</option>
+                                                                                                        <option value="Soltero">Soltero</option>
+                                                                                                        <option value="Casado">Casado</option>
+                                                                                                        <option value="Divorciado">Divorciado
+                                                                                                        </option>
+                                                                                            <?php
                                                                                         } else if ($Gestiones->getEstadoCivilUsuarios() == "Viudo") {
-                                                                                        ?>
-                                                                                            <option value="Viudo">Viudo</option>
-                                                                                            <option value="Soltero">Soltero</option>
-                                                                                            <option value="Casado">Casado</option>
-                                                                                            <option value="Divorciado">Divorciado</option>
-                                                                                            <option value="Comprometido">Comprometido</option>
+                                                                                            ?>
+                                                                                                            <option value="Viudo">Viudo</option>
+                                                                                                            <option value="Soltero">Soltero</option>
+                                                                                                            <option value="Casado">Casado</option>
+                                                                                                            <option value="Divorciado">Divorciado
+                                                                                                            </option>
+                                                                                                            <option value="Comprometido">
+                                                                                                                Comprometido</option>
                                                                                         <?php } ?>
                                                                                     <?php } else if ($Gestiones->getGeneroUsuarios() == "f") { ?>
-                                                                                        <?php
-                                                                                        if ($Gestiones->getEstadoCivilUsuarios() == "Soltera") {
-                                                                                        ?>
-                                                                                            <option value="Soltera">Soltera</option>
-                                                                                            <option value="Casada">Casada</option>
-                                                                                            <option value="Divorciada">Divorciada</option>
-                                                                                            <option value="Comprometida">Comprometida</option>
-                                                                                            <option value="Viuda">Viuda</option>
-                                                                                        <?php
-                                                                                        } else if ($Gestiones->getEstadoCivilUsuarios() == "Casada") {
-                                                                                        ?>
-                                                                                            <option value="Casada">Casada</option>
-                                                                                            <option value="Divorciada">Divorciada</option>
-                                                                                            <option value="Comprometida">Comprometida</option>
-                                                                                            <option value="Viuda">Viuda</option>
-                                                                                            <option value="Soltera">Soltera</option>
-                                                                                        <?php
-                                                                                        } else if ($Gestiones->getEstadoCivilUsuarios() == "Divorciada") {
-                                                                                        ?>
-                                                                                            <option value="Divorciada">Divorciada</option>
-                                                                                            <option value="Comprometida">Comprometida</option>
-                                                                                            <option value="Viuda">Viuda</option>
-                                                                                            <option value="Soltera">Soltera</option>
-                                                                                            <option value="Casada">Casada</option>
-                                                                                        <?php
-                                                                                        } else if ($Gestiones->getEstadoCivilUsuarios() == "Comprometida") {
-                                                                                        ?>
-                                                                                            <option value="Comprometida">Comprometida</option>
-                                                                                            <option value="Viuda">Viuda</option>
-                                                                                            <option value="Soltera">Soltera</option>
-                                                                                            <option value="Casada">Casada</option>
-                                                                                            <option value="Divorciada">Divorciada</option>
-                                                                                        <?php
-                                                                                        } else if ($Gestiones->getEstadoCivilUsuarios() == "Viuda") {
-                                                                                        ?>
-                                                                                            <option value="Viuda">Viuda</option>
-                                                                                            <option value="Soltera">Soltera</option>
-                                                                                            <option value="Casada">Casada</option>
-                                                                                            <option value="Divorciada">Divorciada</option>
-                                                                                            <option value="Comprometida">Comprometida</option>
-                                                                                    <?php }
+                                                                                            <?php
+                                                                                            if ($Gestiones->getEstadoCivilUsuarios() == "Soltera") {
+                                                                                                ?>
+                                                                                                <option value="Soltera">Soltera</option>
+                                                                                                <option value="Casada">Casada</option>
+                                                                                                <option value="Divorciada">Divorciada
+                                                                                                </option>
+                                                                                                <option value="Comprometida">
+                                                                                                    Comprometida</option>
+                                                                                                <option value="Viuda">Viuda</option>
+                                                                                            <?php
+                                                                                            } else if ($Gestiones->getEstadoCivilUsuarios() == "Casada") {
+                                                                                                ?>
+                                                                                                    <option value="Casada">Casada</option>
+                                                                                                    <option value="Divorciada">Divorciada
+                                                                                                    </option>
+                                                                                                    <option value="Comprometida">
+                                                                                                        Comprometida</option>
+                                                                                                    <option value="Viuda">Viuda</option>
+                                                                                                    <option value="Soltera">Soltera</option>
+                                                                                            <?php
+                                                                                            } else if ($Gestiones->getEstadoCivilUsuarios() == "Divorciada") {
+                                                                                                ?>
+                                                                                                        <option value="Divorciada">Divorciada
+                                                                                                        </option>
+                                                                                                        <option value="Comprometida">
+                                                                                                            Comprometida</option>
+                                                                                                        <option value="Viuda">Viuda</option>
+                                                                                                        <option value="Soltera">Soltera</option>
+                                                                                                        <option value="Casada">Casada</option>
+                                                                                            <?php
+                                                                                            } else if ($Gestiones->getEstadoCivilUsuarios() == "Comprometida") {
+                                                                                                ?>
+                                                                                                            <option value="Comprometida">
+                                                                                                                Comprometida</option>
+                                                                                                            <option value="Viuda">Viuda</option>
+                                                                                                            <option value="Soltera">Soltera</option>
+                                                                                                            <option value="Casada">Casada</option>
+                                                                                                            <option value="Divorciada">Divorciada
+                                                                                                            </option>
+                                                                                            <?php
+                                                                                            } else if ($Gestiones->getEstadoCivilUsuarios() == "Viuda") {
+                                                                                                ?>
+                                                                                                                <option value="Viuda">Viuda</option>
+                                                                                                                <option value="Soltera">Soltera</option>
+                                                                                                                <option value="Casada">Casada</option>
+                                                                                                                <option value="Divorciada">Divorciada
+                                                                                                                </option>
+                                                                                                                <option value="Comprometida">
+                                                                                                                    Comprometida</option>
+                                                                                        <?php }
                                                                                     } ?>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <button class="btn btn-primary" type="submit">Actualizar Datos</button>
+                                                                <button class="btn btn-primary" type="submit">Actualizar
+                                                                    Datos</button>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -1442,7 +1635,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/jquery-asGradient/jquery-asGradient.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js"></script>
         <!-- Material color picker -->
-        <script src="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+        <script
+            src="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
         <!-- pickdate -->
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/pickadate/picker.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/pickadate/picker.time.js"></script>

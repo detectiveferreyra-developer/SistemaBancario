@@ -15,7 +15,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
 } else {
-?>
+    ?>
     <!-- 
 
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -49,16 +49,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>CrediAgil | Listado Solicitudes Cr&eacute;ditos Reestructuraci&oacute;n </title>
         <!-- Favicon icon -->
-        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
+        <link rel="apple-touch-icon" sizes="57x57"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"
+            href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
@@ -66,7 +76,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-        <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
+            rel="stylesheet">
         <link href="<?php echo $UrlGlobal; ?>vista/css/style.css" rel="stylesheet">
         <!-- CrediAgil Corporate Theme -->
         <link href="<?php echo $UrlGlobal; ?>vista/css/crediagil-theme.css" rel="stylesheet">
@@ -77,7 +88,9 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <!-- asColorpicker -->
         <link href="<?php echo $UrlGlobal; ?>vista/vendor/jquery-asColorPicker/css/asColorPicker.min.css" rel="stylesheet">
         <!-- Material color picker -->
-        <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+        <link
+            href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+            rel="stylesheet">
         <!-- Pick date -->
         <link rel="stylesheet" href="<?php echo $UrlGlobal; ?>vista/vendor/pickadate/themes/default.css">
         <link rel="stylesheet" href="<?php echo $UrlGlobal; ?>vista/vendor/pickadate/themes/default.date.css">
@@ -118,7 +131,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
             Nav header start
         ***********************************-->
             <div class="nav-header">
-                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=iniciogerencia" class="brand-logo">
+                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=iniciogerencia"
+                    class="brand-logo">
                     <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
                     <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
                     <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
@@ -150,11 +164,14 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                             <ul class="navbar-nav header-right">
                                 <li class="nav-item dropdown notification_dropdown">
                                     <a class="nav-link  ai-icon" href="#" role="button" data-toggle="dropdown">
-                                        <svg fill="#6418C3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <svg fill="#6418C3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            width="24" height="24">
                                             <path fill="none" d="M0 0h24v24H0z" />
-                                            <path d="M22 20H2v-2h1v-6.969C3 6.043 7.03 2 12 2s9 4.043 9 9.031V18h1v2zM5 18h14v-6.969C19 7.148 15.866 4 12 4s-7 3.148-7 7.031V18zm4.5 3h5a2.5 2.5 0 1 1-5 0z" />
+                                            <path
+                                                d="M22 20H2v-2h1v-6.969C3 6.043 7.03 2 12 2s9 4.043 9 9.031V18h1v2zM5 18h14v-6.969C19 7.148 15.866 4 12 4s-7 3.148-7 7.031V18zm4.5 3h5a2.5 2.5 0 1 1-5 0z" />
                                         </svg>
-                                        <span class="badge light text-white bg-primary"><?php echo NumeroNotificacionesRecibidasUsuarios($conectarsistema2, $_SESSION['id_usuario']); ?></span>
+                                        <span
+                                            class="badge light text-white bg-primary"><?php echo NumeroNotificacionesRecibidasUsuarios($conectarsistema2, $_SESSION['id_usuario']); ?></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div id="DZ_W_Notification1" class="widget-media dz-scroll p-3 height380">
@@ -217,10 +234,12 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 
                                             </ul>
                                         </div>
-                                        <a class="all-notification" href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=visualizar-mis-notificaciones-usuarios-gerencia">Ver Mis Notificaciones <i class="ti-arrow-right"></i></a>
+                                        <a class="all-notification"
+                                            href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=visualizar-mis-notificaciones-usuarios-gerencia">Ver
+                                            Mis Notificaciones <i class="ti-arrow-right"></i></a>
                                     </div>
                                 </li>
-                                
+
                                 <li class="nav-item dropdown notification_dropdown">
                                     <script type="text/javascript">
                                         function startTime() {
@@ -240,75 +259,75 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                             }
                                             return i;
                                         }
-                                        window.onload = function() {
+                                        window.onload = function () {
                                             startTime();
                                         }
                                     </script>
                                     <div id="reloj"></div>
                                     <?php
                                     /*
-										-> VALIDACION GENERICA SIN CONSULTA DE API CLIMATOLOGICA
-											--> TOTALMENTE OPERATIVO <--
-									*/
+                                        -> VALIDACION GENERICA SIN CONSULTA DE API CLIMATOLOGICA
+                                            --> TOTALMENTE OPERATIVO <--
+                                    */
                                     // VALIDACION SEGUN HORA DETECTADA
                                     /*
-										-> 04:00 HRS A 05:00 HRS -> A.M
-									*/
+                                        -> 04:00 HRS A 05:00 HRS -> A.M
+                                    */
                                     /*
-									if($hora->format('G')>=4 && $hora->format('G')<5){
-										echo '
-										<div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/moonrise.svg" alt="icono-clima-noche"/></div>
-										';
-									/*
-										-> 05:00 HRS A 07:00 HRS -> A.M
-									*/
+                                    if($hora->format('G')>=4 && $hora->format('G')<5){
+                                        echo '
+                                        <div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/moonrise.svg" alt="icono-clima-noche"/></div>
+                                        ';
                                     /*
-									}else if($hora->format('G')>=5 && $hora->format('G')<7){
-										echo '
-										<svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.083 13a6 6 0 1 1 11.834 0h-2.043a4 4 0 1 0-7.748 0H6.083zM2 15h10v2H2v-2zm12 0h8v2h-8v-2zm2 4h4v2h-4v-2zM4 19h10v2H4v-2zm7-18h2v3h-2V1zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM19.07 3.515l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="rgba(230,126,34,1)"/></svg>
-										';
-									/*
-										-> 07:00 HRS A 12:00 HRS -> A.M
-									*/
+                                        -> 05:00 HRS A 07:00 HRS -> A.M
+                                    */
                                     /*
-									}else if($hora->format('G')>=7 && $hora->format('G')<12){
-										echo '
-										<svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="rgba(241,196,14,1)"/></svg>
-										';
-									/*
-										-> 12:00 HRS A 03:00 HRS -> P.M
-									*/
+                                    }else if($hora->format('G')>=5 && $hora->format('G')<7){
+                                        echo '
+                                        <svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.083 13a6 6 0 1 1 11.834 0h-2.043a4 4 0 1 0-7.748 0H6.083zM2 15h10v2H2v-2zm12 0h8v2h-8v-2zm2 4h4v2h-4v-2zM4 19h10v2H4v-2zm7-18h2v3h-2V1zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM19.07 3.515l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="rgba(230,126,34,1)"/></svg>
+                                        ';
                                     /*
-									}else if($hora->format('G')>=12 && $hora->format('G')<16){
-										echo '
-										<svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M9.984 5.06a6.5 6.5 0 1 1 11.286 6.436A5.5 5.5 0 0 1 17.5 21L9 20.999a8 8 0 1 1 .984-15.94zm2.071.544a8.026 8.026 0 0 1 4.403 4.495 5.529 5.529 0 0 1 3.12.307 4.5 4.5 0 0 0-7.522-4.802zM17.5 19a3.5 3.5 0 1 0-2.5-5.95V13a6 6 0 1 0-6 6h8.5z" fill="rgba(239,191,81,1)"/></svg>
-										';
-									/*
-										-> 16:00 HRS A 06:00 HRS -> P.M
-									*/
+                                        -> 07:00 HRS A 12:00 HRS -> A.M
+                                    */
                                     /*
-									}else if($hora->format('G')>=16 && $hora->format('G')<18){
-										echo '
-										<svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 12h2v2H4v-2h2a6 6 0 1 1 6 6v-2a4 4 0 1 0-4-4zm-2 8h9v2H6v-2zm-4-4h8v2H2v-2zm9-15h2v3h-2V1zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3z" fill="rgba(230,126,34,1)"/></svg>
-										';
-									/*
-										-> 06:00 HRS A 11:00 HRS -> P.M
-									*/
+                                    }else if($hora->format('G')>=7 && $hora->format('G')<12){
+                                        echo '
+                                        <svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="rgba(241,196,14,1)"/></svg>
+                                        ';
                                     /*
-									}else if($hora->format('G')>=18 && $hora->format('G')<=23){
-										echo '
-										<div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/clear-night.svg" alt="icono-clima-noche"/></div>
-										';
-									/*
-										-> 00:00 HRS A 03:00 HRS -> A.M
-									*/
+                                        -> 12:00 HRS A 03:00 HRS -> P.M
+                                    */
                                     /*
-									}else if($hora->format('G')>=0 && $hora->format('G')<=3){
-										echo '
-										<div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/haze-night.svg" alt="icono-clima-noche"/></div>
-										';
-									}
-									*/
+                                    }else if($hora->format('G')>=12 && $hora->format('G')<16){
+                                        echo '
+                                        <svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M9.984 5.06a6.5 6.5 0 1 1 11.286 6.436A5.5 5.5 0 0 1 17.5 21L9 20.999a8 8 0 1 1 .984-15.94zm2.071.544a8.026 8.026 0 0 1 4.403 4.495 5.529 5.529 0 0 1 3.12.307 4.5 4.5 0 0 0-7.522-4.802zM17.5 19a3.5 3.5 0 1 0-2.5-5.95V13a6 6 0 1 0-6 6h8.5z" fill="rgba(239,191,81,1)"/></svg>
+                                        ';
+                                    /*
+                                        -> 16:00 HRS A 06:00 HRS -> P.M
+                                    */
+                                    /*
+                                    }else if($hora->format('G')>=16 && $hora->format('G')<18){
+                                        echo '
+                                        <svg style="margin-left: .5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 12h2v2H4v-2h2a6 6 0 1 1 6 6v-2a4 4 0 1 0-4-4zm-2 8h9v2H6v-2zm-4-4h8v2H2v-2zm9-15h2v3h-2V1zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3z" fill="rgba(230,126,34,1)"/></svg>
+                                        ';
+                                    /*
+                                        -> 06:00 HRS A 11:00 HRS -> P.M
+                                    */
+                                    /*
+                                    }else if($hora->format('G')>=18 && $hora->format('G')<=23){
+                                        echo '
+                                        <div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/clear-night.svg" alt="icono-clima-noche"/></div>
+                                        ';
+                                    /*
+                                        -> 00:00 HRS A 03:00 HRS -> A.M
+                                    */
+                                    /*
+                                    }else if($hora->format('G')>=0 && $hora->format('G')<=3){
+                                        echo '
+                                        <div style="margin-left: .5rem;width: 48px; height: 48px;" class="wi-icon"><img src="'; echo $UrlGlobal; echo'vista/images/icon-weather/haze-night.svg" alt="icono-clima-noche"/></div>
+                                        ';
+                                    }
+                                    */
                                     // RANGO DE HORAS DESDE 06:00 HASTA 18:00 [A.M -> P.M -> [[DIA]]]
                                     if ($hora->format('G') >= 6 && $hora->format('G') < 18) {
                                         if (strtolower(ucwords($data->weather[0]->description)) == "broken clouds") {
@@ -631,14 +650,16 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 
 
                                     ?>
-                                    <span style="font-size: .6rem" class="badge light text-light bg-primary"><?php echo number_format($data->main->temp, 1) ?>&deg;C</span>
+                                    <span style="font-size: .6rem"
+                                        class="badge light text-light bg-primary"><?php echo number_format($data->main->temp, 1) ?>&deg;C</span>
                                 </li>
                                 <li class="nav-item dropdown header-profile">
                                     <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                         <div class="header-info">
-                                            <span class="text-black">Hola, <strong><?php $Nombre = $_SESSION['nombre_usuario'];
-                                                                                    $PrimerNombre = explode(' ', $Nombre, 2);
-                                                                                    print_r($PrimerNombre[0]); ?></strong></span>
+                                            <span class="text-black">Hola,
+                                                <strong><?php $Nombre = $_SESSION['nombre_usuario'];
+                                                $PrimerNombre = explode(' ', $Nombre, 2);
+                                                print_r($PrimerNombre[0]); ?></strong></span>
                                             <p class="fs-12 mb-0">
                                                 <!-- VALIDACION SEGUN ROLES DE USUARIOS -->
                                                 <?php if ($_SESSION['id_rol'] == 1) {
@@ -654,19 +675,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                 } ?>
                                             </p>
                                         </div>
-                                        <img src="<?php echo $UrlGlobal; ?>vista/images/fotoperfil/<?php echo $_SESSION['foto_perfil']; ?>" width="20" alt="" />
+                                        <img src="<?php echo $UrlGlobal; ?>vista/images/fotoperfil/<?php echo $_SESSION['foto_perfil']; ?>"
+                                            width="20" alt="" />
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="<?php echo $UrlGlobal ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=perfilgerencia" class="dropdown-item ai-icon">
-                                            <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <a href="<?php echo $UrlGlobal ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=perfilgerencia"
+                                            class="dropdown-item ai-icon">
+                                            <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
+                                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                 <circle cx="12" cy="7" r="4"></circle>
                                             </svg>
                                             <span class="ml-2">Mi Perfil </span>
                                         </a>
-                                        
-                                        <a href="<?php echo $UrlGlobal ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=cerrarsesion" class="dropdown-item ai-icon">
-                                            <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                                        <a href="<?php echo $UrlGlobal ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=cerrarsesion"
+                                            class="dropdown-item ai-icon">
+                                            <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
+                                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                                                 <polyline points="16 17 21 12 16 7"></polyline>
                                                 <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -704,7 +732,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item active"><a href="javascript:void(0)">Inicio</a></li>
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Cr&eacute;ditos</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Reestructurar Cr&eacute;ditos</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Reestructurar
+                                    Cr&eacute;ditos</a></li>
                         </ol>
                     </div>
                     <div class="row">
@@ -725,8 +754,11 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                     <div class="pt-4">
                                         <h4>Reestructurar Solicitudes Cr&eacute;ditos Clientes CrediAgil</h4><br>
                                         <p>Estimado(a) <?php $Nombre = $_SESSION['nombre_usuario'];
-                                                        $PrimerNombre = explode(' ', $Nombre, 2);
-                                                        print_r($PrimerNombre[0]); ?>, en este apartado encontrar&aacute;s el listado completo de todos los clientes que su solicitud de cr&eacute;ditos han sido marcadas que necesitan una reestructuraci&oacute;n; o bien una sugerencia de reestructuraci&oacute;n.</p>
+                                        $PrimerNombre = explode(' ', $Nombre, 2);
+                                        print_r($PrimerNombre[0]); ?>, en este apartado
+                                            encontrar&aacute;s el listado completo de todos los clientes que su solicitud de
+                                            cr&eacute;ditos han sido marcadas que necesitan una reestructuraci&oacute;n; o
+                                            bien una sugerencia de reestructuraci&oacute;n.</p>
                                         <div class="table-responsive">
                                             <table style="width: 100%;" id="example5" class="display min-w850">
                                                 <thead>
@@ -847,7 +879,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/jquery-asGradient/jquery-asGradient.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js"></script>
         <!-- Material color picker -->
-        <script src="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+        <script
+            src="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
         <!-- pickdate -->
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/pickadate/picker.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/pickadate/picker.time.js"></script>

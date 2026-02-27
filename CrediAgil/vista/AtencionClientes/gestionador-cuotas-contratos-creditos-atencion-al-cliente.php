@@ -1,16 +1,16 @@
-ï»¿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPAÃ‘OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÃ‘A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -20,26 +20,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
         <!-- 
 
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡
-â–‘â–‘              CrediAgil S.A DE C.V                                                  
-â–‘â–‘          SISTEMA FINANCIERO / BANCARIO 
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡                      
-â–‘â–‘                                                                               
-â–‘â–‘ -> AUTOR: DANIEL RIVERA                                                               
-â–‘â–‘ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-â–‘â–‘ -> GITHUB: (danielrivera03)                                             
-â–‘â–‘ -> TODOS LOS DERECHOS RESERVADOS                           
-â–‘â–‘     Â© 2021 - 2022    
-â–‘â–‘                                                      
-â–‘â–‘ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-â–‘â–‘    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-â–‘â–‘
-â–‘â–‘          â™¥â™¥ HECHO CON MUCHAS TAZAS DE CAFE â™¥â™¥
-â–‘â–‘                                                                               
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦=======================================================
+¦¦              CrediAgil S.A DE C.V                                                  
+¦¦          SISTEMA FINANCIERO / BANCARIO 
+¦¦=======================================================                      
+¦¦                                                                               
+¦¦ -> AUTOR: DANIEL RIVERA                                                               
+¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+¦¦ -> GITHUB: (danielrivera03)                                             
+¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
+¦¦     © 2021 - 2022    
+¦¦                                                      
+¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+¦¦
+¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+¦¦                                                                               
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 -->
         <!DOCTYPE html>
@@ -61,9 +61,9 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
             <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-152x152.png">
             <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-180x180.png">
             <link rel="icon" type="image/png" sizes="192x192" href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
-            <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
             <link rel="manifest" href="<?php echo $UrlGlobal; ?>vista/images/manifest.json">
             <meta name="msapplication-TileColor" content="#ffffff">
             <meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
@@ -753,7 +753,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                 <div class="media-body"><span class="pull-right" id="HoraActual"></span>
                                                                     <h5 class="my-1 text-primary">Resumen de Contrato Colectivo</h5>
                                                                     <p class="read-content-email">
-                                                                        Â¿Problemas?: departamentojuridico@CrediAgil.com</p>
+                                                                        ¿Problemas?: departamentojuridico@CrediAgil.com</p>
                                                                 </div>
                                                             </div>
                                                             <div class="read-content-body">
@@ -795,13 +795,13 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 
                                                                 <p class="mb-2">Raz&oacute;n por la cual su cr&eacute;dito queda estructurado de la siguiente manera:</p>
 
-                                                                <p class="mb-2"><strong><?php echo $Gestiones->getNombreProductos(); ?></strong> financiamiento por un monto de <strong>$<?php echo number_format($Gestiones->getMontoFinanciamientoCreditos(), 2); ?> USD</strong> para un plazo de <strong><?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+                                                                <p class="mb-2"><strong><?php echo $Gestiones->getNombreProductos(); ?></strong> financiamiento por un monto de <strong>$<?php echo number_format($Gestiones->getMontoFinanciamientoCreditos(), 2); ?> USD</strong> para un plazo de <strong><?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
                                                                                                                                                                                                                                                                                                                                                                         echo 'a&ntilde;os';
                                                                                                                                                                                                                                                                                                                                                                     } else {
                                                                                                                                                                                                                                                                                                                                                                         echo 'meses';
                                                                                                                                                                                                                                                                                                                                                                     } ?></strong> a una tasa de inter&eacute;s mensual del <strong><?php echo $Gestiones->getTasaInteresCreditos(); ?> %</strong>.</p>
 
-                                                                <p class="mb-2">Tomando en cuenta todo lo anterior, por pol&iacute;ticas de nuestra empresa el d&iacute;a asignado de su cuota mensual ser&aacute; el mismo en el cual usted inicio su tr&aacute;mite de cr&eacute;dito, el cual corresponde al <strong><?php echo $ObtenerDia; ?> de cada mes por los pr&oacute;ximos <?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+                                                                <p class="mb-2">Tomando en cuenta todo lo anterior, por pol&iacute;ticas de nuestra empresa el d&iacute;a asignado de su cuota mensual ser&aacute; el mismo en el cual usted inicio su tr&aacute;mite de cr&eacute;dito, el cual corresponde al <strong><?php echo $ObtenerDia; ?> de cada mes por los pr&oacute;ximos <?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
                                                                                                                                                                                                                                                                                                                                                                                                                                                 echo 'a&ntilde;os';
                                                                                                                                                                                                                                                                                                                                                                                                                                             } else {
                                                                                                                                                                                                                                                                                                                                                                                                                                                 echo 'meses';
@@ -820,7 +820,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                 <div class="row attachment">
                                                                     <div class="col-auto">
                                                                         <p>* Imprimir estado de cuenta pagar&eacute; cuotas mensualues y registrar cuotas mensuales asignadas en el sistema de pagos <strong>(<?php
-                                                                                                                                                                                                                if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+                                                                                                                                                                                                                if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
                                                                                                                                                                                                                     echo $Gestiones->getTiempoPlazoCreditos() * 12;
                                                                                                                                                                                                                 } else {
                                                                                                                                                                                                                     echo $Gestiones->getTiempoPlazoCreditos();
@@ -831,7 +831,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                 </div>
                                                             </div>
                                                             <?php
-                                                            if ($Gestiones->getNombreProductos() == "PrÃ©stamos de VehÃ­culos") {
+                                                            if ($Gestiones->getNombreProductos() == "Préstamos de Vehículos") {
                                                             ?>
                                                                 <hr>
                                                                 <div class="read-content-attachment">
@@ -978,7 +978,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                                     <line x1="12" y1="9" x2="12" y2="13"></line>
                                                                                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                                                                 </svg>
-                                                                                <strong>Â¡Advertencia!</strong> Â¿Est&aacute; seguro de registrar este documento? <strong>Es una acci&oacute;n sin retorno ya que todo el proceso de asignaci&oacute;n de nuevos cr&eacute;ditos finalizar&iacute;a autom&aacute;ticamente.</strong> Por favor verifique que todo ha sido completado con &eacute;xito antes de realizar esta acci&oacute;n.
+                                                                                <strong>¡Advertencia!</strong> ¿Est&aacute; seguro de registrar este documento? <strong>Es una acci&oacute;n sin retorno ya que todo el proceso de asignaci&oacute;n de nuevos cr&eacute;ditos finalizar&iacute;a autom&aacute;ticamente.</strong> Por favor verifique que todo ha sido completado con &eacute;xito antes de realizar esta acci&oacute;n.
                                                                             </div>
                                                                             <form id="registro-contrato-copia-clientes" class="validacion-registro-datos-vehiculos-contrato" method="post" autocomplete="off" enctype="multipart/form-data">
                                                                                 <div class="row form-validation">
@@ -1032,7 +1032,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                                     <line x1="12" y1="9" x2="12" y2="13"></line>
                                                                                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                                                                 </svg>
-                                                                                <strong>Â¡Advertencia!</strong> Â¿Est&aacute; seguro de registrar este documento? <strong>Es una acci&oacute;n sin retorno ya que todo el proceso de asignaci&oacute;n de nuevos cr&eacute;ditos finalizar&iacute;a autom&aacute;ticamente.</strong> Por favor verifique que todo ha sido completado con &eacute;xito antes de realizar esta acci&oacute;n.
+                                                                                <strong>¡Advertencia!</strong> ¿Est&aacute; seguro de registrar este documento? <strong>Es una acci&oacute;n sin retorno ya que todo el proceso de asignaci&oacute;n de nuevos cr&eacute;ditos finalizar&iacute;a autom&aacute;ticamente.</strong> Por favor verifique que todo ha sido completado con &eacute;xito antes de realizar esta acci&oacute;n.
                                                                             </div>
                                                                             <form id="registro-contrato-copia-clientes" class="validacion-registro-datos-vehiculos-contrato" method="post" autocomplete="off" enctype="multipart/form-data">
                                                                                 <div class="row form-validation">

@@ -1,27 +1,27 @@
-ï»¿<?php
+<?php
 ?>
 <!-- 
 
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡
-â–‘â–‘              CrediAgil S.A DE C.V                                                  
-â–‘â–‘          SISTEMA FINANCIERO / BANCARIO 
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡                      
-â–‘â–‘                                                                               
-â–‘â–‘ -> AUTOR: DANIEL RIVERA                                                               
-â–‘â–‘ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-â–‘â–‘ -> GITHUB: (danielrivera03)                                             
-â–‘â–‘ -> TODOS LOS DERECHOS RESERVADOS                           
-â–‘â–‘     Â© 2021 - 2022    
-â–‘â–‘                                                      
-â–‘â–‘ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-â–‘â–‘    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-â–‘â–‘
-â–‘â–‘          â™¥â™¥ HECHO CON MUCHAS TAZAS DE CAFE â™¥â™¥
-â–‘â–‘                                                                               
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦=======================================================
+¦¦              CrediAgil S.A DE C.V                                                  
+¦¦          SISTEMA FINANCIERO / BANCARIO 
+¦¦=======================================================                      
+¦¦                                                                               
+¦¦ -> AUTOR: DANIEL RIVERA                                                               
+¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+¦¦ -> GITHUB: (danielrivera03)                                             
+¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
+¦¦     © 2021 - 2022    
+¦¦                                                      
+¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+¦¦
+¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+¦¦                                                                               
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 -->
 <!DOCTYPE html>
@@ -43,9 +43,9 @@
     <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-180x180.png">
     <link rel="icon" type="image/png" sizes="192x192" href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
     <link rel="manifest" href="<?php echo $UrlGlobal; ?>vista/images/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
@@ -69,7 +69,7 @@
                         </div>
                         <div class="media-body">
                             <h6 class="mt-1 mb-2">Estimado usuario(a)</h6>
-                            <p class="mb-0">Su contrase&ntilde;a ha sido cambiada con &eacute;xito. Ahora puede ingresar a nuestro sistema con su nueva credencial de acceso. Le recordamos nunca compartir sus datos confidenciales de acceso con otras personas, y recuerde <strong> ninguno de nuestros asociados tiene la autorizaci&oacute;n de solicitarle datos personales y confidenciales fuera de nuestras sucursales.</strong><br> <br>Â¿Problemas? por favor comun&iacute;quese al siguiente correo: <a href="mailto:soporte@CrediAgil.com">soporte@CrediAgil.com</a> Nuestro equipo de soporte t&eacute;cnico se comunicar&aacute; con usted en el menor tiempo posible.<br><br>Atentamente: Equipo de recuperaciones de cuentas - CrediAgil<strong></strong></p>
+                            <p class="mb-0">Su contrase&ntilde;a ha sido cambiada con &eacute;xito. Ahora puede ingresar a nuestro sistema con su nueva credencial de acceso. Le recordamos nunca compartir sus datos confidenciales de acceso con otras personas, y recuerde <strong> ninguno de nuestros asociados tiene la autorizaci&oacute;n de solicitarle datos personales y confidenciales fuera de nuestras sucursales.</strong><br> <br>¿Problemas? por favor comun&iacute;quese al siguiente correo: <a href="mailto:soporte@CrediAgil.com">soporte@CrediAgil.com</a> Nuestro equipo de soporte t&eacute;cnico se comunicar&aacute; con usted en el menor tiempo posible.<br><br>Atentamente: Equipo de recuperaciones de cuentas - CrediAgil<strong></strong></p>
                         </div>
                     </div>
                 </div>

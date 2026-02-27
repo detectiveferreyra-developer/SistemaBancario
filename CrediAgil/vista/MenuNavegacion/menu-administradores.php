@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // SOLO  USUARIOS ADMINISTRADORES
 if ($_SESSION['id_rol'] == 1) {
     ?>

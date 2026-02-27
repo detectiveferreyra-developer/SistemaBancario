@@ -1,29 +1,29 @@
-ï»¿<?php
+<?php
 // SOLAMENTE MOSTRAR ESTA VISTA A USUARIOS QUE INICIAN SESION POR PRIMERA VEZ
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
     <!-- 
 
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡
-â–‘â–‘              CrediAgil S.A DE C.V                                                  
-â–‘â–‘          SISTEMA FINANCIERO / BANCARIO 
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡                      
-â–‘â–‘                                                                               
-â–‘â–‘ -> AUTOR: DANIEL RIVERA                                                               
-â–‘â–‘ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-â–‘â–‘ -> GITHUB: (danielrivera03)                                             
-â–‘â–‘ -> TODOS LOS DERECHOS RESERVADOS                           
-â–‘â–‘     Â© 2021 - 2022    
-â–‘â–‘                                                      
-â–‘â–‘ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-â–‘â–‘    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-â–‘â–‘
-â–‘â–‘          â™¥â™¥ HECHO CON MUCHAS TAZAS DE CAFE â™¥â™¥
-â–‘â–‘                                                                               
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦=======================================================
+¦¦              CrediAgil S.A DE C.V                                                  
+¦¦          SISTEMA FINANCIERO / BANCARIO 
+¦¦=======================================================                      
+¦¦                                                                               
+¦¦ -> AUTOR: DANIEL RIVERA                                                               
+¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+¦¦ -> GITHUB: (danielrivera03)                                             
+¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
+¦¦     © 2021 - 2022    
+¦¦                                                      
+¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+¦¦
+¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+¦¦                                                                               
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 -->
     <!DOCTYPE html>
@@ -45,9 +45,9 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-180x180.png">
         <link rel="icon" type="image/png" sizes="192x192" href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
         <link rel="manifest" href="<?php echo $UrlGlobal; ?>vista/images/manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
@@ -144,7 +144,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
             $(document).ready(function() {
                 $("form").keypress(function(e) {
                     if (e.which == 13) {
-                        toastr.error("No tienes permitido hacer uso de la tecla 'ENTER'.", "Â¡Error, Lo sentimos!");
+                        toastr.error("No tienes permitido hacer uso de la tecla 'ENTER'.", "¡Error, Lo sentimos!");
                         return false;
                     }
                 });

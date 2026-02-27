@@ -1,4 +1,4 @@
-ï»¿<?php
+<?php
 // NO PERMITIR INGRESO SI PARAMETRO NO HA SIDO ESPECIFICADO
 if (empty($_GET['idusuario'])) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
@@ -12,7 +12,7 @@ require '../vendor/autoload.php';
 // CONVERSION DE NUMEROS A LETRAS
 use Luecano\NumeroALetras\NumeroALetras; // LLAMADO DE CLASE
 $Conversion = new NumeroALetras(); // CREANDO OBJETO INSTANCIA DE CLASE
-// DATOS DE LOCALIZACION -> IDIOMA ESPAÃ‘OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // FECHA DE CANCALACION [PROCESAMIENTO TRANSACCIONES CLIENTES]
@@ -40,19 +40,19 @@ class PDF extends FPDF
         $this->SetY(-15);
         // Arial italic 8
         $this->SetFont('Arial', 'I', 8);
-        // NÃºmero de pÃ¡gina
+        // Número de página
         //$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
     }
 }
 // CREACION DE INSTANCIA DE CLASE
 $pdf = new PDF('P', 'mm', 'LETTER');
-$pdf->SetTitle(utf8_decode("FacturaciÃ³n Clientes - CrediAgil"));
+$pdf->SetTitle(utf8_decode("Facturación Clientes - CrediAgil"));
 $pdf->AliasNbPages();
 $pdf->AddPage();
 // CONTENIDO DE REPORTE [DOCUMENTO]
 $pdf->SetFont('Arial', '', 10);
 $pdf->setTextColor(255, 255, 255);
-$pdf->MultiCell(191, 8, utf8_decode("FacturaciÃ³n CrediAgil"), 0, 'R');
+$pdf->MultiCell(191, 8, utf8_decode("Facturación CrediAgil"), 0, 'R');
 $pdf->setTextColor(0, 0, 0);
 $pdf->Ln(3);
 $pdf->SetFont('Arial', '', 8);
@@ -60,7 +60,7 @@ $pdf->MultiCell(199, 4, utf8_decode("Orden de Pago: Bol.->#" . $Gestiones->getId
 $pdf->MultiCell(199, 4, utf8_decode("Fecha: " . date_format($FechaCancelacion, "d/m/Y")), 0, 'R');
 $pdf->MultiCell(199, 4, utf8_decode("Hora: " . date_format($FechaCancelacion, "H:i:s")), 0, 'R');
 $pdf->MultiCell(199, 4, utf8_decode("Producto: " . $Gestiones->getNombreProductos()), 0, 'R');
-$pdf->MultiCell(199, 4, utf8_decode("TransacciÃ³n: " . $Gestiones->getReferenciaTransaccionCreditosClientes()), 0, 'R');
+$pdf->MultiCell(199, 4, utf8_decode("Transacción: " . $Gestiones->getReferenciaTransaccionCreditosClientes()), 0, 'R');
 $pdf->Ln(31);
 $pdf->SetFont('Arial', '', 9);
 $pdf->MultiCell(190, 4, utf8_decode("Nombre del Cliente: " . $Gestiones->getNombresUsuarios() . " " . $Gestiones->getApellidosUsuarios()));
@@ -82,9 +82,9 @@ $pdf->SetFont('Arial', '', 7);
 $pdf->MultiCell(190, 4, utf8_decode("EL TOTAL A CANCELAR ES : " . $Conversion->toWords($Gestiones->getMontoCuotaCancelar()) . " DOLARES DE LOS ESTADOS UNIDOS DE AMERICA"), 0, 'C');
 $pdf->SetFont('Arial', '', 8);
 $pdf->Ln(5);
-$pdf->MultiCell(190, 4, utf8_decode("Estimado(a) cliente. Agradecemos su pago efectuado, le recordamos ser puntual para asÃ­ tener una excelente calificaciÃ³n crediticia. Cualquier consulta, duda y/o reclamo puede efectuarlo en nuestros telÃ©fonos 2255-0090, 2255-0091 y 2255-0192 o a nuestro correo electrÃ³nico servicioalcliente@CrediAgil.com especÃ­ficando el nÃºmero de transacciÃ³n que se encuentra en la parte superior de este documento. Trabajamos duro cada dÃ­a para darle un excelente servicio a cada uno de nuestros clientes."));
+$pdf->MultiCell(190, 4, utf8_decode("Estimado(a) cliente. Agradecemos su pago efectuado, le recordamos ser puntual para así tener una excelente calificación crediticia. Cualquier consulta, duda y/o reclamo puede efectuarlo en nuestros teléfonos 2255-0090, 2255-0091 y 2255-0192 o a nuestro correo electrónico servicioalcliente@CrediAgil.com específicando el número de transacción que se encuentra en la parte superior de este documento. Trabajamos duro cada día para darle un excelente servicio a cada uno de nuestros clientes."));
 $pdf->Ln(45);
 $pdf->SetFont('Arial', '', 7);
-$pdf->MultiCell(190, 4, utf8_decode("COMPROBANTE OFICIAL DE CANCELACIÃ“N CrediAgil S.A DE C.V ~ " . $Gestiones->getReferenciaTransaccionCreditosClientes()), 0, 'C');
-$pdf->MultiCell(190, 4, utf8_decode("TransacciÃ³n gestionada por:  Emp->C.H" . $Gestiones->getEmpleadoGestionTransaccionCreditosClientes()), 0, 'C');
+$pdf->MultiCell(190, 4, utf8_decode("COMPROBANTE OFICIAL DE CANCELACIÓN CrediAgil S.A DE C.V ~ " . $Gestiones->getReferenciaTransaccionCreditosClientes()), 0, 'C');
+$pdf->MultiCell(190, 4, utf8_decode("Transacción gestionada por:  Emp->C.H" . $Gestiones->getEmpleadoGestionTransaccionCreditosClientes()), 0, 'C');
 $pdf->Output();

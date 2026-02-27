@@ -1,4 +1,4 @@
-ï»¿<?php
+<?php
 // NO PERMITIR INGRESO SI PARAMETRO DE USUARIOS SE ENCUENTRA VACIO
 if (empty($_GET['idusuario'])) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
@@ -8,7 +8,7 @@ if (empty($Gestiones->getNombresUsuarios())) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
 }
 date_default_timezone_set('America/El_Salvador');
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÃ‘A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -18,37 +18,37 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     */
     // OBTENER FECHA COMPLETA REGISTRADA
     $Fecha = $Gestiones->getFechaNacimientoUsuarios();
-    // CALCULAR EDAD ANTES DE CUMPLEAÃ‘OS
+    // CALCULAR EDAD ANTES DE CUMPLEAÑOS
     $FechaCumpleanos = new DateTime($Fecha);
     $Ahora = new DateTime();
-    // COMPRUEBA SEGUN AÃ‘O -> MES -> DIA
+    // COMPRUEBA SEGUN AÑO -> MES -> DIA
     $CalcularEdad = $Ahora->diff($FechaCumpleanos);
     $EdadActualClientes = $CalcularEdad->y;
-    // SOLAMENTE CLIENTES DE RANGOS 18 A 70 AÃ‘OS
+    // SOLAMENTE CLIENTES DE RANGOS 18 A 70 AÑOS
     if ($EdadActualClientes >= 18 && $EdadActualClientes <= 70) {
 ?>
         <!-- 
 
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡
-â–‘â–‘              CrediAgil S.A DE C.V                                                  
-â–‘â–‘          SISTEMA FINANCIERO / BANCARIO 
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡                      
-â–‘â–‘                                                                               
-â–‘â–‘ -> AUTOR: DANIEL RIVERA                                                               
-â–‘â–‘ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-â–‘â–‘ -> GITHUB: (danielrivera03)                                             
-â–‘â–‘ -> TODOS LOS DERECHOS RESERVADOS                           
-â–‘â–‘     Â© 2021 - 2022    
-â–‘â–‘                                                      
-â–‘â–‘ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-â–‘â–‘    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-â–‘â–‘
-â–‘â–‘          â™¥â™¥ HECHO CON MUCHAS TAZAS DE CAFE â™¥â™¥
-â–‘â–‘                                                                               
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦=======================================================
+¦¦              CrediAgil S.A DE C.V                                                  
+¦¦          SISTEMA FINANCIERO / BANCARIO 
+¦¦=======================================================                      
+¦¦                                                                               
+¦¦ -> AUTOR: DANIEL RIVERA                                                               
+¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+¦¦ -> GITHUB: (danielrivera03)                                             
+¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
+¦¦     © 2021 - 2022    
+¦¦                                                      
+¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+¦¦
+¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+¦¦                                                                               
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 -->
         <!DOCTYPE html>
@@ -70,9 +70,9 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
             <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-152x152.png">
             <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-180x180.png">
             <link rel="icon" type="image/png" sizes="192x192" href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
-            <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
             <link rel="manifest" href="<?php echo $UrlGlobal; ?>vista/images/manifest.json">
             <meta name="msapplication-TileColor" content="#ffffff">
             <meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
@@ -177,7 +177,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                                         while ($filas = mysqli_fetch_array($consulta1)) {
                                                                                             // OMITIR TODOS LOS PRODUCTOS A EXCEPCION DEL PRODUCTO EN CUESTION EN ESTA SECCION DE ASIGNACION DE NUEVOS CREDITOS.
                                                                                             // PRODUCTO: PRESTAMOS PERSONALES -> MODIFICAR CADENA SI EXISTE ALGUN CAMBIO EN EL NOMBRE DE LOS PRODUCTOS, TOMAR NOTA -> IMPORTANTE <-
-                                                                                            if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "DepÃ³sito a Plazo Fijo" && $filas['nombreproducto'] != "PrÃ©stamos Hipotecarios" && $filas['nombreproducto'] != "PrÃ©stamos Personales") {
+                                                                                            if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Depósito a Plazo Fijo" && $filas['nombreproducto'] != "Préstamos Hipotecarios" && $filas['nombreproducto'] != "Préstamos Personales") {
                                                                                                 echo '
                                                                     <option value="';
                                                                                                 echo $filas['idproducto'];
@@ -370,7 +370,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                 const firstCalendar = MCDatepicker.create({
                                     el: '#valfechaingresosolicitud',
                                     customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                                    customWeekDays: ['Domingo', 'Lunes', 'Martes', 'MiÃ©rcoles', 'Jueves', 'Viernes', 'Sabado'],
+                                    customWeekDays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'],
                                     dateFormat: 'YYYY-MM-DD',
                                     customOkBTN: 'OK',
                                     customClearBTN: 'Limpiar',

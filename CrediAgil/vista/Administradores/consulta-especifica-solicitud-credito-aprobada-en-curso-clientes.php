@@ -1,11 +1,11 @@
-ï»¿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPAÃ‘OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
@@ -18,16 +18,16 @@ if (empty($_GET['idusuario'])) {
 }
 // REALIZAR CALCULO SI MONTO DE FINANCIAMIENTO SEA MAYOR A CERO [0]
 if ($Gestiones->getMontoFinanciamientoCreditos() > 0) {
-	if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+	if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 		$CalculoCuotaMensualCapital = $Gestiones->getMontoFinanciamientoCreditos() / ($Gestiones->getTiempoPlazoCreditos() * 12);
 	} else {
 		$CalculoCuotaMensualCapital = $Gestiones->getMontoFinanciamientoCreditos() / ($Gestiones->getTiempoPlazoCreditos());
-	} // CIERRE if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios")
+	} // CIERRE if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios")
 } else {
 	// CASO CONTRARIO, SE ENTIENDE QUE USUARIO YA NO DISPONE DE CONSULTA ACTIVA DE SOLICITUD CREDITICIA Y SU ESTADO DE CREDITO HA CAMBIADO
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
 } // CIERRE if ($Gestiones->getMontoFinanciamientoCreditos() > 0) 
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÃ‘A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -35,26 +35,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
 	<!-- 
 
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡
-â–‘â–‘              CrediAgil S.A DE C.V                                                  
-â–‘â–‘          SISTEMA FINANCIERO / BANCARIO 
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡                      
-â–‘â–‘                                                                               
-â–‘â–‘ -> AUTOR: DANIEL RIVERA                                                               
-â–‘â–‘ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-â–‘â–‘ -> GITHUB: (danielrivera03)                                             
-â–‘â–‘ -> TODOS LOS DERECHOS RESERVADOS                           
-â–‘â–‘     Â© 2021 - 2022    
-â–‘â–‘                                                      
-â–‘â–‘ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-â–‘â–‘    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-â–‘â–‘
-â–‘â–‘          â™¥â™¥ HECHO CON MUCHAS TAZAS DE CAFE â™¥â™¥
-â–‘â–‘                                                                               
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦=======================================================
+¦¦              CrediAgil S.A DE C.V                                                  
+¦¦          SISTEMA FINANCIERO / BANCARIO 
+¦¦=======================================================                      
+¦¦                                                                               
+¦¦ -> AUTOR: DANIEL RIVERA                                                               
+¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+¦¦ -> GITHUB: (danielrivera03)                                             
+¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
+¦¦     © 2021 - 2022    
+¦¦                                                      
+¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+¦¦
+¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+¦¦                                                                               
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 -->
 	<!DOCTYPE html>
@@ -76,9 +76,9 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 		<link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-152x152.png">
 		<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-180x180.png">
 		<link rel="icon" type="image/png" sizes="192x192" href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
 		<link rel="manifest" href="<?php echo $UrlGlobal; ?>vista/images/manifest.json">
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
@@ -761,7 +761,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 																<span class="badge badge-success">
 																	<?php
 																	// CALCULO DE PORCENTAJE AVANCE CREDITICIO
-																	if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+																	if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 																		$TotalCuotas = $Gestiones->getTiempoPlazoCreditos() * 12;
 																	} else {
 																		$TotalCuotas = $Gestiones->getTiempoPlazoCreditos();
@@ -816,7 +816,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 															<div class="media-body">
 																<p class="mb-1">Plazo</p>
 																<h4 class="mb-0"><?php echo $Gestiones->getTiempoPlazoCreditos(); ?></h4>
-																<span class="badge badge-info"><?php if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+																<span class="badge badge-info"><?php if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 																									echo "A&ntilde;os";
 																								} else {
 																									echo "Meses";
@@ -889,13 +889,13 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 														<th>Cuota</th>
 														<th>Capital</th>
 														<th>Saldo Final</th>
-														<th>Â¿Mora?</th>
+														<th>¿Mora?</th>
 													</tr>
 												</thead>
 												<tbody>
 													<?php
-													if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
-														// SI EL CREDITO ES HIPOTECARIO, SE REALIZA EL CALCULO AL NUMERO DE MESES EN TOTAL, YA QUE EL REGISTRO DE PREVIO FUE REALIZADO EN BASE A LOS AÃ‘OS DE FINANCIAMIENTO
+													if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
+														// SI EL CREDITO ES HIPOTECARIO, SE REALIZA EL CALCULO AL NUMERO DE MESES EN TOTAL, YA QUE EL REGISTRO DE PREVIO FUE REALIZADO EN BASE A LOS AÑOS DE FINANCIAMIENTO
 														$CalculoDiasPrestamos = ($Gestiones->getTiempoPlazoCreditos() * 12) + 1;
 													} else {
 														$CalculoDiasPrestamos = $Gestiones->getTiempoPlazoCreditos() + 1;

@@ -33,8 +33,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>CrediAgil | Estadísticas</title>
         <!-- Favicon icon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
         <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
             rel="stylesheet">
         <link href="<?php echo $UrlGlobal; ?>vista/css/style.css" rel="stylesheet">

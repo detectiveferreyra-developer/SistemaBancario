@@ -288,13 +288,12 @@ a:focus {
 }
 
 .auth-form {
-    background-color: #00014D !important;
-    /* Matched to Logo Background */
+    background-color: #001F5C !important;
+    /* Same blue as nav-header sidebar */
     border: none;
     border-radius: 12px;
     padding: 3.5rem 2.5rem;
-    box-shadow: 0 10px 30px rgba(0, 31, 92, 0.2);
-    /* Depth with brand color shadow */
+    box-shadow: 0 10px 30px rgba(0, 31, 92, 0.35);
     transition: transform 0.3s ease;
 }
 
@@ -304,9 +303,11 @@ a:focus {
 
 .auth-form .logo-formulario {
     display: block;
-    margin: 0 auto 2.5rem auto !important;
-    max-width: 250px !important;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    margin: 0 auto 2rem auto !important;
+    max-width: 220px !important;
+    width: auto !important;
+    height: auto;
+    border-radius: 8px;
 }
 
 .auth-form h4 {

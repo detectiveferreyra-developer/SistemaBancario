@@ -1,4 +1,4 @@
-Ôªø<?php
+<?php
 $time = 140; // 140 SEGUNDOS PARA EXPIRAR SESION -> EQUIPARANDO CUENTA REGRESIVA DE USUARIOS
 if (isset($_SESSION["tiempo_sesion"])) {
     if (isset($_SESSION["expirar_sesion"]) && time() > $_SESSION["expirar_sesion"] + $time) {
@@ -34,33 +34,33 @@ if ($_GET['token'] != $_SESSION['TokenUsuarios']) {
 } else {
     /*
         SOLAMENTE PERMITIR EL INGRESO DE USUARIOS QUE VALIDEN SU CODIGO DE SEGURIDAD.
-        SI DIGITAN URL PARA PROCEDER CAMBIAR SU CONTRASE√ëA SIN VALIDAR CODIGO, MOSTRARA
+        SI DIGITAN URL PARA PROCEDER CAMBIAR SU CONTRASE—A SIN VALIDAR CODIGO, MOSTRARA
         MENSAJE DE ERROR
         */
     if ($_SESSION['EstadoCodigos'] == "ValidarCodigoAcceso") { // CODIGO DE SEGURIDAD VALIDADO
         ?>
         <!-- 
 
-‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë
-‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë
-‚ñë‚ñë‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°
-‚ñë‚ñë              CrediAgil S.A DE C.V                                                  
-‚ñë‚ñë          SISTEMA FINANCIERO / BANCARIO 
-‚ñë‚ñë‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°‚â°                      
-‚ñë‚ñë                                                                               
-‚ñë‚ñë -> AUTOR: DANIEL RIVERA                                                               
-‚ñë‚ñë -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-‚ñë‚ñë -> GITHUB: (danielrivera03)                                             
-‚ñë‚ñë -> TODOS LOS DERECHOS RESERVADOS                           
-‚ñë‚ñë     ¬© 2021 - 2022    
-‚ñë‚ñë                                                      
-‚ñë‚ñë -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-‚ñë‚ñë    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-‚ñë‚ñë
-‚ñë‚ñë          ‚ô•‚ô• HECHO CON MUCHAS TAZAS DE CAFE ‚ô•‚ô•
-‚ñë‚ñë                                                                               
-‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë
-‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë‚ñë
+¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
+¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
+¶¶=======================================================
+¶¶              CrediAgil S.A DE C.V                                                  
+¶¶          SISTEMA FINANCIERO / BANCARIO 
+¶¶=======================================================                      
+¶¶                                                                               
+¶¶ -> AUTOR: DANIEL RIVERA                                                               
+¶¶ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+¶¶ -> GITHUB: (danielrivera03)                                             
+¶¶ -> TODOS LOS DERECHOS RESERVADOS                           
+¶¶     © 2021 - 2022    
+¶¶                                                      
+¶¶ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+¶¶    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+¶¶
+¶¶          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+¶¶                                                                               
+¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
+¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
 
 -->
         <!DOCTYPE html>
@@ -70,7 +70,7 @@ if ($_GET['token'] != $_SESSION['TokenUsuarios']) {
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width,initial-scale=1">
-            <title>Credi√Ågil | Recuperar Cuenta</title>
+            <title>Credi¡gil | Recuperar Cuenta</title>
             <!-- Favicon icon -->
             <link rel="apple-touch-icon" sizes="57x57"
                 href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-57x57.png">
@@ -92,9 +92,9 @@ if ($_GET['token'] != $_SESSION['TokenUsuarios']) {
                 href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-180x180.png">
             <link rel="icon" type="image/png" sizes="192x192"
                 href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
-            <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
             <link rel="manifest" href="<?php echo $UrlGlobal; ?>vista/images/manifest.json">
             <meta name="msapplication-TileColor" content="#ffffff">
             <meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">

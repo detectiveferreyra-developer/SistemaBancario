@@ -1,16 +1,16 @@
-ï»¿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPAÃ‘OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÃ‘A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -20,7 +20,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	*/
 	// VALIDACION SEGUN RANGOS ESTIPULADOS POR ENTIDAD FINANCIERA
 	// -> PRESTAMOS PERSONALES
-	if ($Gestiones->getNombreProductos() == "PrÃ©stamos Personales") {
+	if ($Gestiones->getNombreProductos() == "Préstamos Personales") {
 		if ($Gestiones->getMontoFinanciamientoCreditos() < 300) { // $0.00 - $299.00 USD
 			$SeguroDeuda = 0.00;
 			$GastosAdministrativos = 0.00;
@@ -44,7 +44,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 		-> CREDITOS DE VEHICULOS
 	*/
 		// -> PRESTAMOS DE VEHICULOS
-	} else if ($Gestiones->getNombreProductos() == "PrÃ©stamos de VehÃ­culos") {
+	} else if ($Gestiones->getNombreProductos() == "Préstamos de Vehículos") {
 		if ($Gestiones->getMontoFinanciamientoCreditos() >= 10000 && $Gestiones->getMontoFinanciamientoCreditos() <= 25000) { // $10,000.00 - $25,000.00 USD
 			$SeguroDeuda = 12.99;
 			$GastosAdministrativos = 25.99;
@@ -66,7 +66,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 		-> CREDITOS HIPOTECARIOS
 	*/
 		// -> PRESTAMOS HIPOTECARIOS
-	} else if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+	} else if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 		if ($Gestiones->getMontoFinanciamientoCreditos() >= 30000 && $Gestiones->getMontoFinanciamientoCreditos() <= 50000) { // $30,000.00 - $50,0000.00 USD
 			$SeguroDeuda = 35.50;
 			$GastosAdministrativos = 110.99;
@@ -97,26 +97,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
 		<!-- 
 
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡
-â–‘â–‘              CrediAgil S.A DE C.V                                                  
-â–‘â–‘          SISTEMA FINANCIERO / BANCARIO 
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡                      
-â–‘â–‘                                                                               
-â–‘â–‘ -> AUTOR: DANIEL RIVERA                                                               
-â–‘â–‘ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-â–‘â–‘ -> GITHUB: (danielrivera03)                                             
-â–‘â–‘ -> TODOS LOS DERECHOS RESERVADOS                           
-â–‘â–‘     Â© 2021 - 2022    
-â–‘â–‘                                                      
-â–‘â–‘ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-â–‘â–‘    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-â–‘â–‘
-â–‘â–‘          â™¥â™¥ HECHO CON MUCHAS TAZAS DE CAFE â™¥â™¥
-â–‘â–‘                                                                               
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦=======================================================
+¦¦              CrediAgil S.A DE C.V                                                  
+¦¦          SISTEMA FINANCIERO / BANCARIO 
+¦¦=======================================================                      
+¦¦                                                                               
+¦¦ -> AUTOR: DANIEL RIVERA                                                               
+¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+¦¦ -> GITHUB: (danielrivera03)                                             
+¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
+¦¦     © 2021 - 2022    
+¦¦                                                      
+¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+¦¦
+¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+¦¦                                                                               
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 -->
 		<!DOCTYPE html>
@@ -138,9 +138,9 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 			<link rel="apple-touch-icon" sizes="152x152" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-152x152.png">
 			<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-180x180.png">
 			<link rel="icon" type="image/png" sizes="192x192" href="<?php echo $UrlGlobal; ?>vista/images/android-icon-192x192.png">
-			<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>vista/images/favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>vista/images/favicon-96x96.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>vista/images/favicon-16x16.png">
+			<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+			<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
+			<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
 			<link rel="manifest" href="<?php echo $UrlGlobal; ?>vista/images/manifest.json">
 			<meta name="msapplication-TileColor" content="#ffffff">
 			<meta name="msapplication-TileImage" content="<?php echo $UrlGlobal; ?>vista/images/ms-icon-144x144.png">
@@ -889,15 +889,15 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 												<div class="pt-4">
 													<h4>Segunda Revisi&oacute;n Final</h4><br>
 													<div class="col-xl-12">
-														<form data-id="<?php echo $Gestiones->getIdUsuarios(); ?>" id="ingreso-datos-credito-clientes" class="validacion-actualizacion-revisiones-creditos-clientes" name="<?php if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+														<form data-id="<?php echo $Gestiones->getIdUsuarios(); ?>" id="ingreso-datos-credito-clientes" class="validacion-actualizacion-revisiones-creditos-clientes" name="<?php if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 																																																								echo "formulariocreditosclienteshipotecas";
 																																																							} else {
 																																																								echo "formulariocreditosclientes";
-																																																							} ?>" method="post" autocomplete="off" enctype="multipart/form-data" <?php if ($Gestiones->getNombreProductos() == "PrÃ©stamos Personales") {
+																																																							} ?>" method="post" autocomplete="off" enctype="multipart/form-data" <?php if ($Gestiones->getNombreProductos() == "Préstamos Personales") {
 																																																																										echo 'onKeyUp="ConsultarRequisitosPrestamosPersonales()" ';
-																																																																									} else if ($Gestiones->getNombreProductos() == "PrÃ©stamos de VehÃ­culos") {
+																																																																									} else if ($Gestiones->getNombreProductos() == "Préstamos de Vehículos") {
 																																																																										echo 'onKeyUp="ConsultarRequisitosPrestamosVehiculos()" ';
-																																																																									} else if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+																																																																									} else if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 																																																																										echo 'onKeyUp="ConsultarRequisitosPrestamosHipotecarios()" ';
 																																																																									} ?>>
 															<div class="row form-validation">
@@ -905,7 +905,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 																	<input type="hidden" name="idunicocreditoregistrado" value="<?php echo $Gestiones->getIdCreditos(); ?>">
 																	<div class="form-group">
 																		<div class="col-lg-12 mb-2">
-																			<label class="text-label">En base a toda la informaci&oacute;n registrada Â¿Qu&eacute; acci&oacute;n desea realizar con esta solicitud de cr&eacute;dito? <span class="text-danger">*</span></label>
+																			<label class="text-label">En base a toda la informaci&oacute;n registrada ¿Qu&eacute; acci&oacute;n desea realizar con esta solicitud de cr&eacute;dito? <span class="text-danger">*</span></label>
 																			<div class="col-lg-12">
 																				<select class="form-control" class="tipoclientecredito" id="valestadofinalcreditos" name="valestadofinalcreditos">
 																					<option value="">Seleccione una opci&oacute;n...</option>
@@ -944,7 +944,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 																								</div>
 																								<small style="font-size: 1rem;"><strong>Su cr&eacute;dito solicitado es de $ <span id="monto-credito-solicitado" class="monto-credito-solicitado"><strong><?php echo number_format($Gestiones->getMontoFinanciamientoCreditos(), 2); ?></strong></span> USD.</strong></small><br>
 																								<?php
-																								if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+																								if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 																								?>
 																									<small style="font-size: .95rem;"><strong>Monto final a financiar: $<span class="calculofinanciamientomaximo" id="calculofinanciamientomaximo"><?php echo number_format($Gestiones->getMontoFinanciamientoCreditos() * .9, 2); ?></span> USD.</strong></small><br>
 																									<small style="font-size: .8rem;"><strong>Monto final a entregar: $<span class="calculodesembolso" id="calculodesembolso"><?php echo number_format($DesembolsoClientes = $Gestiones->getMontoFinanciamientoCreditos() * .9 - $GastosAdministrativos, 2) ?></span> USD.</strong></small><br>
@@ -953,7 +953,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 																								<?php } ?>
 																								<ul class="list-group list-group-flush">
 																									<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Tasa de Inter&eacute;s Mensual : </span><span><strong id="tasa-interes-credito" class="tasa-interes-credito"><?php echo $Gestiones->getTasaInteresCreditos(); ?></strong>%</span> </li>
-																									<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Plazo :</span><strong id="plazo-credito" class="plazo-credito"><?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+																									<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Plazo :</span><strong id="plazo-credito" class="plazo-credito"><?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 																																																																											echo "a&ntilde;os";
 																																																																										} else {
 																																																																											echo "meses";
@@ -962,12 +962,12 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 																												<?php echo number_format($SeguroDeuda, 2); ?>
 																											</strong><strong> USD</strong></span> </li>
 																									<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Gastos Administrativos : </span><span><strong>$</strong><strong id="gastosadministrativos" class="gastosadministrativos"><?php echo number_format($GastosAdministrativos, 2); ?></strong><strong> USD</strong></span></li>
-																									<?php if ($Gestiones->getNombreProductos() == "PrÃ©stamos de VehÃ­culos") { ?>
+																									<?php if ($Gestiones->getNombreProductos() == "Préstamos de Vehículos") { ?>
 																										<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Servicio GPS : </span><span><strong>$</strong><strong id="serviciogps" class="serviciogps"><?php echo $ServicioGPS; ?></strong><strong> USD</strong></span> </li><br>
 																										<p>** Todos los clientes est&aacute;n obligados a contratar una p&oacute;liza de seguro contra da&ntilde;os. Es parte de los requisitos para poder aprobar dicho cr&eacute;dito. <strong>La compa&ntilde;ia puede ser de su elecci&oacute;n.</strong></p>
 																									<?php } ?>
 																									<?php
-																									if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+																									if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
 																									?>
 																										<br>
 																										<p>** Gastos de escrituraci&oacute;n, aval&uacute;o y relacionados, ser&aacute;n por cuenta del cliente ante la entidad correspondiente.</p>
@@ -1106,20 +1106,20 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 			<?php
 			// VALIDACION DE CARGA DE SCRIPTS SEGUN PRODUCTO REGISTRADO EN LA SOLICITUD DE CREDITO
 			// -> PRESTAMOS PERSONALES
-			if ($Gestiones->getNombreProductos() == "PrÃ©stamos Personales") {
+			if ($Gestiones->getNombreProductos() == "Préstamos Personales") {
 			?>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/gestiones-creditos.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/calculocuotamensualclientes.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/ConsultarRequisitosPrestamosPersonales.js"></script>
 			<?php
 				// -> PRESTAMOS HIPOTECARIOS
-			} else if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") { ?>
+			} else if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") { ?>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/gestiones-creditos-hipotecarios.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/calculocuotamensualhipotecasclientes.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/ConsultarRequisitosPrestamosHipotecarios.js"></script>
 			<?php
 				// -> PRESTAMOS PARA VEHICULOS
-			} else if ($Gestiones->getNombreProductos() == "PrÃ©stamos de VehÃ­culos") { ?>
+			} else if ($Gestiones->getNombreProductos() == "Préstamos de Vehículos") { ?>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/gestiones-creditos.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/calculocuotamensualvehiculos.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/ConsultarRequisitosPrestamosVehiculos.js"></script>
@@ -1129,7 +1129,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 				const firstCalendar = MCDatepicker.create({
 					el: '#valfechaingresosolicitud',
 					customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-					customWeekDays: ['Domingo', 'Lunes', 'Martes', 'MiÃ©rcoles', 'Jueves', 'Viernes', 'Sabado'],
+					customWeekDays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'],
 					dateFormat: 'YYYY-MM-DD',
 					customOkBTN: 'OK',
 					customClearBTN: 'Limpiar',

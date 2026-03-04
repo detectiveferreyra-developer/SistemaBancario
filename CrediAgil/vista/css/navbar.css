@@ -1,99 +1,113 @@
 /* =====================================================
-   CrediAgil — Navbar Superior Integrado en el Header
-   Sincronizado con el Sidebar (Color y Formato)
+   CrediAgil — Navbar Superior idéntico al Sidebar
    ===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600;700&display=swap');
-
-/* ===== Color oscuro UNIFICADO (Header y Sidebar) ===== */
-:root {
-    --ca-dark-bg: #051923;
-    --ca-active-color: #6418c3;
-    /* Color de la plantilla para activos */
-    --ca-text-dim: rgba(255, 255, 255, 0.7);
-}
-
+/* ===== Color del Header igual al Sidebar (Navy) ===== */
 .header,
-.nav-header,
-.deznav {
-    background: var(--ca-dark-bg) !important;
-}
-
-.header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 .nav-header {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--crediagil-blue) !important;
+    border-bottom: none !important;
 }
 
-/* ===== Sidebar text colors for dark background ===== */
-.deznav .metismenu a {
-    color: var(--ca-text-dim) !important;
+.header-left .logo-abbr {
+    background-color: transparent !important;
 }
 
-.deznav .metismenu>li:hover>a,
-.deznav .metismenu>li:focus>a,
-.deznav .metismenu>li.mm-active>a {
-    color: #ffffff !important;
-}
-
-/* ===== Hamburger blanco ===== */
+/* Hamburger color blanco para que resalte en azul marino */
 .hamburger .line {
     background: #ffffff !important;
 }
 
-/* ===== Botones del Navbar con formato de Sidebar ===== */
-.ca-header-nav {
+/* Perfil de usuario texto blanco/gris */
+.header-profile .header-info span {
+    color: #ffffff !important;
+}
+
+.header-profile .header-info p,
+.header-profile .header-info .fs-12 {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* =====================================================
+   Menu Horizontal (copia exacta del formato del sidebar)
+   ===================================================== */
+.metismenu-horizontal {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    align-items: stretch;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 0;
+    height: 100%;
 }
 
-.ca-nav-link {
+.metismenu-horizontal>li {
     display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    color: var(--ca-text-dim) !important;
-    text-decoration: none !important;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    font-family: 'Asap', sans-serif;
+    align-items: stretch;
     position: relative;
 }
 
-.ca-nav-link svg {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    stroke: var(--ca-text-dim);
+/* Enlaces del nav: mismo pad, fuente y color que sidebar (.deznav .metismenu > li > a) */
+.metismenu-horizontal>li>a {
+    display: flex;
+    align-items: center;
+    padding: 0 1.25rem;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--crediagil-white) !important;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    height: 100%;
 }
 
-.ca-nav-link:hover,
-.ca-nav-link.ca-active {
-    color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.1);
+.metismenu-horizontal>li>a svg {
+    max-width: 24px;
+    max-height: 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }
 
-.ca-nav-link.ca-active {
-    background: var(--ca-active-color) !important;
-    color: #ffffff !important;
+/* Colores Inactivos: SVG color igual al texto como en el sidebar (LightSlateGrey o var(--crediagil-white)) */
+.metismenu-horizontal>li:not(.mm-active)>a svg {
+    stroke: rgba(255, 255, 255, 0.7);
+    fill: rgba(255, 255, 255, 0.7);
 }
 
-.ca-nav-link.ca-active svg {
-    stroke: #ffffff;
-    fill: rgba(255, 255, 255, 0.2);
+.metismenu-horizontal>li:not(.mm-active)>a {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/* ===== Perfil de usuario ===== */
-.header .header-info span {
-    color: #ffffff !important;
+/* Hover, Focus, y Active: Idéntico al sidebar */
+.metismenu-horizontal>li:hover>a,
+.metismenu-horizontal>li:focus>a,
+.metismenu-horizontal>li.mm-active>a {
+    background-color: var(--crediagil-blue-light) !important;
+    color: var(--crediagil-orange) !important;
 }
 
-.header .header-info p {
-    color: var(--ca-text-dim) !important;
+/* Si el sidebar original le cambiaba el color al icono en hover/active: */
+.metismenu-horizontal>li:hover>a svg,
+.metismenu-horizontal>li:focus>a svg,
+.metismenu-horizontal>li.mm-active>a svg {
+    stroke: var(--crediagil-orange) !important;
+    fill: var(--crediagil-orange) !important;
+}
+
+/* Indicador visual de elemento activo (el left-border del sidebar pasado a bottom-border en la navbar) */
+.metismenu-horizontal>li.mm-active>a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--crediagil-orange);
+}
+
+/* En resoluciones menores a lg, hacer scroll horizontal */
+@media (max-width: 1199px) {
+    .header-left {
+        overflow-x: auto;
+    }
 }

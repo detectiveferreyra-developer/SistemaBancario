@@ -3242,6 +3242,41 @@ switch ($peticion_url) {
         } // CIERRE if ($_SESSION['id_rol'] == 3)
         break;
     // LISTADO GENERAL DE CLIENTES A LOS QUE LES HA SIDO APROBADA SU SOLICITUD CREDITICIA [UNICAMENTE CREDITOS ACTIVOS -> EN CURSO] [DISPONIBLE PARA ADMINISTRADORES, PRESIDENCIA, GERENCIA Y ATENCION AL CLIENTE]
+
+    // ======================================================
+    // ALIAS ROUTES — Nuevos nombres del menú refactorizado
+    // ======================================================
+    case "listado_clientes":
+        // Alias: "Creditos Pagados" -> redirige al listado general de creditos activos
+        header('location:cGestionesCrediAgil.php?CrediAgilgestion=listado-general-creditos-aprobados-activos');
+        break;
+
+    case "listado_morosos":
+        // Alias: "Creditos Vencidos" -> redirige al listado de clientes morosos
+        header('location:cGestionesCrediAgil.php?CrediAgilgestion=consulta-listado-cuotas-clientes-morosos');
+        break;
+
+    case "proximos_vencer":
+        // NUEVO MODULO: Proximos a Vencer (creditos que vencen en los proximos 7 dias)
+        if ($_SESSION['id_rol'] == 1) {
+            $IdUsuarios = $_SESSION['id_usuario'];
+            $consulta = $Gestiones->ConsultaProximosVencerCreditos($conectarsistema);
+            $consulta1 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema1, $IdUsuarios);
+            require('../vista/Administradores/proximos-a-vencer.php');
+            $conectarsistema->close();
+            $conectarsistema1->close();
+            $conectarsistema2->close();
+            $conectarsistema3->close();
+        } else {
+            header('location:cGestionesCrediAgil.php?CrediAgilgestion=error-sin-permiso-sistema-CrediAgil');
+        }
+        break;
+
+    case "registrar_reporte":
+        // Alias: "Soporte Tecnico" -> redirige al formulario de registro de tickets
+        header('location:cGestionesCrediAgil.php?CrediAgilgestion=registrar-ticket-problema-plataforma');
+        break;
+
     case "listado-general-creditos-aprobados-activos":
         // VISTA VALIDA PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
@@ -3787,7 +3822,7 @@ switch ($peticion_url) {
         } // CIERRE if($_SESSION['id_rol'] >=1 && $_SESSION['id_rol'] <=5)
         break;
     // CONSULTA COMPLETA DE TODOS LOS REPORTES DE FALLOS REGISTRADOS POR LOS USUARIOS -> VALIDO EXCLUSIVAMENTE PARA USUARIOS ADMINISTRADORES Y PRESIDENCIA [SOLAMENTE CONSULTAS SIN LA POSIBILIDAD DE GESTIONAR DICHOS REPORTES]
-    case "consulta-listado-tickets-reportes-plataforma":
+    /* DEPRECATED — eliminado del menú: Listado Reportes Problemas
         // VISTA VALIDA PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
@@ -3805,7 +3840,7 @@ switch ($peticion_url) {
             // SI EL USUARIO SE ENCUENTRA LOGUEADO, REDIRECCIONA A PAGINA PRINCIPAL DE PORTAL SEGUN SU ROL DE USUARIO ASIGNADO
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if($_SESSION['id_rol'] == 1)
-        break;
+        break;  */ /* DEPRECATED END */
     // CONSULTA COMPLETA DE TODOS LOS REPORTES DE FALLOS REGISTRADOS POR LOS USUARIOS -> VALIDO EXCLUSIVAMENTE PARA USUARIOS ADMINISTRADORES Y PRESIDENCIA [SOLAMENTE CONSULTAS SIN LA POSIBILIDAD DE GESTIONAR DICHOS REPORTES]
     case "consulta-listado-tickets-reportes-plataforma-presidencia":
         // VISTA VALIDA PARA PRESIDENCIA
@@ -3921,7 +3956,7 @@ switch ($peticion_url) {
         } // CIERRE if($_SESSION['id_rol'] == 4)
         break;
     // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃgil [ESPECIFICAMENTE ORDENES DE PAGO SEGUN LA CUOTA A CANCELAR {ID DE CUOTA GENERADA EN SISTEMA}] -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
-    case "orden-pago-creditos-CrediAgil-clientes":
+    /* DEPRECATED  eliminado del menú: Cobro Orden de Pago
         // VISTA VALIDA PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
             $IdCuotas = (empty($_GET['idcuota'])) ? NULL : $_GET['idcuota']; // ID CUOTA UNICO ASOCIADO A CLIENTE -> PRODUCTO -> CREDITO
@@ -3942,7 +3977,7 @@ switch ($peticion_url) {
             // SI EL USUARIO SE ENCUENTRA LOGUEADO, REDIRECCIONA A PAGINA PRINCIPAL DE PORTAL SEGUN SU ROL DE USUARIO ASIGNADO
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if($_SESSION['id_rol'] == 1)
-        break;
+        break;  */ /* DEPRECATED END */
     // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃgil [ESPECIFICAMENTE ORDENES DE PAGO SEGUN LA CUOTA A CANCELAR {ID DE CUOTA GENERADA EN SISTEMA}] -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
     case "orden-pago-creditos-CrediAgil-clientes-atencion-al-cliente":
         // VISTA VALIDA PARA ATENCION AL CLIENTE

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
@@ -56,7 +56,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         </style>
     </head>
 
-    <body>
+    <body class="has-topnav">
         <!--*******************
         Preloader start
         ********************-->
@@ -72,109 +72,31 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         ********************-->
 
         <div id="main-wrapper">
-            <!--**********************************
-            Nav header start
-            ***********************************-->
-            <div class="nav-header">
-                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores"
-                    class="brand-logo">
-                    <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-                    <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-                    <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-                </a>
-                <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="line"></span><span class="line"></span><span class="line"></span>
-                    </div>
-                </div>
-            </div>
-            <!--**********************************
-            Nav header end
-            ***********************************-->
+			<?php require('../vista/MenuNavegacion/navbar-administradores.php'); ?>
 
-            <!--**********************************
-            Header start
-            ***********************************-->
-            <div class="header">
-                <div class="header-content">
-                    <nav class="navbar navbar-expand">
-                        <div class="collapse navbar-collapse justify-content-between">
-                            <div class="header-left">
-                                <div class="dashboard_bar">
-                                    <h4 style="font-weight: 600;">Estadísticas</h4>
-                                </div>
-                            </div>
-                            <ul class="navbar-nav header-right">
-                                <li class="nav-item dropdown notification_dropdown">
-                                    <a class="nav-link ai-icon" href="#" role="button" data-toggle="dropdown">
-                                        <svg fill="#6418C3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M22 20H2v-2h1v-6.969C3 6.043 7.03 2 12 2s9 4.043 9 9.031V18h1v2zM5 18h14v-6.969C19 7.148 15.866 4 12 4s-7 3.148-7 7.031V18zm4.5 3h5a2.5 2.5 0 1 1-5 0z" />
-                                        </svg>
-                                        <span class="badge light text-white bg-primary">
-                                            <?php echo NumeroNotificacionesRecibidasUsuarios($conectarsistema2, $_SESSION['id_usuario']); ?>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item dropdown header-profile">
-                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                        <div class="header-info">
-                                            <span class="text-black">Hola, <strong>
-                                                    <?php $Nombre = $_SESSION['nombre_usuario'];
-                                                    $PrimerNombre = explode(' ', $Nombre, 2);
-                                                    print_r($PrimerNombre[0]); ?>
-                                                </strong></span>
-                                            <p class="fs-12 mb-0">
-                                                <?php if ($_SESSION['id_rol'] == 1) {
-                                                    echo "Administradores";
-                                                } else if ($_SESSION['id_rol'] == 2) {
-                                                    echo "Presidencia";
-                                                } else if ($_SESSION['id_rol'] == 3) {
-                                                    echo "Gerencia";
-                                                } else if ($_SESSION['id_rol'] == 4) {
-                                                    echo "Atenci&oacute;n al Cliente";
-                                                } else if ($_SESSION['id_rol'] == 5) {
-                                                    echo "Clientes";
-                                                } ?>
-                                            </p>
-                                        </div>
-                                        <img src="<?php echo $UrlGlobal; ?>vista/images/fotoperfil/<?php echo $_SESSION['foto_perfil']; ?>"
-                                            width="20" alt="" />
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="<?php echo $UrlGlobal ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=perfiladministradores"
-                                            class="dropdown-item ai-icon">
-                                            <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
-                                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                                <circle cx="12" cy="7" r="4"></circle>
-                                            </svg>
-                                            <span class="ml-2">Mi Perfil </span>
-                                        </a>
-                                        <a href="<?php echo $UrlGlobal ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=cerrarsesion"
-                                            class="dropdown-item ai-icon">
-                                            <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
-                                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                                <polyline points="16 17 21 12 16 7"></polyline>
-                                                <line x1="21" y1="12" x2="9" y2="12"></line>
-                                            </svg>
-                                            <span class="ml-2">Cerrar Sesi&oacute;n </span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <!--**********************************
-            Header end
-            ***********************************-->
+<!--**********************************
+Nav header start
+***********************************-->
+<div class="nav-header">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+<img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+<img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+</a>
+<div class="nav-control">
+<div class="hamburger">
+<span class="line"></span><span class="line"></span><span class="line"></span>
+</div>
+</div>
+</div>
+<!--**********************************
+Nav header end
+***********************************-->
+
+
+            
+
+            
 
             <!--**********************************
             Sidebar start
@@ -763,3 +685,5 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 
     </html>
 <?php } ?>
+
+

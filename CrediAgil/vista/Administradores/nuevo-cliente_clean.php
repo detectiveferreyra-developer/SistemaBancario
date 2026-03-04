@@ -236,87 +236,36 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         </style>
     </head>
 
-    <body>
-
-        <!--*******************
-        Preloader start
-    ********************-->
-        <div id="preloader">
-            <div class="sk-three-bounce">
-                <div class="sk-child sk-bounce1"></div>
-                <div class="sk-child sk-bounce2"></div>
-                <div class="sk-child sk-bounce3"></div>
-            </div>
-        </div>
-        <!--*******************
-        Preloader end
-    ********************-->
+    <body class="has-topnav">
 
         <!--**********************************
-        Main wrapper start
-    ***********************************-->
+            Main wrapper start
+        ***********************************-->
         <div id="main-wrapper">
+            <?php require('../vista/MenuNavegacion/navbar-administradores.php'); ?>
 
-            <!--**********************************
-            Nav header start
-        ***********************************-->
-            <div class="nav-header">
-                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores"
-                    class="brand-logo">
-                    <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-                    <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-                    <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-                </a>
+<!--**********************************
+Nav header start
+***********************************-->
+<div class="nav-header">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+<img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+<img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+</a>
+<div class="nav-control">
+<div class="hamburger">
+<span class="line"></span><span class="line"></span><span class="line"></span>
+</div>
+</div>
+</div>
+<!--**********************************
+Nav header end
+***********************************-->
 
-                <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="line"></span><span class="line"></span><span class="line"></span>
-                    </div>
-                </div>
-            </div>
-            <!--**********************************
-            Nav header end
-        ***********************************-->
 
-            <!--**********************************
-            Header start
-        ***********************************-->
-            <div class="header">
-                <div class="header-content">
-                    <nav class="navbar navbar-expand">
-                        <div class="collapse navbar-collapse justify-content-between">
-                            <div class="header-left">
-                                <div class="dashboard_bar">
-                                    Nuevo Cliente
-                                </div>
-                            </div>
-                            <ul class="navbar-nav header-right">
-                                <li class="nav-item dropdown header-profile">
-                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                        <img src="<?php echo $UrlGlobal; ?>vista/images/profile/pic1.jpg" width="20"
-                                            alt="" />
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=perfil-administradores"
-                                            class="dropdown-item ai-icon">
-                                            <span class="ml-2">Perfil</span>
-                                        </a>
-                                        <a href="<?php echo $UrlGlobal; ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=cerrarsesion"
-                                            class="dropdown-item ai-icon">
-                                            <span class="ml-2">Cerrar Sesión</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
 
-            <!--**********************************
+        <!--**********************************
             Sidebar start
         ***********************************-->
             <?php require('../vista/MenuNavegacion/menu-administradores.php'); ?>
@@ -1201,3 +1150,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     <?php
 } // CIERRE else
 ?>
+
+
+
+
+

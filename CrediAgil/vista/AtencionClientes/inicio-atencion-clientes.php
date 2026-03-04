@@ -1,14 +1,14 @@
-<?php
+ï»¿<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
-// DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPAï¿½OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEï¿½A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -16,26 +16,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     ?>
     <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½=======================================================
+ï¿½ï¿½              CrediAgil S.A DE C.V                                                  
+ï¿½ï¿½          SISTEMA FINANCIERO / BANCARIO 
+ï¿½ï¿½=======================================================                      
+ï¿½ï¿½                                                                               
+ï¿½ï¿½ -> AUTOR: DANIEL RIVERA                                                               
+ï¿½ï¿½ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+ï¿½ï¿½ -> GITHUB: (danielrivera03)                                             
+ï¿½ï¿½ -> TODOS LOS DERECHOS RESERVADOS                           
+ï¿½ï¿½     ï¿½ 2021 - 2022    
+ï¿½ï¿½                                                      
+ï¿½ï¿½ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+ï¿½ï¿½    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+ï¿½ï¿½
+ï¿½ï¿½          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+ï¿½ï¿½                                                                               
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 -->
     <!DOCTYPE html>
@@ -668,17 +668,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                             </svg>
                                             <span class="ml-2">Mi Perfil </span>
                                         </a>
-                                        <a href="./email-inbox.html" class="dropdown-item ai-icon">
-                                            <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success"
-                                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <path
-                                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                                </path>
-                                                <polyline points="22,6 12,13 2,6"></polyline>
-                                            </svg>
-                                            <span class="ml-2">Inbox </span>
-                                        </a>
+                                        
                                         <a href="<?php echo $UrlGlobal ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=cerrarsesion"
                                             class="dropdown-item ai-icon">
                                             <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"

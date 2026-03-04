@@ -10,14 +10,6 @@ setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// NO PERMITIR INGRESO SI PARAMETRO NO HA SIDO ESPECIFICADO
-if (empty($_GET['idreporte'])) {
-	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
-}
-// NO PERMITIR INGRESO SI NO EXISTE INFORMACION QUE MOSTRAR
-if (empty($Gestiones->getIdReportePlataforma())) {
-	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
-}
 // SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
@@ -55,7 +47,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>CrediAgil | Actualizaci&oacute;n Reportes Fallos Plataforma</title>
+		<title>CrediAgil | Listado Próximos a Vencer </title>
 		<!-- Favicon icon -->
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-60x60.png">
@@ -148,84 +140,18 @@ Nav header end
 					<div class="page-titles">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="javascript:void(0)">Inicio</a></li>
-							<li class="breadcrumb-item"><a href="javascript:void(0)">Problemas</a></li>
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Actualizar Reportes Problemas</a></li>
+							<li class="breadcrumb-item"><a href="javascript:void(0)">Recuperaciones</a></li>
+							<li class="breadcrumb-item active"><a href="javascript:void(0)">Listado Próximos a Vencer</a></li>
 						</ol>
 					</div>
 					<div class="row">
-						<div class="col-xl-12">
-							<div class="alert alert-secondary alert-dismissible fade show">
-								<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-									<path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
-								</svg>
-								<strong>Este reporte ha sido registrado el : <?php $Registro = date_create($Gestiones->getFechaRegistroReportePlataforma());
-																				echo date_format($Registro, "d-m-Y");
-																				echo ' a las ';
-																				echo date_format($Registro, "H:i:s");
-																				echo ' <i class="ti-hand-point-right"></i> por el usuario ';
-																				echo $Gestiones->getCodigoUsuarios(); ?></strong>.
-							</div>
-							<?php
-							if ($Gestiones->getEstadoReportePlataforma() == "pendiente") {
-							?>
-								<div class="alert alert-danger alert-dismissible fade show">
-									<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-										<polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
-										<line x1="15" y1="9" x2="9" y2="15"></line>
-										<line x1="9" y1="9" x2="15" y2="15"></line>
-									</svg>
-									<strong>�Atenci&oacute;n! El estado de este reporte es [Pendiente]. Ning&uacute;n empleado se encuentra gestion&aacute;ndolo.</strong>
-								</div>
-							<?php } else if ($Gestiones->getEstadoReportePlataforma() == "en proceso") { ?>
-								<div class="alert alert-warning alert-dismissible fade show">
-									<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-										<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-										<line x1="12" y1="9" x2="12" y2="13"></line>
-										<line x1="12" y1="17" x2="12.01" y2="17"></line>
-									</svg>
-									<strong>�Ticket en proceso! El empleado <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?> se encuentra gestion&aacute;ndolo.</strong>
-								</div>
-							<?php } else if ($Gestiones->getEstadoReportePlataforma() == "no resuelto") { ?>
-								<div class="alert alert-danger alert-dismissible fade show">
-									<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-										<polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
-										<line x1="15" y1="9" x2="9" y2="15"></line>
-										<line x1="9" y1="9" x2="15" y2="15"></line>
-									</svg>
-									<strong>�Atenci&oacute;n! Este ticket de problema no pudo ser resuelto. No se encontr&oacute; la causa de alg&uacute;n fallo o el usuario no espec&iacute;fico correctamente el problema.</strong>
-								</div>
-							<?php } else if ($Gestiones->getEstadoReportePlataforma() == "resuelto") { ?>
-								<div class="alert alert-success alert-dismissible fade show">
-									<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-										<polyline points="9 11 12 14 22 4"></polyline>
-										<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-									</svg>
-									<strong>�Ticket Resuelto! Se ha solventado con &eacute;xito el problema de este ticket.<br>Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
-								</div>
-							<?php } else if ($Gestiones->getEstadoReportePlataforma() == "cerrado") { ?>
-								<div class="alert alert-dark alert-dismissible fade show">
-									<i style="font-size: 1.4rem; font-weight: bold;" class="ti-na"></i>
-									<strong>�Ticket Cerrado! Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
-								</div>
-							<?php } ?>
-							<div class="alert alert-dark alert-dismissible fade show">
-								<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-									<polyline points="9 11 12 14 22 4"></polyline>
-									<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-								</svg>
-								<strong>&Uacute;ltima actualizaci&oacute;n de este reporte :</strong> <?php $Registro = date_create($Gestiones->getFechaActualizacionReportePlataforma());
-																										echo date_format($Registro, "d-m-Y");
-																										echo ' a las ';
-																										echo date_format($Registro, "H:i:s"); ?>.
-							</div>
-						</div>
 						<div class="card-body">
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" role="tablist">
 								<li class="nav-item">
 									<a class="nav-link active" data-toggle="tab" href="#home8">
 										<span>
-											<i class="ti-cloud-up"></i>
+											<i class="ti-alert"></i>
 										</span>
 									</a>
 								</li>
@@ -234,126 +160,82 @@ Nav header end
 							<div class="tab-content tabcontent-border">
 								<div class="tab-pane fade show active" id="home8" role="tabpanel">
 									<div class="pt-4">
-
-										<br>
-										<form id="actualizacion-reportesfallos" class="validacion-registro-ticket-problemas" method="post" autocomplete="off" enctype="multipart/form-data">
-											<div class="row form-validation">
-												<div class="col-lg-12 mb-2">
-													<div class="form-group">
-														<input type="hidden" name="idunicoreportefalloplataforma" value="<?php echo $Gestiones->getIdReportePlataforma(); ?>">
-														<label class="text-label">Nombre de Ticket Reporte <span class="text-danger">*</span></label>
-														<div class="col-lg-12">
-															<input style="cursor: no-drop;" type="text" class="form-control" id="val-nombrereporte" name="val-nombrereporte" placeholder="Ingrese el nombre del ticket del reporte" value="<?php echo $Gestiones->getNombreReportePlataforma(); ?>" disabled>
+										<h4>Listado de Cuotas Próximos a Vencer CrediAgil</h4><br>
+										<p>Estimado(a) <?php $Nombre = $_SESSION['nombre_usuario'];
+														$PrimerNombre = explode(' ', $Nombre, 2);
+														print_r($PrimerNombre[0]); ?>, en este apartado encontrar&aacute;s el listado completo de todos los clientes que presentan irregularidades de pagos en su responsabilidad mercantil con nuestra empresa. <strong>Usted podr&aacute; consultar el perfil de los clientes y contactar a cada uno de ellos hasta que solventen su irregularidad.</strong> Por favor consulte el estado de cuenta del cliente en cuesti&oacute;n para brindar con exactitud la cuota que presenta la correspondiente irregularidad. Ac&aacute; solo se muestra el identificador &uacute;nico asignado en nuestro sistema. <strong>Para filtrar resultados de un solo cliente, solamente digite el n&uacute;mero de dui del cliente en cuesti&oacute;n en el buscador.</strong></p>
+										<div class="table-responsive">
+											<table style="width: 100%;" id="example5" class="display min-w850">
+												<thead>
+													<tr>
+														<th>Id Cuota</th>
+														<th>Producto</th>
+														<th>Cliente</th>
+														<th>Dui</th>
+														<th>Cuota</th>
+														<th>D&iacute;a(s) Restantes</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php
+													while ($filas = mysqli_fetch_array($consulta)) {
+														echo ' 
+													<tr>
+                                                    <td><span class="badge badge-rounded badge-primary">';
+														echo $filas['idcuotas'];
+														echo '</span></td>
+                                                    <td>';
+														echo $filas['nombreproducto'];
+														echo '</td>
+													<td>';
+														echo $filas['nombres'];
+														echo ' ';
+														echo $filas['apellidos'];
+														echo '</td>
+                                                    <td><span class="badge badge-rounded badge-info">';
+														echo $filas['dui'];
+														echo '</span></td>
+													<td><span class="badge badge-rounded badge-light"> $';
+														echo number_format($filas['montocancelar'], 2);
+														echo ' USD</span></td>
+													<td><a href="javascript:void()" class="badge badge-rounded badge-danger">';
+														echo $filas['dias_restantes'];
+														echo ' d&iacute;a(s)</a></td>
+													<td>
+													<div class="dropdown ml-auto text-right">
+														<div class="btn-link" data-toggle="dropdown">
+															<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+														</div>
+														<div style="padding: .5rem;" class="dropdown-menu dropdown-menu-right">
+															<a target="_blank" href="';
+														echo $UrlGlobal;
+														echo 'controlador/cGestionesCrediAgil.php?CrediAgilgestion=consulta-perfil-clientes-departamento-recuperacion&idusuario=';
+														echo $filas['idusuarios'];
+														echo '"> <i class="ti-help-alt"></i> Perfil de Cliente</a><br>
+                                                            <a target="_blank" href="';
+														echo $UrlGlobal;
+														echo 'controlador/cGestionesCrediAgil.php?CrediAgilgestion=consulta-especifica-solicitudes-creditos-aprobadas-activas-clientes&idusuario=';
+														echo $filas['idusuarios'];
+														echo '"> <i class="ti-help-alt"></i> Estado de Cuenta</a>
 														</div>
 													</div>
-												</div>
-												<div class="col-lg-12 mb-2">
-													<div class="form-group">
-														<label class="text-label">Descripci&oacute;n Completa <span class="text-danger">*</span></label>
-														<div class="col-lg-12">
-															<textarea style="cursor: no-drop;" class="form-control" placeholder="Ingrese la descripci&oacute;n completa de su ticket de reporte" id="val-descripcion-reporte" name="val-descripcion-reporte" rows="10" disabled><?php echo $Gestiones->getDescripcionReportePlataforma(); ?></textarea>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-12 mb-2">
-													<div class="form-group">
-														<label class="text-label">Fotograf&iacute;a de Reporte <span class="text-danger">*</span></label>
-														<div class="col-lg-12">
-															<img style="max-width: 600px; display: block; margin: auto;" class="img-fluid" src="<?php echo $UrlGlobal; ?>vista/images/fotoreportesplataforma/<?php echo $Gestiones->getFotoReportePlataforma(); ?>">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-12 mb-2">
-													<div class="form-group">
-														<label class="text-label">Seleccione un Estado <span class="text-danger">*</span></label>
-														<div class="col-lg-12">
-															<select <?php if ($Gestiones->getEstadoReportePlataforma() == "no resuelto" || $Gestiones->getEstadoReportePlataforma() == "resuelto" || $Gestiones->getEstadoReportePlataforma() == "cerrado") {
-																		echo 'style="cursor: no-drop;" disabled';
-																	} ?> class="form-control" id="val-estado-reporte-plataforma" name="val-estado-reporte-plataforma">
-																<?php
-																if ($Gestiones->getEstadoReportePlataforma() == "pendiente") {
-																?>
-																	<option value="">Seleccione una opci&oacute;n...</option>
-																	<option value="en proceso">Ticket En Proceso</option>
-																	<option value="no resuelto">Ticket No Resuelto</option>
-																	<option value="resuelto">Ticket Resuelto</option>
-																<?php
-																} else if ($Gestiones->getEstadoReportePlataforma() == "en proceso") {
-																?>
-																	<option value="en proceso">Ticket En Proceso</option>
-																	<option value="no resuelto">Ticket No Resuelto</option>
-																	<option value="resuelto">Ticket Resuelto</option>
-																<?php
-																} else if ($Gestiones->getEstadoReportePlataforma() == "no resuelto") {
-																?>
-																	<option value="no resuelto">Ticket No Resuelto</option>
-																<?php
-																} else if ($Gestiones->getEstadoReportePlataforma() == "resuelto") {
-																?>
-																	<option value="resuelto">Ticket Resuelto</option>
-																<?php
-																} else if ($Gestiones->getEstadoReportePlataforma() == "cerrado") {
-																?>
-																	<option value="cerrado">Ticket Cerrado</option>
-																<?php } ?>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-12 mb-2">
-													<div class="form-group">
-														<label class="text-label">Comentario de Actualizaci&oacute;n <span class="text-danger">*</span></label>
-														<div class="col-lg-12">
-															<textarea <?php if ($Gestiones->getEstadoReportePlataforma() == "no resuelto" || $Gestiones->getEstadoReportePlataforma() == "resuelto" || $Gestiones->getEstadoReportePlataforma() == "cerrado") {
-																			echo 'style="cursor: no-drop;" disabled';
-																		} ?> class="form-control" placeholder="Ingrese el comentario de actualizaci&oacute;n de este reporte" id="val-comentario-reporte" name="val-comentario-reporte" rows="6"><?php if (!empty($Gestiones->getComentarioActualizacionReportePlataforma())) {
-																																																														echo $Gestiones->getComentarioActualizacionReportePlataforma();
-																																																													} ?></textarea>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- ENVIO DATOS -->
-											<button <?php if ($Gestiones->getEstadoReportePlataforma() == "no resuelto" || $Gestiones->getEstadoReportePlataforma() == "resuelto" || $Gestiones->getEstadoReportePlataforma() == "cerrado") {
-														echo 'style="cursor: no-drop;" disabled';
-													} ?> type="submit" class="btn btn-rounded btn-primary"><span class="btn-icon-left text-primary"><i class="ti-pencil"></i></span>Actualizar Ticket de Fallos</button><br><br>
-											<?php if ($Gestiones->getEstadoReportePlataforma() == "no resuelto") { ?>
-												<div class="alert alert-danger alert-dismissible fade show">
-													<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-														<polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
-														<line x1="15" y1="9" x2="9" y2="15"></line>
-														<line x1="9" y1="9" x2="15" y2="15"></line>
-													</svg>
-													<strong>�Atenci&oacute;n! Este ticket de problema no pudo ser resuelto. No se encontr&oacute; la causa de alg&uacute;n fallo o el usuario no espec&iacute;fico correctamente el problema.</strong>
-												</div>
-											<?php } else if ($Gestiones->getEstadoReportePlataforma() == "resuelto") { ?>
-												<div class="alert alert-success alert-dismissible fade show">
-													<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-														<polyline points="9 11 12 14 22 4"></polyline>
-														<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-													</svg>
-													<strong>�Ticket Resuelto! Se ha solventado con &eacute;xito el problema de este ticket.<br>Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
-												</div>
-											<?php } else if ($Gestiones->getEstadoReportePlataforma() == "cerrado") { ?>
-												<div class="alert alert-dark alert-dismissible fade show">
-													<i style="font-size: 1.4rem; font-weight: bold;" class="ti-na"></i>
-													<strong>�Ticket Cerrado! Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
-												</div>
-											<?php } ?>
-										</form>
+												</td>									
+												</tr>
+													';
+													}
+													?>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
 		</div>
 		</div>
 
@@ -441,7 +323,7 @@ Nav header end
 		<script src="<?php echo $UrlGlobal; ?>vista/dropify/dist/js/dropify.min.js"></script>
 		<script src="<?php echo $UrlGlobal; ?>vista/js/dropzone-configuration.js"></script>
 		<script src="<?php echo $UrlGlobal; ?>vista/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
-		<script src="<?php echo $UrlGlobal; ?>vista/js/alerta-actualizacion-reportes-fallos-plataforma.js"></script>
+		<script src="<?php echo $UrlGlobal; ?>vista/js/alerta-enviar-solicitudes-creditos-clientes-historico.js"></script>
 		<!-- Datatable -->
 		<script src="<?php echo $UrlGlobal; ?>vista/vendor/datatables/js/jquery.dataTables.min.js"></script>
 		<script src="<?php echo $UrlGlobal; ?>vista/js/plugins-init/datatables.init.js"></script>
@@ -452,11 +334,11 @@ Nav header end
 		<script src="<?php echo $UrlGlobal; ?>vista/vendor/toastr/js/toastr.min.js"></script>
 		<!-- All init script -->
 		<script src="<?php echo $UrlGlobal; ?>vista/js/plugins-init/toastr-init.js"></script>
-
 	</body>
 
 	</html>
 <?php } ?>
+
 
 
 

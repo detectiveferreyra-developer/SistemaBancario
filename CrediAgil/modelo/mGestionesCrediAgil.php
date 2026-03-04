@@ -2410,6 +2410,32 @@ class GestionesClientes
         $resultado = mysqli_query($conectarsistema, "CALL ConsultaListadoGeneralCuotasClientesMorosos();");
         return $resultado;
     }
+
+    // CONSULTA DE CUOTAS PROXIMAS A VENCER (7 DIAS)
+    public function ConsultaProximosVencerCreditos($conectarsistema)
+    {
+        $query = "SELECT 
+                    cu.idcuotas, 
+                    p.nombreproducto, 
+                    u.nombres, 
+                    u.apellidos, 
+                    u.dui, 
+                    cu.montocancelar, 
+                    cu.fechavencimiento, 
+                    u.idusuarios, 
+                    DATEDIFF(cu.fechavencimiento, CURDATE()) as dias_restantes
+                  FROM cuotas cu
+                  INNER JOIN creditos c ON cu.idcreditos = c.idcreditos
+                  INNER JOIN productos p ON c.idproducto = p.idproducto
+                  INNER JOIN usuarios u ON c.idusuarios = u.idusuarios
+                  WHERE cu.estadocuota = 'pendiente' 
+                  AND cu.incumplimiento_pago = 'NO'
+                  AND cu.fechavencimiento BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY)
+                  ORDER BY cu.fechavencimiento ASC";
+
+        $resultado = mysqli_query($conectarsistema, $query);
+        return $resultado;
+    }
     // REGISTRO DE REPORTES FALLOS PLATAFORMA (TICKETS) -> DISPONIBLE PARA TODOS LOS USUARIOS
     public function RegistroFallosPlataforma_TicketsUsuarios($conectarsistema, $IdUsuarios, $NombreReportePlataforma, $DescripcionReportePlataforma, $FotoReportePlataforma, $FechaRegistroReportePlataforma, $EstadoReportePlataforma)
     {

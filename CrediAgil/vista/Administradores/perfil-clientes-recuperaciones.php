@@ -1,9 +1,9 @@
-<?php
+ï»¿<?php
 // NO PERMITIR INGRESO SI PARAMETRO NO HA SIDO ESPECIFICADO
 if (empty($_GET['idusuario'])) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
 }
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEï¿½A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -11,26 +11,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
     <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½=======================================================
+ï¿½ï¿½              CrediAgil S.A DE C.V                                                  
+ï¿½ï¿½          SISTEMA FINANCIERO / BANCARIO 
+ï¿½ï¿½=======================================================                      
+ï¿½ï¿½                                                                               
+ï¿½ï¿½ -> AUTOR: DANIEL RIVERA                                                               
+ï¿½ï¿½ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+ï¿½ï¿½ -> GITHUB: (danielrivera03)                                             
+ï¿½ï¿½ -> TODOS LOS DERECHOS RESERVADOS                           
+ï¿½ï¿½     ï¿½ 2021 - 2022    
+ï¿½ï¿½                                                      
+ï¿½ï¿½ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+ï¿½ï¿½    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+ï¿½ï¿½
+ï¿½ï¿½          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+ï¿½ï¿½                                                                               
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 -->
     <!DOCTYPE html>
@@ -70,7 +70,34 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 
     </head>
 
-    <body class="h-100">
+    <body class="has-topnav" class="h-100">
+
+        <!--**********************************
+            Main wrapper start
+        ***********************************-->
+        <div id="main-wrapper">
+            <?php require('../vista/MenuNavegacion/navbar-administradores.php'); ?>
+
+<!--**********************************
+Nav header start
+***********************************-->
+<div class="nav-header">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+<img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+<img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+</a>
+<div class="nav-control">
+<div class="hamburger">
+<span class="line"></span><span class="line"></span><span class="line"></span>
+</div>
+</div>
+</div>
+<!--**********************************
+Nav header end
+***********************************-->
+
+
         <div class="authincation h-100">
             <div class="container h-100">
                 <div class="row justify-content-center h-100 align-items-center">
@@ -336,10 +363,10 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                         </div>
                                                         <div class="col-9"><span><?php // OBTENER FECHA COMPLETA REGISTRADA
                                                                                     $Fecha = $Gestiones->getFechaNacimientoUsuarios();
-                                                                                    // CALCULAR EDAD ANTES DE CUMPLEAÑOS
+                                                                                    // CALCULAR EDAD ANTES DE CUMPLEAï¿½OS
                                                                                     $FechaCumpleanos = new DateTime($Fecha);
                                                                                     $Ahora = new DateTime();
-                                                                                    // COMPRUEBA SEGUN AÑO -> MES -> DIA
+                                                                                    // COMPRUEBA SEGUN Aï¿½O -> MES -> DIA
                                                                                     $CalcularEdad = $Ahora->diff($FechaCumpleanos);
                                                                                     echo $CalcularEdad->y;
                                                                                     echo " A&ntilde;os";
@@ -378,10 +405,12 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                             $Dato.val($(Elemento).text()).select();
                             document.execCommand("copy");
                             $Dato.remove();
-                            toastr.success("Dato solicitado copiado con éxito", "Copiado al Portapapeles");
+                            toastr.success("Dato solicitado copiado con ï¿½xito", "Copiado al Portapapeles");
                         }
                     </script>
     </body>
 
     </html>
 <?php } ?>
+
+

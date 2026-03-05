@@ -138,7 +138,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
             Nav header start
         ***********************************-->
             <div class="nav-header">
-                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales" class="brand-logo">
                     <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
                     <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
                     <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">

@@ -1,11 +1,11 @@
-﻿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPA�OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA?OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
@@ -18,7 +18,7 @@ if (empty($_GET['idreporte'])) {
 if (empty($Gestiones->getIdReportePlataforma())) {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
 }
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE?A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -26,26 +26,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
 	<!-- 
 
-���������������������������������������������������������
-���������������������������������������������������������
-��=======================================================
-��              CrediAgil S.A DE C.V                                                  
-��          SISTEMA FINANCIERO / BANCARIO 
-��=======================================================                      
-��                                                                               
-�� -> AUTOR: DANIEL RIVERA                                                               
-�� -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-�� -> GITHUB: (danielrivera03)                                             
-�� -> TODOS LOS DERECHOS RESERVADOS                           
-��     � 2021 - 2022    
-��                                                      
-�� -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-��    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-��
-��          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-��                                                                               
-����������������������������������������������������������
-����������������������������������������������������������
+?????????????????????????????????????????????????????????
+?????????????????????????????????????????????????????????
+??=======================================================
+??              CrediAgil S.A DE C.V                                                  
+??          SISTEMA FINANCIERO / BANCARIO 
+??=======================================================                      
+??                                                                               
+?? -> AUTOR: DANIEL RIVERA                                                               
+?? -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+?? -> GITHUB: (danielrivera03)                                             
+?? -> TODOS LOS DERECHOS RESERVADOS                           
+??     ? 2021 - 2022    
+??                                                      
+?? -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+??    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+??
+??          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+??                                                                               
+??????????????????????????????????????????????????????????
+??????????????????????????????????????????????????????????
 
 -->
 	<!DOCTYPE html>
@@ -112,7 +112,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 Nav header start
 ***********************************-->
 <div class="nav-header">
-<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales" class="brand-logo">
 <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
@@ -174,7 +174,7 @@ Nav header end
 										<line x1="15" y1="9" x2="9" y2="15"></line>
 										<line x1="9" y1="9" x2="15" y2="15"></line>
 									</svg>
-									<strong>�Atenci&oacute;n! El estado de este reporte es [Pendiente]. Ning&uacute;n empleado se encuentra gestion&aacute;ndolo.</strong>
+									<strong>?Atenci&oacute;n! El estado de este reporte es [Pendiente]. Ning&uacute;n empleado se encuentra gestion&aacute;ndolo.</strong>
 								</div>
 							<?php } else if ($Gestiones->getEstadoReportePlataforma() == "en proceso") { ?>
 								<div class="alert alert-warning alert-dismissible fade show">
@@ -183,7 +183,7 @@ Nav header end
 										<line x1="12" y1="9" x2="12" y2="13"></line>
 										<line x1="12" y1="17" x2="12.01" y2="17"></line>
 									</svg>
-									<strong>�Ticket en proceso! El empleado <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?> se encuentra gestion&aacute;ndolo.</strong>
+									<strong>?Ticket en proceso! El empleado <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?> se encuentra gestion&aacute;ndolo.</strong>
 								</div>
 							<?php } else if ($Gestiones->getEstadoReportePlataforma() == "no resuelto") { ?>
 								<div class="alert alert-danger alert-dismissible fade show">
@@ -192,7 +192,7 @@ Nav header end
 										<line x1="15" y1="9" x2="9" y2="15"></line>
 										<line x1="9" y1="9" x2="15" y2="15"></line>
 									</svg>
-									<strong>�Atenci&oacute;n! Este ticket de problema no pudo ser resuelto. No se encontr&oacute; la causa de alg&uacute;n fallo o el usuario no espec&iacute;fico correctamente el problema.</strong>
+									<strong>?Atenci&oacute;n! Este ticket de problema no pudo ser resuelto. No se encontr&oacute; la causa de alg&uacute;n fallo o el usuario no espec&iacute;fico correctamente el problema.</strong>
 								</div>
 							<?php } else if ($Gestiones->getEstadoReportePlataforma() == "resuelto") { ?>
 								<div class="alert alert-success alert-dismissible fade show">
@@ -200,12 +200,12 @@ Nav header end
 										<polyline points="9 11 12 14 22 4"></polyline>
 										<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
 									</svg>
-									<strong>�Ticket Resuelto! Se ha solventado con &eacute;xito el problema de este ticket.<br>Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
+									<strong>?Ticket Resuelto! Se ha solventado con &eacute;xito el problema de este ticket.<br>Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
 								</div>
 							<?php } else if ($Gestiones->getEstadoReportePlataforma() == "cerrado") { ?>
 								<div class="alert alert-dark alert-dismissible fade show">
 									<i style="font-size: 1.4rem; font-weight: bold;" class="ti-na"></i>
-									<strong>�Ticket Cerrado! Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
+									<strong>?Ticket Cerrado! Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
 								</div>
 							<?php } ?>
 							<div class="alert alert-dark alert-dismissible fade show">
@@ -324,7 +324,7 @@ Nav header end
 														<line x1="15" y1="9" x2="9" y2="15"></line>
 														<line x1="9" y1="9" x2="15" y2="15"></line>
 													</svg>
-													<strong>�Atenci&oacute;n! Este ticket de problema no pudo ser resuelto. No se encontr&oacute; la causa de alg&uacute;n fallo o el usuario no espec&iacute;fico correctamente el problema.</strong>
+													<strong>?Atenci&oacute;n! Este ticket de problema no pudo ser resuelto. No se encontr&oacute; la causa de alg&uacute;n fallo o el usuario no espec&iacute;fico correctamente el problema.</strong>
 												</div>
 											<?php } else if ($Gestiones->getEstadoReportePlataforma() == "resuelto") { ?>
 												<div class="alert alert-success alert-dismissible fade show">
@@ -332,12 +332,12 @@ Nav header end
 														<polyline points="9 11 12 14 22 4"></polyline>
 														<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
 													</svg>
-													<strong>�Ticket Resuelto! Se ha solventado con &eacute;xito el problema de este ticket.<br>Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
+													<strong>?Ticket Resuelto! Se ha solventado con &eacute;xito el problema de este ticket.<br>Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
 												</div>
 											<?php } else if ($Gestiones->getEstadoReportePlataforma() == "cerrado") { ?>
 												<div class="alert alert-dark alert-dismissible fade show">
 													<i style="font-size: 1.4rem; font-weight: bold;" class="ti-na"></i>
-													<strong>�Ticket Cerrado! Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
+													<strong>?Ticket Cerrado! Gestionado por &uacute;ltima vez por el empleado: <?php echo $Gestiones->getEmpleadoGestionandoReportePlataforma(); ?></strong>
 												</div>
 											<?php } ?>
 										</form>

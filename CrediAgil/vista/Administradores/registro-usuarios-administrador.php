@@ -1,16 +1,16 @@
-﻿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPA�OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA?OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE?A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -18,26 +18,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
 	<!-- 
 
-���������������������������������������������������������
-���������������������������������������������������������
-��=======================================================
-��              CrediAgil S.A DE C.V                                                  
-��          SISTEMA FINANCIERO / BANCARIO 
-��=======================================================                      
-��                                                                               
-�� -> AUTOR: DANIEL RIVERA                                                               
-�� -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-�� -> GITHUB: (danielrivera03)                                             
-�� -> TODOS LOS DERECHOS RESERVADOS                           
-��     � 2021 - 2022    
-��                                                      
-�� -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-��    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-��
-��          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-��                                                                               
-����������������������������������������������������������
-����������������������������������������������������������
+?????????????????????????????????????????????????????????
+?????????????????????????????????????????????????????????
+??=======================================================
+??              CrediAgil S.A DE C.V                                                  
+??          SISTEMA FINANCIERO / BANCARIO 
+??=======================================================                      
+??                                                                               
+?? -> AUTOR: DANIEL RIVERA                                                               
+?? -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+?? -> GITHUB: (danielrivera03)                                             
+?? -> TODOS LOS DERECHOS RESERVADOS                           
+??     ? 2021 - 2022    
+??                                                      
+?? -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+??    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+??
+??          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+??                                                                               
+??????????????????????????????????????????????????????????
+??????????????????????????????????????????????????????????
 
 -->
 	<!DOCTYPE html>
@@ -103,7 +103,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 Nav header start
 ***********************************-->
 <div class="nav-header">
-<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales" class="brand-logo">
 <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
@@ -162,12 +162,12 @@ Nav header end
 									</div>
 								</div>
 								<?php
-								// GENERAR CONTRASE�A DINAMICA 10 CARACTERES
+								// GENERAR CONTRASE?A DINAMICA 10 CARACTERES
 								if (isset($_POST['generar-clave-usuarios'])) {
-									// CADENA DE CARACTERES DISPONIBLES PARA CONTRASE�A
+									// CADENA DE CARACTERES DISPONIBLES PARA CONTRASE?A
 									$Cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
 									$ContraseniaAutomatica = "";
-									// GENERAR CONTRASE�A SEGUN CADENA Y LONGITUD DESEADA
+									// GENERAR CONTRASE?A SEGUN CADENA Y LONGITUD DESEADA
 									for ($i = 0; $i < 11; $i++) {
 										// SE OBTIENEN CARACTERES ALEATORIOS DE LA CADENA DISPONIBLE
 										$ContraseniaAutomatica .= substr($Cadena, rand(0, 62), 1);
@@ -243,7 +243,7 @@ Nav header end
 																	<input type="hidden" id="claves-generadas" value="<?php if (!empty($ContraseniaAutomatica)) {
 																															echo $ContraseniaAutomatica;
 																														}
-																														// VERIFICAMOS SI CONTRASE�A GENERADA ES IGUAL A LA INGRESADA EN CAMPO INDICADO, SI CUMPLE CONDICION, SE PROCEDE A DESBLOQUEAR LOS DEMAS CAMPOS
+																														// VERIFICAMOS SI CONTRASE?A GENERADA ES IGUAL A LA INGRESADA EN CAMPO INDICADO, SI CUMPLE CONDICION, SE PROCEDE A DESBLOQUEAR LOS DEMAS CAMPOS
 																														?>">
 																	<div class="col-lg-12">
 																		<input <?php if (empty($ContraseniaAutomatica)) {
@@ -340,7 +340,7 @@ Nav header end
 																	<span><i class="mdi mdi-alert"></i></span>
 																</div>
 																<div class="media-body">
-																	<h5 class="mt-1 mb-2">�Alerta! Datos de cliente - usuario anterior activos</h5>
+																	<h5 class="mt-1 mb-2">?Alerta! Datos de cliente - usuario anterior activos</h5>
 																	<p class="mb-0">Para poder seguir procesando nuevos usuarios y clientes, usted debe eliminar los datos del &uacute;ltimo registro procesado. Por favor haga clic en el bot&oacute;n abajo de este aviso para desbloquear nuevamente su petici&oacute;n.</p><br>
 																	<form action="../controlador/cGestionesCrediAgil.php?CrediAgilgestion=eliminar-datos-clientes-usuarios-anteriores" method="post">
 																		<button <?php if ($_SESSION['control-eliminar-datos'] == "IMPRIMIR") {
@@ -371,7 +371,7 @@ Nav header end
 																	<th>Apellidos</th>
 																	<th>C&oacute;digo &Uacute;nico</th>
 																	<th>Rol</th>
-																	<th>�Completo Perfil?</th>
+																	<th>?Completo Perfil?</th>
 																	<th>Completar</th>
 																</tr>
 															</thead>
@@ -464,7 +464,7 @@ Nav header end
 																	<span><i class="mdi mdi-check-circle-outline"></i></span>
 																</div>
 																<div class="media-body">
-																	<h5 class="mt-1 mb-2">�Imprimir Informe!</h5>
+																	<h5 class="mt-1 mb-2">?Imprimir Informe!</h5>
 																	<p class="mb-0">Estimado(a) <?php $Nombre = $_SESSION['nombre_usuario'];
 																								$PrimerNombre = explode(' ', $Nombre, 2);
 																								print_r($PrimerNombre[0]); ?>. Lo sentimos, pero en estos momentos no esta disponible el informe. Esta opci&oacute;n estar&aacute; disponible cuando gestiones y registres un nuevo usuario.</p><br>
@@ -480,7 +480,7 @@ Nav header end
 																				<span><i class="mdi mdi-check-circle-outline"></i></span>
 																			</div>
 																			<div class="media-body">
-																				<h5 class="mt-1 mb-2">�Imprimir Informe!</h5>
+																				<h5 class="mt-1 mb-2">?Imprimir Informe!</h5>
 																				<p class="mb-0">Estimado(a) <?php $Nombre = $_SESSION['nombre_usuario'];
 																											$PrimerNombre = explode(' ', $Nombre, 2);
 																											print_r($PrimerNombre[0]); ?>. Lo sentimos, pero en estos momentos no esta disponible el informe. Esta opci&oacute;n estar&aacute; disponible cuando gestiones y registres un nuevo usuario.</p><br>
@@ -496,7 +496,7 @@ Nav header end
 																							<span><i class="mdi mdi-check-circle-outline"></i></span>
 																						</div>
 																						<div class="media-body">
-																							<h5 class="mt-1 mb-2">�Imprimir Informe!</h5>
+																							<h5 class="mt-1 mb-2">?Imprimir Informe!</h5>
 																							<p class="mb-0">Estimado(a) <?php $Nombre = $_SESSION['nombre_usuario'];
 																														$PrimerNombre = explode(' ', $Nombre, 2);
 																														print_r($PrimerNombre[0]); ?>. El informe de registro del nuevo usuario procesado se encuentra listo para su impresi&oacute;n. Por favor haga clic en el bot&oacute;n abajo de este aviso. <strong>Tome en cuenta que solo puede acceder a este informe una vez por motivos de seguridad</strong></p><br>
@@ -525,7 +525,7 @@ Nav header end
 																							if (empty($_SESSION['CodigoUsuarioCliente'])) {
 																							?>
 																								<p class="mb-0">Por favor haga clic en el bot&oacute;n y su contrase&ntilde;a se crear&aacute; autom&aacute;ticamente, y ser&aacute; redirigido a completar todos los campos del nuevo usuario a registrar.</p><br>
-																								<!-- GENERAR CONTRASE�A -->
+																								<!-- GENERAR CONTRASE?A -->
 																								<form id="confirmar-usuario" method="post">
 																									<button style="width: 90%; margin: auto; display: block;" type="submit" name="generar-clave-usuarios" id="generar-clave-usuarios" class="btn btn-rounded btn-info"><span class="btn-icon-left text-info"><i class="ti-key"></i></span>Generar Contrase&ntilde;a</button>
 																								</form>
@@ -537,7 +537,7 @@ Nav header end
 																												<span><i class="mdi mdi-alert"></i></span>
 																											</div>
 																											<div class="media-body">
-																												<h5 class="mt-1 mb-2">�Alerta! Datos de cliente - usuario anterior activos</h5>
+																												<h5 class="mt-1 mb-2">?Alerta! Datos de cliente - usuario anterior activos</h5>
 																												<p class="mb-0">Para poder seguir procesando nuevos usuarios y clientes, usted debe eliminar los datos del &uacute;ltimo registro procesado. Por favor haga clic en el bot&oacute;n abajo de este aviso para desbloquear nuevamente su petici&oacute;n.</p><br>
 																												<form action="../controlador/cGestionesCrediAgil.php?CrediAgilgestion=eliminar-datos-clientes-usuarios-anteriores" method="post">
 																													<button <?php if ($_SESSION['control-eliminar-datos'] == "IMPRIMIR") {

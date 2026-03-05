@@ -91,7 +91,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 			-> USUARIOS ADMINISTRADORES
 		*/
 		if ($_SESSION['id_rol'] == 1) {
-			header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores');
+			header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales');
 		}
 	} else { // SI EL USUARIO NO HA SIDO GESTIONADO, DESPLEGAR TODA LA INFORMACION
 ?>

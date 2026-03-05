@@ -1,5 +1,5 @@
-﻿<?php
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
+<?php
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE?A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -7,26 +7,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
 	<!-- 
 
-���������������������������������������������������������
-���������������������������������������������������������
-��=======================================================
-��              CrediAgil S.A DE C.V                                                  
-��          SISTEMA FINANCIERO / BANCARIO 
-��=======================================================                      
-��                                                                               
-�� -> AUTOR: DANIEL RIVERA                                                               
-�� -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-�� -> GITHUB: (danielrivera03)                                             
-�� -> TODOS LOS DERECHOS RESERVADOS                           
-��     � 2021 - 2022    
-��                                                      
-�� -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-��    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-��
-��          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-��                                                                               
-����������������������������������������������������������
-����������������������������������������������������������
+?????????????????????????????????????????????????????????
+?????????????????????????????????????????????????????????
+??=======================================================
+??              CrediAgil S.A DE C.V                                                  
+??          SISTEMA FINANCIERO / BANCARIO 
+??=======================================================                      
+??                                                                               
+?? -> AUTOR: DANIEL RIVERA                                                               
+?? -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+?? -> GITHUB: (danielrivera03)                                             
+?? -> TODOS LOS DERECHOS RESERVADOS                           
+??     ? 2021 - 2022    
+??                                                      
+?? -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+??    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+??
+??          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+??                                                                               
+??????????????????????????????????????????????????????????
+??????????????????????????????????????????????????????????
 
 -->
 	<!DOCTYPE html>
@@ -1095,7 +1095,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         ***********************************-->
 		<div class="footer">
 			<div class="copyright">
-				<p>Copyright � Designed &amp; Developed by <a href="http://dexignzone.com/" target="_blank">DexignZone</a> 2020</p>
+				<p>Copyright ? Designed &amp; Developed by <a href="http://dexignzone.com/" target="_blank">DexignZone</a> 2020</p>
 			</div>
 		</div>
 		<!--**********************************

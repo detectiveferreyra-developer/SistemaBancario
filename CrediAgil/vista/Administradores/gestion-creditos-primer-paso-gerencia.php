@@ -1,16 +1,16 @@
-﻿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPA�OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA?OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE?A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -20,7 +20,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	*/
 	// VALIDACION SEGUN RANGOS ESTIPULADOS POR ENTIDAD FINANCIERA
 	// -> PRESTAMOS PERSONALES
-	if ($Gestiones->getNombreProductos() == "Pr�stamos Personales") {
+	if ($Gestiones->getNombreProductos() == "Pr?stamos Personales") {
 		if ($Gestiones->getMontoFinanciamientoCreditos() < 300) { // $0.00 - $299.00 USD
 			$SeguroDeuda = 0.00;
 			$GastosAdministrativos = 0.00;
@@ -44,7 +44,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 		-> CREDITOS DE VEHICULOS
 	*/
 		// -> PRESTAMOS DE VEHICULOS
-	} else if ($Gestiones->getNombreProductos() == "Pr�stamos de Veh�culos") {
+	} else if ($Gestiones->getNombreProductos() == "Pr?stamos de Veh?culos") {
 		if ($Gestiones->getMontoFinanciamientoCreditos() >= 10000 && $Gestiones->getMontoFinanciamientoCreditos() <= 25000) { // $10,000.00 - $25,000.00 USD
 			$SeguroDeuda = 12.99;
 			$GastosAdministrativos = 25.99;
@@ -66,7 +66,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 		-> CREDITOS HIPOTECARIOS
 	*/
 		// -> PRESTAMOS HIPOTECARIOS
-	} else if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+	} else if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 		if ($Gestiones->getMontoFinanciamientoCreditos() >= 30000 && $Gestiones->getMontoFinanciamientoCreditos() <= 50000) { // $30,000.00 - $50,0000.00 USD
 			$SeguroDeuda = 35.50;
 			$GastosAdministrativos = 110.99;
@@ -91,32 +91,32 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 			-> USUARIOS ADMINISTRADORES
 		*/
 		if ($_SESSION['id_rol'] == 1) {
-			header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores');
+			header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales');
 		}
 	} else { // SI EL USUARIO NO HA SIDO GESTIONADO, DESPLEGAR TODA LA INFORMACION
 ?>
 		<!-- 
 
-���������������������������������������������������������
-���������������������������������������������������������
-��=======================================================
-��              CrediAgil S.A DE C.V                                                  
-��          SISTEMA FINANCIERO / BANCARIO 
-��=======================================================                      
-��                                                                               
-�� -> AUTOR: DANIEL RIVERA                                                               
-�� -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-�� -> GITHUB: (danielrivera03)                                             
-�� -> TODOS LOS DERECHOS RESERVADOS                           
-��     � 2021 - 2022    
-��                                                      
-�� -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-��    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-��
-��          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-��                                                                               
-����������������������������������������������������������
-����������������������������������������������������������
+?????????????????????????????????????????????????????????
+?????????????????????????????????????????????????????????
+??=======================================================
+??              CrediAgil S.A DE C.V                                                  
+??          SISTEMA FINANCIERO / BANCARIO 
+??=======================================================                      
+??                                                                               
+?? -> AUTOR: DANIEL RIVERA                                                               
+?? -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+?? -> GITHUB: (danielrivera03)                                             
+?? -> TODOS LOS DERECHOS RESERVADOS                           
+??     ? 2021 - 2022    
+??                                                      
+?? -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+??    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+??
+??          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+??                                                                               
+??????????????????????????????????????????????????????????
+??????????????????????????????????????????????????????????
 
 -->
 		<!DOCTYPE html>
@@ -183,7 +183,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 Nav header start
 ***********************************-->
 <div class="nav-header">
-<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales" class="brand-logo">
 <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
@@ -324,15 +324,15 @@ Nav header end
 												<div class="pt-4">
 													<h4>Primera Revisi&oacute;n</h4><br>
 													<div class="col-xl-12">
-														<form data-id="<?php echo $Gestiones->getIdUsuarios(); ?>" id="ingreso-datos-credito-clientes" class="validacion-actualizacion-revisiones-creditos-clientes" name="<?php if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+														<form data-id="<?php echo $Gestiones->getIdUsuarios(); ?>" id="ingreso-datos-credito-clientes" class="validacion-actualizacion-revisiones-creditos-clientes" name="<?php if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																																								echo "formulariocreditosclienteshipotecas";
 																																																							} else {
 																																																								echo "formulariocreditosclientes";
-																																																							} ?>" method="post" autocomplete="off" enctype="multipart/form-data" <?php if ($Gestiones->getNombreProductos() == "Pr�stamos Personales") {
+																																																							} ?>" method="post" autocomplete="off" enctype="multipart/form-data" <?php if ($Gestiones->getNombreProductos() == "Pr?stamos Personales") {
 																																																																										echo 'onKeyUp="ConsultarRequisitosPrestamosPersonales()" ';
-																																																																									} else if ($Gestiones->getNombreProductos() == "Pr�stamos de Veh�culos") {
+																																																																									} else if ($Gestiones->getNombreProductos() == "Pr?stamos de Veh?culos") {
 																																																																										echo 'onKeyUp="ConsultarRequisitosPrestamosVehiculos()" ';
-																																																																									} else if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																																																																									} else if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																																																										echo 'onKeyUp="ConsultarRequisitosPrestamosHipotecarios()" ';
 																																																																									} ?>>
 															<div class="row form-validation">
@@ -346,10 +346,10 @@ Nav header end
 																				<?php
 																				while ($filas = mysqli_fetch_array($consulta1)) {
 																					// VALIDACION SEGUN TIPO DE PRESTAMO
-																					if ($Gestiones->getNombreProductos() == "Pr�stamos Personales") {
+																					if ($Gestiones->getNombreProductos() == "Pr?stamos Personales") {
 																						// OMITIR TODOS LOS PRODUCTOS A EXCEPCION DEL PRODUCTO EN CUESTION EN ESTA SECCION DE ASIGNACION DE NUEVOS CREDITOS.
 																						// PRODUCTO: PRESTAMOS PERSONALES -> MODIFICAR CADENA SI EXISTE ALGUN CAMBIO EN EL NOMBRE DE LOS PRODUCTOS, TOMAR NOTA -> IMPORTANTE <-
-																						if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Dep�sito a Plazo Fijo" && $filas['nombreproducto'] != "Pr�stamos Hipotecarios" && $filas['nombreproducto'] != "Pr�stamos de Veh�culos") {
+																						if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Dep?sito a Plazo Fijo" && $filas['nombreproducto'] != "Pr?stamos Hipotecarios" && $filas['nombreproducto'] != "Pr?stamos de Veh?culos") {
 																							echo '
                                                                     		<option value="';
 																							echo $filas['idproducto'];
@@ -357,10 +357,10 @@ Nav header end
 																							echo $filas['nombreproducto'];
 																							echo '</option>';
 																						}
-																					} else if ($Gestiones->getNombreProductos() == "Pr�stamos de Veh�culos") {
+																					} else if ($Gestiones->getNombreProductos() == "Pr?stamos de Veh?culos") {
 																						// OMITIR TODOS LOS PRODUCTOS A EXCEPCION DEL PRODUCTO EN CUESTION EN ESTA SECCION DE ASIGNACION DE NUEVOS CREDITOS.
 																						// PRODUCTO: PRESTAMOS DE VEHICULOS -> MODIFICAR CADENA SI EXISTE ALGUN CAMBIO EN EL NOMBRE DE LOS PRODUCTOS, TOMAR NOTA -> IMPORTANTE <-
-																						if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Dep�sito a Plazo Fijo" && $filas['nombreproducto'] != "Pr�stamos Hipotecarios" && $filas['nombreproducto'] != "Pr�stamos Personales") {
+																						if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Dep?sito a Plazo Fijo" && $filas['nombreproducto'] != "Pr?stamos Hipotecarios" && $filas['nombreproducto'] != "Pr?stamos Personales") {
 																							echo '
                                                                     		<option value="';
 																							echo $filas['idproducto'];
@@ -368,10 +368,10 @@ Nav header end
 																							echo $filas['nombreproducto'];
 																							echo '</option>';
 																						}
-																					} else if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																					} else if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																						// OMITIR TODOS LOS PRODUCTOS A EXCEPCION DEL PRODUCTO EN CUESTION EN ESTA SECCION DE ASIGNACION DE NUEVOS CREDITOS.
 																						// PRODUCTO: PRESTAMOS HIPOTECARIOS -> MODIFICAR CADENA SI EXISTE ALGUN CAMBIO EN EL NOMBRE DE LOS PRODUCTOS, TOMAR NOTA -> IMPORTANTE <-
-																						if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Dep�sito a Plazo Fijo" && $filas['nombreproducto'] != "Pr�stamos de Veh�culos" && $filas['nombreproducto'] != "Pr�stamos Personales") {
+																						if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Dep?sito a Plazo Fijo" && $filas['nombreproducto'] != "Pr?stamos de Veh?culos" && $filas['nombreproducto'] != "Pr?stamos Personales") {
 																							echo '
                                                                     		<option value="';
 																							echo $filas['idproducto'];
@@ -424,14 +424,14 @@ Nav header end
 																			<div class="etiqueta text-center"></div>
 																			<?php
 																			// VALIDACION SEGUN TIPO DE PRESTAMO, RANGO DE INTERESES MINIMOS Y MAXIMOS
-																			if ($Gestiones->getNombreProductos() == "Pr�stamos Personales") {
+																			if ($Gestiones->getNombreProductos() == "Pr?stamos Personales") {
 																			?>
 																				<input type="range" class="form-control" value="<?php echo $Gestiones->getTasaInteresCreditos(); ?>" min="3" max="20" autocomplete="off" id="rangointereses" name="rangointereses" onKeyUp="CalculoCuotaMensual()" step="0.05">
 																				<p>(% Por Ciento Mensual)</p>
-																			<?php } else if ($Gestiones->getNombreProductos() == "Pr�stamos de Veh�culos") { ?>
+																			<?php } else if ($Gestiones->getNombreProductos() == "Pr?stamos de Veh?culos") { ?>
 																				<input type="range" class="form-control" value="<?php echo $Gestiones->getTasaInteresCreditos(); ?>" min="10" max="60" autocomplete="off" id="rangointereses" name="rangointereses" onKeyUp="CalculoCuotaMensual()" step="0.05">
 																				<p>(% Por Ciento Mensual)</p>
-																			<?php } else if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") { ?>
+																			<?php } else if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") { ?>
 																				<input type="range" class="form-control" value="<?php echo $Gestiones->getTasaInteresCreditos(); ?>" min="1.05" max="12" autocomplete="off" id="rangointereses" name="rangointereses" onKeyUp="CalculoCuotaMensualHipotecas()" step="0.05">
 																				<p>(% Por Ciento Mensual)</p>
 																			<?php } ?>
@@ -462,7 +462,7 @@ Nav header end
 																				<div class="input-group-prepend">
 																					<span class="input-group-text">$</span>
 																				</div>
-																				<input type="text" class="form-control" id="valmontocreditoclientes" name="valmontocreditoclientes" placeholder="Ingrese monto de cr&eacute;dito" value="<?php echo floor($Gestiones->getMontoFinanciamientoCreditos()); ?>" onKeyUp="<?php if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																				<input type="text" class="form-control" id="valmontocreditoclientes" name="valmontocreditoclientes" placeholder="Ingrese monto de cr&eacute;dito" value="<?php echo floor($Gestiones->getMontoFinanciamientoCreditos()); ?>" onKeyUp="<?php if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																																																															echo "CalculoCuotaMensualHipotecas()";
 																																																																														} else {
 																																																																															echo "CalculoCuotaMensual()";
@@ -479,7 +479,7 @@ Nav header end
 																				<div class="input-group-prepend">
 																					<span class="input-group-text"><i class="ti ti-shopping-cart-full"></i></span>
 																				</div>
-																				<input type="text" class="form-control" id="valplazocredito" name="valplazocredito" placeholder="Ingrese el n&uacute;mero de meses plazo" value="<?php echo $Gestiones->getTiempoPlazoCreditos(); ?>" onKeyUp="<?php if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																				<input type="text" class="form-control" id="valplazocredito" name="valplazocredito" placeholder="Ingrese el n&uacute;mero de meses plazo" value="<?php echo $Gestiones->getTiempoPlazoCreditos(); ?>" onKeyUp="<?php if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																																																									echo "CalculoCuotaMensualHipotecas()";
 																																																																								} else {
 																																																																									echo "CalculoCuotaMensual()";
@@ -503,7 +503,7 @@ Nav header end
 																</div>
 																<div class="col-lg-12 mb-2">
 																	<div class="form-group">
-																		<label class="text-label">�Procede esta nueva asignaci&oacute;n de cr&eacute;dito? Seleccione un estado <span class="text-danger">*</span></label>
+																		<label class="text-label">?Procede esta nueva asignaci&oacute;n de cr&eacute;dito? Seleccione un estado <span class="text-danger">*</span></label>
 																		<div class="col-lg-12">
 																			<select class="form-control" class="tipoclientecredito" id="valestadoinicialcreditos" name="valestadoinicialcreditos">
 																				<option value="">Seleccione una opci&oacute;n...</option>
@@ -543,7 +543,7 @@ Nav header end
 																							</div>
 																							<small style="font-size: 1rem;"><strong>Su cr&eacute;dito solicitado es de $ <span id="monto-credito-solicitado" class="monto-credito-solicitado"><strong><?php echo number_format($Gestiones->getMontoFinanciamientoCreditos(), 2); ?></strong></span> USD.</strong></small><br>
 																							<?php
-																							if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																							if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																							?>
 																								<small style="font-size: .95rem;"><strong>Monto final a financiar: $<span class="calculofinanciamientomaximo" id="calculofinanciamientomaximo"><?php echo number_format($Gestiones->getMontoFinanciamientoCreditos() * .9, 2); ?></span> USD.</strong></small><br>
 																								<small style="font-size: .8rem;"><strong>Monto final a entregar: $<span class="calculodesembolso" id="calculodesembolso"><?php echo number_format($DesembolsoClientes = $Gestiones->getMontoFinanciamientoCreditos() * .9 - $GastosAdministrativos, 2) ?></span> USD.</strong></small><br>
@@ -552,7 +552,7 @@ Nav header end
 																							<?php } ?>
 																							<ul class="list-group list-group-flush">
 																								<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Tasa de Inter&eacute;s Mensual : </span><span><strong id="tasa-interes-credito" class="tasa-interes-credito"></strong>%</span> </li>
-																								<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Plazo :</span><strong id="plazo-credito" class="plazo-credito"><?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																								<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Plazo :</span><strong id="plazo-credito" class="plazo-credito"><?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																																																										echo "a&ntilde;os";
 																																																																									} else {
 																																																																										echo "meses";
@@ -561,12 +561,12 @@ Nav header end
 																											<?php echo number_format($SeguroDeuda, 2); ?>
 																										</strong><strong> USD</strong></span> </li>
 																								<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Gastos Administrativos : </span><span><strong>$</strong><strong id="gastosadministrativos" class="gastosadministrativos"><?php echo number_format($GastosAdministrativos, 2); ?></strong><strong> USD</strong></span></li>
-																								<?php if ($Gestiones->getNombreProductos() == "Pr�stamos de Veh�culos") { ?>
+																								<?php if ($Gestiones->getNombreProductos() == "Pr?stamos de Veh?culos") { ?>
 																									<li class="list-group-item d-flex justify-content-between"><span class="mb-0">Servicio GPS : </span><span><strong>$</strong><strong id="serviciogps" class="serviciogps"><?php echo $ServicioGPS; ?></strong><strong> USD</strong></span> </li><br>
 																									<p>** Todos los clientes est&aacute;n obligados a contratar una p&oacute;liza de seguro contra da&ntilde;os. Es parte de los requisitos para poder aprobar dicho cr&eacute;dito. <strong>La compa&ntilde;ia puede ser de su elecci&oacute;n.</strong></p>
 																								<?php } ?>
 																								<?php
-																								if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																								if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																								?>
 																									<br>
 																									<p>** Gastos de escrituraci&oacute;n, aval&uacute;o y relacionados, ser&aacute;n por cuenta del cliente ante la entidad correspondiente.</p>
@@ -705,20 +705,20 @@ Nav header end
 			<?php
 			// VALIDACION DE CARGA DE SCRIPTS SEGUN PRODUCTO REGISTRADO EN LA SOLICITUD DE CREDITO
 			// -> PRESTAMOS PERSONALES
-			if ($Gestiones->getNombreProductos() == "Pr�stamos Personales") {
+			if ($Gestiones->getNombreProductos() == "Pr?stamos Personales") {
 			?>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/gestiones-creditos.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/calculocuotamensualclientes.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/ConsultarRequisitosPrestamosPersonales.js"></script>
 			<?php
 				// -> PRESTAMOS HIPOTECARIOS
-			} else if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") { ?>
+			} else if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") { ?>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/gestiones-creditos-hipotecarios.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/calculocuotamensualhipotecasclientes.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/ConsultarRequisitosPrestamosHipotecarios.js"></script>
 			<?php
 				// -> PRESTAMOS PARA VEHICULOS
-			} else if ($Gestiones->getNombreProductos() == "Pr�stamos de Veh�culos") { ?>
+			} else if ($Gestiones->getNombreProductos() == "Pr?stamos de Veh?culos") { ?>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/gestiones-creditos.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/calculocuotamensualvehiculos.js"></script>
 				<script src="<?php echo $UrlGlobal; ?>vista/js/ConsultarRequisitosPrestamosVehiculos.js"></script>
@@ -728,7 +728,7 @@ Nav header end
 				const firstCalendar = MCDatepicker.create({
 					el: '#valfechaingresosolicitud',
 					customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-					customWeekDays: ['Domingo', 'Lunes', 'Martes', 'Mi�rcoles', 'Jueves', 'Viernes', 'Sabado'],
+					customWeekDays: ['Domingo', 'Lunes', 'Martes', 'Mi?rcoles', 'Jueves', 'Viernes', 'Sabado'],
 					dateFormat: 'YYYY-MM-DD',
 					customOkBTN: 'OK',
 					customClearBTN: 'Limpiar',

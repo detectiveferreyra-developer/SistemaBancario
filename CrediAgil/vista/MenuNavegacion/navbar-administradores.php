@@ -42,22 +42,28 @@ if ($_SESSION['id_rol'] == 1) {
     <div class="header">
         <div class="header-content h-100">
             <nav class="navbar navbar-expand h-100 p-0">
+                <div class="nav-control ml-3 mr-3">
+                    <div class="hamburger">
+                        <span class="line"></span><span class="line"></span><span class="line"></span>
+                    </div>
+                </div>
                 <div class="collapse navbar-collapse justify-content-between h-100 w-100">
 
                     <!-- Izquierda: links de navegación con el mismo formato del sidebar -->
                     <div class="header-left d-flex align-items-center h-100" style="overflow-x: auto;">
                         <ul class="metismenu metismenu-horizontal" id="menu-horizontal">
 
-                            <!-- Inicio -->
+                            <!-- Estadísticas -->
                             <li class="<?php echo ca_nav_li_active('inicio', $gestion_actual, $nav_items); ?>">
-                                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores"
+                                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales"
                                     class="ai-icon <?php echo ca_nav_a_active('inicio', $gestion_actual, $nav_items); ?>">
-                                    <svg class="w-6 h-6" fill="none" stroke="LightSlateGrey" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                    <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z" />
+                                        <path
+                                            d="M2 13h6v8H2v-8zm14-5h6v13h-6V8zM9 3h6v18H9V3zM4 15v4h2v-4H4zm7-10v14h2V5h-2zm7 5v9h2v-9h-2z" />
                                     </svg>
-                                    <span class="nav-text">Inicio</span>
+                                    <span class="nav-text">Estadísticas</span>
                                 </a>
                             </li>
 
@@ -113,18 +119,6 @@ if ($_SESSION['id_rol'] == 1) {
                                 </a>
                             </li>
 
-                            <!-- Estadísticas -->
-                            <li class="<?php echo ca_nav_li_active('estadisticas', $gestion_actual, $nav_items); ?>">
-                                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales"
-                                    class="ai-icon <?php echo ca_nav_a_active('estadisticas', $gestion_actual, $nav_items); ?>">
-                                    <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <path fill="none" d="M0 0h24v24H0z" />
-                                        <path
-                                            d="M2 13h6v8H2v-8zm14-5h6v13h-6V8zM9 3h6v18H9V3zM4 15v4h2v-4H4zm7-10v14h2V5h-2zm7 5v9h2v-9h-2z" />
-                                    </svg>
-                                    <span class="nav-text">Estadísticas</span>
-                                </a>
-                            </li>
 
                             <!-- Soporte Técnico -->
                             <li class="<?php echo ca_nav_li_active('soporte', $gestion_actual, $nav_items); ?>">

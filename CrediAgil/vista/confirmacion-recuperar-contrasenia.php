@@ -7,30 +7,6 @@ if ($_GET['CrediAgil'] != "confirmacion-recuperacion-cuentas") {
     header('location:../controlador/cIniciosSesionesUsuarios.php?CrediAgil=iniciarsesion');
 }
 ?>
-<!-- 
-
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-
--->
 <!DOCTYPE html>
 <html lang="ES-SV" class="h-100">
 
@@ -76,7 +52,7 @@ if ($_GET['CrediAgil'] != "confirmacion-recuperacion-cuentas") {
                         </div>
                         <div class="media-body">
                             <h6 class="mt-1 mb-2">Estimado usuario(a)</h6>
-                            <p class="mb-0">Su solicitud de restablecimiento de su cuenta ha sido procesada con &eacute;xito. Por favor revise su correo y siga las instrucciones ah&iacute; descritas. <br> <br>¿Problemas? por favor comun&iacute;quese al siguiente correo: <a href="mailto:soporte@CrediAgil.com">soporte@CrediAgil.com</a> Nuestro equipo de soporte t&eacute;cnico se comunicar&aacute; con usted en el menor tiempo posible.<br><br>Atentamente: Equipo de recuperaciones de cuentas - CrediAgil<strong></strong></p>
+                            <p class="mb-0">Su solicitud de restablecimiento de su cuenta ha sido procesada con &eacute;xito. Por favor revise su correo y siga las instrucciones ah&iacute; descritas. <br> <br>ï¿½Problemas? por favor comun&iacute;quese al siguiente correo: <a href="mailto:soporte@CrediAgil.com">soporte@CrediAgil.com</a> Nuestro equipo de soporte t&eacute;cnico se comunicar&aacute; con usted en el menor tiempo posible.<br><br>Atentamente: Equipo de recuperaciones de cuentas - CrediAgil<strong></strong></p>
                         </div>
                     </div>
                 </div>

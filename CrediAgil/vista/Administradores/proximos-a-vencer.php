@@ -1,16 +1,16 @@
-ï»¿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPAï¿½OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA?OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEï¿½A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE?A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -18,26 +18,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
 	<!-- 
 
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-ï¿½ï¿½=======================================================
-ï¿½ï¿½              CrediAgil S.A DE C.V                                                  
-ï¿½ï¿½          SISTEMA FINANCIERO / BANCARIO 
-ï¿½ï¿½=======================================================                      
-ï¿½ï¿½                                                                               
-ï¿½ï¿½ -> AUTOR: DANIEL RIVERA                                                               
-ï¿½ï¿½ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-ï¿½ï¿½ -> GITHUB: (danielrivera03)                                             
-ï¿½ï¿½ -> TODOS LOS DERECHOS RESERVADOS                           
-ï¿½ï¿½     ï¿½ 2021 - 2022    
-ï¿½ï¿½                                                      
-ï¿½ï¿½ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-ï¿½ï¿½    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-ï¿½ï¿½
-ï¿½ï¿½          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-ï¿½ï¿½                                                                               
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+?????????????????????????????????????????????????????????
+?????????????????????????????????????????????????????????
+??=======================================================
+??              CrediAgil S.A DE C.V                                                  
+??          SISTEMA FINANCIERO / BANCARIO 
+??=======================================================                      
+??                                                                               
+?? -> AUTOR: DANIEL RIVERA                                                               
+?? -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+?? -> GITHUB: (danielrivera03)                                             
+?? -> TODOS LOS DERECHOS RESERVADOS                           
+??     ? 2021 - 2022    
+??                                                      
+?? -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+??    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+??
+??          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+??                                                                               
+??????????????????????????????????????????????????????????
+??????????????????????????????????????????????????????????
 
 -->
 	<!DOCTYPE html>
@@ -47,7 +47,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>CrediAgil | Listado PrÃ³ximos a Vencer </title>
+		<title>CrediAgil | Listado Próximos a Vencer </title>
 		<!-- Favicon icon -->
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-60x60.png">
@@ -104,7 +104,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 Nav header start
 ***********************************-->
 <div class="nav-header">
-<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales" class="brand-logo">
 <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
@@ -141,7 +141,7 @@ Nav header end
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="javascript:void(0)">Inicio</a></li>
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Recuperaciones</a></li>
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Listado PrÃ³ximos a Vencer</a></li>
+							<li class="breadcrumb-item active"><a href="javascript:void(0)">Listado Próximos a Vencer</a></li>
 						</ol>
 					</div>
 					<div class="row">
@@ -160,7 +160,7 @@ Nav header end
 							<div class="tab-content tabcontent-border">
 								<div class="tab-pane fade show active" id="home8" role="tabpanel">
 									<div class="pt-4">
-										<h4>Listado de Cuotas PrÃ³ximos a Vencer CrediAgil</h4><br>
+										<h4>Listado de Cuotas Próximos a Vencer CrediAgil</h4><br>
 										<p>Estimado(a) <?php $Nombre = $_SESSION['nombre_usuario'];
 														$PrimerNombre = explode(' ', $Nombre, 2);
 														print_r($PrimerNombre[0]); ?>, en este apartado encontrar&aacute;s el listado completo de todos los clientes que presentan irregularidades de pagos en su responsabilidad mercantil con nuestra empresa. <strong>Usted podr&aacute; consultar el perfil de los clientes y contactar a cada uno de ellos hasta que solventen su irregularidad.</strong> Por favor consulte el estado de cuenta del cliente en cuesti&oacute;n para brindar con exactitud la cuota que presenta la correspondiente irregularidad. Ac&aacute; solo se muestra el identificador &uacute;nico asignado en nuestro sistema. <strong>Para filtrar resultados de un solo cliente, solamente digite el n&uacute;mero de dui del cliente en cuesti&oacute;n en el buscador.</strong></p>

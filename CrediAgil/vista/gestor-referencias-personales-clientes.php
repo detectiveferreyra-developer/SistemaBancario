@@ -8,36 +8,13 @@ if (empty($Gestiones->getNombresUsuarios())) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
 }
 date_default_timezone_set('America/El_Salvador');
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEï¿½A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
 } else {
 ?>
-    <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-
--->
     <!DOCTYPE html>
     <html lang="ES-SV" class="h-100">
 
@@ -99,7 +76,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                     <?php
                                                     if (empty($Gestiones->getNombreProductos())) {
                                                     ?><br>
-                                                        <div class="alert alert-danger solid alert-rounded "><strong><i class="ti-target"></i> ¡Error!</strong> Lo sentimos, pero debe existir un producto asociado a este cliente para poder ingresar las referencias personales y laborales.</div>
+                                                        <div class="alert alert-danger solid alert-rounded "><strong><i class="ti-target"></i> ï¿½Error!</strong> Lo sentimos, pero debe existir un producto asociado a este cliente para poder ingresar las referencias personales y laborales.</div>
                                                         <a href="<?php echo $UrlGlobal;
                                                                     echo 'controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestor-creditos-seleccion-producto-clientes&idusuario=';
                                                                     echo $Gestiones->getIdUsuarios(); ?>" id="enviar-datos-creditos" class="btn light btn-dark"><i class="ti-hand-point-right"></i> Asignar Producto Cliente</a>
@@ -148,13 +125,13 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                         </div>
                                                                         <div class="col-lg-6 mb-2">
                                                                             <div class="form-group">
-                                                                                <label class="text-label">¿Empresa d&oacute;nde labora? <span class="text-danger">*</span></label>
+                                                                                <label class="text-label">ï¿½Empresa d&oacute;nde labora? <span class="text-danger">*</span></label>
                                                                                 <div class="col-lg-12">
                                                                                     <div class="input-group mb-3  input-primary">
                                                                                         <div class="input-group-prepend">
                                                                                             <span class="input-group-text"><i class="ti ti-envelope"></i></span>
                                                                                         </div>
-                                                                                        <input type="text" class="form-control" id="val-empresareferenciapersonal" name="val-empresareferenciapersonal" placeholder="¿D&oacute;nde labora?">
+                                                                                        <input type="text" class="form-control" id="val-empresareferenciapersonal" name="val-empresareferenciapersonal" placeholder="ï¿½D&oacute;nde labora?">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -167,7 +144,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                                         <div class="input-group-prepend">
                                                                                             <span class="input-group-text"><i class="ti ti-help"></i></span>
                                                                                         </div>
-                                                                                        <input type="text" class="form-control" id="val-profesionreferenciapersonal" name="val-profesionreferenciapersonal" placeholder="¿Profesi&oacute;n? ¿Oficio?">
+                                                                                        <input type="text" class="form-control" id="val-profesionreferenciapersonal" name="val-profesionreferenciapersonal" placeholder="ï¿½Profesi&oacute;n? ï¿½Oficio?">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -216,13 +193,13 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                         </div>
                                                                         <div class="col-lg-6 mb-2">
                                                                             <div class="form-group">
-                                                                                <label class="text-label">¿Empresa d&oacute;nde labora? <span class="text-danger">*</span></label>
+                                                                                <label class="text-label">ï¿½Empresa d&oacute;nde labora? <span class="text-danger">*</span></label>
                                                                                 <div class="col-lg-12">
                                                                                     <div class="input-group mb-3  input-primary">
                                                                                         <div class="input-group-prepend">
                                                                                             <span class="input-group-text"><i class="ti ti-envelope"></i></span>
                                                                                         </div>
-                                                                                        <input type="text" class="form-control" id="val-empresareferencialaboral" name="val-empresareferencialaboral" placeholder="¿D&oacute;nde labora?">
+                                                                                        <input type="text" class="form-control" id="val-empresareferencialaboral" name="val-empresareferencialaboral" placeholder="ï¿½D&oacute;nde labora?">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -235,7 +212,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                                         <div class="input-group-prepend">
                                                                                             <span class="input-group-text"><i class="ti ti-help"></i></span>
                                                                                         </div>
-                                                                                        <input type="text" class="form-control" id="val-profesionreferencialaboral" name="val-profesionreferencialaboral" placeholder="¿Profesi&oacute;n? ¿Oficio?">
+                                                                                        <input type="text" class="form-control" id="val-profesionreferencialaboral" name="val-profesionreferencialaboral" placeholder="ï¿½Profesi&oacute;n? ï¿½Oficio?">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -293,7 +270,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                 echo ' USD</td>
                                                     <td>';
                                                                 echo $filas['plazocredito'];
-                                                                if ($filas['nombreproducto'] == "Préstamos Personales") {
+                                                                if ($filas['nombreproducto'] == "Prï¿½stamos Personales") {
                                                                     echo ' Meses</td>';
                                                                 } else {
                                                                     echo ' A&ntilde;os</td>';
@@ -339,7 +316,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                         <span><i class="mdi mdi-alert"></i></span>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h5 class="mt-1 mb-2">¡Alerta, Tomar Nota!</h5>
+                                                        <h5 class="mt-1 mb-2">ï¿½Alerta, Tomar Nota!</h5>
                                                         <p class="mb-0">Este cliente ya posee registro de referencias personales y laborales. Puede mantener los datos o actualizarlos si el cliente asi lo desea. </p>
                                                     </div>
                                                 </div>
@@ -384,13 +361,13 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                     </div>
                                                     <div class="col-lg-6 mb-2">
                                                         <div class="form-group">
-                                                            <label class="text-label">¿Empresa d&oacute;nde labora? <span class="text-danger">*</span></label>
+                                                            <label class="text-label">ï¿½Empresa d&oacute;nde labora? <span class="text-danger">*</span></label>
                                                             <div class="col-lg-12">
                                                                 <div class="input-group mb-3  input-primary">
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text"><i class="ti ti-envelope"></i></span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="val-empresareferenciapersonal" name="val-empresareferenciapersonal" placeholder="¿D&oacute;nde labora?" value="<?php echo $Gestiones->getEmpresaReferenciaPersonal(); ?>">
+                                                                    <input type="text" class="form-control" id="val-empresareferenciapersonal" name="val-empresareferenciapersonal" placeholder="ï¿½D&oacute;nde labora?" value="<?php echo $Gestiones->getEmpresaReferenciaPersonal(); ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -403,7 +380,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text"><i class="ti ti-help"></i></span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="val-profesionreferenciapersonal" name="val-profesionreferenciapersonal" placeholder="¿Profesi&oacute;n? ¿Oficio?" value="<?php echo $Gestiones->getProfesionOficioReferenciaPersonal(); ?>">
+                                                                    <input type="text" class="form-control" id="val-profesionreferenciapersonal" name="val-profesionreferenciapersonal" placeholder="ï¿½Profesi&oacute;n? ï¿½Oficio?" value="<?php echo $Gestiones->getProfesionOficioReferenciaPersonal(); ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -452,13 +429,13 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                     </div>
                                                     <div class="col-lg-6 mb-2">
                                                         <div class="form-group">
-                                                            <label class="text-label">¿Empresa d&oacute;nde labora? <span class="text-danger">*</span></label>
+                                                            <label class="text-label">ï¿½Empresa d&oacute;nde labora? <span class="text-danger">*</span></label>
                                                             <div class="col-lg-12">
                                                                 <div class="input-group mb-3  input-primary">
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text"><i class="ti ti-envelope"></i></span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="val-empresareferencialaboral" name="val-empresareferencialaboral" placeholder="¿D&oacute;nde labora?" value="<?php echo $Gestiones->getEmpresaReferenciaLaboral(); ?>">
+                                                                    <input type="text" class="form-control" id="val-empresareferencialaboral" name="val-empresareferencialaboral" placeholder="ï¿½D&oacute;nde labora?" value="<?php echo $Gestiones->getEmpresaReferenciaLaboral(); ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -471,7 +448,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text"><i class="ti ti-help"></i></span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="val-profesionreferencialaboral" name="val-profesionreferencialaboral" placeholder="¿Profesi&oacute;n? ¿Oficio?" value="<?php echo $Gestiones->getProfesionOficioReferenciaLaboral(); ?>">
+                                                                    <input type="text" class="form-control" id="val-profesionreferencialaboral" name="val-profesionreferencialaboral" placeholder="ï¿½Profesi&oacute;n? ï¿½Oficio?" value="<?php echo $Gestiones->getProfesionOficioReferenciaLaboral(); ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -529,7 +506,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                 echo ' USD</td>
                                                     <td>';
                                                                 echo $filas['plazocredito'];
-                                                                if ($filas['nombreproducto'] == "Préstamos Hipotecarios") {
+                                                                if ($filas['nombreproducto'] == "Prï¿½stamos Hipotecarios") {
                                                                     echo ' A&ntilde;os</td>';
                                                                 } else {
                                                                     echo ' Meses</td>';

@@ -8,7 +8,7 @@ if (empty($Gestiones->getNombresUsuarios())) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
 }
 date_default_timezone_set('America/El_Salvador');
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEï¿½A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -18,39 +18,16 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     */
     // OBTENER FECHA COMPLETA REGISTRADA
     $Fecha = $Gestiones->getFechaNacimientoUsuarios();
-    // CALCULAR EDAD ANTES DE CUMPLEAÑOS
+    // CALCULAR EDAD ANTES DE CUMPLEAï¿½OS
     $FechaCumpleanos = new DateTime($Fecha);
     $Ahora = new DateTime();
-    // COMPRUEBA SEGUN AÑO -> MES -> DIA
+    // COMPRUEBA SEGUN Aï¿½O -> MES -> DIA
     $CalcularEdad = $Ahora->diff($FechaCumpleanos);
     $EdadActualClientes = $CalcularEdad->y;
-    // SOLAMENTE CLIENTES DE RANGOS 18 A 70 AÑOS
+    // SOLAMENTE CLIENTES DE RANGOS 18 A 70 Aï¿½OS
     if ($EdadActualClientes >= 18 && $EdadActualClientes <= 70) {
 ?>
-        <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-
--->
         <!DOCTYPE html>
         <html lang="ES-SV" class="h-100">
 
@@ -189,7 +166,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                                         while ($filas = mysqli_fetch_array($consulta1)) {
                                                                                             // OMITIR TODOS LOS PRODUCTOS A EXCEPCION DEL PRODUCTO EN CUESTION EN ESTA SECCION DE ASIGNACION DE NUEVOS CREDITOS.
                                                                                             // PRODUCTO: PRESTAMOS PERSONALES -> MODIFICAR CADENA SI EXISTE ALGUN CAMBIO EN EL NOMBRE DE LOS PRODUCTOS, TOMAR NOTA -> IMPORTANTE <-
-                                                                                            if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Depósito a Plazo Fijo" && $filas['nombreproducto'] != "Préstamos Hipotecarios" && $filas['nombreproducto'] != "Préstamos de Vehículos") {
+                                                                                            if ($filas['nombreproducto'] != "Cuentas de Ahorro Personales" && $filas['nombreproducto'] != "Depï¿½sito a Plazo Fijo" && $filas['nombreproducto'] != "Prï¿½stamos Hipotecarios" && $filas['nombreproducto'] != "Prï¿½stamos de Vehï¿½culos") {
                                                                                                 echo '
                                                                     <option value="';
                                                                                                 echo $filas['idproducto'];
@@ -380,7 +357,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                 const firstCalendar = MCDatepicker.create({
                                     el: '#valfechaingresosolicitud',
                                     customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                                    customWeekDays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'],
+                                    customWeekDays: ['Domingo', 'Lunes', 'Martes', 'Miï¿½rcoles', 'Jueves', 'Viernes', 'Sabado'],
                                     dateFormat: 'YYYY-MM-DD',
                                     customOkBTN: 'OK',
                                     customClearBTN: 'Limpiar',

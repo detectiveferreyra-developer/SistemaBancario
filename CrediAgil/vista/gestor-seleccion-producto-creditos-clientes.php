@@ -8,7 +8,7 @@ if (empty($Gestiones->getNombresUsuarios())) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
 }
 date_default_timezone_set('America/El_Salvador');
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEï¿½A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -18,39 +18,16 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     */
     // OBTENER FECHA COMPLETA REGISTRADA
     $Fecha = $Gestiones->getFechaNacimientoUsuarios();
-    // CALCULAR EDAD ANTES DE CUMPLEAÑOS
+    // CALCULAR EDAD ANTES DE CUMPLEAï¿½OS
     $FechaCumpleanos = new DateTime($Fecha);
     $Ahora = new DateTime();
-    // COMPRUEBA SEGUN AÑO -> MES -> DIA
+    // COMPRUEBA SEGUN Aï¿½O -> MES -> DIA
     $CalcularEdad = $Ahora->diff($FechaCumpleanos);
     $EdadActualClientes = $CalcularEdad->y;
-    // SOLAMENTE CLIENTES DE RANGOS 18 A 70 AÑOS
+    // SOLAMENTE CLIENTES DE RANGOS 18 A 70 Aï¿½OS
     if ($EdadActualClientes >= 18 && $EdadActualClientes <= 70) {
         ?>
-        <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-
--->
         <!DOCTYPE html>
         <html lang="ES-SV" class="h-100">
 
@@ -136,19 +113,19 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                                 echo '
                                             <li><a href="';
                                                                 // VALIDACION DE REDIRECCION SEGUN PRODUCTOS
-                                                                if ($filas['nombreproducto'] == "Préstamos Personales") {
+                                                                if ($filas['nombreproducto'] == "Prï¿½stamos Personales") {
                                                                     echo $UrlGlobal;
                                                                     echo 'controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestor-creditos-clientes-asignacion-prestamo-personal&idusuario=';
                                                                     echo $Gestiones->getIdUsuarios();
                                                                     echo '';
                                                                 }
-                                                                if ($filas['nombreproducto'] == "Préstamos Hipotecarios") {
+                                                                if ($filas['nombreproducto'] == "Prï¿½stamos Hipotecarios") {
                                                                     echo $UrlGlobal;
                                                                     echo 'controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestor-creditos-clientes-asignacion-prestamo-hipotecario&idusuario=';
                                                                     echo $Gestiones->getIdUsuarios();
                                                                     echo '';
                                                                 }
-                                                                if ($filas['nombreproducto'] == "Préstamos de Vehículos") {
+                                                                if ($filas['nombreproducto'] == "Prï¿½stamos de Vehï¿½culos") {
                                                                     echo $UrlGlobal;
                                                                     echo 'controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestor-creditos-clientes-asignacion-prestamo-vehiculos&idusuario=';
                                                                     echo $Gestiones->getIdUsuarios();

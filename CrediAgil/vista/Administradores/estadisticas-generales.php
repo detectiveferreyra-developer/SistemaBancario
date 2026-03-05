@@ -1,12 +1,12 @@
-﻿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
-// IMPORTANDO MODELO DE ESTADÍSTICAS
+// IMPORTANDO MODELO DE ESTAD�STICAS
 require('../modelo/mEstadisticasCrediAgil.php');
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA�OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
@@ -16,12 +16,12 @@ $hora = new DateTime("now");
 if (!isset($_GET['CrediAgilgestion'])) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
 }
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 } else {
 
-    // OBTENER DATOS ESTADÍSTICOS
+    // OBTENER DATOS ESTAD�STICOS
     $estadisticas = obtenerEstadisticasGenerales($conectarsistemaEstadisticas);
     ?>
     <!DOCTYPE html>
@@ -31,7 +31,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>CrediAgil | Estadísticas</title>
+        <title>CrediAgil | Estad�sticas</title>
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
@@ -72,31 +72,27 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         ********************-->
 
         <div id="main-wrapper">
-			<?php require('../vista/MenuNavegacion/navbar-administradores.php'); ?>
+            <?php require('../vista/MenuNavegacion/navbar-administradores.php'); ?>
 
-<!--**********************************
+            <!--**********************************
 Nav header start
 ***********************************-->
-<div class="nav-header">
-<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
-<img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-<img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-<img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-</a>
-<div class="nav-control">
-<div class="hamburger">
-<span class="line"></span><span class="line"></span><span class="line"></span>
-</div>
-</div>
-</div>
-<!--**********************************
+            <div class="nav-header">
+                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales"
+                    class="brand-logo">
+                    <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+                    <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+                    <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+                </a>
+            </div>
+            <!--**********************************
 Nav header end
 ***********************************-->
 
 
-            
 
-            
+
+
 
             <!--**********************************
             Sidebar start
@@ -118,7 +114,7 @@ Nav header end
                 <div class="container-fluid">
                     <!-- Page Header -->
                     <div class="stats-page-header">
-                        <h3>📊 Panel de Estad&iacute;sticas</h3>
+                        <h3>?? Panel de Estad&iacute;sticas</h3>
                         <p>Rendimiento de cartera de pr&eacute;stamos, niveles de riesgo y proyecciones de cobro en tiempo
                             real</p>
                     </div>
@@ -168,7 +164,7 @@ Nav header end
                             </div>
                         </div>
 
-                        <!-- Colocación Total -->
+                        <!-- Colocaci�n Total -->
                         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
                             <div class="card stats-kpi-card kpi-success stats-animate stats-animate-delay-2">
                                 <div class="card-body">
@@ -248,7 +244,7 @@ Nav header end
                         </div>
                     </div>
 
-                    <!-- ============= SECTION: GRÁFICOS DINÁMICOS ============= -->
+                    <!-- ============= SECTION: GR�FICOS DIN�MICOS ============= -->
                     <div class="stats-section-header">
                         <div class="stats-section-icon" style="background: rgba(100, 24, 195, 0.1); color: #6418C3;">
                             <i class="lni lni-bar-chart"></i>
@@ -264,8 +260,8 @@ Nav header end
                         <div class="col-xl-4 col-lg-12">
                             <div class="card stats-chart-card">
                                 <div class="card-header">
-                                    <h4>🔽 Embudo de Clientes</h4>
-                                    <div class="stats-subtitle">Solicitud → Contrato → Finalizado</div>
+                                    <h4>?? Embudo de Clientes</h4>
+                                    <div class="stats-subtitle">Solicitud ? Contrato ? Finalizado</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="funnel-container">
@@ -303,7 +299,7 @@ Nav header end
                                     </div>
                                     <!-- Distribution by Estado -->
                                     <hr style="opacity: 0.1;">
-                                    <small class="text-muted font-weight-bold">DISTRIBUCIÓN POR ESTADO</small>
+                                    <small class="text-muted font-weight-bold">DISTRIBUCI�N POR ESTADO</small>
                                     <div id="chartEstadoDistribucion" style="min-height: 200px;"></div>
                                 </div>
                             </div>
@@ -313,7 +309,7 @@ Nav header end
                         <div class="col-xl-8 col-lg-12">
                             <div class="card stats-chart-card">
                                 <div class="card-header">
-                                    <h4>📊 Colocaci&oacute;n por Tipo de Contrato</h4>
+                                    <h4>?? Colocaci&oacute;n por Tipo de Contrato</h4>
                                     <div class="stats-subtitle">Monto total colocado por categor&iacute;a de producto</div>
                                 </div>
                                 <div class="card-body">
@@ -328,7 +324,7 @@ Nav header end
                         <div class="col-xl-12">
                             <div class="card stats-chart-card">
                                 <div class="card-header">
-                                    <h4>📈 L&iacute;nea de Tiempo de Recuperaciones</h4>
+                                    <h4>?? L&iacute;nea de Tiempo de Recuperaciones</h4>
                                     <div class="stats-subtitle">Dinero recuperado por mes durante los &uacute;ltimos 12
                                         meses</div>
                                 </div>
@@ -339,7 +335,7 @@ Nav header end
                         </div>
                     </div>
 
-                    <!-- ============= SECTION: INTELIGENCIA ESTRATÉGICA ============= -->
+                    <!-- ============= SECTION: INTELIGENCIA ESTRAT�GICA ============= -->
                     <div class="stats-section-header">
                         <div class="stats-section-icon" style="background: rgba(39, 174, 96, 0.1); color: #27ae60;">
                             <i class="lni lni-target"></i>
@@ -351,11 +347,11 @@ Nav header end
                     </div>
 
                     <div class="row">
-                        <!-- Garantías -->
+                        <!-- Garant�as -->
                         <div class="col-xl-4 col-lg-6">
                             <div class="card stats-chart-card">
                                 <div class="card-header">
-                                    <h4>🏆 M&eacute;trica de Garant&iacute;as</h4>
+                                    <h4>?? M&eacute;trica de Garant&iacute;as</h4>
                                     <div class="stats-subtitle">Distribuci&oacute;n de bienes en garant&iacute;a</div>
                                 </div>
                                 <div class="card-body">
@@ -392,7 +388,7 @@ Nav header end
                         <div class="col-xl-4 col-lg-6">
                             <div class="card stats-chart-card">
                                 <div class="card-header">
-                                    <h4>👥 M&eacute;trica de Fiadores</h4>
+                                    <h4>?? M&eacute;trica de Fiadores</h4>
                                     <div class="stats-subtitle">Contratos con fiadores y tasa de cumplimiento</div>
                                 </div>
                                 <div class="card-body text-center">
@@ -423,11 +419,11 @@ Nav header end
                             </div>
                         </div>
 
-                        <!-- Proyección de Flujo -->
+                        <!-- Proyecci�n de Flujo -->
                         <div class="col-xl-4 col-lg-12">
                             <div class="card stats-chart-card">
                                 <div class="card-header">
-                                    <h4>🔮 Proyecci&oacute;n de Flujo</h4>
+                                    <h4>?? Proyecci&oacute;n de Flujo</h4>
                                     <div class="stats-subtitle">Ingresos esperados pr&oacute;ximos 30 d&iacute;as</div>
                                 </div>
                                 <div class="card-body">
@@ -448,14 +444,14 @@ Nav header end
                         <div class="col-xl-12">
                             <div class="card stats-chart-card">
                                 <div class="card-header">
-                                    <h4>🎯 Ticket Promedio por Tipo de Bien</h4>
+                                    <h4>?? Ticket Promedio por Tipo de Bien</h4>
                                     <div class="stats-subtitle">Monto promedio de pr&eacute;stamo seg&uacute;n el tipo de
                                         producto</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <?php
-                                        $iconsProducto = ['💎', '🚗', '📱', '💰', '🏠', '📋'];
+                                        $iconsProducto = ['??', '??', '??', '??', '??', '??'];
                                         $colorsProducto = ['#6418C3', '#27ae60', '#f39c12', '#e74c3c', '#3498db', '#9b59b6'];
                                         $idx = 0;
                                         foreach ($estadisticas['tickets_por_producto'] as $tp) {
@@ -505,7 +501,7 @@ Nav header end
             ***********************************-->
             <div class="footer">
                 <div class="copyright">
-                    <p>CrediÁgil &copy;
+                    <p>Credi�gil &copy;
                         <?php echo date('Y'); ?> | M&oacute;dulo de Estad&iacute;sticas
                     </p>
                 </div>
@@ -609,7 +605,7 @@ Nav header end
                     document.querySelector("#chartRecuperacionesTimeline").innerHTML = '<div class="text-center text-muted py-5"><p>Sin datos de recuperaciones disponibles</p></div>';
                 }
 
-                // ---- Garantías (Donut) ----
+                // ---- Garant�as (Donut) ----
                 if (statsData.garantias && statsData.garantias.length > 0) {
                     var garLabels = statsData.garantias.map(function (e) { return e.producto; });
                     var garValues = statsData.garantias.map(function (e) { return e.total; });
@@ -643,7 +639,7 @@ Nav header end
                     }
                 }).render();
 
-                // ---- Proyección de Flujo (Bar Chart) ----
+                // ---- Proyecci�n de Flujo (Bar Chart) ----
                 if (statsData.proyeccion_30dias && statsData.proyeccion_30dias.length > 0) {
                     var proyLabels = statsData.proyeccion_30dias.map(function (e) {
                         var d = new Date(e.fecha + 'T00:00:00');
@@ -685,5 +681,3 @@ Nav header end
 
     </html>
 <?php } ?>
-
-

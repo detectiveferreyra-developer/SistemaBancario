@@ -1,11 +1,11 @@
-﻿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPA�OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA?OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
@@ -21,7 +21,7 @@ if ($_GET['idcuota'] != $Gestiones->getIdCuotasClientes()) {
 // VALIDACION -> CONVERSION DE PLAZO SEGUN PRODUCTO SELECCIONADO POR CLIENTE [ESTRICTAMENTE DATO EN MESES]
 // VALIDACION SI EXISTE UN MONTO DE FINANCIAMIENTO A MOSTRAR -> SI NO EXISTE INDICA QUE NO EXISTE CLIENTE ASIGNADO O SU CREDITO HA CAMBIADO DE ESTADO
 if ($Gestiones->getMontoFinanciamientoCreditos() > 0) {
-	if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+	if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 		$CalculoCuotaMensualCapital = $Gestiones->getMontoFinanciamientoCreditos() / ($Gestiones->getTiempoPlazoCreditos() * 12);
 	} else {
 		$CalculoCuotaMensualCapital = $Gestiones->getMontoFinanciamientoCreditos() / ($Gestiones->getTiempoPlazoCreditos());
@@ -30,7 +30,7 @@ if ($Gestiones->getMontoFinanciamientoCreditos() > 0) {
 	// MOSTRAR PAGINA DE ERROR 404 SI NO EXISTE INFORMACION QUE MOSTRAR
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
 } // CIERRE if ($Gestiones->getMontoFinanciamientoCreditos() > 0) 
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE?A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -38,26 +38,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
 	<!-- 
 
-���������������������������������������������������������
-���������������������������������������������������������
-��=======================================================
-��              CrediAgil S.A DE C.V                                                  
-��          SISTEMA FINANCIERO / BANCARIO 
-��=======================================================                      
-��                                                                               
-�� -> AUTOR: DANIEL RIVERA                                                               
-�� -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-�� -> GITHUB: (danielrivera03)                                             
-�� -> TODOS LOS DERECHOS RESERVADOS                           
-��     � 2021 - 2022    
-��                                                      
-�� -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-��    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-��
-��          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-��                                                                               
-����������������������������������������������������������
-����������������������������������������������������������
+?????????????????????????????????????????????????????????
+?????????????????????????????????????????????????????????
+??=======================================================
+??              CrediAgil S.A DE C.V                                                  
+??          SISTEMA FINANCIERO / BANCARIO 
+??=======================================================                      
+??                                                                               
+?? -> AUTOR: DANIEL RIVERA                                                               
+?? -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+?? -> GITHUB: (danielrivera03)                                             
+?? -> TODOS LOS DERECHOS RESERVADOS                           
+??     ? 2021 - 2022    
+??                                                      
+?? -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+??    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+??
+??          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+??                                                                               
+??????????????????????????????????????????????????????????
+??????????????????????????????????????????????????????????
 
 -->
 	<!DOCTYPE html>
@@ -126,7 +126,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 Nav header start
 ***********************************-->
 <div class="nav-header">
-<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales" class="brand-logo">
 <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
@@ -192,7 +192,7 @@ Nav header end
 								if ($Gestiones->getComprobarIncumplimientoCuotasClientes() == "SI") {
 									echo '<div class="alert alert-danger solid alert-right-icon alert-dismissible fade show">
                             <span><i class="mdi mdi-account-convert"></i></span>
-                            <strong>�Atenci&oacute;n!</strong> Estimado(a) ';
+                            <strong>?Atenci&oacute;n!</strong> Estimado(a) ';
 									$Nombre = $_SESSION['nombre_usuario'];
 									$PrimerNombre = explode(' ', $Nombre, 2);
 									print_r($PrimerNombre[0]);
@@ -202,7 +202,7 @@ Nav header end
 								} else if ($Gestiones->getComprobarIncumplimientoCuotasClientes() == "NO") {
 									echo '<div class="alert alert-success solid alert-right-icon alert-dismissible fade show">
                             <span><i class="mdi mdi-account-heart"></i></span>
-                            <strong>�Enhorabuena. Esta cuota no posee cargos por incumplimiento!</strong> 
+                            <strong>?Enhorabuena. Esta cuota no posee cargos por incumplimiento!</strong> 
                             </div>
                         ';
 								}
@@ -222,14 +222,14 @@ Nav header end
 													<h3 class="text-white">$ <?php echo number_format($Gestiones->getCuotaMensualCreditos(), 2); ?> USD</h3>
 													<div class="progress mb-2 bg-secondary">
 														<div class="progress-bar progress-animated bg-light" style="width: <?php $ContadorCuotas = $_GET['numcuotacliente'];
-																															if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																															if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																$CalculoMeses = $Gestiones->getTiempoPlazoCreditos() * 12;
 																															} else {
 																																$CalculoMeses = $Gestiones->getTiempoPlazoCreditos();
 																															}
 																															echo number_format($CalcularAvanceCuotas = ($ContadorCuotas * 100) / $CalculoMeses, 2); ?>%"></div>
 													</div>
-													<small>Cuota <?php echo $_GET['numcuotacliente']; ?> de <?php if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+													<small>Cuota <?php echo $_GET['numcuotacliente']; ?> de <?php if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																												echo $Gestiones->getTiempoPlazoCreditos() * 12;
 																											} else {
 																												echo $Gestiones->getTiempoPlazoCreditos();
@@ -408,7 +408,7 @@ Nav header end
 											<div class="alert alert-primary solid alert-dismissible fade show">
 												<div class="media">
 													<div class="media-body">
-														<h5 class="mt-1 mb-2 text-white">�Atenci&oacute;n!</h5>
+														<h5 class="mt-1 mb-2 text-white">?Atenci&oacute;n!</h5>
 														<p class="mb-0">Lo sentimos, no es posible completar su solicitud de pago. Esta orden de pago ya ha sido cancelada.</p>
 													</div>
 												</div>
@@ -445,7 +445,7 @@ Nav header end
 													</tbody>
 												</table>
 											</div>
-											<h4 class="text-center">�Deseas visualizar la factura final de la transacci&oacute;n?</h4>
+											<h4 class="text-center">?Deseas visualizar la factura final de la transacci&oacute;n?</h4>
 											<a style="width: 20%; margin: auto; display: block" href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=facturacion-pago-ordenes-pago-cuotas-clientes&idcuota=<?php echo $Gestiones->getIdCuotasClientes(); ?>&idusuario=<?php echo $Gestiones->getIdUsuarios(); ?>" class="btn btn-info">Ver Comprobante<span class="btn-icon-right"><i class="fa fa-print"></i></span></a>
 										<?php } ?>
 										</div>
@@ -551,7 +551,7 @@ Nav header end
 			// COMPROBAR SI CANTIDAD RECIBIDA ES IGUAL O MAYOR A LA REQUERIDA. CANTIDADES MENORES NO SON POSIBLES DE PROCESAR
 			$('#pagarcuotas').prop('disabled', true); // BLOQUEAR BOTON DE ENVIO POR DEFECTO
 			function ValidarCuotaCliente() {
-				var $PagoRequeridoClientes = $('#pagorequeridoclientes').val(); // COMPROBACION CONTRASEÑA GENERADA
+				var $PagoRequeridoClientes = $('#pagorequeridoclientes').val(); // COMPROBACION CONTRASE�A GENERADA
 				let PagoRecibidoClientes = $('#val-pagoclientescuotas').val(); // COMPROBACION DE CUOTA REQUERIDA
 				$('#pagarcuotas').prop('disabled', true); // BLOQUEAR BOTON DE ENVIO POR DEFECTO
 				let activador = document.getElementById("val-pagoclientescuotas")

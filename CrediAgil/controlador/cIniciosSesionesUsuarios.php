@@ -1,26 +1,26 @@
-ï»¿<?php
+<?php
 /*
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡
-â–‘â–‘                         CREDIÃGIL S.A DE C.V                                                  
-â–‘â–‘                       SISTEMA FINANCIERO / BANCARIO 
-â–‘â–‘â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡                       
-â–‘â–‘                                                                               
-â–‘â–‘   -> AUTOR: DANIEL RIVERA                                                               
-â–‘â–‘   -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX                       
-â–‘â–‘   -> GITHUB: (danielrivera03)                                             
-â–‘â–‘       https://github.com/DanielRivera03                              
-â–‘â–‘   -> TODOS LOS DERECHOS RESERVADOS                           
-â–‘â–‘       Â© 2021 - 2022    
-â–‘â–‘                                                      
-â–‘â–‘   -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-â–‘â–‘      Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-â–‘â–‘
-â–‘â–‘              â™¥â™¥ HECHO CON MUCHAS TAZAS DE CAFE â™¥â™¥
-â–‘â–‘                                                                               
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
-â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦==============================================
+¦¦                         CREDIÁGIL S.A DE C.V                                                  
+¦¦                       SISTEMA FINANCIERO / BANCARIO 
+¦¦==============================================                       
+¦¦                                                                               
+¦¦   -> AUTOR: DANIEL RIVERA                                                               
+¦¦   -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX                       
+¦¦   -> GITHUB: (danielrivera03)                                             
+¦¦       https://github.com/DanielRivera03                              
+¦¦   -> TODOS LOS DERECHOS RESERVADOS                           
+¦¦       © 2021 - 2022    
+¦¦                                                      
+¦¦   -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+¦¦      Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+¦¦
+¦¦              ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+¦¦                                                                               
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 
 */
 // INICIALIZANDO SESION
@@ -35,7 +35,7 @@ require '../PHPMailer/PHPMailer.php';
 require '../PHPMailer/SMTP.php';
 // IMPORTANDO ARCHIVO DE CONEXION
 require('../modelo/conexion.php');
-// IMPORTANDO MODELO RECUPERACION DE CUENTAS CREDIÃGIL.
+// IMPORTANDO MODELO RECUPERACION DE CUENTAS CREDIÁGIL.
 require('../modelo/mRecuperacionCuentas.php');
 // INICIALIZANDO VARIABLE GLOBAL DE CLASE
 $Usuarios = new RecuperacionCuentas();
@@ -49,7 +49,7 @@ $Usuarios = new RecuperacionCuentas();
         ENCUENTRA ALOJADO TODO ESTE SISTEMA [NO TOCAR]
     */
 $UrlGlobal = "http://" . $_SERVER['SERVER_NAME'] . ":90/SistemaBancario/CrediAgil/";
-// ASIGNANDO PARAMETRO DE URL -> METODO GET (CrediAgil --> por defecto [nombre de la compaÃ±ia])
+// ASIGNANDO PARAMETRO DE URL -> METODO GET (CrediAgil --> por defecto [nombre de la compañia])
 if (isset($_GET['CrediAgil'])) {
     $peticion_url = $_GET['CrediAgil']; // ACCION {URL}
 }
@@ -88,7 +88,7 @@ switch ($peticion_url) {
                 while ($conectarsistema->more_results())
                     $conectarsistema->next_result();
 
-                // FORZAR DATOS DE DANIEL RIVERA (AsegÃºrate que el ID 1 existe en HeidiSQL)
+                // FORZAR DATOS DE DANIEL RIVERA (Asegúrate que el ID 1 existe en HeidiSQL)
                 $usuario_manual = $conectarsistema->query("SELECT * FROM usuarios WHERE idusuarios = 1");
                 $IniciarSesionUsuarios = mysqli_fetch_array($usuario_manual);
             }
@@ -129,38 +129,38 @@ switch ($peticion_url) {
                 // REGISTRO DE TODOS LOS ACCESOS DE USUARIOS -> DATOS DE INICIO DE SESIONES
                 $consulta = $Usuarios->RegistrarAccesosUsuarios($conectarsistema1, $Dispositivo, $SistemaOperativo, $IdUsuarios);
                 /*
-                    -> ROLES DE USUARIOS VALIDADOS [CrediÃƒÂgil] -> ID -> VALOR ENTERO
+                    -> ROLES DE USUARIOS VALIDADOS [CrediÃgil] -> ID -> VALOR ENTERO
                     -- SE PUEDEN INCLUIR MAS ROLES DE USUARIOS SEGUN NECESIDADES SIN NINGUN INCONVENIENTE --
                 */
                 // USUARIOS ADMINISTRADORES
                 if ($IniciarSesionUsuarios['idrol'] == 1) {
-                    header('location:cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores');
+                    header('location:cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales');
                     // USUARIOS PRESIDENCIA
                 } else if ($IniciarSesionUsuarios['idrol'] == 2) {
                     header('location:cGestionesCrediAgil.php?CrediAgilgestion=iniciopresidencia');
                     // USUARIOS GERENCIA
                 } else if ($IniciarSesionUsuarios['idrol'] == 3) {
                     header('location:cGestionesCrediAgil.php?CrediAgilgestion=iniciogerencia');
-                    // USUARIOS ATENCION AL CLIENTE CREDIÃGIL
+                    // USUARIOS ATENCION AL CLIENTE CREDIÁGIL
                 } else if ($IniciarSesionUsuarios['idrol'] == 4) {
                     header('location:cGestionesCrediAgil.php?CrediAgilgestion=inicioatencionclientes');
-                    // USUARIOS CLIENTES CREDIÃGIL
+                    // USUARIOS CLIENTES CREDIÁGIL
                 } else if ($IniciarSesionUsuarios['idrol'] == 5) {
                     header('location:cGestionesCrediAgil.php?CrediAgilgestion=inicioclientes');
                 }
-                // SI COMPROBACION DE USUARIO / CONTRASEÃ‘A NO EXISTE, ENTONCES REDIRIGE A PAGINA DE ERROR
+                // SI COMPROBACION DE USUARIO / CONTRASEÑA NO EXISTE, ENTONCES REDIRIGE A PAGINA DE ERROR
             } else {
                 header('location:cIniciosSesionesUsuarios.php?CrediAgil=credenciales-incorrectas');
             }
         }
         $conectarsistema->close(); // CERRANDO CONEXION
         break;
-    // PAGINA DE ERROR -> CUANDO USUARIO Y/O CONTRASEÃ‘A SON INVALIDOS
+    // PAGINA DE ERROR -> CUANDO USUARIO Y/O CONTRASEÑA SON INVALIDOS
     case "credenciales-incorrectas":
         require('../vista/erroriniciosesion.php');
         $conectarsistema->close(); // CERRANDO CONEXION
         break;
-    // RECUPERAR CONTRASEÃ‘A -> SECCION Â¿OLVIDE MI CONTRASEÃ‘A? [INICIO DE SESION]
+    // RECUPERAR CONTRASEÑA -> SECCION ¿OLVIDE MI CONTRASEÑA? [INICIO DE SESION]
     case "reestablecer-contrasena":
         require('../vista/recuperar-contrasenia.php');
         $conectarsistema->close(); // CERRANDO CONEXION
@@ -186,9 +186,9 @@ switch ($peticion_url) {
     case "recuperar-cuentas":
         $Destinatario = $_POST['val-email']; // CORREO ELECTRONICO REGISTRADO DE USUARIOS
         $CodigoRecuperacion = rand(10000, 99999); // CODIGO AUTOMATICO DE RECUPERACION [5 DIGITOS]
-        $Nombre = "CrediÃgil - Soporte Sistemas"; // NOMBRE POR DEFECTO EMPRESA
+        $Nombre = "CrediÁgil - Soporte Sistemas"; // NOMBRE POR DEFECTO EMPRESA
         $Remitente = "sistemas@crediagil.com"; // CORREO DE RECUPERACION DE CUENTAS -> EMPRESA
-        $Asunto = "Reestablecer contraseÃ±a - Dpto Sistemas CrediÃgil"; // ASUNTO POR DEFECTO DE CORREO
+        $Asunto = "Reestablecer contraseña - Dpto Sistemas CrediÁgil"; // ASUNTO POR DEFECTO DE CORREO
         $Bytes = random_bytes(5); // GENERAR CODIGO DE 5 DIGITOS - LETRAS
         $Token = bin2hex($Bytes); // ENVIAR TOKEN A INSERCCION
         // INICIALIZANDO CLASE DE ENVIO DE CORRREOS -> USUARIOS QUE RECUPERAN SU CUENTA
@@ -211,7 +211,7 @@ switch ($peticion_url) {
             $mail->Subject = $Asunto; // ASUNTO DE CORREO
             // TODO MENSAJE -> CUERPO CORREOS
             /*
-                    -> IMPORTANTE, POR FAVOR CAMBIE LAS URLÂ´s SI ES DIFERENTE A LA DE SU SERVIDOR
+                    -> IMPORTANTE, POR FAVOR CAMBIE LAS URL´s SI ES DIFERENTE A LA DE SU SERVIDOR
                     RECUERDE QUE POR DEFECTO ESTE PROYECTO HA SIDO DESARROLLADO CON EL PREFIJO
                     LOCAL << :90 >>
                 */
@@ -260,9 +260,9 @@ switch ($peticion_url) {
             <td>
             <div class='text' style='padding: 0 2.5em; text-align: center;'>
             <h2 style='font-family: Tahoma, sans-serif;color: #000000;'>Recuperaci&oacute;n Cuentas</h2><br>
-            <h4 style='font-family: Tahoma, sans-serif;color: #000000;'>Favor ingrese el siguiente cÃ³digo para continuar con el proceso de cambio de contraseÃ±a.</h4><br>
+            <h4 style='font-family: Tahoma, sans-serif;color: #000000;'>Favor ingrese el siguiente código para continuar con el proceso de cambio de contraseña.</h4><br>
             <span style='padding: .8rem; font-size: 18px; font-family: Tahoma, sans-serif; color: #666666; line-height: 150%; border: 3px dashed #b2bec3; letter-spacing: 1rem;'>$CodigoRecuperacion</span>
-            <h4 style='margin: 2.5rem 0 0 0; font-family: Tahoma, sans-serif;color: #000000;'>Nota: Si usted no ha iniciado el proceso de reestablecer contraseÃ±a, favor no hacer caso al correo.</h4>
+            <h4 style='margin: 2.5rem 0 0 0; font-family: Tahoma, sans-serif;color: #000000;'>Nota: Si usted no ha iniciado el proceso de reestablecer contraseña, favor no hacer caso al correo.</h4>
             <p><a style='background: #6c5ce7; padding: 10px 15px;display: inline-block; text-decoration: none; color: #fff; font-family: Tahoma, sans-serif;' href='http://localhost:90/SistemaBancario/CrediAgil/controlador/cIniciosSesionesUsuarios.php?CrediAgil=codigo-seguridad-recuperacion&token=$Token' class='btn btn-primary'>Cambiar Contrase&ntilde;a</a></p>
             </div>
             </td>
@@ -318,7 +318,7 @@ switch ($peticion_url) {
             header('location:cIniciosSesionesUsuarios.php?CrediAgil=iniciarsesion');
         } else {
             // VARIABLES GENERALES DE SESION -> GUARDADO DE DATOS CONFIDENCIALES DE CUENTA A RECUPERAR
-            $_SESSION['TokenUsuarios'] = $Token; // TOKEN DE ACCESO PARA CAMBIAR CONTRASEÃ‘A
+            $_SESSION['TokenUsuarios'] = $Token; // TOKEN DE ACCESO PARA CAMBIAR CONTRASEÑA
             $_SESSION['CorreoUsuarios'] = $Destinatario; // CORREO REGISTRADO CUENTA A RECUPERAR
             $_SESSION['CodigoUsuarios'] = $CodigoRecuperacion; // CODIGO DE RECUPERACION AUTOMATICO
             /*  COMPROBACION SI EL CODIGO DE SEGURIDAD ENVIADO AL CORREO HA SIDO INGRESADO,
@@ -331,12 +331,12 @@ switch ($peticion_url) {
         }
         $conectarsistema->close(); // CERRANDO CONEXION
         break;
-    // PAGINA CONFIRMACION DE RECUPERAR CUENTA [CONTRASEÃ‘AS USUARIOS]
+    // PAGINA CONFIRMACION DE RECUPERAR CUENTA [CONTRASEÑAS USUARIOS]
     case "confirmacion-recuperacion-cuentas":
         require('../vista/confirmacion-recuperar-contrasenia.php');
         $conectarsistema->close(); // CERRANDO CONEXION
         break;
-    // PAGINA CAMBIO DE CONTRASEÃ‘A USUARIOS -> POSTERIOR ENVIO DE CORREO DE NOTIFICACION
+    // PAGINA CAMBIO DE CONTRASEÑA USUARIOS -> POSTERIOR ENVIO DE CORREO DE NOTIFICACION
     case "cambio-contrasenia-usuarios":
         require('../vista/recuperar-cuentas-usuarios.php');
         $conectarsistema->close(); // CERRANDO CONEXION
@@ -357,22 +357,22 @@ switch ($peticion_url) {
         header('location:cIniciosSesionesUsuarios.php?CrediAgil=iniciarsesion');
         $conectarsistema->close(); // CERRANDO CONEXION
         break;
-    // CAMBIO DE NUEVA CONTRASEÃ‘A -> USUARIOS QUE ACCEDEN DESDE SU CORREO DE CONFIRMACION DE USUARIO
+    // CAMBIO DE NUEVA CONTRASEÑA -> USUARIOS QUE ACCEDEN DESDE SU CORREO DE CONFIRMACION DE USUARIO
     case "cambiar-contrasenia-recuperacion":
-        $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-password'])); // CONTRASEÃ‘A INGRESADA POR USUARIOS
-        $Contrasenia = crypt($conectarsistema->real_escape_string($_POST['val-password']), $cifrado); // ENCRIPTAR CONTRASEÃ‘A INGRESADA
+        $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-password'])); // CONTRASEÑA INGRESADA POR USUARIOS
+        $Contrasenia = crypt($conectarsistema->real_escape_string($_POST['val-password']), $cifrado); // ENCRIPTAR CONTRASEÑA INGRESADA
         $Correo = $_SESSION['CorreoUsuarios'];
         // EVITAR ACCION NULA O VACIA
         if (empty($_POST['val-password'])) {
             header('location:cIniciosSesionesUsuarios.php?CrediAgil=iniciarsesion');
         } else {
             $consulta = $Usuarios->CambioContraseniaRecuperacion($conectarsistema, $Correo, $Contrasenia);
-            /** CORREO DE CONFIRMACION CAMBIO EXITOSO DE CONTRASEÃ‘A **/
+            /** CORREO DE CONFIRMACION CAMBIO EXITOSO DE CONTRASEÑA **/
             $Destinatario = $_SESSION['CorreoUsuarios']; // CORREO ELECTRONICO REGISTRADO DE USUARIOS
             $CodigoRecuperacion = rand(10000, 99999); // CODIGO AUTOMATICO DE RECUPERACION [5 DIGITOS]
-            $Nombre = "CrediÃgil - Soporte Sistemas"; // NOMBRE POR DEFECTO EMPRESA
+            $Nombre = "CrediÁgil - Soporte Sistemas"; // NOMBRE POR DEFECTO EMPRESA
             $Remitente = "sistemas@crediagil.com"; // CORREO DE RECUPERACION DE CUENTAS -> EMPRESA
-            $Asunto = "Cambio ContraseÃ±a - Dpto Sistemas CrediÃgil"; // ASUNTO POR DEFECTO DE CORREO
+            $Asunto = "Cambio Contraseña - Dpto Sistemas CrediÁgil"; // ASUNTO POR DEFECTO DE CORREO
             $Bytes = random_bytes(5); // GENERAR CODIGO DE 5 DIGITOS - LETRAS
             $Token = bin2hex($Bytes); // ENVIAR TOKEN A INSERCCION
             // INICIALIZANDO CLASE DE ENVIO DE CORRREOS -> USUARIOS QUE RECUPERAN SU CUENTA
@@ -395,7 +395,7 @@ switch ($peticion_url) {
                 $mail->Subject = $Asunto; // ASUNTO DE CORREO
                 // TODO MENSAJE -> CUERPO CORREOS
                 /*
-                        -> IMPORTANTE, POR FAVOR CAMBIE LAS URLÂ´s SI ES DIFERENTE A LA DE SU SERVIDOR
+                        -> IMPORTANTE, POR FAVOR CAMBIE LAS URL´s SI ES DIFERENTE A LA DE SU SERVIDOR
                         RECUERDE QUE POR DEFECTO ESTE PROYECTO HA SIDO DESARROLLADO CON EL PREFIJO
                         LOCAL << :90 >>
                     */
@@ -505,7 +505,7 @@ switch ($peticion_url) {
     // CAMBIO DE TOKEN DE ACCESO AUTOMATICAMENTE -> POSTERIOR COMPROBACION CODIGO DE SEGURIDAD
     case "cambio-estado-token":
         /*
-                HABILITANDO ACCESO A PAGINA DE CAMBIO DE CONTRASEÃ‘A NUEVA, USUARIO HA COMPROBADO
+                HABILITANDO ACCESO A PAGINA DE CAMBIO DE CONTRASEÑA NUEVA, USUARIO HA COMPROBADO
                 EXITOSAMENTE QUE SU CODIGO ES VALIDO PARA PROCEDER A SU PETICION
             */
         $_SESSION['EstadoCodigos'] = "ValidarCodigoAcceso";
@@ -521,7 +521,7 @@ switch ($peticion_url) {
         }
         $conectarsistema->close(); // CERRANDO CONEXION
         break;
-    // PAGINA CONFIRMACION CAMBIO DE CONTRASEÃ‘AS USUARIOS
+    // PAGINA CONFIRMACION CAMBIO DE CONTRASEÑAS USUARIOS
     case "confirmacion-cambio-contrasenia":
         // RETIRAR SESIONES CREADAS PARA MANEJO DE TIEMPO
         unset($_SESSION["expirar_sesion"]);
@@ -532,7 +532,7 @@ switch ($peticion_url) {
         require('../vista/confirmacion-cambio-contrasenia.php');
         $conectarsistema->close(); // CERRANDO CONEXION
         break;
-    // PAGINA ERROR CAMBIO DE CONTRASEÃ‘AS USUARIOS
+    // PAGINA ERROR CAMBIO DE CONTRASEÑAS USUARIOS
     case "error-cambio-contrasenia":
         // RETIRAR SESIONES CREADAS PARA MANEJO DE TIEMPO
         unset($_SESSION["expirar_sesion"]);

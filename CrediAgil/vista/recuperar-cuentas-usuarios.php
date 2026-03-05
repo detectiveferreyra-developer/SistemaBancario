@@ -34,35 +34,12 @@ if ($_GET['token'] != $_SESSION['TokenUsuarios']) {
 } else {
     /*
         SOLAMENTE PERMITIR EL INGRESO DE USUARIOS QUE VALIDEN SU CODIGO DE SEGURIDAD.
-        SI DIGITAN URL PARA PROCEDER CAMBIAR SU CONTRASEÑA SIN VALIDAR CODIGO, MOSTRARA
+        SI DIGITAN URL PARA PROCEDER CAMBIAR SU CONTRASEï¿½A SIN VALIDAR CODIGO, MOSTRARA
         MENSAJE DE ERROR
         */
     if ($_SESSION['EstadoCodigos'] == "ValidarCodigoAcceso") { // CODIGO DE SEGURIDAD VALIDADO
         ?>
-        <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-
--->
         <!DOCTYPE html>
         <html lang="ES-SV" class="h-100">
 
@@ -70,7 +47,7 @@ if ($_GET['token'] != $_SESSION['TokenUsuarios']) {
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width,initial-scale=1">
-            <title>CrediÁgil | Recuperar Cuenta</title>
+            <title>Crediï¿½gil | Recuperar Cuenta</title>
             <!-- Favicon icon -->
             <link rel="apple-touch-icon" sizes="57x57"
                 href="<?php echo $UrlGlobal; ?>vista/images/crediagil-apple-icon-57x57.png">

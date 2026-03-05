@@ -6,12 +6,11 @@ if ($_SESSION['id_rol'] == 1) {
 
     // Mapa de rutas para cada item del menú
     $nav_items = [
-        'inicio' => ['inicioadministradores', 'perfiladministradores'],
+        'inicio' => ['estadisticas-generales', 'perfiladministradores'],
         'nuevo_cliente' => ['nuevo-cliente'],
         'creditos_pagados' => ['listado_clientes', 'listado-general-creditos-aprobados-activos'],
         'creditos_vencidos' => ['listado_morosos', 'consulta-listado-cuotas-clientes-morosos'],
         'proximos_vencer' => ['proximos_vencer'],
-        'estadisticas' => ['estadisticas-generales'],
         'soporte' => ['registrar_reporte', 'registrar-ticket-problema-plataforma'],
         'notificaciones' => ['visualizar-mis-notificaciones-usuarios'],
     ];
@@ -30,6 +29,20 @@ if ($_SESSION['id_rol'] == 1) {
             <ul class="metismenu" id="menu">
 
 
+
+                <!-- ESTADÍSTICAS (Nuevo Inicio) -->
+                <li class="<?php echo ca_sidebar_active('inicio', $gestion_actual, $nav_items); ?>">
+                    <a class="ai-icon <?php echo ca_link_active('inicio', $gestion_actual, $nav_items); ?>"
+                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales">
+                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M2 13h6v8H2v-8zm14-5h6v13h-6V8zM9 3h6v18H9V3zM4 15v4h2v-4H4zm7-10v14h2V5h-2zm7 5v9h2v-9h-2z" />
+                        </svg>
+                        <span class="nav-text">Estadísticas</span>
+                    </a>
+                </li>
 
                 <!-- NUEVO CLIENTE -->
                 <li class="<?php echo ca_sidebar_active('nuevo_cliente', $gestion_actual, $nav_items); ?>">
@@ -86,19 +99,7 @@ if ($_SESSION['id_rol'] == 1) {
                     </a>
                 </li>
 
-                <!-- ESTADÍSTICAS -->
-                <li class="<?php echo ca_sidebar_active('estadisticas', $gestion_actual, $nav_items); ?>">
-                    <a class="ai-icon <?php echo ca_link_active('estadisticas', $gestion_actual, $nav_items); ?>"
-                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales">
-                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                            height="24">
-                            <path fill="none" d="M0 0h24v24H0z" />
-                            <path
-                                d="M2 13h6v8H2v-8zm14-5h6v13h-6V8zM9 3h6v18H9V3zM4 15v4h2v-4H4zm7-10v14h2V5h-2zm7 5v9h2v-9h-2z" />
-                        </svg>
-                        <span class="nav-text">Estadísticas</span>
-                    </a>
-                </li>
+
 
                 <!-- SOPORTE TÉCNICO -->
                 <li class="<?php echo ca_sidebar_active('soporte', $gestion_actual, $nav_items); ?>">

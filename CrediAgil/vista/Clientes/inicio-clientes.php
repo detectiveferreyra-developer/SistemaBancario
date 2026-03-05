@@ -1,14 +1,14 @@
-﻿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
-// DATOS DE LOCALIZACION -> IDIOMA ESPA�OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA?OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE?A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -18,26 +18,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         ?>
         <!-- 
 
-���������������������������������������������������������
-���������������������������������������������������������
-��=======================================================
-��              CrediAgil S.A DE C.V                                                  
-��          SISTEMA FINANCIERO / BANCARIO 
-��=======================================================                      
-��                                                                               
-�� -> AUTOR: DANIEL RIVERA                                                               
-�� -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-�� -> GITHUB: (danielrivera03)                                             
-�� -> TODOS LOS DERECHOS RESERVADOS                           
-��     � 2021 - 2022    
-��                                                      
-�� -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-��    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-��
-��          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-��                                                                               
-����������������������������������������������������������
-����������������������������������������������������������
+?????????????????????????????????????????????????????????
+?????????????????????????????????????????????????????????
+??=======================================================
+??              CrediAgil S.A DE C.V                                                  
+??          SISTEMA FINANCIERO / BANCARIO 
+??=======================================================                      
+??                                                                               
+?? -> AUTOR: DANIEL RIVERA                                                               
+?? -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+?? -> GITHUB: (danielrivera03)                                             
+?? -> TODOS LOS DERECHOS RESERVADOS                           
+??     ? 2021 - 2022    
+??                                                      
+?? -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+??    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+??
+??          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+??                                                                               
+??????????????????????????????????????????????????????????
+??????????????????????????????????????????????????????????
 
 -->
         <!DOCTYPE html>
@@ -1148,7 +1148,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                 <div class="d-inline-block relative donut-chart-sale mr-4">
                                                     <span class="donut" data-peity='{ "fill": ["rgb(60, 75, 165)", "rgba(236, 236, 236, 1)"], 
                                         "innerRadius": 32, "radius": 10}'><?php if (!empty($Gestiones->getNombreProductos())) {
-                                            if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+                                            if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
                                                 $CalculoMeses = $Gestiones->getTiempoPlazoCreditos() * 12;
                                             } else {
                                                 $CalculoMeses = $Gestiones->getTiempoPlazoCreditos();
@@ -1159,7 +1159,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                     <small class="text-primary">
                                                         <?php
                                                         if (!empty($Gestiones->getNombreProductos())) {
-                                                            if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+                                                            if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
                                                                 $CalculoMeses = $Gestiones->getTiempoPlazoCreditos() * 12;
                                                             } else {
                                                                 $CalculoMeses = $Gestiones->getTiempoPlazoCreditos();
@@ -1183,7 +1183,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                     </div>
                                     <?php if ($CalcularAvanceCuotas == 100) { ?>
                                         <div class="alert alert-info alert-dismissible alert-alt fade show">
-                                            <strong>�Atenci&oacute;n!</strong> Estimado cliente, usted ha finalizado de pagar su
+                                            <strong>?Atenci&oacute;n!</strong> Estimado cliente, usted ha finalizado de pagar su
                                             solicitud crediticia. En los pr&oacute;ximos 7 d&iacute;as h&aacute;biles ser&aacute;
                                             cont&aacute;ctado para retirar su respectivo finiquito de cancelaci&oacute;n. Gracias por
                                             confiar en nuestra empresa, su usuario seguir&aacute; vigente y a disposici&oacute;n de

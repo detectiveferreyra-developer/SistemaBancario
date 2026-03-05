@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // SI USUARIO NO TIENE SESION ACTIVA, MOSTRAR FORMULARIO DE INICIO DE SESION
 if (empty($_SESSION['id_usuario'])) {
     ?>
@@ -244,7 +244,7 @@ if (empty($_SESSION['id_usuario'])) {
                                         </div>
                                         <div class="form-group">
                                             <a style="cursor: help;"
-                                                href="<?php echo $UrlGlobal; ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=reestablecer-contrasena">¿Olvide
+                                                href="<?php echo $UrlGlobal; ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=reestablecer-contrasena">�Olvide
                                                 mi contrase&ntilde;a?</a>
                                         </div>
                                     </div>
@@ -282,7 +282,7 @@ if (empty($_SESSION['id_usuario'])) {
 } else {
     // USUARIOS ADMINISTRADORES
     if ($_SESSION['id_rol'] == 1) {
-        header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores');
+        header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales');
         // USUARIOS PRESIDENCIA
     } else if ($_SESSION['id_rol'] == 2) {
         header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=iniciopresidencia');

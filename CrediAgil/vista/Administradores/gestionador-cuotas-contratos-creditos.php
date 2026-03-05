@@ -1,16 +1,16 @@
-﻿<?php
+<?php
 // IMPORTANDO MODELO DE CLIMA EN TIEMPO REAL -> API CLIMA OPENWEATHERMAP
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPA�OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA?OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
 $hora = new DateTime("now");
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE?A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 	header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 	// CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -20,26 +20,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
 		<!-- 
 
-���������������������������������������������������������
-���������������������������������������������������������
-��=======================================================
-��              CrediAgil S.A DE C.V                                                  
-��          SISTEMA FINANCIERO / BANCARIO 
-��=======================================================                      
-��                                                                               
-�� -> AUTOR: DANIEL RIVERA                                                               
-�� -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-�� -> GITHUB: (danielrivera03)                                             
-�� -> TODOS LOS DERECHOS RESERVADOS                           
-��     � 2021 - 2022    
-��                                                      
-�� -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-��    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-��
-��          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-��                                                                               
-����������������������������������������������������������
-����������������������������������������������������������
+?????????????????????????????????????????????????????????
+?????????????????????????????????????????????????????????
+??=======================================================
+??              CrediAgil S.A DE C.V                                                  
+??          SISTEMA FINANCIERO / BANCARIO 
+??=======================================================                      
+??                                                                               
+?? -> AUTOR: DANIEL RIVERA                                                               
+?? -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+?? -> GITHUB: (danielrivera03)                                             
+?? -> TODOS LOS DERECHOS RESERVADOS                           
+??     ? 2021 - 2022    
+??                                                      
+?? -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+??    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+??
+??          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+??                                                                               
+??????????????????????????????????????????????????????????
+??????????????????????????????????????????????????????????
 
 -->
 		<!DOCTYPE html>
@@ -109,7 +109,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 Nav header start
 ***********************************-->
 <div class="nav-header">
-<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores" class="brand-logo">
+<a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales" class="brand-logo">
 <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
 <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
@@ -191,7 +191,7 @@ Nav header end
 																<div class="media-body"><span class="pull-right" id="HoraActual"></span>
 																	<h5 class="my-1 text-primary">Resumen de Contrato Colectivo</h5>
 																	<p class="read-content-email">
-																		�Problemas?: departamentojuridico@CrediAgil.com</p>
+																		?Problemas?: departamentojuridico@CrediAgil.com</p>
 																</div>
 															</div>
 															<div class="read-content-body">
@@ -233,13 +233,13 @@ Nav header end
 
 																<p class="mb-2">Raz&oacute;n por la cual su cr&eacute;dito queda estructurado de la siguiente manera:</p>
 
-																<p class="mb-2"><strong><?php echo $Gestiones->getNombreProductos(); ?></strong> financiamiento por un monto de <strong>$<?php echo number_format($Gestiones->getMontoFinanciamientoCreditos(), 2); ?> USD</strong> para un plazo de <strong><?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																<p class="mb-2"><strong><?php echo $Gestiones->getNombreProductos(); ?></strong> financiamiento por un monto de <strong>$<?php echo number_format($Gestiones->getMontoFinanciamientoCreditos(), 2); ?> USD</strong> para un plazo de <strong><?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																																																																										echo 'a&ntilde;os';
 																																																																																									} else {
 																																																																																										echo 'meses';
 																																																																																									} ?></strong> a una tasa de inter&eacute;s mensual del <strong><?php echo $Gestiones->getTasaInteresCreditos(); ?> %</strong>.</p>
 
-																<p class="mb-2">Tomando en cuenta todo lo anterior, por pol&iacute;ticas de nuestra empresa el d&iacute;a asignado de su cuota mensual ser&aacute; el mismo en el cual usted inicio su tr&aacute;mite de cr&eacute;dito, el cual corresponde al <strong><?php echo $ObtenerDia; ?> de cada mes por los pr&oacute;ximos <?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																<p class="mb-2">Tomando en cuenta todo lo anterior, por pol&iacute;ticas de nuestra empresa el d&iacute;a asignado de su cuota mensual ser&aacute; el mismo en el cual usted inicio su tr&aacute;mite de cr&eacute;dito, el cual corresponde al <strong><?php echo $ObtenerDia; ?> de cada mes por los pr&oacute;ximos <?php echo $Gestiones->getTiempoPlazoCreditos(); ?> <?php if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																																																																																												echo 'a&ntilde;os';
 																																																																																																											} else {
 																																																																																																												echo 'meses';
@@ -258,7 +258,7 @@ Nav header end
 																<div class="row attachment">
 																	<div class="col-auto">
 																		<p>* Imprimir estado de cuenta pagar&eacute; cuotas mensualues y registrar cuotas mensuales asignadas en el sistema de pagos <strong>(<?php
-																																																				if ($Gestiones->getNombreProductos() == "Pr�stamos Hipotecarios") {
+																																																				if ($Gestiones->getNombreProductos() == "Pr?stamos Hipotecarios") {
 																																																					echo $Gestiones->getTiempoPlazoCreditos() * 12;
 																																																				} else {
 																																																					echo $Gestiones->getTiempoPlazoCreditos();
@@ -269,7 +269,7 @@ Nav header end
 																</div>
 															</div>
 															<?php
-															if ($Gestiones->getNombreProductos() == "Pr�stamos de Veh�culos") {
+															if ($Gestiones->getNombreProductos() == "Pr?stamos de Veh?culos") {
 															?>
 																<hr>
 																<div class="read-content-attachment">
@@ -416,7 +416,7 @@ Nav header end
 																					<line x1="12" y1="9" x2="12" y2="13"></line>
 																					<line x1="12" y1="17" x2="12.01" y2="17"></line>
 																				</svg>
-																				<strong>�Advertencia!</strong> �Est&aacute; seguro de registrar este documento? <strong>Es una acci&oacute;n sin retorno ya que todo el proceso de asignaci&oacute;n de nuevos cr&eacute;ditos finalizar&iacute;a autom&aacute;ticamente.</strong> Por favor verifique que todo ha sido completado con &eacute;xito antes de realizar esta acci&oacute;n.
+																				<strong>?Advertencia!</strong> ?Est&aacute; seguro de registrar este documento? <strong>Es una acci&oacute;n sin retorno ya que todo el proceso de asignaci&oacute;n de nuevos cr&eacute;ditos finalizar&iacute;a autom&aacute;ticamente.</strong> Por favor verifique que todo ha sido completado con &eacute;xito antes de realizar esta acci&oacute;n.
 																			</div>
 																			<form id="registro-contrato-copia-clientes" class="validacion-registro-datos-vehiculos-contrato" method="post" autocomplete="off" enctype="multipart/form-data">
 																				<div class="row form-validation">
@@ -470,7 +470,7 @@ Nav header end
 																					<line x1="12" y1="9" x2="12" y2="13"></line>
 																					<line x1="12" y1="17" x2="12.01" y2="17"></line>
 																				</svg>
-																				<strong>�Advertencia!</strong> �Est&aacute; seguro de registrar este documento? <strong>Es una acci&oacute;n sin retorno ya que todo el proceso de asignaci&oacute;n de nuevos cr&eacute;ditos finalizar&iacute;a autom&aacute;ticamente.</strong> Por favor verifique que todo ha sido completado con &eacute;xito antes de realizar esta acci&oacute;n.
+																				<strong>?Advertencia!</strong> ?Est&aacute; seguro de registrar este documento? <strong>Es una acci&oacute;n sin retorno ya que todo el proceso de asignaci&oacute;n de nuevos cr&eacute;ditos finalizar&iacute;a autom&aacute;ticamente.</strong> Por favor verifique que todo ha sido completado con &eacute;xito antes de realizar esta acci&oacute;n.
 																			</div>
 																			<form id="registro-contrato-copia-clientes" class="validacion-registro-datos-vehiculos-contrato" method="post" autocomplete="off" enctype="multipart/form-data">
 																				<div class="row form-validation">

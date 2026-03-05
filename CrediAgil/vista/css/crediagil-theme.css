@@ -753,3 +753,68 @@ a:hover {
 .hamburger .line {
     background: var(--crediagil-blue) !important;
 }
+
+/* ===== OCULTAR HAMBURGER NATIVO DEL NAV-HEADER (sidebar) =====
+   El botón ya está en el navbar; el que el framework inyecta
+   en .nav-header se oculta para evitar duplicado. */
+.nav-header .nav-control {
+    display: none !important;
+}
+
+/* ============================================
+   NUEVOS AJUSTES DE PROPORCIONALIDAD Y ESPACIOS
+   ============================================ */
+
+/* ===== LOGO: más pequeño y con margen inferior ===== */
+.nav-header .brand-logo {
+    padding-bottom: 24px !important;
+    height: auto !important;
+    max-width: 160px !important;
+    overflow: hidden !important;
+}
+
+/* Limitar tamaño de la imagen del logo */
+.nav-header .brand-logo img.brand-title,
+.nav-header .brand-logo img.logo-abbr,
+.nav-header .brand-logo img.logo-compact {
+    max-width: 140px !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* ===== SIDEBAR ITEMS: más grandes, más altura, texto más a la derecha ===== */
+.metismenu>li {
+    margin-bottom: 6px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+}
+
+.metismenu>li>a {
+    border-radius: 10px !important;
+    padding: 18px 20px 18px 28px !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    transition: all 0.25s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    min-height: 56px !important;
+}
+
+/* Iconos del sidebar más grandes */
+.metismenu>li>a svg {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    flex-shrink: 0 !important;
+}
+
+.metismenu>li>a .nav-text {
+    font-size: 0.98rem !important;
+    letter-spacing: 0.01em !important;
+}
+
+.metismenu>li.mm-active>a {
+    box-shadow: 0 4px 15px rgba(255, 140, 66, 0.25) !important;
+}

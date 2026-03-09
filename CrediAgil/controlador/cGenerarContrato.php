@@ -330,170 +330,57 @@ $replacements = [
 ];
 
 // ─────────────────────────────────────────────
-// 6. ABRIR TEMPLATE, REEMPLAZAR, GUARDAR
+// 6. ABRIR TEMPLATE, REEMPLAZAR, GUARDAR (USANDO TemplateProcessor)
 // ─────────────────────────────────────────────
-$zip = new ZipArchive();
-if ($zip->open($template_path) !== true) {
+require_once __DIR__ . '/../vendor/autoload.php';
+
+try {
+    $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($template_path);
+
+    // Reemplazar todas las variables
+    foreach ($replacements as $key => $value) {
+        $templateProcessor->setValue($key, $value);
+    }
+
+    // ─────────────────────────────────────────────
+    // 7. ESCRIBIR EL DOCX RESULTADO
+    // ─────────────────────────────────────────────
+    $tmp_dir = realpath(__DIR__ . '/..') . '/tmp_contratos/';
+    if (!is_dir($tmp_dir)) {
+        mkdir($tmp_dir, 0755, true);
+    }
+
+    $tmp_filename = $tmp_dir . 'contrato_' . time() . '_' . rand(100, 999) . '.docx';
+    $download_name = "Contrato_{$num_contrato}_{$tipo_doc}_{$tipo_pers}.docx";
+
+    $templateProcessor->saveAs($tmp_filename);
+
+} catch (Exception $e) {
     ob_clean();
-    echo json_encode(['status' => 'error', 'message' => 'No se pudo abrir la plantilla.']);
+    echo json_encode(['status' => 'error', 'message' => 'Error procesando la plantilla: ' . $e->getMessage()]);
     exit;
 }
 
-// Archivos XML internos del .docx a procesar
-$xml_targets = [];
-for ($i = 0; $i < $zip->numFiles; $i++) {
-    $name = $zip->getNameIndex($i);
-    // Procesar document, headers, footers y notas al pie
-    if (preg_match('#^word/(document|header\d*|footer\d*|footnotes|endnotes)\.xml$#', $name)) {
-        $content = $zip->getFromIndex($i);
-        if ($content !== false) {
-            $xml_targets[$name] = $content;
-        }
-    }
-}
-$zip->close();
-
-// Realizar los reemplazos en el XML
-// Word a veces fragmenta ${VAR} en múltiples runs. Primero juntamos los runs dentro de
-// un párrafo para detectar el placeholder, luego reemplazamos en el XML raw.
-foreach ($xml_targets as $xml_file => &$content) {
-    // --- Estrategia 1: reemplazo directo (placeholder no fragmentado) ---
-    foreach ($replacements as $var => $value) {
-        $pattern = '/\$\{\s*' . preg_quote($var, '/') . '\s*\}/';
-        $escaped_val = htmlspecialchars((string) $value, ENT_XML1, 'UTF-8');
-        $content = preg_replace($pattern, $escaped_val, $content);
-    }
-
-    // --- Estrategia 2: reconstrucción de runs fragmentados ---
-    // Detecta secuencias de <w:r>...</w:r> donde el texto conjunto forma un ${VAR}
-    // Reemplaza el contenido del primer run y elimina los demás
-    foreach ($replacements as $var => $value) {
-        $escaped_val = htmlspecialchars((string) $value, ENT_XML1, 'UTF-8');
-        $placeholder = '${' . $var . '}';
-
-        // Busca el placeholder dividido en runs: cada carácter puede estar en un run distinto
-        // Patrón que captura múltiples <w:r> cuyos <w:t> juntos forman el placeholder
-        // Simplificamos: busca el bloque de runs cuyo texto combinado contiene el placeholder
-        $content = reconstructAndReplace($content, $placeholder, $escaped_val);
-    }
-
-    // Limpiar placeholders que no fueron reemplazados
-    $content = preg_replace('/\$\{\s*[A-Z_0-9]+\s*\}/', '', $content);
-}
-unset($content);
-
-/**
- * Reconstruye runs de Word fragmentados y reemplaza el placeholder.
- * Word puede fragmentar "${VAR}" en múltiples <w:r><w:t> dentro de un párrafo.
- */
-function reconstructAndReplace(string $xml, string $placeholder, string $value): string
-{
-    // Patrón para capturar un bloque de runs consecutivos dentro de un párrafo
-    // que juntos forman el placeholder
-    $pattern = '/<w:r\b[^>]*>(?:(?!<\/w:r>).)*?<w:t[^>]*>[^<]*<\/w:t>(?:(?!<\/w:r>).)*?<\/w:r>/s';
-
-    // Extraer todos los runs del XML con sus posiciones
-    preg_match_all($pattern, $xml, $matches, PREG_OFFSET_CAPTURE);
-
-    if (empty($matches[0]))
-        return $xml;
-
-    $runs = $matches[0]; // [[run_text, offset], ...]
-    $n = count($runs);
-    $ph_len = strlen($placeholder);
-
-    for ($i = 0; $i < $n; $i++) {
-        // Intentamos combinar runs a partir del run $i
-        $combined_text = '';
-        $run_indices = [];
-        for ($j = $i; $j < $n; $j++) {
-            // Extraer texto del run
-            preg_match('/<w:t[^>]*>(.*?)<\/w:t>/s', $runs[$j][0], $m);
-            $run_text = $m[1] ?? '';
-            $combined_text .= $run_text;
-            $run_indices[] = $j;
-
-            if (strpos($combined_text, $placeholder) !== false) {
-                // Encontramos una secuencia que contiene el placeholder
-                // Reemplazar el texto en el primer run, eliminar los demás
-                $new_combined = str_replace($placeholder, $value, $combined_text);
-
-                // Modificar el primer run para que tenga el texto reemplazado
-                $first_run = $runs[$i][0];
-                $new_first_run = preg_replace(
-                    '/<w:t([^>]*)>.*?<\/w:t>/s',
-                    "<w:t$1>" . $new_combined . "</w:t>",
-                    $first_run,
-                    1
-                );
-
-                // Construir la versión modificada: reemplazar todos los runs involucrados
-                $search = '';
-                $replace = $new_first_run;
-                foreach ($run_indices as $idx) {
-                    $search .= preg_quote($runs[$idx][0], '/');
-                    if ($idx !== $i) {
-                        $replace = $replace; // los demás runs se eliminan (ya en $replace vacío)
-                    }
-                }
-
-                // Reemplazar sólo la primera ocurrencia de la secuencia completa
-                $sequence = implode('', array_map(fn($idx) => $runs[$idx][0], $run_indices));
-                $xml = substr_replace($xml, $new_first_run, $runs[$i][1], strlen($sequence));
-
-                // Salir de ambos bucles y reiniciar
-                return reconstructAndReplace($xml, $placeholder, $value);
-            }
-
-            // Si el texto combinado ya excede el placeholder, no hay match
-            if (strlen($combined_text) > $ph_len + 10)
-                break;
-        }
-    }
-
-    return $xml;
-}
-
 // ─────────────────────────────────────────────
-// 7. ESCRIBIR EL DOCX RESULTADO
-// ─────────────────────────────────────────────
-$tmp_dir = realpath(__DIR__ . '/..') . '/tmp_contratos/';
-if (!is_dir($tmp_dir)) {
-    mkdir($tmp_dir, 0755, true);
-}
-
-$tmp_filename = $tmp_dir . 'contrato_' . time() . '_' . rand(100, 999) . '.docx';
-$download_name = "Contrato_{$num_contrato}_{$tipo_doc}_{$tipo_pers}.docx";
-
-// Copiar la plantilla original y sobreescribir los XML corregidos
-copy($template_path, $tmp_filename);
-$zip = new ZipArchive();
-if ($zip->open($tmp_filename) !== true) {
-    ob_clean();
-    echo json_encode(['status' => 'error', 'message' => 'No se pudo crear el contrato.']);
-    exit;
-}
-foreach ($xml_targets as $xml_file => $content) {
-    $zip->deleteName($xml_file);
-    $zip->addFromString($xml_file, $content);
-}
-$zip->close();
-
-// ─────────────────────────────────────────────
-// 7.5. GENERAR EL PDF CON TCPDF
+// 7.5. GENERAR EL PDF CON MS WORD (VBSCRIPT)
 // ─────────────────────────────────────────────
 $pdf_filename = str_replace('.docx', '.pdf', $tmp_filename);
-try {
-    require_once __DIR__ . '/../vendor/autoload.php';
-    \PhpOffice\PhpWord\Settings::setPdfRendererPath(realpath(__DIR__ . '/../vendor/tecnickcom/tcpdf'));
-    \PhpOffice\PhpWord\Settings::setPdfRendererName('TCPDF');
 
-    $phpWord = \PhpOffice\PhpWord\IOFactory::load($tmp_filename);
-    $xmlWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'PDF');
-    $xmlWriter->save($pdf_filename);
-} catch (Exception $e) {
-    // Continuar si falla la generación PDF
+// Crear el script VBS si no existe
+$vbs_path = $tmp_dir . 'convert.vbs';
+if (!file_exists($vbs_path)) {
+    $vbs_content = "Set objWord = CreateObject(\"Word.Application\")\n";
+    $vbs_content .= "objWord.Visible = False\n";
+    $vbs_content .= "Set objDoc = objWord.Documents.Open(WScript.Arguments(0))\n";
+    $vbs_content .= "objDoc.SaveAs WScript.Arguments(1), 17\n";
+    $vbs_content .= "objDoc.Close\n";
+    $vbs_content .= "objWord.Quit\n";
+    file_put_contents($vbs_path, $vbs_content);
 }
+
+// Ejecutar el script VBS para la conversión
+$command = "cscript //nologo \"$vbs_path\" \"$tmp_filename\" \"$pdf_filename\"";
+shell_exec($command);
 
 // ─────────────────────────────────────────────
 // 8. DATOS DE PREVIEW

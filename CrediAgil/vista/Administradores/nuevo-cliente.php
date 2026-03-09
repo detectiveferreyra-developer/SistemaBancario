@@ -3,7 +3,7 @@
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPA�OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPAOL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
@@ -15,7 +15,7 @@ $hora = new DateTime("now");
 if (!isset($_GET['CrediAgilgestion'])) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
 }
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE�A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEA GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -279,7 +279,7 @@ Nav header end
                         <div class="col-sm-6 p-md-0">
                             <div class="welcome-text">
                                 <h4>Nuevo Cliente</h4>
-                                <p class="mb-0">Registro de cliente con garant�a mobiliaria</p>
+                                <p class="mb-0">Registro de cliente con garantia mobiliaria</p>
                             </div>
                         </div>
                         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -308,11 +308,11 @@ Nav header end
                                     </div>
                                     <div class="step" data-step="3">
                                         <div class="step-circle">3</div>
-                                        <div class="step-label">Configuraci�n del Pr�stamo</div>
+                                        <div class="step-label">Configuracion del Prestamo</div>
                                     </div>
                                     <div class="step" data-step="4">
                                         <div class="step-circle">4</div>
-                                        <div class="step-label">Revisi�n y Confirmaci�n</div>
+                                        <div class="step-label">Revision y Confirmacion</div>
                                     </div>
                                 </div>
 
@@ -322,11 +322,11 @@ Nav header end
                                     <div class="step-content active" data-step="1">
                                         <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Perfil del Cliente</h5>
 
-                                        <!-- Selector de Tipo de Personer�a -->
+                                        <!-- Selector de Tipo de Personeria -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="required-field">Tipo de Personer�a</label>
+                                                    <label class="required-field">Tipo de Personeria</label>
                                                     <select class="form-control" id="tipo_personeria" name="tipo_personeria"
                                                         required>
                                                         <option value="">Seleccione...</option>
@@ -345,7 +345,7 @@ Nav header end
                                                         <label class="required-field">Nombre Completo</label>
                                                         <input type="text" class="form-control" id="nombre_completo"
                                                             name="nombre_completo"
-                                                            placeholder="Ej: Juan Carlos P�rez L�pez">
+                                                            placeholder="Ej: Juan Carlos Perez Lopez">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -358,11 +358,11 @@ Nav header end
                                                 </div>
                                             </div>
 
-                                            <!-- Datos del C�nyuge (Opcionales) -->
+                                            <!-- Datos del Conyuge (Opcionales) -->
                                             <div class="row">
                                                 <div class="col-12">
                                                     <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">
-                                                        Datos del C�nyuge <small class="text-muted">(Opcional - dejar vac�o
+                                                        Datos del Conyuge <small class="text-muted">(Opcional - dejar vacio
                                                             si no aplica)</small>
                                                     </h6>
                                                 </div>
@@ -370,15 +370,15 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Nombre del C�nyuge</label>
+                                                        <label>Nombre del Conyuge</label>
                                                         <input type="text" class="form-control" id="nombre_conyuge"
                                                             name="nombre_conyuge"
-                                                            placeholder="Ej: Mar�a Elena Garc�a Rodr�guez">
+                                                            placeholder="Ej: Maria Elena Garcia Rodriguez">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>DNI del C�nyuge</label>
+                                                        <label>DNI del Conyuge</label>
                                                         <input type="text" class="form-control" id="dni_conyuge"
                                                             name="dni_conyuge" placeholder="Ej: 98765432-1" maxlength="10">
                                                         <small class="form-text text-muted">Formato: 98765432-1</small>
@@ -396,9 +396,9 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label class="required-field">Direcci&#243;n Completa</label>
-                                                        <input type="text" class="form-control" id="direccion_cliente"
-                                                            name="direccion_cliente"
+                                                        <label class="required-field">Direccion Completa</label>
+                                                        <input type="text" class="form-control" id="domicilio_calle"
+                                                            name="domicilio_calle"
                                                             placeholder="Ej: Av. Los Pinos 123, Urb. Las Flores">
                                                     </div>
                                                 </div>
@@ -406,82 +406,23 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="required-field">Distrito</label>
-                                                        <input type="text" class="form-control" id="distrito_cliente"
-                                                            name="distrito_cliente" placeholder="Ej: Miraflores">
+                                                        <label>Urbanizacion</label>
+                                                        <input type="text" class="form-control" id="domicilio_urbanizacion"
+                                                            name="domicilio_urbanizacion" placeholder="Ej: Las Flores">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="required-field">Provincia</label>
-                                                        <input type="text" class="form-control" id="provincia_cliente"
-                                                            name="provincia_cliente" placeholder="Ej: Lima">
+                                                        <label>Manzana</label>
+                                                        <input type="text" class="form-control" id="domicilio_manzana"
+                                                            name="domicilio_manzana" placeholder="Ej: A">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="required-field">Departamento</label>
-                                                        <input type="text" class="form-control" id="departamento_cliente"
-                                                            name="departamento_cliente" placeholder="Ej: Lima">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- C&#243;nyuge del Cliente (Opcional) -->
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">
-                                                        Datos del C&#243;nyuge <small class="text-muted">(Opcional)</small>
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>Nombre del C&#243;nyuge</label>
-                                                        <input type="text" class="form-control" id="nombre_conyuge"
-                                                            name="nombre_conyuge"
-                                                            placeholder="Ej: Mar&#237;a Elena Garc&#237;a">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>DNI del C&#243;nyuge</label>
-                                                        <input type="text" class="form-control" id="dni_conyuge"
-                                                            name="dni_conyuge" placeholder="Ej: 98765432" maxlength="8">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Direcci&#243;n del C&#243;nyuge</label>
-                                                        <input type="text" class="form-control" id="direccion_conyuge"
-                                                            name="direccion_conyuge"
-                                                            placeholder="Ej: Av. Principal 456 (si es diferente)">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Distrito del C&#243;nyuge</label>
-                                                        <input type="text" class="form-control" id="distrito_conyuge"
-                                                            name="distrito_conyuge" placeholder="Ej: San Isidro">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Provincia del C&#243;nyuge</label>
-                                                        <input type="text" class="form-control" id="provincia_conyuge"
-                                                            name="provincia_conyuge" placeholder="Ej: Lima">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Departamento del C&#243;nyuge</label>
-                                                        <input type="text" class="form-control" id="departamento_conyuge"
-                                                            name="departamento_conyuge" placeholder="Ej: Lima">
+                                                        <label>Lote</label>
+                                                        <input type="text" class="form-control" id="domicilio_lote"
+                                                            name="domicilio_lote" placeholder="Ej: 5">
                                                     </div>
                                                 </div>
                                             </div>
@@ -493,7 +434,7 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="required-field">Raz&#243;n Social</label>
+                                                        <label class="required-field">Razon Social</label>
                                                         <input type="text" class="form-control" id="razon_social"
                                                             name="razon_social" placeholder="Ej: Inversiones ABC E.I.R.L.">
                                                     </div>
@@ -512,7 +453,7 @@ Nav header end
                                                         <label class="required-field">Domicilio Fiscal</label>
                                                         <input type="text" class="form-control" id="domicilio_fiscal"
                                                             name="domicilio_fiscal"
-                                                            placeholder="Ej: Jr. Las Ale&#241;as 200, Lima">
+                                                            placeholder="Ej: Jr. Las Alenas 200, Lima">
                                                     </div>
                                                 </div>
                                             </div>
@@ -527,8 +468,7 @@ Nav header end
                                                     <div class="form-group">
                                                         <label class="required-field">Nombre del Representante Legal</label>
                                                         <input type="text" class="form-control" id="representante_legal"
-                                                            name="representante_legal"
-                                                            placeholder="Ej: Carlos Mart&#237;nez">
+                                                            name="representante_legal" placeholder="Ej: Carlos Martinez">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -543,63 +483,9 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label class="required-field">Direcci&#243;n del Representante
-                                                            Legal</label>
-                                                        <input type="text" class="form-control" id="direccion_rep_legal"
-                                                            name="direccion_rep_legal" placeholder="Ej: Av. Los Pinos 123">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Distrito Rep. Legal</label>
-                                                        <input type="text" class="form-control" id="distrito_rep_legal"
-                                                            name="distrito_rep_legal" placeholder="Ej: La Victoria">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Provincia Rep. Legal</label>
-                                                        <input type="text" class="form-control" id="provincia_rep_legal"
-                                                            name="provincia_rep_legal" placeholder="Ej: Lima">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Departamento Rep. Legal</label>
-                                                        <input type="text" class="form-control" id="departamento_rep_legal"
-                                                            name="departamento_rep_legal" placeholder="Ej: Lima">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h6 class="mt-3 mb-2" style="color:#6c757d;font-weight:600;">Datos
-                                                        Registrales</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Partida Electr&#243;nica
-                                                            N&#176;</label>
+                                                        <label class="required-field">Partida Electronica N#</label>
                                                         <input type="text" class="form-control" id="partida_electronica"
                                                             name="partida_electronica" placeholder="Ej: 13782080">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Zona Registral N&#176;</label>
-                                                        <input type="text" class="form-control" id="zona_registral"
-                                                            name="zona_registral" placeholder="Ej: IX">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Ciudad de Registro</label>
-                                                        <input type="text" class="form-control" id="ciudad_registro"
-                                                            name="ciudad_registro" placeholder="Ej: Lima">
                                                     </div>
                                                 </div>
                                             </div>
@@ -610,7 +496,7 @@ Nav header end
                                     <!-- Step 2: Datos de la Prenda -->
                                     <div class="step-content" data-step="2">
                                         <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Detalles de la Prenda
-                                            (Garant�a Mobiliaria)</h5>
+                                            (Garantia Mobiliaria)</h5>
 
                                         <!-- Selector de Tipo de Contrato -->
                                         <div class="row">
@@ -656,7 +542,7 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="required-field">A�o</label>
+                                                        <label class="required-field">Ano</label>
                                                         <input type="number" class="form-control" id="auto_anio"
                                                             name="auto_anio" placeholder="Ej: 2020" min="1900" max="2099">
                                                     </div>
@@ -704,56 +590,44 @@ Nav header end
                                         <!-- Campos para Prenda JOYAS -->
                                         <div id="campos_joyas" style="display: none;">
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Quilates (Ley)</label>
-                                                        <input type="text" class="form-control" id="joya_kilates"
-                                                            name="joya_kilates" placeholder="Ej: 18k, 24k">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Peso Bruto (gramos)</label>
-                                                        <input type="number" class="form-control" id="joyas_peso_bruto"
-                                                            name="joyas_peso_bruto" placeholder="Ej: 25.5" step="0.01">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Peso Neto (gramos)</label>
-                                                        <input type="number" class="form-control" id="joyas_peso_neto"
-                                                            name="joyas_peso_neto" placeholder="Ej: 24.0" step="0.01">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="required-field">Estado de la Joya</label>
-                                                        <select class="form-control" id="joya_estado" name="joya_estado">
-                                                            <option value="">Seleccione...</option>
-                                                            <option value="NUEVO">Nuevo</option>
-                                                            <option value="BUENO">Buen estado</option>
-                                                            <option value="REGULAR">Regular</option>
-                                                            <option value="CON_DESGASTE">Con desgaste</option>
-                                                        </select>
+                                                        <label class="required-field">Material / Ley</label>
+                                                        <input type="text" class="form-control" id="joyas_material_ley"
+                                                            name="joyas_material_ley" placeholder="Ej: Oro 18k">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Valorizaci&#243;n Referencial (S/)</label>
+                                                        <label class="required-field">Valorizacion (S/)</label>
                                                         <input type="number" class="form-control" id="joyas_valorizacion"
                                                             name="joyas_valorizacion" placeholder="Ej: 5000" step="0.01">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="required-field">Peso Bruto (g)</label>
+                                                        <input type="number" class="form-control" id="joyas_peso_bruto"
+                                                            name="joyas_peso_bruto" placeholder="Ej: 25.5" step="0.01">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="required-field">Peso Neto (g)</label>
+                                                        <input type="number" class="form-control" id="joyas_peso_neto"
+                                                            name="joyas_peso_neto" placeholder="Ej: 24.0" step="0.01">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label class="required-field">Descripci&#243;n Detallada</label>
+                                                        <label class="required-field">Descripcion Detallada</label>
                                                         <textarea class="form-control" id="joyas_descripcion"
                                                             name="joyas_descripcion" rows="3"
-                                                            placeholder="Ej: Anillo de oro 18k con diamante central de 0.5ct"></textarea>
+                                                            placeholder="Ej: Anillo de oro 18k con diamante central..."></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -788,7 +662,7 @@ Nav header end
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="required-field">N&#250;mero de Serie</label>
+                                                        <label class="required-field">Numero de Serie</label>
                                                         <input type="text" class="form-control" id="electro_numero_serie"
                                                             name="electro_numero_serie" placeholder="Ej: SN123456789ABC">
                                                     </div>
@@ -804,7 +678,7 @@ Nav header end
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Fabricante / A&#241;o</label>
+                                                        <label>Fabricante / Ano</label>
                                                         <input type="text" class="form-control" id="electro_fabric"
                                                             name="electro_fabric" placeholder="Ej: Samsung / 2022">
                                                     </div>
@@ -818,43 +692,33 @@ Nav header end
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label>Descripci&#243;n / Estado</label>
-                                                        <textarea class="form-control" id="electro_descripcion"
-                                                            name="electro_descripcion" rows="2"
-                                                            placeholder="Ej: Equipo en buen estado de funcionamiento."></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
 
                                     </div>
 
-                                    <!-- Step 3: Configuraci�n del Pr�stamo -->
+                                    <!-- Step 3: Configuracion del Prestamo -->
                                     <div class="step-content" data-step="3">
-                                        <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Configuraci�n del
-                                            Pr�stamo</h5>
+                                        <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Configuracion del
+                                            Prestamo</h5>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="required-field">Monto del Pr&#233;stamo (S/)</label>
+                                                    <label class="required-field">Monto del Prestamo (S/)</label>
                                                     <input type="number" class="form-control" id="monto_prestamo"
                                                         name="monto_prestamo" placeholder="Ej: 10000" step="0.01" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="required-field">Plazo (d&#237;as)</label>
+                                                    <label class="required-field">Plazo (dias)</label>
                                                     <input type="number" class="form-control" id="plazo_dias"
                                                         name="plazo_dias" value="30" min="1" max="365" required>
-                                                    <small class="form-text text-muted">D&#237;as calendario</small>
+                                                    <small class="form-text text-muted">Dias calendario</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="required-field">Valor Tasaci&#243;n (S/)</label>
+                                                    <label class="required-field">Valor Tasacion (S/)</label>
                                                     <input type="number" class="form-control" id="monto_tasacion"
                                                         name="monto_tasacion" placeholder="Ej: 15000" step="0.01" required>
                                                     <small class="form-text text-muted">Valor del bien garantizado</small>
@@ -865,7 +729,7 @@ Nav header end
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="required-field">Tipo de Inter�s</label>
+                                                    <label class="required-field">Tipo de Interes</label>
                                                     <select class="form-control" id="tipo_interes" name="tipo_interes"
                                                         required>
                                                         <option value="">Seleccione...</option>
@@ -877,7 +741,7 @@ Nav header end
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="required-field" id="label_valor_interes">Valor del
-                                                        Inter�s</label>
+                                                        Interes</label>
                                                     <input type="number" class="form-control" id="valor_interes"
                                                         name="valor_interes" placeholder="Ej: 10" step="0.01" required>
                                                     <small class="form-text text-muted" id="hint_valor_interes">Ingrese el
@@ -892,79 +756,25 @@ Nav header end
                                                     <input type="date" class="form-control" id="fecha_desembolso"
                                                         name="fecha_desembolso" required>
                                                     <small class="form-text text-muted">Fecha en que se entrega el
-                                                        pr�stamo</small>
+                                                        prestamo</small>
                                                 </div>
                                             </div>
                                         </div>
 
-
-                                        <!-- Garante Mobiliario (Opcional) -->
-                                        <div class="row mt-4">
-                                            <div class="col-12">
-                                                <h6
-                                                    style="color: #6c757d; font-weight: 600; border-top: 1px solid #e0e0e0; padding-top: 1rem;">
-                                                    Garante Mobiliario <small class="text-muted">(Solo si el bien NO
-                                                        pertenece al cliente)</small>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Nombre del Garante</label>
-                                                    <input type="text" class="form-control" id="nombre_garante"
-                                                        name="nombre_garante"
-                                                        placeholder="Ej: Juan P&#233;rez Rodr&#237;guez">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>DNI del Garante</label>
-                                                    <input type="text" class="form-control" id="dni_garante"
-                                                        name="dni_garante" placeholder="Ej: 45678901" maxlength="8">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Nombre del C&#243;nyuge del Garante</label>
-                                                    <input type="text" class="form-control" id="conyuge_garante"
-                                                        name="conyuge_garante" placeholder="Ej: Rosa Garc&#237;a">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>DNI del C&#243;nyuge del Garante</label>
-                                                    <input type="text" class="form-control" id="dni_conyuge_garante"
-                                                        name="dni_conyuge_garante" placeholder="Ej: 45678902" maxlength="8">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Domicilio del Garante</label>
-                                                    <input type="text" class="form-control" id="domicilio_garante"
-                                                        name="domicilio_garante"
-                                                        placeholder="Ej: Av. Lima 456, Dist. Surco, Lima">
-                                                </div>
-                                            </div>
-                                        </div>
                                         <!-- Calculadora en Tiempo Real -->
                                         <div class="calculator-result" id="calculator_result" style="display: none;">
-                                            <h4>Resumen del Pr�stamo</h4>
+                                            <h4>Resumen del Prestamo</h4>
                                             <div class="result-item">
                                                 <span>Capital:</span>
                                                 <span id="display_capital">S/ 0.00</span>
                                             </div>
                                             <div class="result-item">
-                                                <span>Inter�s:</span>
+                                                <span>Interes:</span>
                                                 <span id="display_interes">S/ 0.00</span>
                                             </div>
                                             <div class="result-item">
                                                 <span>Plazo:</span>
-                                                <span>30 d�as</span>
+                                                <span>30 dias</span>
                                             </div>
                                             <div class="result-item">
                                                 <span>Total a Pagar:</span>
@@ -973,9 +783,9 @@ Nav header end
                                         </div>
                                     </div>
 
-                                    <!-- Step 4: Revisi�n y Confirmaci�n -->
+                                    <!-- Step 4: Revision y Confirmacion -->
                                     <div class="step-content" data-step="4">
-                                        <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Revisi�n y Confirmaci�n
+                                        <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Revision y Confirmacion
                                         </h5>
 
                                         <!-- Datos del Cliente -->
@@ -999,7 +809,7 @@ Nav header end
                                         <div class="review-section">
                                             <h5>Datos de la Prenda</h5>
                                             <div class="review-item">
-                                                <strong>Clasificaci�n:</strong>
+                                                <strong>Clasificacion:</strong>
                                                 <span id="review_clasificacion"></span>
                                             </div>
                                             <div class="review-item">
@@ -1011,24 +821,24 @@ Nav header end
                                                 <span id="review_marca_modelo"></span>
                                             </div>
                                             <div class="review-item">
-                                                <strong>Valorizaci�n:</strong>
+                                                <strong>Valorizacion:</strong>
                                                 <span id="review_valorizacion"></span>
                                             </div>
                                         </div>
 
-                                        <!-- Datos del Pr�stamo -->
+                                        <!-- Datos del Prestamo -->
                                         <div class="review-section">
-                                            <h5>Configuraci�n del Pr�stamo</h5>
+                                            <h5>Configuracion del Prestamo</h5>
                                             <div class="review-item">
                                                 <strong>Monto:</strong>
                                                 <span id="review_monto"></span>
                                             </div>
                                             <div class="review-item">
-                                                <strong>Tipo de Inter�s:</strong>
+                                                <strong>Tipo de Interes:</strong>
                                                 <span id="review_tipo_interes"></span>
                                             </div>
                                             <div class="review-item">
-                                                <strong>Inter�s Calculado:</strong>
+                                                <strong>Interes Calculado:</strong>
                                                 <span id="review_interes"></span>
                                             </div>
                                             <div class="review-item"
@@ -1039,8 +849,8 @@ Nav header end
                                         </div>
 
                                         <div class="alert alert-info mt-4">
-                                            <strong>Nota:</strong> Por favor revise cuidadosamente toda la informaci�n antes
-                                            de confirmar. Una vez guardado, se generar�n los documentos legales
+                                            <strong>Nota:</strong> Por favor revise cuidadosamente toda la informacion antes
+                                            de confirmar. Una vez guardado, se generaran los documentos legales
                                             correspondientes.
                                         </div>
                                     </div>
@@ -1071,9 +881,6 @@ Nav header end
             Content body end
         ***********************************-->
 
-            <!--**********************************
-            Footer start
-        ***********************************-->
             <!-- MODAL PREVIEW CONTRATO -->
             <div class="modal fade" id="contratoModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
@@ -1097,68 +904,25 @@ Nav header end
                                         hay errores.</div>
                                 </div>
                             </div>
-                            <div style="padding:2rem;">
-                                <div
-                                    style="text-align:center;border-bottom:3px solid #184897;padding-bottom:14px;margin-bottom:18px;">
-                                    <div style="font-size:1.05rem;font-weight:800;color:#184897;">INVERSIONES CREDI&#193;GIL
-                                        DEL PER&#218; E.I.R.L.</div>
-                                    <div style="font-size:0.8rem;color:#777;">RUC 20601767920 | +51 998 277 396</div>
-                                    <div style="margin-top:10px;font-size:1rem;font-weight:700;color:#333;"
-                                        id="modal_tipo_contrato">CONTRATO DE GARANT&#205;A MOBILIARIA</div>
-                                    <div style="font-size:0.9rem;color:#555;margin-top:4px;">
-                                        N&#176; <span id="preview_num_contrato"
-                                            style="font-weight:700;color:#184897;">&mdash;</span>
-                                        &nbsp;|&nbsp;<span id="preview_fecha_ciudad">Lima, &mdash;</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div
-                                            style="background:#f8f9fa;border-radius:8px;padding:1.2rem;margin-bottom:1rem;">
-                                            <div
-                                                style="font-weight:700;color:#184897;font-size:0.85rem;text-transform:uppercase;border-bottom:2px solid #184897;padding-bottom:6px;margin-bottom:10px;">
-                                                Datos del Cliente</div>
-                                            <div id="preview_cliente_rows"></div>
-                                        </div>
-                                        <div id="preview_garante_section"
-                                            style="background:#fff3e0;border-radius:8px;padding:1.2rem;margin-bottom:1rem;display:none;">
-                                            <div
-                                                style="font-weight:700;color:#F5812A;font-size:0.85rem;text-transform:uppercase;border-bottom:2px solid #F5812A;padding-bottom:6px;margin-bottom:10px;">
-                                                Garante</div>
-                                            <div id="preview_garante_rows"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div
-                                            style="background:#f8f9fa;border-radius:8px;padding:1.2rem;margin-bottom:1rem;">
-                                            <div style="font-weight:700;color:#184897;font-size:0.85rem;text-transform:uppercase;border-bottom:2px solid #184897;padding-bottom:6px;margin-bottom:10px;"
-                                                id="preview_bien_title">Bien en Garant&#237;a</div>
-                                            <div id="preview_bien_rows"></div>
-                                        </div>
-                                        <div style="background:#f8f9fa;border-radius:8px;padding:1.2rem;">
-                                            <div
-                                                style="font-weight:700;color:#184897;font-size:0.85rem;text-transform:uppercase;border-bottom:2px solid #184897;padding-bottom:6px;margin-bottom:10px;">
-                                                Condiciones del Pr&#233;stamo</div>
-                                            <div id="preview_prestamo_rows"></div>
-                                            <div
-                                                style="background:#184897;color:#fff;border-radius:6px;padding:10px 14px;margin-top:10px;display:flex;justify-content:space-between;align-items:center;">
-                                                <span style="font-weight:700;">TOTAL A DEVOLVER</span>
-                                                <span id="preview_total_highlight"
-                                                    style="font-size:1.2rem;font-weight:800;">S/ 0.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div style="padding:1.5rem;" id="pdf_container">
+                                <iframe id="pdf_preview_frame" src=""
+                                    style="width:100%; height:650px; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15);"></iframe>
                             </div>
                         </div>
                         <div class="modal-footer"
-                            style="background:#f8f9fa;border-top:1px solid #e0e0e0;padding:1rem 2rem;display:flex;justify-content:space-between;">
+                            style="background:#f8f9fa;border-top:1px solid #e0e0e0;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;">
                             <button type="button" id="btn_modificar" class="btn btn-outline-secondary"
                                 style="font-weight:600;">Modificar</button>
-                            <a id="btn_imprimir" href="#" target="_blank" class="btn"
-                                style="background:#F5812A;color:#fff;font-weight:700;padding:0.7rem 1.8rem;border-radius:6px;text-decoration:none;">
-                                Imprimir Contrato
-                            </a>
+                            <div style="display:flex;gap:10px;">
+                                <a id="btn_imprimir" href="#" target="_blank" class="btn btn-outline-primary"
+                                    style="font-weight:700;padding:0.6rem 1.4rem;border-radius:6px;text-decoration:none;">
+                                    <i class="fa fa-print mr-2"></i>Imprimir Contrato
+                                </a>
+                                <button type="button" id="btn_aceptar" class="btn"
+                                    style="background:#F5812A;color:#fff;font-weight:700;padding:0.6rem 1.8rem;border-radius:6px;border:none;">
+                                    <i class="fa fa-check mr-2"></i>Aceptar y Guardar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1166,105 +930,73 @@ Nav header end
 
             <div class="footer">
                 <div class="copyright">
-                    <p>Copyright � Designed &amp; Developed by <a href="https://crediagil.com/"
+                    <p>Copyright @ Designed &amp; Developed by <a href="https://crediagil.com/"
                             target="_blank">CrediAgil</a> <?php echo date('Y'); ?></p>
                 </div>
             </div>
-            <!--**********************************
-            Footer end
-        ***********************************-->
 
         </div>
         <!--**********************************
         Main wrapper end
     ***********************************-->
 
-        <!--**********************************
-        Scripts
-    ***********************************-->
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/global/global.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/js/custom.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/js/deznav-init.js"></script>
 
-        <!-- Stepper Logic -->
         <script>
             $(document).ready(function () {
                 let currentStep = 1;
                 const totalSteps = 4;
 
-                // ========== DYNAMIC FIELD SWITCHING ==========
-
-                // Step 1: Tipo de Personer�a (Persona Natural / Empresa)
                 $('#tipo_personeria').change(function () {
                     const tipo = $(this).val();
                     if (tipo === 'natural') {
                         $('#campos_persona_natural').slideDown();
                         $('#campos_empresa').slideUp();
-                        // Hacer campos de persona natural requeridos
                         $('#nombre_completo, #dni, #domicilio_calle').attr('required', true);
-                        // Quitar requerido de campos de empresa
                         $('#razon_social, #ruc, #representante_legal, #dni_representante, #partida_electronica, #domicilio_fiscal').attr('required', false);
                     } else if (tipo === 'empresa') {
                         $('#campos_persona_natural').slideUp();
                         $('#campos_empresa').slideDown();
-                        // Hacer campos de empresa requeridos
                         $('#razon_social, #ruc, #representante_legal, #dni_representante, #partida_electronica, #domicilio_fiscal').attr('required', true);
-                        // Quitar requerido de campos de persona natural
                         $('#nombre_completo, #dni, #domicilio_calle').attr('required', false);
                     } else {
                         $('#campos_persona_natural, #campos_empresa').slideUp();
                     }
                 });
 
-                // Step 2: Tipo de Contrato (Auto / Joyas / Electro)
                 $('#tipo_contrato').change(function () {
                     const tipo = $(this).val();
-                    // Ocultar todos los campos primero
                     $('#campos_auto, #campos_joyas, #campos_electro').slideUp();
-
                     if (tipo === 'auto') {
                         $('#campos_auto').slideDown();
-                        // Hacer campos de auto requeridos
                         $('#auto_placa, #auto_marca, #auto_modelo, #auto_anio, #auto_color, #auto_motor, #auto_serie, #auto_partida_registral, #auto_oficina_registral').attr('required', true);
-                        // Quitar requerido de otros
                         $('#joyas_material_ley, #joyas_valorizacion, #joyas_peso_bruto, #joyas_peso_neto, #joyas_descripcion').attr('required', false);
                         $('#electro_tipo_bien, #electro_marca, #electro_modelo, #electro_numero_serie').attr('required', false);
                     } else if (tipo === 'joyas') {
                         $('#campos_joyas').slideDown();
-                        // Hacer campos de joyas requeridos
                         $('#joyas_material_ley, #joyas_valorizacion, #joyas_peso_bruto, #joyas_peso_neto, #joyas_descripcion').attr('required', true);
-                        // Quitar requerido de otros
                         $('#auto_placa, #auto_marca, #auto_modelo, #auto_anio, #auto_color, #auto_motor, #auto_serie, #auto_partida_registral, #auto_oficina_registral').attr('required', false);
                         $('#electro_tipo_bien, #electro_marca, #electro_modelo, #electro_numero_serie').attr('required', false);
                     } else if (tipo === 'electro') {
                         $('#campos_electro').slideDown();
-                        // Hacer campos de electro requeridos
                         $('#electro_tipo_bien, #electro_marca, #electro_modelo, #electro_numero_serie').attr('required', true);
-                        // Quitar requerido de otros
                         $('#auto_placa, #auto_marca, #auto_modelo, #auto_anio, #auto_color, #auto_motor, #auto_serie, #auto_partida_registral, #auto_oficina_registral').attr('required', false);
                         $('#joyas_material_ley, #joyas_valorizacion, #joyas_peso_bruto, #joyas_peso_neto, #joyas_descripcion').attr('required', false);
                     }
                 });
 
-                // Navegaci�n entre pasos
                 function showStep(step) {
                     $('.step-content').removeClass('active');
                     $(`.step-content[data-step="${step}"]`).addClass('active');
-
                     $('.step').removeClass('active completed');
                     for (let i = 1; i < step; i++) {
                         $(`.step[data-step="${i}"]`).addClass('completed');
                     }
                     $(`.step[data-step="${step}"]`).addClass('active');
-
-                    // Botones
-                    if (step === 1) {
-                        $('#btn_prev').hide();
-                    } else {
-                        $('#btn_prev').show();
-                    }
-
+                    if (step === 1) $('#btn_prev').hide(); else $('#btn_prev').show();
                     if (step === totalSteps) {
                         $('#btn_next').hide();
                         $('#btn_submit').show();
@@ -1272,14 +1004,9 @@ Nav header end
                         $('#btn_next').show();
                         $('#btn_submit').hide();
                     }
-
-                    // Si es el paso 4, actualizar revisi�n
-                    if (step === 4) {
-                        updateReview();
-                    }
+                    if (step === 4) updateReview();
                 }
 
-                // Bot�n Siguiente
                 $('#btn_next').click(function () {
                     if (validateStep(currentStep)) {
                         currentStep++;
@@ -1287,13 +1014,11 @@ Nav header end
                     }
                 });
 
-                // Bot�n Anterior
                 $('#btn_prev').click(function () {
                     currentStep--;
                     showStep(currentStep);
                 });
 
-                // Validaci�n por paso
                 function validateStep(step) {
                     let isValid = true;
                     $(`.step-content[data-step="${step}"] input[required], .step-content[data-step="${step}"] select[required]`).each(function () {
@@ -1304,20 +1029,14 @@ Nav header end
                             $(this).removeClass('is-invalid');
                         }
                     });
-
-                    if (!isValid) {
-                        alert('Por favor complete todos los campos obligatorios (*)');
-                    }
-
+                    if (!isValid) alert('Por favor complete todos los campos obligatorios (*)');
                     return isValid;
                 }
 
-                // Calculadora en tiempo real
                 $('#monto_prestamo, #tipo_interes, #valor_interes').on('input change', function () {
                     calcularPrestamo();
                 });
 
-                // Cambiar etiquetas seg�n tipo de inter�s
                 $('#tipo_interes').change(function () {
                     const tipo = $(this).val();
                     if (tipo === 'porcentaje') {
@@ -1336,18 +1055,11 @@ Nav header end
                     const monto = parseFloat($('#monto_prestamo').val()) || 0;
                     const tipo = $('#tipo_interes').val();
                     const valor = parseFloat($('#valor_interes').val()) || 0;
-
                     if (monto > 0 && tipo && valor > 0) {
                         let interes = 0;
-
-                        if (tipo === 'porcentaje') {
-                            interes = (monto * valor) / 100;
-                        } else if (tipo === 'monto_fijo') {
-                            interes = valor;
-                        }
-
+                        if (tipo === 'porcentaje') interes = (monto * valor) / 100;
+                        else if (tipo === 'monto_fijo') interes = valor;
                         const total = monto + interes;
-
                         $('#display_capital').text('S/ ' + monto.toFixed(2));
                         $('#display_interes').text('S/ ' + interes.toFixed(2));
                         $('#display_total').text('S/ ' + total.toFixed(2));
@@ -1357,22 +1069,16 @@ Nav header end
                     }
                 }
 
-                // Actualizar revisi�n
                 function updateReview() {
-                    // === CLIENTE ===
                     const tipoPersoneria = $('#tipo_personeria').val();
-
                     if (tipoPersoneria === 'natural') {
                         $('#review_nombre').text($('#nombre_completo').val() || 'No especificado');
                         $('#review_dni').text($('#dni').val() || 'No especificado');
-
-                        // Mostrar datos de c�nyuge si existen
                         const nombreConyuge = $('#nombre_conyuge').val();
                         const dniConyuge = $('#dni_conyuge').val();
                         if (nombreConyuge || dniConyuge) {
-                            $('#review_nombre').text($('#review_nombre').text() + ' (C�nyuge: ' + (nombreConyuge || 'N/A') + ')');
+                            $('#review_nombre').text($('#review_nombre').text() + ' (Conyuge: ' + (nombreConyuge || 'N/A') + ')');
                         }
-
                         const domicilio = [
                             $('#domicilio_calle').val(),
                             $('#domicilio_urbanizacion').val(),
@@ -1386,19 +1092,11 @@ Nav header end
                         $('#review_domicilio').text($('#domicilio_fiscal').val() || 'No especificado');
                     }
 
-                    // === PRENDA ===
                     const tipoContrato = $('#tipo_contrato').val();
                     let prendaInfo = '';
-
                     if (tipoContrato === 'auto') {
                         $('#review_clasificacion').text('Prenda Auto');
-                        prendaInfo = [
-                            'Placa: ' + ($('#auto_placa').val() || 'N/A'),
-                            $('#auto_marca').val(),
-                            $('#auto_modelo').val(),
-                            $('#auto_anio').val(),
-                            $('#auto_color').val()
-                        ].filter(Boolean).join(' - ');
+                        prendaInfo = ['Placa: ' + ($('#auto_placa').val() || 'N/A'), $('#auto_marca').val(), $('#auto_modelo').val(), $('#auto_anio').val(), $('#auto_color').val()].filter(Boolean).join(' - ');
                         $('#review_tipo').text(prendaInfo || 'No especificado');
                         $('#review_marca_modelo').text('Motor: ' + ($('#auto_motor').val() || 'N/A') + ' | Serie: ' + ($('#auto_serie').val() || 'N/A'));
                         $('#review_valorizacion').text('Partida: ' + ($('#auto_partida_registral').val() || 'N/A'));
@@ -1411,36 +1109,26 @@ Nav header end
                         $('#review_valorizacion').text('S/ ' + valorizacion.toFixed(2));
                     } else if (tipoContrato === 'electro') {
                         $('#review_clasificacion').text('Prenda Electro');
-                        prendaInfo = [
-                            $('#electro_tipo_bien').val(),
-                            $('#electro_marca').val(),
-                            $('#electro_modelo').val()
-                        ].filter(Boolean).join(' - ');
+                        prendaInfo = [$('#electro_tipo_bien').val(), $('#electro_marca').val(), $('#electro_modelo').val()].filter(Boolean).join(' - ');
                         $('#review_tipo').text(prendaInfo || 'No especificado');
                         $('#review_marca_modelo').text('Serie: ' + ($('#electro_numero_serie').val() || 'N/A'));
                         $('#review_valorizacion').text('Accesorios: ' + ($('#electro_accesorios').val() || 'Ninguno'));
                     }
 
-                    // === PR�STAMO ===
                     const monto = parseFloat($('#monto_prestamo').val()) || 0;
                     $('#review_monto').text('S/ ' + monto.toFixed(2));
                     const tipoInteres = $('#tipo_interes option:selected').text();
                     $('#review_tipo_interes').text(tipoInteres || 'No especificado');
                     $('#review_interes').text($('#display_interes').text() || 'S/ 0.00');
                     $('#review_total').text($('#display_total').text() || 'S/ 0.00');
-
-                    // Fecha de desembolso
                     const fechaDesembolso = $('#fecha_desembolso').val();
                     if (fechaDesembolso) {
                         $('#review_total').text($('#review_total').text() + ' (Desembolso: ' + fechaDesembolso + ')');
                     }
                 }
 
-                // Submit form
                 $('#nuevo-cliente-form').submit(function (e) {
                     e.preventDefault();
-
-                    // Enviar datos al generador de contratos v&#237;a AJAX
                     const formData = new FormData(this);
                     const $btn = $('#btn_submit');
                     const originalHtml = $btn.html();
@@ -1457,14 +1145,13 @@ Nav header end
                             try {
                                 const res = typeof response === 'string' ? JSON.parse(response) : response;
                                 if (res.status === 'ok') {
-                                    fillContratoModal(res.preview, res.docx_filename);
+                                    fillContratoModal(res.preview, res.docx_filename, res.pdf_filename);
                                     $('#contratoModal').modal('show');
                                 } else {
                                     alert('Error: ' + (res.message || 'Error al generar el contrato.'));
                                 }
                             } catch (ex) {
                                 alert('Error al procesar la respuesta del servidor.');
-                                console.error(ex);
                             }
                         },
                         error: function (xhr) {
@@ -1472,52 +1159,30 @@ Nav header end
                             alert('Error de conexion: ' + xhr.status + ' ' + xhr.statusText);
                         }
                     });
-
-
-                    // Opcional: resetear formulario
-                    // this.reset();
-                    // currentStep = 1;
-                    // showStep(1);
                 });
             });
 
             // === FUNCIONES DEL MODAL DE CONTRATO ===
-            function fillContratoModal(preview, docxFile) {
+            let currentDocxFile = '';
+            let currentClienteNombre = '';
+
+            function fillContratoModal(preview, docxFile, pdfFile) {
+                currentDocxFile = docxFile || '';
                 const p = preview || {};
-                $('#modal_num_contrato').html('N&#176; ' + (p.num_contrato || ''));
-                $('#preview_num_contrato').html(p.num_contrato || '');
-                $('#preview_fecha_ciudad').html((p.ciudad || 'Lima') + ', ' + (p.fecha || ''));
-                $('#modal_tipo_contrato').html('CONTRATO DE GARANT&#205;A MOBILIARIA | ' + (p.tipo_contrato || '').toUpperCase());
-                $('#preview_bien_title').html((p.tipo_contrato || 'Bien en Garant&#237;a'));
-
                 const c = p.cliente || {};
-                let clienteHtml = rowPrev('Nombre', c.nombre || '') + rowPrev('DNI / RUC', c.id || '') + rowPrev('Direcci&#243;n', c.direccion || '') + rowPrev('Tipolog&#237;a', p.tipo_personeria || '');
-                $('#preview_cliente_rows').html(clienteHtml);
+                currentClienteNombre = c.nombre || 'Cliente_Desconocido';
+                $('#modal_num_contrato').html('N&#176; ' + (p.num_contrato || ''));
 
-                const b = p.bien || {};
-                let bienHtml = '';
-                for (const [key, val] of Object.entries(b)) {
-                    if (!val) continue;
-                    const lbl = key.replace(/_/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase());
-                    bienHtml += rowPrev(lbl, val);
-                }
-                $('#preview_bien_rows').html(bienHtml || '<em class="text-muted">Sin datos del bien</em>');
-
-                const g = p.garante || {};
-                if (g.nombre) {
-                    $('#preview_garante_rows').html(rowPrev('Nombre', g.nombre) + (g.dni ? rowPrev('DNI', g.dni) : '') + (g.domicilio ? rowPrev('Domicilio', g.domicilio) : ''));
-                    $('#preview_garante_section').show();
+                if (pdfFile) {
+                    $('#pdf_preview_frame').attr('src', '../tmp_contratos/' + pdfFile);
                 } else {
-                    $('#preview_garante_section').hide();
+                    $('#pdf_preview_frame').attr('src', 'about:blank');
+                    $('#pdf_container').html('<div class="alert alert-warning">No se pudo generar la vista previa en PDF. Por favor descargue el documento Word (Imprimir Contrato).</div>');
                 }
 
-                const pr = p.prestamo || {};
-                let prestamoHtml = rowPrev('Monto Pr&#233;stamo', pr.monto || '') + rowPrev('En letras', (pr.letras_prestamo || '') + ' Y 00/100 SOLES') + rowPrev('Valor de Tasaci&#243;n', pr.tasacion || '') + rowPrev('Plazo', pr.plazo || '') + rowPrev('Comisi&#243;n', pr.comision || '');
-                $('#preview_prestamo_rows').html(prestamoHtml);
-                $('#preview_total_highlight').text(pr.total || 'S/ 0.00');
-
-                const printData = encodeURIComponent(JSON.stringify(p));
-                $('#btn_imprimir').attr('href', '../vista/Administradores/contrato-preview-print.php?data=' + printData);
+                $('#btn_imprimir')
+                    .attr('href', '../tmp_contratos/' + (pdfFile ? pdfFile : docxFile))
+                    .attr('download', 'Contrato_' + (p.num_contrato || 'Generado') + (pdfFile ? '.pdf' : '.docx'));
             }
 
             function rowPrev(label, value) {
@@ -1528,6 +1193,38 @@ Nav header end
                 $('#contratoModal').modal('hide');
             });
 
+            $('#btn_aceptar').on('click', function () {
+                const $btn = $(this);
+                const originalHtml = $btn.html();
+                $btn.html('<i class="fa fa-spinner fa-spin mr-2"></i> Guardando...').prop('disabled', true);
+
+                $.ajax({
+                    url: '../controlador/cGuardarContrato.php',
+                    type: 'POST',
+                    data: {
+                        docx_filename: currentDocxFile,
+                        cliente_nombre: currentClienteNombre
+                    },
+                    success: function (response) {
+                        $btn.html(originalHtml).prop('disabled', false);
+                        try {
+                            const res = typeof response === 'string' ? JSON.parse(response) : response;
+                            if (res.status === 'ok') {
+                                alert('Contrato guardado exitosamente en la carpeta del cliente.');
+                                window.location.reload();
+                            } else {
+                                alert('Error: ' + (res.message || 'Error al guardar el contrato.'));
+                            }
+                        } catch (ex) {
+                            alert('Error al procesar la respuesta del servidor al guardar.');
+                        }
+                    },
+                    error: function (xhr) {
+                        $btn.html(originalHtml).prop('disabled', false);
+                        alert('Error de conexion: ' + xhr.status + ' ' + xhr.statusText);
+                    }
+                });
+            });
         </script>
 
     </body>

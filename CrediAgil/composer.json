@@ -2,6 +2,8 @@
     "require": {
         "bramus/router": "~1.6",
         "luecano/numero-a-letras": "^3.0",
-        "phpoffice/phpword": "^1.1"
+        "phpoffice/phpword": "^1.1",
+        "dompdf/dompdf": "^3.1",
+        "tecnickcom/tcpdf": "^6.11"
     }
 }

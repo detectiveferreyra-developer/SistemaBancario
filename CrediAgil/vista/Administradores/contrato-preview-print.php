@@ -1,9 +1,4 @@
 <?php
-/**
- * contrato-preview-print.php
- * Vista de impresión del contrato. Recibe los datos del contrato via $_GET (JSON encoded)
- * y genera una vista print-ready que lanza automáticamente el diálogo de impresión.
- */
 session_start();
 if (!isset($_SESSION['id_usuario'])) {
     echo '<p>Acceso no autorizado.</p>';

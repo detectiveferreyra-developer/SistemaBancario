@@ -1,17 +1,41 @@
 <?php
+ob_start();
 /**
  * cGenerarContrato.php
  * Genera el contrato DOCX a partir de los datos del formulario nuevo-cliente.
  * Llena los placeholders ${VAR} en la plantilla Word correspondiente.
+ *
+ * Variables de los templates (67 únicas detectadas):
+ * Sistema: NUM_CONTRATO, SISTEMA_DIA, SISTEMA_MES, SISTEMA_MES_NUM, SISTEMA_ANIO,
+ *          SISTEMA_CIUDAD, SISTEMA_MES_TEXTO
+ * Apoderado: NOMBRE_APODERADO_CA, DNI_APODERADO_CA
+ * Persona Natural: NOMBRE_CLIENTE, DNI_CLIENTE, DIRECCION_CLIENTE, DISTRITO_CLIENTE,
+ *                  PROVINCIA_CLIENTE, DEPARTAMENTO_CLIENTE
+ *                  NOMBRE_CONYUGE, DNI_CONYUGE, DIRECCION_CONYUGE, DISTRITO_CONYUGE,
+ *                  PROVINCIA_CONYUGE, DEPARTAMENTO_CONYUGE
+ * Empresa: RAZON_SOCIAL, RUC_EMPRESA, DIRECCION_FISCAL, REP_LEGAL_EMPRESA,
+ *          DNI_REP_LEGAL, DIRECCION_REP_LEGAL, DISTRITO_REP_LEGAL, PROVINCIA_REP_LEGAL,
+ *          DEPARTAMENTO_REP_LEGAL, PARTIDA_EMPRESA, ZONA_REGISTRAL, CIUDAD_REGISTRO
+ * Auto: AUTO_PLACA, AUTO_MARCA, AUTO_MODELO, AUTO_ANIO, AUTO_COLOR, AUTO_MOTOR,
+ *       AUTO_SERIE, AUTO_PARTIDA, AUTO_OFICINA_REGISTRAL, AUTO_DESCRIPCION
+ * Joyas: JOYA_KILATES, JOYA_DESCRIPCION, JOYA_PESO_BRUTO, JOYA_PESO_NETO, JOYA_ESTADO
+ * Electro: ELECTRO_MARCA, ELECTRO_MODELO, ELECTRO_SERIE, ELECTRO_COLOR,
+ *           ELECTRO_DESCRIPCION, ELECTRO_FABRIC
+ * Garante: NOMBRE_GARANTE, DNI_GARANTE, CONYUGE_GARANTE, DNI_CONYUGE_GARANTE,
+ *           DOMICILIO_GARANTE
+ * Préstamo: MONTO_PRESTAMO, MONTO_TASACION, MONTO_DEVOLUCION, COMISION_TOTAL,
+ *           PLAZO_DIAS, LETRAS_PRESTAMO, LETRAS_TASACION, LETRAS_DEVOLUCION
  */
 
 session_start();
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 header('Content-Type: application/json; charset=utf-8');
 
 // ─────────────────────────────────────────────
 // 1. VALIDAR SESIÓN
 // ─────────────────────────────────────────────
 if (!isset($_SESSION['id_usuario'])) {
+    ob_clean();
     echo json_encode(['status' => 'error', 'message' => 'Sesión no iniciada.']);
     exit;
 }
@@ -19,8 +43,8 @@ if (!isset($_SESSION['id_usuario'])) {
 // ─────────────────────────────────────────────
 // 2. DATOS RECIBIDOS
 // ─────────────────────────────────────────────
-$tipo_personeria = $_POST['tipo_personeria'] ?? '';
-$tipo_contrato = $_POST['tipo_contrato'] ?? '';
+$tipo_personeria = strtolower(trim($_POST['tipo_personeria'] ?? ''));
+$tipo_contrato = strtolower(trim($_POST['tipo_contrato'] ?? ''));
 
 $tipo_map = [
     'auto' => 'AUTO',
@@ -36,6 +60,7 @@ $tipo_doc = $tipo_map[$tipo_contrato] ?? '';
 $tipo_pers = $tipo_personeria_map[$tipo_personeria] ?? '';
 
 if (!$tipo_doc || !$tipo_pers) {
+    ob_clean();
     echo json_encode(['status' => 'error', 'message' => 'Tipo de contrato o personería no válido.']);
     exit;
 }
@@ -44,6 +69,7 @@ $template_filename = "CONTRATO - PRENDA {$tipo_doc} - {$tipo_pers}.docx";
 $template_path = realpath(__DIR__ . '/../Templates/' . $template_filename);
 
 if (!$template_path || !file_exists($template_path)) {
+    ob_clean();
     echo json_encode(['status' => 'error', 'message' => "Plantilla no encontrada: {$template_filename}"]);
     exit;
 }
@@ -99,13 +125,12 @@ $plazo_dias = intval($_POST['plazo_dias'] ?? 30);
 $comision = ($tipo_interes === 'porcentaje')
     ? ($monto_prestamo * $valor_interes) / 100
     : $valor_interes;
-
 $monto_devolucion = $monto_prestamo + $comision;
 
-// Número de contrato (en producción esto vendría de la BD)
+// Número de contrato
 $num_contrato = 'CA-' . $anio . '-' . str_pad(rand(1, 9999), 4, '0', STR_PAD_LEFT);
 
-// Apoderado CrediÁgil (del servidor / sesión)
+// Apoderado CrediÁgil (de sesión)
 $nombre_apoderado = strtoupper($_SESSION['nombre_completo_usuario'] ?? 'REPRESENTANTE CREDIÁGIL');
 $dni_apoderado = $_SESSION['dni_usuario'] ?? '00000000';
 
@@ -139,18 +164,7 @@ function numberToWords(float $num): string
         'DIECIOCHO',
         'DIECINUEVE'
     ];
-    $decenas = [
-        '',
-        '',
-        'VEINTE',
-        'TREINTA',
-        'CUARENTA',
-        'CINCUENTA',
-        'SESENTA',
-        'SETENTA',
-        'OCHENTA',
-        'NOVENTA'
-    ];
+    $decenas = ['', '', 'VEINTE', 'TREINTA', 'CUARENTA', 'CINCUENTA', 'SESENTA', 'SETENTA', 'OCHENTA', 'NOVENTA'];
     $centenas = [
         '',
         'CIEN',
@@ -164,34 +178,33 @@ function numberToWords(float $num): string
         'NOVECIENTOS'
     ];
 
-    function convertGroup(int $n, $u, $d, $c): string
-    {
+    $convertGroup = function (int $n) use ($unidades, $decenas, $centenas): string {
         if ($n === 0)
             return '';
         $str = '';
         $c_idx = intdiv($n, 100);
         $r = $n % 100;
         if ($c_idx > 0) {
-            $str .= ($c_idx === 1 && $r > 0) ? 'CIENTO ' : $c[$c_idx] . ' ';
+            $str .= ($c_idx === 1 && $r > 0) ? 'CIENTO ' : $centenas[$c_idx] . ' ';
         }
         if ($r > 0) {
             if ($r < 20) {
-                $str .= $u[$r] . ' ';
+                $str .= $unidades[$r] . ' ';
             } elseif ($r === 20) {
                 $str .= 'VEINTE ';
             } elseif ($r <= 29) {
-                $str .= 'VEINTI' . $u[$r - 20] . ' ';
+                $str .= 'VEINTI' . $unidades[$r - 20] . ' ';
             } else {
                 $d_idx = intdiv($r, 10);
                 $u_idx = $r % 10;
-                $str .= $d[$d_idx];
+                $str .= $decenas[$d_idx];
                 if ($u_idx > 0)
-                    $str .= ' Y ' . $u[$u_idx];
+                    $str .= ' Y ' . $unidades[$u_idx];
                 $str .= ' ';
             }
         }
         return $str;
-    }
+    };
 
     if ($entero === 0)
         return 'CERO';
@@ -199,33 +212,36 @@ function numberToWords(float $num): string
     $millones = intdiv($entero, 1000000);
     $miles = intdiv($entero % 1000000, 1000);
     $resto = $entero % 1000;
-
     $resultado = '';
 
     if ($millones > 0) {
-        $resultado .= ($millones === 1)
-            ? 'UN MILLÓN '
-            : convertGroup($millones, $unidades, $decenas, $centenas) . 'MILLONES ';
+        $resultado .= ($millones === 1) ? 'UN MILLÓN ' : $convertGroup($millones) . 'MILLONES ';
     }
     if ($miles > 0) {
-        $resultado .= ($miles === 1)
-            ? 'MIL '
-            : convertGroup($miles, $unidades, $decenas, $centenas) . 'MIL ';
+        $resultado .= ($miles === 1) ? 'MIL ' : $convertGroup($miles) . 'MIL ';
     }
     if ($resto > 0) {
-        $resultado .= convertGroup($resto, $unidades, $decenas, $centenas);
+        $resultado .= $convertGroup($resto);
     }
 
     return rtrim($resultado);
 }
 
 // ─────────────────────────────────────────────
-// 5. MAPA DE REEMPLAZOS
+// 5. MAPA DE REEMPLAZOS (todos los templates)
 // ─────────────────────────────────────────────
 $p = $_POST; // shorthand
 
+// Helper para obtener un campo limpio en MAYÚSCULAS
+$up = function (string $key, string $default = '') use ($p): string {
+    return strtoupper(trim($p[$key] ?? $default));
+};
+$raw = function (string $key, string $default = '') use ($p): string {
+    return trim($p[$key] ?? $default);
+};
+
 $replacements = [
-    // Sistema
+    // ── Sistema ──────────────────────────────────────────────────────────
     'NUM_CONTRATO' => $num_contrato,
     'SISTEMA_DIA' => $dia,
     'SISTEMA_MES' => $mes_nombre,
@@ -234,86 +250,79 @@ $replacements = [
     'SISTEMA_ANIO' => $anio,
     'SISTEMA_CIUDAD' => 'LIMA',
 
-    // Apoderado CrediÁgil
+    // ── Apoderado CrediÁgil ───────────────────────────────────────────────
     'NOMBRE_APODERADO_CA' => $nombre_apoderado,
-    'NOMBRE_APODERADO__CA' => $nombre_apoderado,
     'DNI_APODERADO_CA' => $dni_apoderado,
-    'DNI_APODERADO__CA' => $dni_apoderado,
 
-    // Cliente – Persona Natural
-    'NOMBRE_CLIENTE' => strtoupper($p['nombre_completo'] ?? ''),
-    'DNI_CLIENTE' => $p['dni'] ?? '',
-    'DIRECCION_CLIENTE' => strtoupper($p['direccion_cliente'] ?? ''),
-    'DISTRITO_CLIENTE' => strtoupper($p['distrito_cliente'] ?? ''),
-    'PROVINCIA_CLIENTE' => strtoupper($p['provincia_cliente'] ?? ''),
-    'DEPARTAMENTO_CLIENTE' => strtoupper($p['departamento_cliente'] ?? ''),
+    // ── Persona Natural ───────────────────────────────────────────────────
+    'NOMBRE_CLIENTE' => $up('nombre_completo'),
+    'DNI_CLIENTE' => $raw('dni'),
+    'DIRECCION_CLIENTE' => $up('direccion_cliente'),
+    'DISTRITO_CLIENTE' => $up('distrito_cliente'),
+    'PROVINCIA_CLIENTE' => $up('provincia_cliente'),
+    'DEPARTAMENTO_CLIENTE' => $up('departamento_cliente'),
 
-    // Cónyuge del cliente
-    'NOMBRE_CONYUGE' => strtoupper($p['nombre_conyuge'] ?? ''),
-    'DNI_CONYUGE' => $p['dni_conyuge'] ?? '',
-    'DIRECCION_CONYUGE' => strtoupper($p['direccion_conyuge'] ?? ''),
-    'DISTRITO_CONYUGE' => strtoupper($p['distrito_conyuge'] ?? ''),
-    'PROVINCIA_CONYUGE' => strtoupper($p['provincia_conyuge'] ?? ''),
-    'DEPARTAMENTO_CONYUGE' => strtoupper($p['departamento_conyuge'] ?? ''),
+    // Cónyuge del cliente (persona natural)
+    'NOMBRE_CONYUGE' => $up('nombre_conyuge'),
+    'DNI_CONYUGE' => $raw('dni_conyuge'),
+    'DIRECCION_CONYUGE' => $up('direccion_conyuge'),
+    'DISTRITO_CONYUGE' => $up('distrito_conyuge'),
+    'PROVINCIA_CONYUGE' => $up('provincia_conyuge'),
+    'DEPARTAMENTO_CONYUGE' => $up('departamento_conyuge'),
 
-    // Empresa
-    'RAZON_SOCIAL' => strtoupper($p['razon_social'] ?? ''),
-    'RUC_EMPRESA' => $p['ruc'] ?? '',
-    'DIRECCION_FISCAL' => strtoupper($p['domicilio_fiscal'] ?? ''),
-    'REP_LEGAL_EMPRESA' => strtoupper($p['representante_legal'] ?? ''),
-    'DNI_REP_LEGAL' => $p['dni_representante'] ?? '',
-    'DIRECCION_REP_LEGAL' => strtoupper($p['direccion_rep_legal'] ?? ''),
-    'DISTRITO_REP_LEGAL' => strtoupper($p['distrito_rep_legal'] ?? ''),
-    'PROVINCIA_REP_LEGAL' => strtoupper($p['provincia_rep_legal'] ?? ''),
-    'DEPARTAMENTO_REP_LEGAL' => strtoupper($p['departamento_rep_legal'] ?? ''),
-    'PARTIDA_EMPRESA' => $p['partida_electronica'] ?? '',
-    'ZONA_REGISTRAL' => strtoupper($p['zona_registral'] ?? ''),
-    'CIUDAD_REGISTRO' => strtoupper($p['ciudad_registro'] ?? ''),
+    // ── Empresa ───────────────────────────────────────────────────────────
+    'RAZON_SOCIAL' => $up('razon_social'),
+    'RUC_EMPRESA' => $raw('ruc'),
+    'DIRECCION_FISCAL' => $up('domicilio_fiscal'),
+    'REP_LEGAL_EMPRESA' => $up('representante_legal'),
+    'DNI_REP_LEGAL' => $raw('dni_representante'),
+    'DIRECCION_REP_LEGAL' => $up('direccion_rep_legal'),
+    'DISTRITO_REP_LEGAL' => $up('distrito_rep_legal'),
+    'PROVINCIA_REP_LEGAL' => $up('provincia_rep_legal'),
+    'DEPARTAMENTO_REP_LEGAL' => $up('departamento_rep_legal'),
+    'PARTIDA_EMPRESA' => $raw('partida_electronica'),
+    'ZONA_REGISTRAL' => $up('zona_registral'),
+    'CIUDAD_REGISTRO' => $up('ciudad_registro'),
 
-    // Vehículo (AUTO)
-    'AUTO_PLACA' => strtoupper($p['auto_placa'] ?? ''),
-    'AUTO__PLACA' => strtoupper($p['auto_placa'] ?? ''),
-    'AUTO_MARCA' => strtoupper($p['auto_marca'] ?? ''),
-    'AUTO_MODELO' => strtoupper($p['auto_modelo'] ?? ''),
-    'AUTO__MODELO' => strtoupper($p['auto_modelo'] ?? ''),
-    'AUTO_ANIO' => $p['auto_anio'] ?? '',
-    'AUTO_COLOR' => strtoupper($p['auto_color'] ?? ''),
-    'AUTO_MOTOR' => strtoupper($p['auto_motor'] ?? ''),
-    'AUTO__MOTOR' => strtoupper($p['auto_motor'] ?? ''),
-    'AUTO_SERIE' => strtoupper($p['auto_serie'] ?? ''),
-    'AUTO_PARTIDA' => $p['auto_partida_registral'] ?? '',
-    'AUTO_OFICINA_REGISTRAL' => strtoupper($p['auto_oficina_registral'] ?? ''),
-    'AUTO_DESCRIPCION' => strtoupper($p['auto_descripcion'] ?? ''),
+    // ── Vehículo (AUTO) ───────────────────────────────────────────────────
+    'AUTO_PLACA' => $up('auto_placa'),
+    'AUTO_MARCA' => $up('auto_marca'),
+    'AUTO_MODELO' => $up('auto_modelo'),
+    'AUTO_ANIO' => $raw('auto_anio'),
+    'AUTO_COLOR' => $up('auto_color'),
+    'AUTO_MOTOR' => $up('auto_motor'),
+    'AUTO_SERIE' => $up('auto_serie'),
+    'AUTO_PARTIDA' => $raw('auto_partida_registral'),
+    'AUTO_OFICINA_REGISTRAL' => $up('auto_oficina_registral'),
+    'AUTO_DESCRIPCION' => $up('auto_descripcion'),
 
-    // Joyas
-    'JOYA_KILATES' => $p['joya_kilates'] ?? '',
-    'JOYA_DESCRIPCION' => strtoupper($p['joyas_descripcion'] ?? ''),
-    'JOYA_PESO_BRUTO' => $p['joyas_peso_bruto'] ?? '',
-    'JOYA_PESO_NETO' => $p['joyas_peso_neto'] ?? '',
-    'JOYA_ESTADO' => strtoupper($p['joya_estado'] ?? ''),
+    // ── Joyas ─────────────────────────────────────────────────────────────
+    'JOYA_KILATES' => $raw('joya_kilates'),
+    'JOYA_DESCRIPCION' => $up('joyas_descripcion'),
+    'JOYA_PESO_BRUTO' => $raw('joyas_peso_bruto'),
+    'JOYA_PESO_NETO' => $raw('joyas_peso_neto'),
+    'JOYA_ESTADO' => $up('joya_estado'),
 
-    // Electrodomésticos / Electrónico
-    'ELECTRO_MARCA' => strtoupper($p['electro_marca'] ?? ''),
-    'ELECTRO_MODELO' => strtoupper($p['electro_modelo'] ?? ''),
-    'ELECTRO__MODELO' => strtoupper($p['electro_modelo'] ?? ''),
-    'ELECTRO_SERIE' => strtoupper($p['electro_numero_serie'] ?? ''),
-    'ELECTRO__SERIE' => strtoupper($p['electro_numero_serie'] ?? ''),
-    'ELECTRO_COLOR' => strtoupper($p['electro_color'] ?? ''),
-    'ELECTRO_DESCRIPCION' => strtoupper($p['electro_descripcion'] ?? ''),
-    'ELECTRO_FABRIC' => strtoupper($p['electro_fabric'] ?? ''),
+    // ── Electrodomésticos ─────────────────────────────────────────────────
+    'ELECTRO_MARCA' => $up('electro_marca'),
+    'ELECTRO_MODELO' => $up('electro_modelo'),
+    'ELECTRO_SERIE' => $up('electro_numero_serie'),
+    'ELECTRO_COLOR' => $up('electro_color'),
+    'ELECTRO_DESCRIPCION' => $up('electro_descripcion'),
+    'ELECTRO_FABRIC' => $up('electro_fabric'),
 
-    // Garante Mobiliario (opcional)
-    'NOMBRE_GARANTE' => strtoupper($p['nombre_garante'] ?? ''),
-    'DNI_GARANTE' => $p['dni_garante'] ?? '',
-    'CONYUGE_GARANTE' => strtoupper($p['conyuge_garante'] ?? ''),
-    'DNI_CONYUGE_GARANTE' => $p['dni_conyuge_garante'] ?? '',
-    'DOMICILIO_GARANTE' => strtoupper($p['domicilio_garante'] ?? ''),
+    // ── Garante ───────────────────────────────────────────────────────────
+    'NOMBRE_GARANTE' => $up('nombre_garante'),
+    'DNI_GARANTE' => $raw('dni_garante'),
+    'CONYUGE_GARANTE' => $up('conyuge_garante'),
+    'DNI_CONYUGE_GARANTE' => $raw('dni_conyuge_garante'),
+    'DOMICILIO_GARANTE' => $up('domicilio_garante'),
 
-    // Préstamo
-    'MONTO_PRESTAMO' => number_format($monto_prestamo, 2, '.', ','),
-    'MONTO_TASACION' => number_format($monto_tasacion, 2, '.', ','),
-    'MONTO_DEVOLUCION' => number_format($monto_devolucion, 2, '.', ','),
-    'COMISION_TOTAL' => number_format($comision, 2, '.', ','),
+    // ── Préstamo ──────────────────────────────────────────────────────────
+    'MONTO_PRESTAMO' => 'S/ ' . number_format($monto_prestamo, 2, '.', ','),
+    'MONTO_TASACION' => 'S/ ' . number_format($monto_tasacion, 2, '.', ','),
+    'MONTO_DEVOLUCION' => 'S/ ' . number_format($monto_devolucion, 2, '.', ','),
+    'COMISION_TOTAL' => 'S/ ' . number_format($comision, 2, '.', ','),
     'PLAZO_DIAS' => (string) $plazo_dias,
     'LETRAS_PRESTAMO' => numberToWords($monto_prestamo),
     'LETRAS_TASACION' => numberToWords($monto_tasacion),
@@ -325,38 +334,129 @@ $replacements = [
 // ─────────────────────────────────────────────
 $zip = new ZipArchive();
 if ($zip->open($template_path) !== true) {
+    ob_clean();
     echo json_encode(['status' => 'error', 'message' => 'No se pudo abrir la plantilla.']);
     exit;
 }
 
-// Los archivos XML a procesar dentro del docx
-$xml_files = ['word/document.xml', 'word/header1.xml', 'word/footer1.xml'];
-$xml_contents = [];
-
-foreach ($xml_files as $xml_file) {
-    $content = $zip->getFromName($xml_file);
-    if ($content !== false) {
-        $xml_contents[$xml_file] = $content;
+// Archivos XML internos del .docx a procesar
+$xml_targets = [];
+for ($i = 0; $i < $zip->numFiles; $i++) {
+    $name = $zip->getNameIndex($i);
+    // Procesar document, headers, footers y notas al pie
+    if (preg_match('#^word/(document|header\d*|footer\d*|footnotes|endnotes)\.xml$#', $name)) {
+        $content = $zip->getFromIndex($i);
+        if ($content !== false) {
+            $xml_targets[$name] = $content;
+        }
     }
 }
 $zip->close();
 
-// Realizar reemplazos en cada archivo XML
-foreach ($xml_contents as $xml_file => &$content) {
+// Realizar los reemplazos en el XML
+// Word a veces fragmenta ${VAR} en múltiples runs. Primero juntamos los runs dentro de
+// un párrafo para detectar el placeholder, luego reemplazamos en el XML raw.
+foreach ($xml_targets as $xml_file => &$content) {
+    // --- Estrategia 1: reemplazo directo (placeholder no fragmentado) ---
     foreach ($replacements as $var => $value) {
-        // Reemplaza ${ VAR } con o sin espacios
-        $content = preg_replace(
-            '/\$\{\s*' . preg_quote($var, '/') . '\s*\}/',
-            htmlspecialchars($value, ENT_XML1, 'UTF-8'),
-            $content
-        );
+        $pattern = '/\$\{\s*' . preg_quote($var, '/') . '\s*\}/';
+        $escaped_val = htmlspecialchars((string) $value, ENT_XML1, 'UTF-8');
+        $content = preg_replace($pattern, $escaped_val, $content);
     }
-    // Limpiar placeholders no reemplazados
+
+    // --- Estrategia 2: reconstrucción de runs fragmentados ---
+    // Detecta secuencias de <w:r>...</w:r> donde el texto conjunto forma un ${VAR}
+    // Reemplaza el contenido del primer run y elimina los demás
+    foreach ($replacements as $var => $value) {
+        $escaped_val = htmlspecialchars((string) $value, ENT_XML1, 'UTF-8');
+        $placeholder = '${' . $var . '}';
+
+        // Busca el placeholder dividido en runs: cada carácter puede estar en un run distinto
+        // Patrón que captura múltiples <w:r> cuyos <w:t> juntos forman el placeholder
+        // Simplificamos: busca el bloque de runs cuyo texto combinado contiene el placeholder
+        $content = reconstructAndReplace($content, $placeholder, $escaped_val);
+    }
+
+    // Limpiar placeholders que no fueron reemplazados
     $content = preg_replace('/\$\{\s*[A-Z_0-9]+\s*\}/', '', $content);
 }
 unset($content);
 
-// Crear carpeta temporal
+/**
+ * Reconstruye runs de Word fragmentados y reemplaza el placeholder.
+ * Word puede fragmentar "${VAR}" en múltiples <w:r><w:t> dentro de un párrafo.
+ */
+function reconstructAndReplace(string $xml, string $placeholder, string $value): string
+{
+    // Patrón para capturar un bloque de runs consecutivos dentro de un párrafo
+    // que juntos forman el placeholder
+    $pattern = '/<w:r\b[^>]*>(?:(?!<\/w:r>).)*?<w:t[^>]*>[^<]*<\/w:t>(?:(?!<\/w:r>).)*?<\/w:r>/s';
+
+    // Extraer todos los runs del XML con sus posiciones
+    preg_match_all($pattern, $xml, $matches, PREG_OFFSET_CAPTURE);
+
+    if (empty($matches[0]))
+        return $xml;
+
+    $runs = $matches[0]; // [[run_text, offset], ...]
+    $n = count($runs);
+    $ph_len = strlen($placeholder);
+
+    for ($i = 0; $i < $n; $i++) {
+        // Intentamos combinar runs a partir del run $i
+        $combined_text = '';
+        $run_indices = [];
+        for ($j = $i; $j < $n; $j++) {
+            // Extraer texto del run
+            preg_match('/<w:t[^>]*>(.*?)<\/w:t>/s', $runs[$j][0], $m);
+            $run_text = $m[1] ?? '';
+            $combined_text .= $run_text;
+            $run_indices[] = $j;
+
+            if (strpos($combined_text, $placeholder) !== false) {
+                // Encontramos una secuencia que contiene el placeholder
+                // Reemplazar el texto en el primer run, eliminar los demás
+                $new_combined = str_replace($placeholder, $value, $combined_text);
+
+                // Modificar el primer run para que tenga el texto reemplazado
+                $first_run = $runs[$i][0];
+                $new_first_run = preg_replace(
+                    '/<w:t([^>]*)>.*?<\/w:t>/s',
+                    "<w:t$1>" . $new_combined . "</w:t>",
+                    $first_run,
+                    1
+                );
+
+                // Construir la versión modificada: reemplazar todos los runs involucrados
+                $search = '';
+                $replace = $new_first_run;
+                foreach ($run_indices as $idx) {
+                    $search .= preg_quote($runs[$idx][0], '/');
+                    if ($idx !== $i) {
+                        $replace = $replace; // los demás runs se eliminan (ya en $replace vacío)
+                    }
+                }
+
+                // Reemplazar sólo la primera ocurrencia de la secuencia completa
+                $sequence = implode('', array_map(fn($idx) => $runs[$idx][0], $run_indices));
+                $xml = substr_replace($xml, $new_first_run, $runs[$i][1], strlen($sequence));
+
+                // Salir de ambos bucles y reiniciar
+                return reconstructAndReplace($xml, $placeholder, $value);
+            }
+
+            // Si el texto combinado ya excede el placeholder, no hay match
+            if (strlen($combined_text) > $ph_len + 10)
+                break;
+        }
+    }
+
+    return $xml;
+}
+
+// ─────────────────────────────────────────────
+// 7. ESCRIBIR EL DOCX RESULTADO
+// ─────────────────────────────────────────────
 $tmp_dir = realpath(__DIR__ . '/..') . '/tmp_contratos/';
 if (!is_dir($tmp_dir)) {
     mkdir($tmp_dir, 0755, true);
@@ -365,43 +465,96 @@ if (!is_dir($tmp_dir)) {
 $tmp_filename = $tmp_dir . 'contrato_' . time() . '_' . rand(100, 999) . '.docx';
 $download_name = "Contrato_{$num_contrato}_{$tipo_doc}_{$tipo_pers}.docx";
 
-// Copiar plantilla original y sobreescribir los XML modificados
+// Copiar la plantilla original y sobreescribir los XML corregidos
 copy($template_path, $tmp_filename);
 $zip = new ZipArchive();
 if ($zip->open($tmp_filename) !== true) {
+    ob_clean();
     echo json_encode(['status' => 'error', 'message' => 'No se pudo crear el contrato.']);
     exit;
 }
-
-foreach ($xml_contents as $xml_file => $content) {
+foreach ($xml_targets as $xml_file => $content) {
     $zip->deleteName($xml_file);
     $zip->addFromString($xml_file, $content);
 }
 $zip->close();
 
 // ─────────────────────────────────────────────
-// 7. CONSTRUIR DATOS DE PREVIEW
+// 7.5. GENERAR EL PDF CON TCPDF
+// ─────────────────────────────────────────────
+$pdf_filename = str_replace('.docx', '.pdf', $tmp_filename);
+try {
+    require_once __DIR__ . '/../vendor/autoload.php';
+    \PhpOffice\PhpWord\Settings::setPdfRendererPath(realpath(__DIR__ . '/../vendor/tecnickcom/tcpdf'));
+    \PhpOffice\PhpWord\Settings::setPdfRendererName('TCPDF');
+
+    $phpWord = \PhpOffice\PhpWord\IOFactory::load($tmp_filename);
+    $xmlWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'PDF');
+    $xmlWriter->save($pdf_filename);
+} catch (Exception $e) {
+    // Continuar si falla la generación PDF
+}
+
+// ─────────────────────────────────────────────
+// 8. DATOS DE PREVIEW
 // ─────────────────────────────────────────────
 $nombre_display = ($tipo_personeria === 'empresa')
-    ? strtoupper($p['razon_social'] ?? '')
-    : strtoupper($p['nombre_completo'] ?? '');
+    ? $up('razon_social')
+    : $up('nombre_completo');
 
 $id_display = ($tipo_personeria === 'empresa')
-    ? 'RUC: ' . ($p['ruc'] ?? '')
-    : 'DNI: ' . ($p['dni'] ?? '');
+    ? 'RUC: ' . $raw('ruc')
+    : 'DNI: ' . $raw('dni');
 
 $dir_display = ($tipo_personeria === 'empresa')
-    ? strtoupper($p['domicilio_fiscal'] ?? '')
+    ? $up('domicilio_fiscal')
     : implode(', ', array_filter([
-        strtoupper($p['direccion_cliente'] ?? ''),
-        strtoupper($p['distrito_cliente'] ?? ''),
-        strtoupper($p['provincia_cliente'] ?? ''),
-        strtoupper($p['departamento_cliente'] ?? ''),
+        $up('direccion_cliente'),
+        $up('distrito_cliente'),
+        $up('provincia_cliente'),
+        $up('departamento_cliente'),
     ]));
 
-// Preview general del contrato
 $tipo_labels = ['auto' => 'Prenda Auto', 'joyas' => 'Prenda Joyas', 'electro' => 'Prenda Electro'];
 $pers_labels = ['natural' => 'Persona Natural', 'empresa' => 'Empresa'];
+
+// Preview del bien según tipo
+$bien_preview = [];
+switch ($tipo_contrato) {
+    case 'auto':
+        $bien_preview = [
+            'Placa' => $up('auto_placa'),
+            'Marca' => $up('auto_marca'),
+            'Modelo' => $up('auto_modelo'),
+            'Año' => $raw('auto_anio'),
+            'Color' => $up('auto_color'),
+            'Motor' => $up('auto_motor'),
+            'Serie/Chasis' => $up('auto_serie'),
+            'Partida Registral' => $raw('auto_partida_registral'),
+            'Oficina Registral' => $up('auto_oficina_registral'),
+            'Descripción' => $up('auto_descripcion'),
+        ];
+        break;
+    case 'joyas':
+        $bien_preview = [
+            'Kilates' => $raw('joya_kilates'),
+            'Descripción' => $up('joyas_descripcion'),
+            'Peso Bruto' => $raw('joyas_peso_bruto') . ' gr',
+            'Peso Neto' => $raw('joyas_peso_neto') . ' gr',
+            'Estado' => $up('joya_estado'),
+        ];
+        break;
+    case 'electro':
+        $bien_preview = [
+            'Marca' => $up('electro_marca'),
+            'Modelo' => $up('electro_modelo'),
+            'N° Serie' => $up('electro_numero_serie'),
+            'Color' => $up('electro_color'),
+            'Descripción' => $up('electro_descripcion'),
+            'Fabricante' => $up('electro_fabric'),
+        ];
+        break;
+}
 
 $preview = [
     'num_contrato' => $num_contrato,
@@ -424,55 +577,19 @@ $preview = [
         'letras_devolucion' => numberToWords($monto_devolucion),
     ],
     'garante' => [
-        'nombre' => strtoupper($p['nombre_garante'] ?? ''),
-        'dni' => $p['dni_garante'] ?? '',
-        'domicilio' => strtoupper($p['domicilio_garante'] ?? ''),
+        'nombre' => $up('nombre_garante'),
+        'dni' => $raw('dni_garante'),
+        'domicilio' => $up('domicilio_garante'),
+        'conyuge' => $up('conyuge_garante'),
     ],
-    'bien' => buildBienPreview($tipo_contrato, $p),
+    'bien' => $bien_preview,
 ];
 
-function buildBienPreview(string $tipo, array $p): array
-{
-    switch ($tipo) {
-        case 'auto':
-            return [
-                'placa' => strtoupper($p['auto_placa'] ?? ''),
-                'marca' => strtoupper($p['auto_marca'] ?? ''),
-                'modelo' => strtoupper($p['auto_modelo'] ?? ''),
-                'anio' => $p['auto_anio'] ?? '',
-                'color' => strtoupper($p['auto_color'] ?? ''),
-                'motor' => strtoupper($p['auto_motor'] ?? ''),
-                'serie' => strtoupper($p['auto_serie'] ?? ''),
-                'partida' => $p['auto_partida_registral'] ?? '',
-                'oficina' => strtoupper($p['auto_oficina_registral'] ?? ''),
-                'descripcion' => strtoupper($p['auto_descripcion'] ?? ''),
-            ];
-        case 'joyas':
-            return [
-                'kilates' => $p['joya_kilates'] ?? '',
-                'descripcion' => strtoupper($p['joyas_descripcion'] ?? ''),
-                'peso_bruto' => $p['joyas_peso_bruto'] ?? '',
-                'peso_neto' => $p['joyas_peso_neto'] ?? '',
-                'estado' => strtoupper($p['joya_estado'] ?? ''),
-            ];
-        case 'electro':
-            return [
-                'tipo' => strtoupper($p['electro_tipo_bien'] ?? ''),
-                'marca' => strtoupper($p['electro_marca'] ?? ''),
-                'modelo' => strtoupper($p['electro_modelo'] ?? ''),
-                'serie' => strtoupper($p['electro_numero_serie'] ?? ''),
-                'color' => strtoupper($p['electro_color'] ?? ''),
-                'descripcion' => strtoupper($p['electro_descripcion'] ?? ''),
-                'fabricante' => strtoupper($p['electro_fabric'] ?? ''),
-            ];
-        default:
-            return [];
-    }
-}
-
+ob_clean();
 echo json_encode([
     'status' => 'ok',
     'docx_filename' => basename($tmp_filename),
+    'pdf_filename' => basename($pdf_filename),
     'download_name' => $download_name,
     'preview' => $preview,
 ]);

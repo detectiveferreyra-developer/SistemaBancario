@@ -755,8 +755,8 @@ a:hover {
 }
 
 /* ===== OCULTAR HAMBURGER NATIVO DEL NAV-HEADER (sidebar) =====
-   El botón ya está en el navbar; el que el framework inyecta
-   en .nav-header se oculta para evitar duplicado. */
+   El botón ya está en el navbar a la derecha del usuario;
+   el que el framework inyecta en .nav-header se oculta. */
 .nav-header .nav-control {
     display: none !important;
 }
@@ -765,11 +765,16 @@ a:hover {
    NUEVOS AJUSTES DE PROPORCIONALIDAD Y ESPACIOS
    ============================================ */
 
-/* ===== LOGO: más pequeño y con margen inferior ===== */
+/* ===== LOGO: centrado con márgenes generosos ===== */
 .nav-header .brand-logo {
-    padding-bottom: 24px !important;
-    height: auto !important;
-    max-width: 160px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 20px 24px !important;
+    /* espacio generoso arriba/abajo y laterales */
+    height: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
     overflow: hidden !important;
 }
 

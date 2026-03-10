@@ -120,6 +120,22 @@ $monto_prestamo = floatval($_POST['monto_prestamo'] ?? 0);
 $monto_tasacion = floatval($_POST['monto_tasacion'] ?? 0);
 $valor_interes = floatval($_POST['valor_interes'] ?? 0);
 $tipo_interes = $_POST['tipo_interes'] ?? '';
+
+// Nuevos campos de contacto del cliente
+$telefono_cliente          = $_POST['telefono_cliente'] ?? '';
+$celular_cliente           = $_POST['celular_cliente'] ?? '';
+$email_cliente             = strtolower($_POST['email_cliente'] ?? '');
+
+// Campos adicionales para cónyuge (si aplica)
+$estado_civil              = strtoupper($_POST['estado_civil'] ?? '');
+$nombre_conyuge            = strtoupper($_POST['nombre_conyuge'] ?? '');
+$profesion_conyuge         = strtoupper($_POST['profesion_conyuge'] ?? '');
+$nacionalidad_conyuge      = strtoupper($_POST['nacionalidad_conyuge'] ?? '');
+// Nuevos campos de contacto del conyuge
+$telefono_conyuge          = $_POST['telefono_conyuge'] ?? '';
+$celular_conyuge           = $_POST['celular_conyuge'] ?? '';
+$email_conyuge             = strtolower($_POST['email_conyuge'] ?? '');
+
 $plazo_dias = intval($_POST['plazo_dias'] ?? 30);
 
 $comision = ($tipo_interes === 'porcentaje')
@@ -240,6 +256,14 @@ $raw = function (string $key, string $default = '') use ($p): string {
     return trim($p[$key] ?? $default);
 };
 
+// Construir domicilio completo del cliente
+$domicilio_completo = implode(', ', array_filter([
+    $up('direccion_cliente'),
+    $up('distrito_cliente'),
+    $up('provincia_cliente'),
+    $up('departamento_cliente'),
+]));
+
 $replacements = [
     // ── Sistema ──────────────────────────────────────────────────────────
     'NUM_CONTRATO' => $num_contrato,
@@ -261,14 +285,25 @@ $replacements = [
     'DISTRITO_CLIENTE' => $up('distrito_cliente'),
     'PROVINCIA_CLIENTE' => $up('provincia_cliente'),
     'DEPARTAMENTO_CLIENTE' => $up('departamento_cliente'),
+    'DIRECCION_CLIENTE'     => $domicilio_completo,
+    'DOMICILIO_CLIENTE'     => $domicilio_completo,
+    'TELEFONO_CLIENTE'      => $telefono_cliente,
+    'CELULAR_CLIENTE'       => $celular_cliente,
+    'EMAIL_CLIENTE'         => $email_cliente,
 
     // Cónyuge del cliente (persona natural)
-    'NOMBRE_CONYUGE' => $up('nombre_conyuge'),
+    'NOMBRE_CONYUGE' => $nombre_conyuge,
     'DNI_CONYUGE' => $raw('dni_conyuge'),
     'DIRECCION_CONYUGE' => $up('direccion_conyuge'),
     'DISTRITO_CONYUGE' => $up('distrito_conyuge'),
     'PROVINCIA_CONYUGE' => $up('provincia_conyuge'),
     'DEPARTAMENTO_CONYUGE' => $up('departamento_conyuge'),
+    'ESTADO_CIVIL'          => $estado_civil,
+    'PROFESION_CONYUGE'     => $profesion_conyuge,
+    'NACIONALIDAD_CONYUGE'  => $nacionalidad_conyuge,
+    'TELEFONO_CONYUGE'      => $telefono_conyuge,
+    'CELULAR_CONYUGE'       => $celular_conyuge,
+    'EMAIL_CONYUGE'         => $email_conyuge,
 
     // ── Empresa ───────────────────────────────────────────────────────────
     'RAZON_SOCIAL' => $up('razon_social'),

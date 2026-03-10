@@ -5,7 +5,7 @@ require('../modelo/mAPIClima_Openweathermap.php');
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPAÃ‘OL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
@@ -18,16 +18,16 @@ if (empty($_GET['idusuario'])) {
 }
 // REALIZAR CALCULO SI MONTO DE FINANCIAMIENTO SEA MAYOR A CERO [0]
 if ($Gestiones->getMontoFinanciamientoCreditos() > 0) {
-    if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
+    if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
         $CalculoCuotaMensualCapital = $Gestiones->getMontoFinanciamientoCreditos() / ($Gestiones->getTiempoPlazoCreditos() * 12);
     } else {
         $CalculoCuotaMensualCapital = $Gestiones->getMontoFinanciamientoCreditos() / ($Gestiones->getTiempoPlazoCreditos());
-    } // CIERRE if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios")
+    } // CIERRE if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios")
 } else {
     // CASO CONTRARIO, SE ENTIENDE QUE USUARIO YA NO DISPONE DE CONSULTA ACTIVA DE SOLICITUD CREDITICIA Y SU ESTADO DE CREDITO HA CAMBIADO
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
 } // CIERRE if ($Gestiones->getMontoFinanciamientoCreditos() > 0) 
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÃ‘A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -35,26 +35,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
     <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦=======================================================
+Â¦Â¦              CrediAgil S.A DE C.V                                                  
+Â¦Â¦          SISTEMA FINANCIERO / BANCARIO 
+Â¦Â¦=======================================================                      
+Â¦Â¦                                                                               
+Â¦Â¦ -> AUTOR: DANIEL RIVERA                                                               
+Â¦Â¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+Â¦Â¦ -> GITHUB: (danielrivera03)                                             
+Â¦Â¦ -> TODOS LOS DERECHOS RESERVADOS                           
+Â¦Â¦     Â© 2021 - 2022    
+Â¦Â¦                                                      
+Â¦Â¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+Â¦Â¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+Â¦Â¦
+Â¦Â¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+Â¦Â¦                                                                               
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
 
 -->
     <!DOCTYPE html>
@@ -781,7 +781,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                             <div class="media-body">
                                                                 <p class="mb-1">Plazo</p>
                                                                 <h4 class="mb-0"><?php echo $Gestiones->getTiempoPlazoCreditos(); ?></h4>
-                                                                <span class="badge badge-info"><?php if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
+                                                                <span class="badge badge-info"><?php if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
                                                                                                     echo "A&ntilde;os";
                                                                                                 } else {
                                                                                                     echo "Meses";
@@ -825,8 +825,8 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
-                                                        // SI EL CREDITO ES HIPOTECARIO, SE REALIZA EL CALCULO AL NUMERO DE MESES EN TOTAL, YA QUE EL REGISTRO DE PREVIO FUE REALIZADO EN BASE A LOS AÑOS DE FINANCIAMIENTO
+                                                    if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+                                                        // SI EL CREDITO ES HIPOTECARIO, SE REALIZA EL CALCULO AL NUMERO DE MESES EN TOTAL, YA QUE EL REGISTRO DE PREVIO FUE REALIZADO EN BASE A LOS AÃ‘OS DE FINANCIAMIENTO
                                                         $CalculoDiasPrestamos = ($Gestiones->getTiempoPlazoCreditos() * 12) + 1;
                                                     } else {
                                                         $CalculoDiasPrestamos = $Gestiones->getTiempoPlazoCreditos() + 1;

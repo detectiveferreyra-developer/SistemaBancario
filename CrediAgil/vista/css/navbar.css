@@ -9,17 +9,14 @@
     border-bottom: none !important;
 }
 
-.header-left .logo-abbr {
-    background-color: transparent !important;
-}
-
 /* Hamburger color blanco para que resalte en azul marino */
 .hamburger .line {
     background: #ffffff !important;
 }
 
-/* Perfil de usuario texto blanco/gris */
-.header-profile .header-info span {
+/* Perfil de usuario texto blanco */
+.header-profile .header-info span,
+.header-profile .header-info strong {
     color: #ffffff !important;
 }
 
@@ -29,7 +26,7 @@
 }
 
 /* =====================================================
-   Menu Horizontal (copia exacta del formato del sidebar)
+   Menu Horizontal — copia exacta del sidebar
    ===================================================== */
 .metismenu-horizontal {
     display: flex;
@@ -47,38 +44,56 @@
     position: relative;
 }
 
-/* Enlaces del nav: mismo pad, fuente y color que sidebar (.deznav .metismenu > li > a) */
+/* Mismos valores que sidebar pero más compactos para el navbar */
 .metismenu-horizontal>li>a {
     display: flex;
     align-items: center;
-    padding: 0 1.25rem;
+    gap: 8px;
+    padding: 0 0.5rem;
     font-weight: 500;
-    font-size: 15px;
-    color: var(--crediagil-white) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     height: 100%;
+    border-radius: 0;
 }
 
+/* SVG: Iconos MÁS GRANDES según requerimiento (26px) */
 .metismenu-horizontal>li>a svg {
-    max-width: 24px;
-    max-height: 24px;
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    flex-shrink: 0;
+    background: none !important;
+    padding: 0 !important;
+    fill: currentColor;
+    stroke: none;
 }
 
-/* Colores Inactivos: SVG color igual al texto como en el sidebar (LightSlateGrey o var(--crediagil-white)) */
-.metismenu-horizontal>li:not(.mm-active)>a svg {
-    stroke: rgba(255, 255, 255, 0.7);
-    fill: rgba(255, 255, 255, 0.7);
+/* Para el SVG de "Nuevo Cliente" que usa stroke en lugar de fill */
+.metismenu-horizontal>li>a svg path[stroke-width] {
+    stroke: currentColor;
+    fill: none;
 }
 
+/* Estado inactivo: color blanco semi-transparente (igual sidebar) */
 .metismenu-horizontal>li:not(.mm-active)>a {
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Hover, Focus, y Active: Idéntico al sidebar */
+.metismenu-horizontal>li:not(.mm-active)>a svg {
+    fill: rgba(255, 255, 255, 0.7) !important;
+    stroke: none !important;
+}
+
+/* Caso especial: Nuevo Cliente usa stroke */
+.metismenu-horizontal>li:not(.mm-active)>a svg.stroke-icon path,
+.metismenu-horizontal>li:not(.mm-active)>a svg path[stroke-linecap] {
+    stroke: rgba(255, 255, 255, 0.7) !important;
+    fill: none !important;
+}
+
+/* Hover, Focus, Active: igual al sidebar (fondo azul-light, texto naranja) */
 .metismenu-horizontal>li:hover>a,
 .metismenu-horizontal>li:focus>a,
 .metismenu-horizontal>li.mm-active>a {
@@ -86,15 +101,22 @@
     color: var(--crediagil-orange) !important;
 }
 
-/* Si el sidebar original le cambiaba el color al icono en hover/active: */
 .metismenu-horizontal>li:hover>a svg,
 .metismenu-horizontal>li:focus>a svg,
 .metismenu-horizontal>li.mm-active>a svg {
-    stroke: var(--crediagil-orange) !important;
     fill: var(--crediagil-orange) !important;
+    stroke: none !important;
 }
 
-/* Indicador visual de elemento activo (el left-border del sidebar pasado a bottom-border en la navbar) */
+/* Caso especial hover/active: Nuevo Cliente usa stroke */
+.metismenu-horizontal>li:hover>a svg path[stroke-linecap],
+.metismenu-horizontal>li:focus>a svg path[stroke-linecap],
+.metismenu-horizontal>li.mm-active>a svg path[stroke-linecap] {
+    stroke: var(--crediagil-orange) !important;
+    fill: none !important;
+}
+
+/* Indicador visual: borde inferior naranja en item activo */
 .metismenu-horizontal>li.mm-active>a::after {
     content: '';
     position: absolute;
@@ -105,9 +127,37 @@
     background-color: var(--crediagil-orange);
 }
 
-/* En resoluciones menores a lg, hacer scroll horizontal */
+/* Sombra en item activo (igual que sidebar) */
+.metismenu-horizontal>li.mm-active>a {
+    box-shadow: 0 4px 15px rgba(255, 140, 66, 0.25) !important;
+}
+
+/* ===== .nav-text permitiendo wrap a 2 líneas ===== */
+.metismenu-horizontal>li>a .nav-text {
+    font-size: 0.85rem !important;
+    letter-spacing: 0.01em !important;
+    white-space: normal !important;
+    max-width: 90px;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* Responsive: scroll horizontal en pantallas pequeñas */
 @media (max-width: 1199px) {
     .header-left {
         overflow-x: auto;
     }
+}
+
+/* Hamburger right side */
+.header .nav-control {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 6px;
 }

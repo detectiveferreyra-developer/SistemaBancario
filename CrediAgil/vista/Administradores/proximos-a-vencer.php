@@ -47,7 +47,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>CrediAgil | Listado Próximos a Vencer </title>
+		<title>CrediAgil | Listado PrÃ³ximos a Vencer </title>
 		<!-- Favicon icon -->
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo $UrlGlobal; ?>vista/images/crediagil-crediagil-apple-icon-60x60.png">
@@ -137,13 +137,7 @@ Nav header end
         ***********************************-->
 			<div class="content-body">
 				<div class="container-fluid">
-					<div class="page-titles">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Inicio</a></li>
-							<li class="breadcrumb-item"><a href="javascript:void(0)">Recuperaciones</a></li>
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Listado Próximos a Vencer</a></li>
-						</ol>
-					</div>
+					
 					<div class="row">
 						<div class="card-body">
 							<!-- Nav tabs -->
@@ -160,7 +154,7 @@ Nav header end
 							<div class="tab-content tabcontent-border">
 								<div class="tab-pane fade show active" id="home8" role="tabpanel">
 									<div class="pt-4">
-										<h4>Listado de Cuotas Próximos a Vencer CrediAgil</h4><br>
+										<h4>Listado de Cuotas PrÃ³ximos a Vencer CrediAgil</h4><br>
 										<p>Estimado(a) <?php $Nombre = $_SESSION['nombre_usuario'];
 														$PrimerNombre = explode(' ', $Nombre, 2);
 														print_r($PrimerNombre[0]); ?>, en este apartado encontrar&aacute;s el listado completo de todos los clientes que presentan irregularidades de pagos en su responsabilidad mercantil con nuestra empresa. <strong>Usted podr&aacute; consultar el perfil de los clientes y contactar a cada uno de ellos hasta que solventen su irregularidad.</strong> Por favor consulte el estado de cuenta del cliente en cuesti&oacute;n para brindar con exactitud la cuota que presenta la correspondiente irregularidad. Ac&aacute; solo se muestra el identificador &uacute;nico asignado en nuestro sistema. <strong>Para filtrar resultados de un solo cliente, solamente digite el n&uacute;mero de dui del cliente en cuesti&oacute;n en el buscador.</strong></p>

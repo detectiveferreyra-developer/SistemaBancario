@@ -2419,7 +2419,7 @@ class GestionesClientes
                     p.nombreproducto, 
                     u.nombres, 
                     u.apellidos, 
-                    u.dui, 
+                    du.dui, 
                     cu.montocancelar, 
                     cu.fechavencimiento, 
                     u.idusuarios, 
@@ -2428,6 +2428,7 @@ class GestionesClientes
                   INNER JOIN creditos c ON cu.idcreditos = c.idcreditos
                   INNER JOIN productos p ON c.idproducto = p.idproducto
                   INNER JOIN usuarios u ON c.idusuarios = u.idusuarios
+                  INNER JOIN detalleusuarios du ON u.idusuarios = du.idusuarios
                   WHERE cu.estadocuota = 'pendiente' 
                   AND cu.incumplimiento_pago = 'NO'
                   AND cu.fechavencimiento BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY)

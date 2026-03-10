@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
@@ -282,14 +282,7 @@ Nav header end
                                 <p class="mb-0">Registro de cliente con garantia mobiliaria</p>
                             </div>
                         </div>
-                        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a
-                                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales">Inicio</a>
-                                </li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Nuevo Cliente</a></li>
-                            </ol>
-                        </div>
+                        
                     </div>
 
                     <!-- Stepper Form -->
@@ -424,6 +417,60 @@ Nav header end
                                                         <input type="text" class="form-control" id="domicilio_lote"
                                                             name="domicilio_lote" placeholder="Ej: 5">
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Contacto del Cliente -->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">Contacto del Cliente</h6>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Teléfono Fijo</label>
+                                                    <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" placeholder="Ej: 01-5551234">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="required-field">Celular / WhatsApp</label>
+                                                    <input type="text" class="form-control" id="celular_cliente" name="celular_cliente" placeholder="Ej: 999 277 396">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Correo Electrónico</label>
+                                                    <input type="email" class="form-control" id="email_cliente" name="email_cliente" placeholder="Ej: cliente@correo.com">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Contacto del Cónyuge -->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">Contacto del Cónyuge</h6>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Teléfono Fijo del Cónyuge</label>
+                                                    <input type="text" class="form-control" id="telefono_conyuge" name="telefono_conyuge" placeholder="Ej: 01-5551234">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Celular / WhatsApp del Cónyuge</label>
+                                                    <input type="text" class="form-control" id="celular_conyuge" name="celular_conyuge" placeholder="Ej: 999 277 396">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Correo Electrónico del Cónyuge</label>
+                                                    <input type="email" class="form-control" id="email_conyuge" name="email_conyuge" placeholder="Ej: conyuge@correo.com">
                                                 </div>
                                             </div>
                                         </div>
@@ -750,13 +797,20 @@ Nav header end
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="required-field">Fecha de Desembolso</label>
                                                     <input type="date" class="form-control" id="fecha_desembolso"
                                                         name="fecha_desembolso" required>
                                                     <small class="form-text text-muted">Fecha en que se entrega el
                                                         prestamo</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="required-field">Tasa Moratoria (%/mes)</label>
+                                                    <input type="number" class="form-control" id="tasa_moratoria" name="tasa_moratoria" value="5.99" step="0.01" min="0" required>
+                                                    <small class="form-text text-muted">Tasa de mora en caso de incumplimiento</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -881,52 +935,93 @@ Nav header end
             Content body end
         ***********************************-->
 
-            <!-- MODAL PREVIEW CONTRATO -->
-            <div class="modal fade" id="contratoModal" tabindex="-1" role="dialog">
+            <!-- MODAL DOCUMENTOS UNIFICADO -->
+            <div class="modal fade" id="documentosModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
                     <div class="modal-content" style="border:none;border-radius:12px;overflow:hidden;">
                         <div class="modal-header"
-                            style="background:linear-gradient(135deg,#184897,#1a6bc7);color:#fff;border:none;padding:1.5rem 2rem;">
+                            style="background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;border:none;padding:1.5rem 2rem;">
                             <div>
-                                <h5 class="modal-title" style="font-weight:700;margin:0;">Contrato Generado</h5>
-                                <div style="font-size:0.85rem;opacity:0.85;margin-top:4px;" id="modal_num_contrato">N&#176;
-                                    &mdash;</div>
+                                <h5 class="modal-title" style="font-weight:700;margin:0;">Generación de Documentos Puesto en Marcha</h5>
+                                <div style="font-size:0.85rem;opacity:0.85;margin-top:4px;" id="modal_num_contrato">N&#176; &mdash;</div>
                             </div>
-                            <button type="button" class="close" data-dismiss="modal"
-                                style="color:#fff;opacity:1;">&times;</button>
+                            <button type="button" class="close" data-dismiss="modal" style="color:#fff;opacity:1;">&times;</button>
                         </div>
-                        <div class="modal-body p-0">
-                            <div
-                                style="background:#e8f5e9;border-bottom:1px solid #c8e6c9;padding:12px 2rem;display:flex;align-items:center;gap:10px;">
-                                <span style="font-size:1.4rem;color:#388e3c;">OK</span>
-                                <div><strong style="color:#388e3c;">Contrato completado con los datos ingresados.</strong>
-                                    <div style="font-size:0.85rem;color:#555;">Revise antes de imprimir. Use "Modificar" si
-                                        hay errores.</div>
+                        <div class="modal-body" style="padding:1.5rem; background:#f4f6f9;">
+                            <!-- AVISO IMPORTANTE -->
+                            <div style="background:#fff3e0;border:2px solid #F5812A;border-radius:8px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px;">
+                                <div style="font-size:2rem;">&#9888;</div>
+                                <div>
+                                    <div style="font-weight:700;color:#c0392b;font-size:1rem;">ATENCIÓN: Revise bien todos los documentos</div>
+                                    <div style="font-size:0.9rem;color:#555;margin-top:4px;">
+                                        Una vez que haga clic en <strong>“Guardar Todo”</strong>, los 4 documentos se crearán y guardarán
+                                        en la carpeta del cliente de forma <strong>permanente e irreversible</strong>.
+                                        No podrán ser modificados luego. Verifique que todos los datos sean correctos en cada pestaña.
+                                    </div>
                                 </div>
                             </div>
-                            <div style="padding:1.5rem;" id="pdf_container">
-                                <iframe id="pdf_preview_frame" src=""
-                                    style="width:100%; height:650px; border:none; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15);"></iframe>
+
+                            <!-- TABS -->
+                            <ul class="nav nav-tabs" id="docs-tabs" style="margin-bottom:0; background:#fff; padding-top:10px; border-radius:8px 8px 0 0; padding-left:10px;">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tab-contrato" style="font-weight:600; color:#184897;">&#128196; Contrato Principal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-dj" style="font-weight:600; color:#184897;">&#128221; Declaración Jurada</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-pagare" style="font-weight:600; color:#184897;">&#128181; Pagaré</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-crono" style="font-weight:600; color:#184897;">&#128200; Cronograma</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" style="background:#fff; border:1px solid #dee2e6;border-top:none;border-radius:0 0 8px 8px;">
+                                <!-- TAB CONTRATO -->
+                                <div class="tab-pane fade show active" id="tab-contrato" style="padding:12px;">
+                                    <div style="text-align:right; margin-bottom:10px;">
+                                        <a id="btn_imprimir" href="#" target="_blank" class="btn btn-sm btn-outline-primary" style="font-weight:700;">
+                                            <i class="fa fa-print mr-2"></i>Imprimir Contrato
+                                        </a>
+                                    </div>
+                                    <div id="pdf_container">
+                                        <iframe id="pdf_preview_frame" src="" style="width:100%; height:560px; border:none; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"></iframe>
+                                    </div>
+                                </div>
+                                <!-- TAB DJ -->
+                                <div class="tab-pane fade" id="tab-dj" style="padding:12px;">
+                                    <iframe id="iframe_dj" src="" style="width:100%;height:560px;border:none;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.1);"></iframe>
+                                </div>
+                                <!-- TAB PAGARE -->
+                                <div class="tab-pane fade" id="tab-pagare" style="padding:12px;">
+                                    <iframe id="iframe_pagare" src="" style="width:100%;height:560px;border:none;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.1);"></iframe>
+                                </div>
+                                <!-- TAB CRONOGRAMA -->
+                                <div class="tab-pane fade" id="tab-crono" style="padding:12px;">
+                                    <div style="background:#f5f5f5;border:1px dashed #ccc;border-radius:8px;padding:40px;text-align:center;">
+                                        <div style="font-size:3.5rem;">&#128200;</div>
+                                        <div style="font-size:1.2rem;font-weight:600;color:#333;margin:12px 0 8px;">Cronograma de Pagos (Excel)</div>
+                                        <div style="color:#666;font-size:0.95rem;margin-bottom:20px;">El cronograma se generó correctamente y se guardará como archivo Excel (.xlsx) en la carpeta del cliente al confirmar.</div>
+                                        <a id="btn_descargar_crono" href="#" class="btn btn-success" style="font-weight:600;">
+                                            <i class="fa fa-download mr-2"></i>Descargar Previsualización (XLSX)
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer"
                             style="background:#f8f9fa;border-top:1px solid #e0e0e0;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;">
-                            <button type="button" id="btn_modificar" class="btn btn-outline-secondary"
-                                style="font-weight:600;">Modificar</button>
-                            <div style="display:flex;gap:10px;">
-                                <a id="btn_imprimir" href="#" target="_blank" class="btn btn-outline-primary"
-                                    style="font-weight:700;padding:0.6rem 1.4rem;border-radius:6px;text-decoration:none;">
-                                    <i class="fa fa-print mr-2"></i>Imprimir Contrato
-                                </a>
-                                <button type="button" id="btn_aceptar" class="btn"
-                                    style="background:#F5812A;color:#fff;font-weight:700;padding:0.6rem 1.8rem;border-radius:6px;border:none;">
-                                    <i class="fa fa-check mr-2"></i>Aceptar y Guardar
-                                </button>
-                            </div>
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"
+                                style="font-weight:600;">Modificar Formulario</button>
+                            <button type="button" id="btn_guardar_todo" class="btn"
+                                style="background:#28a745;color:#fff;font-weight:700;padding:0.7rem 2rem;border-radius:6px;border:none;font-size:1.05rem;">
+                                <i class="fa fa-save mr-2"></i>Confirmar y Guardar Todo
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
             <div class="footer">
                 <div class="copyright">
@@ -1129,11 +1224,14 @@ Nav header end
 
                 $('#nuevo-cliente-form').submit(function (e) {
                     e.preventDefault();
+                    if (!validateStep(currentStep)) return;
+
                     const formData = new FormData(this);
                     const $btn = $('#btn_submit');
                     const originalHtml = $btn.html();
-                    $btn.html('<i class="fa fa-spinner fa-spin mr-2"></i> Generando...').prop('disabled', true);
+                    $btn.html('<i class="fa fa-spinner fa-spin mr-2"></i> Generando Documentos...').prop('disabled', true);
 
+                    // Paso 1: Generar Contrato Principal
                     $.ajax({
                         url: '../controlador/cGenerarContrato.php',
                         type: 'POST',
@@ -1141,17 +1239,67 @@ Nav header end
                         processData: false,
                         contentType: false,
                         success: function (response) {
-                            $btn.html(originalHtml).prop('disabled', false);
                             try {
                                 const res = typeof response === 'string' ? JSON.parse(response) : response;
                                 if (res.status === 'ok') {
-                                    fillContratoModal(res.preview, res.docx_filename, res.pdf_filename);
-                                    $('#contratoModal').modal('show');
+                                    // Guardar datos temporales del contrato
+                                    currentDocxFile = res.docx_filename || '';
+                                    currentClienteNombre = (res.preview && res.preview.cliente && res.preview.cliente.nombre) ? res.preview.cliente.nombre : 'Cliente_Desconocido';
+                                    
+                                    // Llenar pestaña Contrato
+                                    $('#modal_num_contrato').html('N&#176; ' + (res.preview.num_contrato || ''));
+                                    if (res.pdf_filename) {
+                                        $('#pdf_preview_frame').attr('src', '../tmp_contratos/' + res.pdf_filename);
+                                    } else {
+                                        $('#pdf_preview_frame').attr('src', 'about:blank');
+                                        $('#pdf_container').html('<div class="alert alert-warning">No se pudo generar PDF. Descargue el Word usando el botón superior.</div>');
+                                    }
+                                    $('#btn_imprimir')
+                                        .attr('href', '../tmp_contratos/' + (res.pdf_filename ? res.pdf_filename : currentDocxFile))
+                                        .attr('download', 'Contrato_' + (res.preview.num_contrato || 'Generado') + (res.pdf_filename ? '.pdf' : '.docx'));
+
+                                    // Paso 2: Generar Documentos Adicionales (DJ, Pagaré, Cronograma)
+                                    $btn.html('<i class="fa fa-spinner fa-spin mr-2"></i> Generando Anexos...').prop('disabled', true);
+                                    
+                                    $.ajax({
+                                        url: '../controlador/cGenerarDocumentos.php',
+                                        type: 'POST',
+                                        data: formData,
+                                        processData: false,
+                                        contentType: false,
+                                        success: function (docRes) {
+                                            $btn.html(originalHtml).prop('disabled', false);
+                                            try {
+                                                const dr = typeof docRes === 'string' ? JSON.parse(docRes) : docRes;
+                                                if (dr.status === 'ok') {
+                                                    // Guardar resultados
+                                                    currentDocsResults = dr.results;
+                                                    
+                                                    // Llenar pestañas Adicionales
+                                                    fillDocumentosModal(dr.results, dr.preview);
+                                                    
+                                                    // Mostrar Modal Unificado
+                                                    $('#documentosModal').modal('show');
+                                                } else {
+                                                    alert('Error al generar documentos adicionales: ' + (dr.message || ''));
+                                                }
+                                            } catch (ex) {
+                                                alert('Error al procesar la respuesta de anexos del servidor.');
+                                            }
+                                        },
+                                        error: function (xhr) {
+                                            $btn.html(originalHtml).prop('disabled', false);
+                                            alert('Error de conexión al generar anexos: ' + xhr.status);
+                                        }
+                                    });
+
                                 } else {
-                                    alert('Error: ' + (res.message || 'Error al generar el contrato.'));
+                                    $btn.html(originalHtml).prop('disabled', false);
+                                    alert('Error: ' + (res.message || 'Error al generar el contrato principal.'));
                                 }
                             } catch (ex) {
-                                alert('Error al procesar la respuesta del servidor.');
+                                $btn.html(originalHtml).prop('disabled', false);
+                                alert('Error al procesar la respuesta del contrato del servidor.');
                             }
                         },
                         error: function (xhr) {
@@ -1162,42 +1310,46 @@ Nav header end
                 });
             });
 
-            // === FUNCIONES DEL MODAL DE CONTRATO ===
+            // === VARIABLES DE ESTADO Y FUNCIONES DEL MODAL ===
             let currentDocxFile = '';
             let currentClienteNombre = '';
+            let currentDocsResults = {};
 
-            function fillContratoModal(preview, docxFile, pdfFile) {
-                currentDocxFile = docxFile || '';
+            // Llenar el modal de documentos adicionales
+            function fillDocumentosModal(results, preview) {
                 const p = preview || {};
-                const c = p.cliente || {};
-                currentClienteNombre = c.nombre || 'Cliente_Desconocido';
-                $('#modal_num_contrato').html('N&#176; ' + (p.num_contrato || ''));
 
-                if (pdfFile) {
-                    $('#pdf_preview_frame').attr('src', '../tmp_contratos/' + pdfFile);
-                } else {
-                    $('#pdf_preview_frame').attr('src', 'about:blank');
-                    $('#pdf_container').html('<div class="alert alert-warning">No se pudo generar la vista previa en PDF. Por favor descargue el documento Word (Imprimir Contrato).</div>');
+                // Iframe Declaración Jurada
+                if (results.dj_pdf) {
+                    $('#iframe_dj').attr('src', '../tmp_contratos/' + results.dj_pdf);
+                } else if (results.dj_docx) {
+                    const previewData = encodeURIComponent(JSON.stringify(p));
+                    $('#iframe_dj').attr('src', 'dj-preview-print.php?data=' + previewData);
                 }
 
-                $('#btn_imprimir')
-                    .attr('href', '../tmp_contratos/' + (pdfFile ? pdfFile : docxFile))
-                    .attr('download', 'Contrato_' + (p.num_contrato || 'Generado') + (pdfFile ? '.pdf' : '.docx'));
+                // Iframe Pagaré
+                if (results.pagare_pdf) {
+                    $('#iframe_pagare').attr('src', '../tmp_contratos/' + results.pagare_pdf);
+                } else if (results.pagare_docx) {
+                    const previewData = encodeURIComponent(JSON.stringify(p));
+                    $('#iframe_pagare').attr('src', 'pagare-preview-print.php?data=' + previewData);
+                }
+
+                // Cronograma XLSX - solo descarga
+                if (results.cronograma_xlsx) {
+                    $('#btn_descargar_crono')
+                        .attr('href', '../tmp_contratos/' + results.cronograma_xlsx)
+                        .attr('download', 'Cronograma_' + (p.cliente_nombre || 'Cliente') + '.xlsx');
+                }
             }
 
-            function rowPrev(label, value) {
-                return '<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #e0e0e0;font-size:0.88rem;"><span style="color:#555;font-weight:600;width:40%;">' + label + '</span><span style="color:#222;width:58%;text-align:right;">' + value + '</span></div>';
-            }
-
-            $('#btn_modificar').on('click', function () {
-                $('#contratoModal').modal('hide');
-            });
-
-            $('#btn_aceptar').on('click', function () {
+            // Guardar todos los documentos permanentemente
+            $('#btn_guardar_todo').on('click', function () {
                 const $btn = $(this);
                 const originalHtml = $btn.html();
-                $btn.html('<i class="fa fa-spinner fa-spin mr-2"></i> Guardando...').prop('disabled', true);
+                $btn.html('<i class="fa fa-spinner fa-spin mr-2"></i> Guardando Todo...').prop('disabled', true);
 
+                // Paso 1: Guardar Contrato
                 $.ajax({
                     url: '../controlador/cGuardarContrato.php',
                     type: 'POST',
@@ -1205,23 +1357,63 @@ Nav header end
                         docx_filename: currentDocxFile,
                         cliente_nombre: currentClienteNombre
                     },
-                    success: function (response) {
-                        $btn.html(originalHtml).prop('disabled', false);
+                    success: function (res1) {
                         try {
-                            const res = typeof response === 'string' ? JSON.parse(response) : response;
-                            if (res.status === 'ok') {
-                                alert('Contrato guardado exitosamente en la carpeta del cliente.');
-                                window.location.reload();
+                            const r1 = typeof res1 === 'string' ? JSON.parse(res1) : res1;
+                            if (r1.status === 'ok') {
+                                // Paso 2: Guardar Anexos
+                                $.ajax({
+                                    url: '../controlador/cGuardarDocumentos.php',
+                                    type: 'POST',
+                                    data: {
+                                        cliente_nombre:   currentClienteNombre,
+                                        dj_docx:          currentDocsResults.dj_docx          || '',
+                                        dj_pdf:           currentDocsResults.dj_pdf            || '',
+                                        pagare_docx:      currentDocsResults.pagare_docx       || '',
+                                        pagare_pdf:       currentDocsResults.pagare_pdf         || '',
+                                        cronograma_xlsx:  currentDocsResults.cronograma_xlsx   || '',
+                                    },
+                                    success: function (res2) {
+                                        $btn.html(originalHtml).prop('disabled', false);
+                                        try {
+                                            const r2 = typeof res2 === 'string' ? JSON.parse(res2) : res2;
+                                            if (r2.status === 'ok') {
+                                                $('#documentosModal').modal('hide');
+                                                toastr.success('Todos los 4 documentos han sido guardados exitosamente en la carpeta del cliente.', '¡Éxito!', {
+                                                    timeOut: 4000,
+                                                    closeButton: true,
+                                                    progressBar: true,
+                                                    onHidden: function() {
+                                                        window.location.reload();
+                                                    }
+                                                });
+                                            } else {
+                                                toastr.error('Contrato guardado pero error en anexos: ' + (r2.message || 'Error al guardar documentos.'), 'Error');
+                                                setTimeout(() => window.location.reload(), 3000);
+                                            }
+                                        } catch (ex) {
+                                            toastr.error('Contrato guardado. Error al procesar respuesta de anexos.', 'Error');
+                                            setTimeout(() => window.location.reload(), 3000);
+                                        }
+                                    },
+                                    error: function (xhr) {
+                                        $btn.html(originalHtml).prop('disabled', false);
+                                        toastr.error('Contrato guardado. Error de conexión al guardar anexos.', 'Error');
+                                        setTimeout(() => window.location.reload(), 3000);
+                                    }
+                                });
                             } else {
-                                alert('Error: ' + (res.message || 'Error al guardar el contrato.'));
+                                $btn.html(originalHtml).prop('disabled', false);
+                                toastr.error('Error: ' + (r1.message || 'Error al guardar el contrato principal.'), 'Error');
                             }
                         } catch (ex) {
-                            alert('Error al procesar la respuesta del servidor al guardar.');
+                            $btn.html(originalHtml).prop('disabled', false);
+                            toastr.error('Error al procesar la respuesta del servidor al guardar contrato.', 'Error');
                         }
                     },
                     error: function (xhr) {
                         $btn.html(originalHtml).prop('disabled', false);
-                        alert('Error de conexion: ' + xhr.status + ' ' + xhr.statusText);
+                        toastr.error('Error de conexión al guardar contrato.', 'Error');
                     }
                 });
             });

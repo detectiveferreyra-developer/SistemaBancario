@@ -286,14 +286,7 @@ Nav header end
                                 <p class="mb-0">Registro de cliente con garant?a mobiliaria</p>
                             </div>
                         </div>
-                        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a
-                                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales">Inicio</a>
-                                </li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Nuevo Cliente</a></li>
-                            </ol>
-                        </div>
+                        
                     </div>
 
                     <!-- Stepper Form -->

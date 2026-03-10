@@ -1,5 +1,5 @@
 <?php
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÃ‘A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -7,26 +7,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
     <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦=======================================================
+Â¦Â¦              CrediAgil S.A DE C.V                                                  
+Â¦Â¦          SISTEMA FINANCIERO / BANCARIO 
+Â¦Â¦=======================================================                      
+Â¦Â¦                                                                               
+Â¦Â¦ -> AUTOR: DANIEL RIVERA                                                               
+Â¦Â¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+Â¦Â¦ -> GITHUB: (danielrivera03)                                             
+Â¦Â¦ -> TODOS LOS DERECHOS RESERVADOS                           
+Â¦Â¦     Â© 2021 - 2022    
+Â¦Â¦                                                      
+Â¦Â¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+Â¦Â¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+Â¦Â¦
+Â¦Â¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+Â¦Â¦                                                                               
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
 
 -->
     <style>
@@ -76,16 +76,16 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     <meta name="theme-color" content="#ffffff">
     <link href="<?php echo $UrlGlobal; ?>vista/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
     <?php
-    // DATOS DE LOCALIZACION -> IDIOMA ESPAÑOL -> ZONA HORARIA EL SALVADOR (UTC-6)
+    // DATOS DE LOCALIZACION -> IDIOMA ESPAÃ‘OL -> ZONA HORARIA EL SALVADOR (UTC-6)
     setlocale(LC_TIME, "spanish");
     date_default_timezone_set('America/El_Salvador');
     // VALIDACION SI EXISTE UN MONTO DE FINANCIAMIENTO A MOSTRAR -> SI NO EXISTE INDICA QUE NO EXISTE CLIENTE ASIGNADO O SU CREDITO HA CAMBIADO DE ESTADO
     if ($Gestiones->getMontoFinanciamientoCreditos() > 0) {
-        if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
+        if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
             $CalculoCuotaMensualCapital = $Gestiones->getMontoFinanciamientoCreditos() / ($Gestiones->getTiempoPlazoCreditos() * 12);
         } else {
             $CalculoCuotaMensualCapital = $Gestiones->getMontoFinanciamientoCreditos() / ($Gestiones->getTiempoPlazoCreditos());
-        } // CIERRE if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") 
+        } // CIERRE if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") 
     } else {
         // MOSTRAR PAGINA DE ERROR 404 SI NO EXISTE INFORMACION QUE MOSTRAR
         header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
@@ -117,7 +117,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     echo $Gestiones->getApellidosUsuarios();
     echo '
     <br><i style="font-size: .8rem" class="fa fa-hourglass-half"></i> Plazo: ';
-    if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
+    if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
         echo $Gestiones->getTiempoPlazoCreditos() * 12;
         echo " meses  (";
         echo $Gestiones->getTiempoPlazoCreditos();
@@ -155,7 +155,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         $Nombre = $_SESSION['nombre_usuario'];
         $PrimerNombre = explode(' ', $Nombre, 2);
         print_r($PrimerNombre[0]);
-        echo ', el respectivo estado de cuenta se ha registrado con éxito en nuestro sistema. Por favor proceda a imprimir y entregar en físico este estado de cuenta. Ind&iacute;quele al cliente que en su portal podr&aacute; consultar el mismo con otros extras que son de inter&eacute;s en esta solicitud crediticia.';
+        echo ', el respectivo estado de cuenta se ha registrado con Ã©xito en nuestro sistema. Por favor proceda a imprimir y entregar en fÃ­sico este estado de cuenta. Ind&iacute;quele al cliente que en su portal podr&aacute; consultar el mismo con otros extras que son de inter&eacute;s en esta solicitud crediticia.';
     }
     echo '
         <p class="aviso_clientes">Estimado(a) cliente <strong>';
@@ -266,7 +266,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     echo $Gestiones->getCuotaMensualCreditos();
     echo '">
             <input type="hidden" name="PlazoPagoEstadoCuenta" id="PlazoPagoEstadoCuenta" value="';
-    if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
+    if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
         echo $Gestiones->getTiempoPlazoCreditos() * 12;
     } else {
         echo $Gestiones->getTiempoPlazoCreditos();
@@ -313,15 +313,15 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     */
     // VALIDACION DE TIPO DE PRESTAMO ADQUIRIDO POR CLIENTES
     if ($ObtenerDia >= 29 && $ObtenerDia <= 31) {
-        if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
-            // SI EL CREDITO ES HIPOTECARIO, SE REALIZA EL CALCULO AL NUMERO DE MESES EN TOTAL, YA QUE EL REGISTRO DE PREVIO FUE REALIZADO EN BASE A LOS AÑOS DE FINANCIAMIENTO
+        if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+            // SI EL CREDITO ES HIPOTECARIO, SE REALIZA EL CALCULO AL NUMERO DE MESES EN TOTAL, YA QUE EL REGISTRO DE PREVIO FUE REALIZADO EN BASE A LOS AÃ‘OS DE FINANCIAMIENTO
             $CalculoDiasPrestamos = ($Gestiones->getTiempoPlazoCreditos() * 12);
         } else {
             $CalculoDiasPrestamos = $Gestiones->getTiempoPlazoCreditos();
         }
     } else {
-        if ($Gestiones->getNombreProductos() == "Préstamos Hipotecarios") {
-            // SI EL CREDITO ES HIPOTECARIO, SE REALIZA EL CALCULO AL NUMERO DE MESES EN TOTAL, YA QUE EL REGISTRO DE PREVIO FUE REALIZADO EN BASE A LOS AÑOS DE FINANCIAMIENTO
+        if ($Gestiones->getNombreProductos() == "PrÃ©stamos Hipotecarios") {
+            // SI EL CREDITO ES HIPOTECARIO, SE REALIZA EL CALCULO AL NUMERO DE MESES EN TOTAL, YA QUE EL REGISTRO DE PREVIO FUE REALIZADO EN BASE A LOS AÃ‘OS DE FINANCIAMIENTO
             $CalculoDiasPrestamos = ($Gestiones->getTiempoPlazoCreditos() * 12) + 1;
         } else {
             $CalculoDiasPrestamos = $Gestiones->getTiempoPlazoCreditos() + 1;
@@ -329,14 +329,14 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     }
 
     // FECHA INICIO DE CREDITO -> SEGUN INGRESO DE SOLICITUD CREDITICIA
-    // FORMATO FECHA DE REGISTRO -> AÑO/MES/DIA = YYYY/MM/DD
-    // FORMATO FECHA DE MUESTRA CLIENTES -> DIA/MES/AÑO = DD/MM/YYYY
+    // FORMATO FECHA DE REGISTRO -> AÃ‘O/MES/DIA = YYYY/MM/DD
+    // FORMATO FECHA DE MUESTRA CLIENTES -> DIA/MES/AÃ‘O = DD/MM/YYYY
     $FechaSolicitud = $Gestiones->getFechaIngresoSolicitudCreditos();
     $IntervaloFecha = new DateInterval('P1D'); // INTERVALO 1 DIA A LA VEZ -> EN UN SOLO MES
     $InicioCreditos = date_create($Gestiones->getFechaIngresoSolicitudCreditos()); // ASIGNAR INICIO DE CALCULO ESTADO DE CUENTE CLIENTES
     /*
     RECALCULAR FECHAS DE PAGOS SI LA SOLICITUD FUE INGRESADA EN LOS DIAS: [25,26,27,28,29,30 Y 31 DE CUALQUIER MES]
-    -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÑO ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO Y EVITAR FECHAS INVALIDAS [NO EXISTENTES] AL MOMENTO DE RECALCULAR LAS FECHAS DE PAGO
+    -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÃ‘O ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO Y EVITAR FECHAS INVALIDAS [NO EXISTENTES] AL MOMENTO DE RECALCULAR LAS FECHAS DE PAGO
 
     --> EL MAXIMO DIA PARA RECALCULAR FECHAS DE PAGOS ES <<24>> DE CADA MES, DE 25 A 31 SEGUN MES EN CURSO, LAS ULTIMAS FECHAS DE PAGO SIEMPRE SERAN CADA 28 DE MES 
 

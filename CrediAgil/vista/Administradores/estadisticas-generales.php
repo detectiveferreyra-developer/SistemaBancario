@@ -3,63 +3,60 @@
 require('../modelo/mAPIClima_Openweathermap.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE NOTIFICACIONES RECIBIDAS
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
-// IMPORTANDO MODELO DE ESTADÕSTICAS
+// IMPORTANDO MODELO DE ESTAD√çSTICAS
 require('../modelo/mEstadisticasCrediAgil.php');
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPA—OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA√ëOL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
-// OBTENER HORA LOCAL
 $hora = new DateTime("now");
 
-// VALIDACION DE PARAMETRO CrediAgilgestion -> SI NO EXISTE MOSTRAR PAGINA 404 ERROR
 if (!isset($_GET['CrediAgilgestion'])) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
 }
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE—A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
 } else {
+    // --- FILTROS ---
+    $fechaInicio = isset($_GET['fecha_inicio']) && $_GET['fecha_inicio'] ? $_GET['fecha_inicio'] : null;
+    $fechaFin = isset($_GET['fecha_fin']) && $_GET['fecha_fin'] ? $_GET['fecha_fin'] : null;
+    $dias = 90;
+    if ($fechaInicio && $fechaFin) {
+        $d1 = new DateTime($fechaInicio);
+        $d2 = new DateTime($fechaFin);
+        $dias = max(1, $d2->diff($d1)->days + 1);
+    }
 
-    // OBTENER DATOS ESTADÕSTICOS
-    $estadisticas = obtenerEstadisticasGenerales($conectarsistemaEstadisticas);
+    // --- DATOS ---
+    $kpis = obtenerKPIs($conectarsistemaEstadisticas);
+    $candles = obtenerDatosCandlestick($conectarsistemaEstadisticas, $dias);
+    $barras = obtenerBarrasCobroVsVencido($conectarsistemaEstadisticas);
+    $estados = obtenerDistribucionEstados($conectarsistemaEstadisticas);
+    $proyeccion = obtenerProyeccionFlujo($conectarsistemaEstadisticas);
     ?>
     <!DOCTYPE html>
     <html lang="ES-SV">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>CrediAgil | EstadÌsticas</title>
-        <!-- Favicon icon -->
+        <title>CrediAgil | Estad&iacute;sticas</title>
+        <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $UrlGlobal; ?>images/CrediAgil.png">
-        <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
-            rel="stylesheet">
+        <!-- CSS del tema base -->
+        <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="<?php echo $UrlGlobal; ?>vista/css/style.css" rel="stylesheet">
         <link href="<?php echo $UrlGlobal; ?>vista/css/crediagil-theme.css" rel="stylesheet">
         <link href="<?php echo $UrlGlobal; ?>vista/css/estadisticas.css" rel="stylesheet">
+        <!-- LineIcons -->
         <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
         <!-- ApexCharts -->
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <style>
-            .stats-page-header,
-            .stats-kpi-value,
-            .stats-kpi-label,
-            .stats-section-header h5 {
-                font-family: 'Inter', sans-serif;
-            }
-        </style>
     </head>
 
     <body class="has-topnav">
-        <!--*******************
-        Preloader start
-        ********************-->
+        <!-- Preloader -->
         <div id="preloader">
             <div class="sk-three-bounce">
                 <div class="sk-child sk-bounce1"></div>
@@ -67,425 +64,150 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                 <div class="sk-child sk-bounce3"></div>
             </div>
         </div>
-        <!--*******************
-        Preloader end
-        ********************-->
 
         <div id="main-wrapper">
             <?php require('../vista/MenuNavegacion/navbar-administradores.php'); ?>
 
             <!--**********************************
-Nav header start
-***********************************-->
+            Nav header start
+        ***********************************-->
             <div class="nav-header">
-                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales"
-                    class="brand-logo">
-                    <img class="logo-abbr" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales" class="brand-logo">
+                    <img class="logo-abbr"    src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
                     <img class="logo-compact" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
-                    <img class="brand-title" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
+                    <img class="brand-title"  src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="">
                 </a>
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span><span class="line"></span><span class="line"></span>
+                    </div>
+                </div>
             </div>
             <!--**********************************
-Nav header end
-***********************************-->
-
-
-
-
-
+            Nav header end
+        ***********************************-->
 
             <!--**********************************
             Sidebar start
-            ***********************************-->
+        ***********************************-->
             <?php
-            // IMPORTAR MENU DE NAVEGACION SEGUN ROL
             if ($_SESSION['id_rol'] == 1) {
                 require('../vista/MenuNavegacion/menu-administradores.php');
             }
             ?>
             <!--**********************************
             Sidebar end
-            ***********************************-->
+        ***********************************-->
 
             <!--**********************************
             Content body start
-            ***********************************-->
+        ***********************************-->
             <div class="content-body">
                 <div class="container-fluid">
-                    <!-- Page Header -->
-                    <div class="stats-page-header">
-                        <h3>?? Panel de Estad&iacute;sticas</h3>
-                        <p>Rendimiento de cartera de pr&eacute;stamos, niveles de riesgo y proyecciones de cobro en tiempo
-                            real</p>
-                    </div>
 
-                    <!-- ============= FILTER BAR ============= -->
-                    <div class="stats-filter-bar" id="statsFilterBar">
-                        <label><i class="lni lni-calendar"></i> Rango:</label>
-                        <input type="date" class="form-control" id="filtroFechaInicio" style="max-width:160px;">
-                        <input type="date" class="form-control" id="filtroFechaFin" style="max-width:160px;">
-                        <label><i class="lni lni-layout"></i> Estado:</label>
-                        <select class="form-control" id="filtroEstado" style="max-width:160px;">
-                            <option value="">Todos</option>
-                            <option value="aprobado">Vigente</option>
-                            <option value="en proceso">En Proceso</option>
-                            <option value="cancelado">Cancelado</option>
-                            <option value="denegado">Denegado</option>
+                    <!-- Breadcrumb -->
+                    
+
+                    <!-- ===================== FILTER BAR ===================== -->
+                    <div class="stats-filter-bar stats-animate stats-d1">
+                        <label><i class="lni lni-calendar"></i> Desde:</label>
+                        <input type="date" class="form-control" id="filtroFechaInicio"
+                               value="<?php echo $fechaInicio ?? ''; ?>" style="max-width:155px;">
+                        <label>Hasta:</label>
+                        <input type="date" class="form-control" id="filtroFechaFin"
+                               value="<?php echo $fechaFin ?? ''; ?>" style="max-width:155px;">
+                        <label><i class="lni lni-timer"></i> Per&iacute;odo r&aacute;pido:</label>
+                        <select class="form-control" id="filtroPeriodo" style="max-width:145px;" onchange="aplicarPeriodo(this.value)">
+                            <option value="">Personalizado</option>
+                            <option value="30">30 d&iacute;as</option>
+                            <option value="60">60 d&iacute;as</option>
+                            <option value="90" selected>90 d&iacute;as</option>
+                            <option value="180">6 meses</option>
                         </select>
-                        <button class="btn btn-filter" onclick="aplicarFiltros()"><i class="lni lni-search"></i>
-                            Filtrar</button>
+                        <button class="btn-stats-filter" onclick="aplicarFiltros()">
+                            <i class="lni lni-search"></i> Aplicar filtro
+                        </button>
                     </div>
 
-                    <!-- ============= KPI CARDS ============= -->
-                    <div class="row">
-                        <!-- Capital en Riesgo -->
-                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                            <div class="card stats-kpi-card kpi-danger stats-animate stats-animate-delay-1">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <div class="stats-kpi-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                                            </svg>
-                                        </div>
-                                        <div class="text-right">
-                                            <span class="stats-kpi-label">Capital en Riesgo</span>
-                                            <div class="stats-kpi-value" id="kpiCapitalRiesgo">$
-                                                <?php echo number_format($estadisticas['capital_riesgo'], 2); ?>
-                                            </div>
-                                            <span class="stats-kpi-sublabel">
-                                                <?php echo $estadisticas['cuotas_vencidas']; ?> cuotas vencidas
-                                            </span>
-                                        </div>
-                                    </div>
+
+                    <!-- ===================== GR√ÅFICO FOREX (protagonista) ===================== -->
+                    <div class="forex-chart-card stats-animate stats-d2">
+                        <div class="forex-chart-header">
+                            <div class="forex-chart-header-title">
+                                <h4>
+                                    <i class="lni lni-bar-chart" style="color:#6418C3;"></i>
+                                    Flujo de Cartera &mdash; Vista Candlestick
+                                    <span class="live-badge">LIVE</span>
+                                </h4>
+                                <p>
+                                    Cada vela = un d&iacute;a.
+                                    <span style="color:#26a641;font-weight:600;">Verde</span>: se cobr&oacute; m&aacute;s de lo que venci&oacute; &nbsp;|&nbsp;
+                                    <span style="color:#f85149;font-weight:600;">Rojo</span>: vencieron m&aacute;s cuotas de las cobradas
+                                </p>
+                            </div>
+                            <div class="forex-legend">
+                                <div class="forex-legend-item"><div class="forex-legend-dot green"></div> D&iacute;a positivo</div>
+                                <div class="forex-legend-item"><div class="forex-legend-dot red"></div> D&iacute;a en riesgo</div>
+                            </div>
+                        </div>
+                        <!-- Dark body ‚Äî solo el chart tiene fondo oscuro -->
+                        <div class="forex-chart-body">
+                            <div id="chartForexMain" style="min-height:420px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- ===================== GR√ÅFICOS SECUNDARIOS ===================== -->
+                    <div class="stats-chart-grid">
+                        <!-- Cobrado vs Vencido -->
+                        <div class="stats-chart-card stats-animate stats-d3">
+                            <div class="stats-chart-card-header">
+                                <div class="stats-chart-card-icon" style="background:rgba(30,132,73,0.1);color:#1e8449;">
+                                    <i class="lni lni-bar-chart-alt"></i>
                                 </div>
+                                <div>
+                                    <h5>Cobrado vs. Vencido por Mes</h5>
+                                    <p>&Uacute;ltimos 6 meses: ingresos recuperados vs cuotas ca&iacute;das</p>
+                                </div>
+                            </div>
+                            <div class="stats-chart-card-body">
+                                <div id="chartBarrasCobroVencido" style="min-height:280px;"></div>
                             </div>
                         </div>
 
-                        <!-- ColocaciÛn Total -->
-                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                            <div class="card stats-kpi-card kpi-success stats-animate stats-animate-delay-2">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <div class="stats-kpi-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                        </div>
-                                        <div class="text-right">
-                                            <span class="stats-kpi-label">Colocaci&oacute;n Total</span>
-                                            <div class="stats-kpi-value" id="kpiColocacionTotal">$
-                                                <?php echo number_format($estadisticas['colocacion_total'], 2); ?>
-                                            </div>
-                                            <span class="stats-kpi-sublabel">Mes actual: $
-                                                <?php echo number_format($estadisticas['colocacion_mes'], 2); ?>
-                                            </span>
-                                        </div>
-                                    </div>
+                        <!-- Estado de Cr√©ditos -->
+                        <div class="stats-chart-card stats-animate stats-d4">
+                            <div class="stats-chart-card-header">
+                                <div class="stats-chart-card-icon" style="background:rgba(100,24,195,0.1);color:#6418C3;">
+                                    <i class="lni lni-pie-chart"></i>
+                                </div>
+                                <div>
+                                    <h5>Estado de Cr&eacute;ditos</h5>
+                                    <p>Distribuci&oacute;n actual de la cartera por estado</p>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Efectividad de Cobro -->
-                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                            <div class="card stats-kpi-card kpi-primary stats-animate stats-animate-delay-3">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <div class="stats-kpi-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                        </div>
-                                        <div class="text-right">
-                                            <span class="stats-kpi-label">Efectividad de Cobro</span>
-                                            <div class="stats-kpi-value" id="kpiEfectividad">
-                                                <?php echo $estadisticas['efectividad_cobro']; ?>%
-                                            </div>
-                                            <span class="stats-kpi-sublabel">
-                                                <?php echo $estadisticas['cuotas_a_tiempo']; ?> a tiempo /
-                                                <?php echo $estadisticas['cuotas_pagadas']; ?> pagadas
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Ticket Promedio -->
-                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                            <div class="card stats-kpi-card kpi-warning stats-animate stats-animate-delay-4">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <div class="stats-kpi-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                                            </svg>
-                                        </div>
-                                        <div class="text-right">
-                                            <span class="stats-kpi-label">Ticket Promedio</span>
-                                            <div class="stats-kpi-value" id="kpiTicketPromedio">$
-                                                <?php echo number_format($estadisticas['ticket_promedio_global'], 2); ?>
-                                            </div>
-                                            <span class="stats-kpi-sublabel">
-                                                <?php echo $estadisticas['creditos_activos']; ?> cr&eacute;ditos activos
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="stats-chart-card-body">
+                                <div id="chartEstados" style="min-height:280px;"></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ============= SECTION: GR¡FICOS DIN¡MICOS ============= -->
-                    <div class="stats-section-header">
-                        <div class="stats-section-icon" style="background: rgba(100, 24, 195, 0.1); color: #6418C3;">
-                            <i class="lni lni-bar-chart"></i>
-                        </div>
-                        <div>
-                            <h5>Gr&aacute;ficos Din&aacute;micos</h5>
-                            <p>Visualizaci&oacute;n de datos de cartera y rendimiento</p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- Funnel Chart -->
-                        <div class="col-xl-4 col-lg-12">
-                            <div class="card stats-chart-card">
-                                <div class="card-header">
-                                    <h4>?? Embudo de Clientes</h4>
-                                    <div class="stats-subtitle">Solicitud ? Contrato ? Finalizado</div>
+                    <!-- Proyecci√≥n 30 d√≠as (full width) -->
+                    <div class="stats-chart-full stats-animate stats-d5">
+                        <div class="stats-chart-card">
+                            <div class="stats-chart-card-header">
+                                <div class="stats-chart-card-icon" style="background:rgba(231,76,60,0.1);color:#c0392b;">
+                                    <i class="lni lni-calendar"></i>
                                 </div>
-                                <div class="card-body">
-                                    <div class="funnel-container">
-                                        <?php
-                                        $maxFunnel = max($estadisticas['funnel_solicitudes'], 1);
-                                        ?>
-                                        <div class="funnel-step step-1">
-                                            <div class="funnel-bar" style="width: 100%; background: #6418C3;"></div>
-                                            <div class="funnel-number">1</div>
-                                            <div class="funnel-label">Solicitudes Recibidas</div>
-                                            <div class="funnel-value">
-                                                <?php echo number_format($estadisticas['funnel_solicitudes']); ?>
-                                            </div>
-                                        </div>
-                                        <div class="funnel-step step-2">
-                                            <div class="funnel-bar"
-                                                style="width: <?php echo round(($estadisticas['funnel_contratos'] / $maxFunnel) * 100); ?>%; background: #27ae60;">
-                                            </div>
-                                            <div class="funnel-number">2</div>
-                                            <div class="funnel-label">Contratos Generados</div>
-                                            <div class="funnel-value">
-                                                <?php echo number_format($estadisticas['funnel_contratos']); ?>
-                                            </div>
-                                        </div>
-                                        <div class="funnel-step step-3">
-                                            <div class="funnel-bar"
-                                                style="width: <?php echo round(($estadisticas['funnel_finalizados'] / $maxFunnel) * 100); ?>%; background: #3498db;">
-                                            </div>
-                                            <div class="funnel-number">3</div>
-                                            <div class="funnel-label">Pr&eacute;stamos Finalizados</div>
-                                            <div class="funnel-value">
-                                                <?php echo number_format($estadisticas['funnel_finalizados']); ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Distribution by Estado -->
-                                    <hr style="opacity: 0.1;">
-                                    <small class="text-muted font-weight-bold">DISTRIBUCI”N POR ESTADO</small>
-                                    <div id="chartEstadoDistribucion" style="min-height: 200px;"></div>
+                                <div>
+                                    <h5>Proyecci&oacute;n de Flujo &mdash; Pr&oacute;ximos 30 D&iacute;as</h5>
+                                    <p>
+                                        Cuotas pendientes por fecha de vencimiento &nbsp;|&nbsp;
+                                        Total proyectado: <strong style="color:#27ae60;">$<?php echo number_format($proyeccion['total'], 2); ?></strong>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Bar Chart: Monto por Tipo -->
-                        <div class="col-xl-8 col-lg-12">
-                            <div class="card stats-chart-card">
-                                <div class="card-header">
-                                    <h4>?? Colocaci&oacute;n por Tipo de Contrato</h4>
-                                    <div class="stats-subtitle">Monto total colocado por categor&iacute;a de producto</div>
-                                </div>
-                                <div class="card-body">
-                                    <div id="chartMontoPorProducto" style="min-height: 320px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Recuperaciones -->
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card stats-chart-card">
-                                <div class="card-header">
-                                    <h4>?? L&iacute;nea de Tiempo de Recuperaciones</h4>
-                                    <div class="stats-subtitle">Dinero recuperado por mes durante los &uacute;ltimos 12
-                                        meses</div>
-                                </div>
-                                <div class="card-body">
-                                    <div id="chartRecuperacionesTimeline" style="min-height: 320px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ============= SECTION: INTELIGENCIA ESTRAT…GICA ============= -->
-                    <div class="stats-section-header">
-                        <div class="stats-section-icon" style="background: rgba(39, 174, 96, 0.1); color: #27ae60;">
-                            <i class="lni lni-target"></i>
-                        </div>
-                        <div>
-                            <h5>Inteligencia Estrat&eacute;gica</h5>
-                            <p>M&eacute;tricas exclusivas para Credi &Aacute;gil</p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- GarantÌas -->
-                        <div class="col-xl-4 col-lg-6">
-                            <div class="card stats-chart-card">
-                                <div class="card-header">
-                                    <h4>?? M&eacute;trica de Garant&iacute;as</h4>
-                                    <div class="stats-subtitle">Distribuci&oacute;n de bienes en garant&iacute;a</div>
-                                </div>
-                                <div class="card-body">
-                                    <div id="chartGarantias" style="min-height: 220px;"></div>
-                                    <div class="mt-3">
-                                        <?php
-                                        $colors = ['#6418C3', '#27ae60', '#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#1abc9c'];
-                                        $idx = 0;
-                                        foreach ($estadisticas['garantias'] as $g) {
-                                            $color = $colors[$idx % count($colors)];
-                                            ?>
-                                            <div class="guarantee-item">
-                                                <div class="guarantee-dot" style="background: <?php echo $color; ?>"></div>
-                                                <span class="guarantee-name">
-                                                    <?php echo htmlspecialchars($g['producto']); ?>
-                                                </span>
-                                                <span class="guarantee-pct" style="color: <?php echo $color; ?>">
-                                                    <?php echo $g['porcentaje']; ?>%
-                                                </span>
-                                            </div>
-                                            <?php
-                                            $idx++;
-                                        }
-                                        if (empty($estadisticas['garantias'])) {
-                                            echo '<p class="text-muted text-center mb-0">Sin datos de garant&iacute;as disponibles</p>';
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Fiadores -->
-                        <div class="col-xl-4 col-lg-6">
-                            <div class="card stats-chart-card">
-                                <div class="card-header">
-                                    <h4>?? M&eacute;trica de Fiadores</h4>
-                                    <div class="stats-subtitle">Contratos con fiadores y tasa de cumplimiento</div>
-                                </div>
-                                <div class="card-body text-center">
-                                    <div id="chartFiadores" style="min-height: 200px;"></div>
-                                    <div class="row mt-3">
-                                        <div class="col-6">
-                                            <div class="stats-metric-card" style="background: #f8f9fa;">
-                                                <small class="text-muted font-weight-bold">CON FIADORES</small>
-                                                <div class="stats-metric-value" style="color: #27ae60;">
-                                                    <?php echo $estadisticas['fiadores_porcentaje']; ?>%
-                                                </div>
-                                                <small class="text-muted">
-                                                    <?php echo $estadisticas['fiadores_total']; ?> contratos
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="stats-metric-card" style="background: #f8f9fa;">
-                                                <small class="text-muted font-weight-bold">CUMPLIMIENTO</small>
-                                                <div class="stats-metric-value" style="color: #6418C3;">
-                                                    <?php echo $estadisticas['fiadores_cumplimiento']; ?>%
-                                                </div>
-                                                <small class="text-muted">Cuotas a tiempo</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ProyecciÛn de Flujo -->
-                        <div class="col-xl-4 col-lg-12">
-                            <div class="card stats-chart-card">
-                                <div class="card-header">
-                                    <h4>?? Proyecci&oacute;n de Flujo</h4>
-                                    <div class="stats-subtitle">Ingresos esperados pr&oacute;ximos 30 d&iacute;as</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="text-center mb-3">
-                                        <small class="text-muted font-weight-bold">TOTAL PROYECTADO</small>
-                                        <div class="stats-metric-value" style="color: #27ae60; font-size: 2rem;">$
-                                            <?php echo number_format($estadisticas['proyeccion_total'], 2); ?>
-                                        </div>
-                                    </div>
-                                    <div id="chartProyeccion" style="min-height: 220px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ticket Promedio por Producto -->
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card stats-chart-card">
-                                <div class="card-header">
-                                    <h4>?? Ticket Promedio por Tipo de Bien</h4>
-                                    <div class="stats-subtitle">Monto promedio de pr&eacute;stamo seg&uacute;n el tipo de
-                                        producto</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <?php
-                                        $iconsProducto = ['??', '??', '??', '??', '??', '??'];
-                                        $colorsProducto = ['#6418C3', '#27ae60', '#f39c12', '#e74c3c', '#3498db', '#9b59b6'];
-                                        $idx = 0;
-                                        foreach ($estadisticas['tickets_por_producto'] as $tp) {
-                                            $icon = $iconsProducto[$idx % count($iconsProducto)];
-                                            $color = $colorsProducto[$idx % count($colorsProducto)];
-                                            ?>
-                                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-3">
-                                                <div class="stats-metric-card"
-                                                    style="border-left: 4px solid <?php echo $color; ?>;">
-                                                    <div class="d-flex align-items-center gap-2 mb-2">
-                                                        <span style="font-size: 1.5rem;">
-                                                            <?php echo $icon; ?>
-                                                        </span>
-                                                        <strong style="font-size: 0.85rem; color: #1a1a2e;">
-                                                            <?php echo htmlspecialchars($tp['producto']); ?>
-                                                        </strong>
-                                                    </div>
-                                                    <div class="stats-metric-value" style="color: <?php echo $color; ?>;">$
-                                                        <?php echo number_format($tp['promedio'], 2); ?>
-                                                    </div>
-                                                    <small class="text-muted">
-                                                        <?php echo $tp['total']; ?> cr&eacute;ditos
-                                                    </small>
-                                                </div>
-                                            </div>
-                                            <?php
-                                            $idx++;
-                                        }
-                                        if (empty($estadisticas['tickets_por_producto'])) {
-                                            echo '<div class="col-12"><p class="text-muted text-center">Sin datos de productos disponibles</p></div>';
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
+                            <div class="stats-chart-card-body">
+                                <div id="chartProyeccion" style="min-height:240px;"></div>
                             </div>
                         </div>
                     </div>
@@ -494,190 +216,261 @@ Nav header end
             </div>
             <!--**********************************
             Content body end
-            ***********************************-->
+        ***********************************-->
 
             <!--**********************************
             Footer start
-            ***********************************-->
+        ***********************************-->
             <div class="footer">
                 <div class="copyright">
-                    <p>Credi¡gil &copy;
-                        <?php echo date('Y'); ?> | M&oacute;dulo de Estad&iacute;sticas
-                    </p>
+                    <p>Copyright &copy; <?php echo date('Y'); ?> CrediAgil &amp; M&oacute;dulo de Estad&iacute;sticas</p>
                 </div>
             </div>
             <!--**********************************
             Footer end
-            ***********************************-->
+        ***********************************-->
         </div>
         <!--**********************************
         Main wrapper end
-        ***********************************-->
+    ***********************************-->
 
-        <!-- Required vendors -->
+        <!-- Vendors -->
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/global/global.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/js/custom.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/js/deznav-init.js"></script>
 
-        <!-- ApexCharts Initialization -->
         <script>
-            // ============================================
-            // DATA FROM PHP -> JS
-            // ============================================
-            var statsData = <?php echo json_encode($estadisticas); ?>;
+        // ---- DATA FROM PHP -> JS ----
+        var candleData  = <?php echo json_encode($candles); ?>;
+        var barrasData  = <?php echo json_encode($barras); ?>;
+        var estadosData = <?php echo json_encode($estados); ?>;
+        var proyData    = <?php echo json_encode($proyeccion['dias']); ?>;
 
-            document.addEventListener('DOMContentLoaded', function () {
-                initCharts();
+        // Colors
+        var GREEN  = '#26a641';
+        var RED    = '#f85149';
+        var PURPLE = '#6418C3';
+        var BLUE   = '#3498db';
+        var YELLOW = '#f39c12';
+
+        document.addEventListener('DOMContentLoaded', function () {
+            renderForexChart();
+            renderBarrasChart();
+            renderEstadosChart();
+            renderProyeccionChart();
+        });
+
+        // ==================================================
+        // 1. FOREX CANDLESTICK ‚Äî Protagonista
+        // ==================================================
+        function renderForexChart() {
+            var el = document.querySelector('#chartForexMain');
+            if (!el) return;
+            if (!candleData || candleData.length === 0) {
+                el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:420px;color:#8b949e;font-size:0.88rem;">Sin movimientos registrados en el per&iacute;odo seleccionado</div>';
+                return;
+            }
+            var series = candleData.map(function(c) {
+                return { x: new Date(c.x + 'T00:00:00'), y: c.y };
             });
+            new ApexCharts(el, {
+                chart: {
+                    type: 'candlestick', height: 420,
+                    background: '#0d1117',
+                    foreColor: '#8b949e',
+                    toolbar: { show: true, tools: { download: true, selection: true, zoom: true, zoomin: true, zoomout: true, pan: true, reset: true } },
+                    animations: { enabled: true, easing: 'easeinout', speed: 700 }
+                },
+                theme: { mode: 'dark' },
+                series: [{ name: 'Cartera', data: series }],
+                xaxis: {
+                    type: 'datetime',
+                    labels: { style: { colors: '#8b949e', fontSize: '11px' }, datetimeFormatter: { month: "MMM 'yy", day: 'dd MMM' } },
+                    axisBorder: { color: 'rgba(255,255,255,0.06)' },
+                    axisTicks:  { color: 'rgba(255,255,255,0.06)' }
+                },
+                yaxis: {
+                    tooltip: { enabled: true },
+                    labels: {
+                        style: { colors: '#8b949e', fontSize: '11px' },
+                        formatter: function(v) { return '$' + Number(v).toLocaleString('en-US', {minimumFractionDigits:0}); }
+                    }
+                },
+                plotOptions: {
+                    candlestick: {
+                        colors: { upward: GREEN, downward: RED },
+                        wick: { useFillColor: true }
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    custom: function(opts) {
+                        var di = opts.dataPointIndex;
+                        var c  = candleData[di];
+                        if (!c) return '';
+                        var ohlc = c.y;
+                        var isUp = ohlc[3] >= ohlc[0];
+                        var color = isUp ? GREEN : RED;
+                        var arrow = isUp ? '&#9650;' : '&#9660;';
+                        var diff  = Math.abs(ohlc[3] - ohlc[0]).toFixed(2);
+                        return '<div style="padding:12px 16px;background:#1c2333;border:1px solid ' + color + ';border-radius:10px;font-size:11px;min-width:190px;color:#e6edf3;">' +
+                            '<div style="color:#8b949e;margin-bottom:6px;font-size:10px;">' + c.x + '</div>' +
+                            '<div style="font-weight:700;color:' + color + ';margin-bottom:8px;">' + arrow + ' ' + (isUp ? 'D&iacute;a Positivo' : 'D&iacute;a en Riesgo') + '</div>' +
+                            '<table style="width:100%;font-size:11px;">' +
+                            '<tr><td style="color:#8b949e;padding:2px 8px 2px 0">Open</td><td style="text-align:right">$' + Number(ohlc[0]).toLocaleString() + '</td></tr>' +
+                            '<tr><td style="color:#8b949e;padding:2px 8px 2px 0">High</td><td style="text-align:right">$' + Number(ohlc[1]).toLocaleString() + '</td></tr>' +
+                            '<tr><td style="color:#8b949e;padding:2px 8px 2px 0">Low</td><td style="text-align:right">$' + Number(ohlc[2]).toLocaleString() + '</td></tr>' +
+                            '<tr><td style="color:#8b949e;padding:2px 8px 2px 0">Close</td><td style="text-align:right;color:' + color + ';font-weight:700;">$' + Number(ohlc[3]).toLocaleString() + '</td></tr>' +
+                            '<tr><td colspan="2"><hr style="border-color:rgba(255,255,255,0.08);margin:6px 0;"></td></tr>' +
+                            '<tr><td style="color:' + GREEN + ';padding:2px 8px 2px 0">Cobrado</td><td style="text-align:right;color:' + GREEN + ';">$' + Number(c.cobrado||0).toLocaleString('en-US',{minimumFractionDigits:2}) + '</td></tr>' +
+                            '<tr><td style="color:' + RED + ';padding:2px 8px 2px 0">Vencido</td><td style="text-align:right;color:' + RED + ';">$' + Number(c.vencido||0).toLocaleString('en-US',{minimumFractionDigits:2}) + '</td></tr>' +
+                            '<tr><td style="color:#8b949e;padding:2px 8px 2px 0">Delta</td><td style="text-align:right;color:' + color + ';">' + arrow + ' $' + Number(diff).toLocaleString('en-US',{minimumFractionDigits:2}) + '</td></tr>' +
+                            '</table></div>';
+                    }
+                },
+                grid: { borderColor: 'rgba(255,255,255,0.05)', strokeDashArray: 3, xaxis: { lines: { show: false } } }
+            }).render();
+        }
 
-            function initCharts() {
-                // ---- Estado Distribution (Donut) ----
-                if (statsData.distribucion_estados && statsData.distribucion_estados.length > 0) {
-                    var estadoLabels = statsData.distribucion_estados.map(function (e) { return e.estado; });
-                    var estadoValues = statsData.distribucion_estados.map(function (e) { return e.total; });
-                    new ApexCharts(document.querySelector("#chartEstadoDistribucion"), {
-                        chart: { type: 'donut', height: 200 },
-                        series: estadoValues,
-                        labels: estadoLabels,
-                        colors: ['#27ae60', '#6418C3', '#f39c12', '#e74c3c', '#3498db', '#868e96'],
-                        legend: { position: 'bottom', fontSize: '11px' },
-                        plotOptions: { pie: { donut: { size: '60%' } } },
-                        dataLabels: { enabled: false },
-                        stroke: { width: 2, colors: ['#fff'] }
-                    }).render();
-                }
+        // ==================================================
+        // 2. BARRAS: COBRADO VS VENCIDO
+        // ==================================================
+        function renderBarrasChart() {
+            var el = document.querySelector('#chartBarrasCobroVencido');
+            if (!el || !barrasData || barrasData.length === 0) {
+                if (el) el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:280px;color:#868e96;font-size:0.88rem;">Sin datos disponibles</div>';
+                return;
+            }
+            var meses    = barrasData.map(function(b){ return b.mes; });
+            var cobrados = barrasData.map(function(b){ return parseFloat(b.cobrado); });
+            var vencidos = barrasData.map(function(b){ return parseFloat(b.vencido); });
+            new ApexCharts(el, {
+                chart: { type: 'bar', height: 280, background: 'transparent', toolbar: { show: false } },
+                series: [
+                    { name: 'Cobrado', data: cobrados },
+                    { name: 'Vencido (riesgo)', data: vencidos }
+                ],
+                xaxis: {
+                    categories: meses,
+                    labels: { style: { colors: '#868e96', fontSize: '11px' } },
+                    axisBorder: { color: '#dee2e6' }, axisTicks: { color: '#dee2e6' }
+                },
+                yaxis: {
+                    labels: {
+                        style: { colors: '#868e96', fontSize: '11px' },
+                        formatter: function(v){ return '$' + Number(v).toLocaleString(); }
+                    }
+                },
+                colors: ['#27ae60', '#e74c3c'],
+                plotOptions: { bar: { borderRadius: 5, columnWidth: '55%' } },
+                dataLabels: { enabled: false },
+                tooltip: { y: { formatter: function(v){ return '$' + Number(v).toLocaleString('en-US',{minimumFractionDigits:2}); } } },
+                grid: { borderColor: '#f1f1f1', strokeDashArray: 3 },
+                legend: { markers: { radius: 3 } }
+            }).render();
+        }
 
-                // ---- Monto por Producto (Bar Chart) ----
-                if (statsData.monto_por_producto && statsData.monto_por_producto.length > 0) {
-                    var prodLabels = statsData.monto_por_producto.map(function (e) { return e.producto; });
-                    var prodValues = statsData.monto_por_producto.map(function (e) { return e.monto; });
-                    new ApexCharts(document.querySelector("#chartMontoPorProducto"), {
-                        chart: { type: 'bar', height: 320, toolbar: { show: false } },
-                        series: [{ name: 'Monto Colocado', data: prodValues }],
-                        xaxis: { categories: prodLabels, labels: { style: { fontSize: '12px', fontWeight: 600 } } },
-                        yaxis: { labels: { formatter: function (v) { return '$' + v.toLocaleString(); } } },
-                        colors: ['#6418C3'],
-                        plotOptions: {
-                            bar: {
-                                borderRadius: 8,
-                                columnWidth: '55%',
-                                distributed: true
+        // ==================================================
+        // 3. DONUT: ESTADO DE CR√âDITOS
+        // ==================================================
+        function renderEstadosChart() {
+            var el = document.querySelector('#chartEstados');
+            if (!el || !estadosData || estadosData.length === 0) {
+                if (el) el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:280px;color:#868e96;font-size:0.88rem;">Sin datos disponibles</div>';
+                return;
+            }
+            var labels = estadosData.map(function(e){ return e.estado; });
+            var values = estadosData.map(function(e){ return e.total; });
+            new ApexCharts(el, {
+                chart: { type: 'donut', height: 280, background: 'transparent' },
+                series: values, labels: labels,
+                colors: ['#27ae60', '#6418C3', '#f39c12', '#e74c3c', '#3498db', '#868e96'],
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '65%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true, label: 'Total', color: '#868e96', fontSize: '12px', fontWeight: 600,
+                                    formatter: function(w){ return w.globals.seriesTotals.reduce(function(a,b){return a+b;},0); }
+                                },
+                                value: { color: '#1a1a2e', fontSize: '20px', fontWeight: 800 },
+                                name: { color: '#868e96' }
                             }
-                        },
-                        fill: { type: 'gradient', gradient: { shade: 'light', type: 'vertical', opacityFrom: 0.95, opacityTo: 0.85 } },
-                        dataLabels: {
-                            enabled: true,
-                            formatter: function (v) { return '$' + Number(v).toLocaleString(); },
-                            style: { fontSize: '11px', fontWeight: 700 }
-                        },
-                        tooltip: { y: { formatter: function (v) { return '$' + Number(v).toLocaleString('en-US', { minimumFractionDigits: 2 }); } } },
-                        grid: { borderColor: '#f1f1f1', strokeDashArray: 4 },
-                        legend: { show: false }
-                    }).render();
-                }
-
-                // ---- Recuperaciones Timeline (Area Chart) ----
-                if (statsData.recuperaciones_timeline && statsData.recuperaciones_timeline.length > 0) {
-                    var recLabels = statsData.recuperaciones_timeline.map(function (e) { return e.periodo; });
-                    var recValues = statsData.recuperaciones_timeline.map(function (e) { return e.monto; });
-                    var recTx = statsData.recuperaciones_timeline.map(function (e) { return e.transacciones; });
-                    new ApexCharts(document.querySelector("#chartRecuperacionesTimeline"), {
-                        chart: { type: 'area', height: 320, toolbar: { show: true, tools: { download: true, selection: false, zoom: false, zoomin: false, zoomout: false, pan: false, reset: false } } },
-                        series: [
-                            { name: 'Monto Recuperado', data: recValues },
-                            { name: 'Transacciones', data: recTx }
-                        ],
-                        xaxis: { categories: recLabels, labels: { style: { fontSize: '11px' } } },
-                        yaxis: [
-                            { title: { text: 'Monto ($)' }, labels: { formatter: function (v) { return '$' + Number(v).toLocaleString(); } } },
-                            { opposite: true, title: { text: 'Transacciones' }, labels: { formatter: function (v) { return Math.round(v); } } }
-                        ],
-                        colors: ['#27ae60', '#6418C3'],
-                        fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.4, opacityTo: 0.05, stops: [0, 90, 100] } },
-                        stroke: { curve: 'smooth', width: [3, 2] },
-                        dataLabels: { enabled: false },
-                        tooltip: { shared: true, y: { formatter: function (v, opts) { return opts.seriesIndex === 0 ? '$' + Number(v).toLocaleString('en-US', { minimumFractionDigits: 2 }) : v + ' pagos'; } } },
-                        grid: { borderColor: '#f1f1f1', strokeDashArray: 4 },
-                        markers: { size: 4, hover: { size: 6 } }
-                    }).render();
-                } else {
-                    document.querySelector("#chartRecuperacionesTimeline").innerHTML = '<div class="text-center text-muted py-5"><p>Sin datos de recuperaciones disponibles</p></div>';
-                }
-
-                // ---- GarantÌas (Donut) ----
-                if (statsData.garantias && statsData.garantias.length > 0) {
-                    var garLabels = statsData.garantias.map(function (e) { return e.producto; });
-                    var garValues = statsData.garantias.map(function (e) { return e.total; });
-                    new ApexCharts(document.querySelector("#chartGarantias"), {
-                        chart: { type: 'donut', height: 220 },
-                        series: garValues,
-                        labels: garLabels,
-                        colors: ['#6418C3', '#27ae60', '#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#1abc9c'],
-                        legend: { show: false },
-                        plotOptions: { pie: { donut: { size: '65%', labels: { show: true, total: { show: true, label: 'Total', fontSize: '14px', fontWeight: 700, formatter: function (w) { return w.globals.seriesTotals.reduce(function (a, b) { return a + b; }, 0); } } } } } },
-                        dataLabels: { enabled: false },
-                        stroke: { width: 2, colors: ['#fff'] }
-                    }).render();
-                }
-
-                // ---- Fiadores (Radial Bar) ----
-                new ApexCharts(document.querySelector("#chartFiadores"), {
-                    chart: { type: 'radialBar', height: 200 },
-                    series: [statsData.fiadores_porcentaje || 0, statsData.fiadores_cumplimiento || 0],
-                    labels: ['Con Fiadores', 'Cumplimiento'],
-                    colors: ['#27ae60', '#6418C3'],
-                    plotOptions: {
-                        radialBar: {
-                            hollow: { size: '40%' },
-                            dataLabels: {
-                                name: { fontSize: '12px', offsetY: -5 },
-                                value: { fontSize: '16px', fontWeight: 700, formatter: function (v) { return v + '%'; } }
-                            },
-                            track: { background: '#f1f1f1' }
                         }
                     }
-                }).render();
+                },
+                legend: { position: 'bottom', fontSize: '12px', markers: { radius: 3 } },
+                dataLabels: { enabled: false },
+                stroke: { width: 2, colors: ['#fff'] },
+                tooltip: { y: { formatter: function(v){ return v + ' cr&eacute;ditos'; } } }
+            }).render();
+        }
 
-                // ---- ProyecciÛn de Flujo (Bar Chart) ----
-                if (statsData.proyeccion_30dias && statsData.proyeccion_30dias.length > 0) {
-                    var proyLabels = statsData.proyeccion_30dias.map(function (e) {
-                        var d = new Date(e.fecha + 'T00:00:00');
-                        return (d.getDate()) + '/' + (d.getMonth() + 1);
-                    });
-                    var proyValues = statsData.proyeccion_30dias.map(function (e) { return e.monto; });
-                    new ApexCharts(document.querySelector("#chartProyeccion"), {
-                        chart: { type: 'bar', height: 220, toolbar: { show: false }, sparkline: { enabled: false } },
-                        series: [{ name: 'Ingreso Esperado', data: proyValues }],
-                        xaxis: { categories: proyLabels, labels: { style: { fontSize: '10px' }, rotate: -45 } },
-                        yaxis: { labels: { formatter: function (v) { return '$' + Number(v).toLocaleString(); }, style: { fontSize: '10px' } } },
-                        colors: ['#27ae60'],
-                        plotOptions: { bar: { borderRadius: 4, columnWidth: '65%' } },
-                        fill: { type: 'gradient', gradient: { shade: 'light', type: 'vertical', opacityFrom: 0.9, opacityTo: 0.7 } },
-                        dataLabels: { enabled: false },
-                        tooltip: { y: { formatter: function (v) { return '$' + Number(v).toLocaleString('en-US', { minimumFractionDigits: 2 }); } } },
-                        grid: { borderColor: '#f1f1f1', strokeDashArray: 4 }
-                    }).render();
-                } else {
-                    document.querySelector("#chartProyeccion").innerHTML = '<div class="text-center text-muted py-4"><p>Sin cuotas pendientes en los pr&oacute;ximos 30 d&iacute;as</p></div>';
-                }
+        // ==================================================
+        // 4. √ÅREA: PROYECCI√ìN 30 D√çAS
+        // ==================================================
+        function renderProyeccionChart() {
+            var el = document.querySelector('#chartProyeccion');
+            if (!el || !proyData || proyData.length === 0) {
+                if (el) el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:240px;color:#868e96;font-size:0.88rem;">Sin cuotas pendientes en los pr&oacute;ximos 30 d&iacute;as</div>';
+                return;
             }
+            var labels = proyData.map(function(p){
+                var d = new Date(p.fecha + 'T00:00:00');
+                return (d.getDate()) + '/' + (d.getMonth()+1);
+            });
+            var values = proyData.map(function(p){ return parseFloat(p.monto); });
+            new ApexCharts(el, {
+                chart: { type: 'area', height: 240, background: 'transparent', toolbar: { show: false } },
+                series: [{ name: 'Ingreso Esperado', data: values }],
+                xaxis: {
+                    categories: labels,
+                    labels: { style: { colors: '#868e96', fontSize: '10px' }, rotate: -30 },
+                    axisBorder: { color: '#dee2e6' }, axisTicks: { color: '#dee2e6' }
+                },
+                yaxis: {
+                    labels: {
+                        style: { colors: '#868e96', fontSize: '10px' },
+                        formatter: function(v){ return '$' + Number(v).toLocaleString(); }
+                    }
+                },
+                colors: ['#6418C3'],
+                fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.3, opacityTo: 0.02, stops: [0, 100] } },
+                stroke: { curve: 'smooth', width: 3 },
+                markers: { size: 4, colors: ['#6418C3'], strokeColors: '#fff', strokeWidth: 2, hover: { size: 6 } },
+                dataLabels: { enabled: false },
+                tooltip: {
+                    y: { formatter: function(v){ return '$' + Number(v).toLocaleString('en-US',{minimumFractionDigits:2}); } }
+                },
+                grid: { borderColor: '#f1f1f1', strokeDashArray: 3 }
+            }).render();
+        }
 
-            // ---- Filter Logic (client-side refresh) ----
-            function aplicarFiltros() {
-                var fechaInicio = document.getElementById('filtroFechaInicio').value;
-                var fechaFin = document.getElementById('filtroFechaFin').value;
-                var estado = document.getElementById('filtroEstado').value;
-                var params = new URLSearchParams(window.location.search);
-                params.set('CrediAgilgestion', 'estadisticas-generales');
-                if (fechaInicio) params.set('fecha_inicio', fechaInicio);
-                if (fechaFin) params.set('fecha_fin', fechaFin);
-                if (estado) params.set('estado', estado);
-                window.location.href = window.location.pathname + '?' + params.toString();
-            }
+        // ==================================================
+        // FILTROS
+        // ==================================================
+        function aplicarPeriodo(dias) {
+            if (!dias) return;
+            var hoy = new Date();
+            var ini = new Date();
+            ini.setDate(hoy.getDate() - parseInt(dias));
+            document.getElementById('filtroFechaInicio').value = ini.toISOString().split('T')[0];
+            document.getElementById('filtroFechaFin').value    = hoy.toISOString().split('T')[0];
+        }
+
+        function aplicarFiltros() {
+            var inicio = document.getElementById('filtroFechaInicio').value;
+            var fin    = document.getElementById('filtroFechaFin').value;
+            var params = new URLSearchParams();
+            params.set('CrediAgilgestion', 'estadisticas-generales');
+            if (inicio) params.set('fecha_inicio', inicio);
+            if (fin)    params.set('fecha_fin', fin);
+            window.location.href = window.location.pathname + '?' + params.toString();
+        }
         </script>
-
     </body>
-
     </html>
 <?php } ?>

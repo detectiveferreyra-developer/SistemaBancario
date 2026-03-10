@@ -3,7 +3,7 @@
 require('../modelo/mConteoNotificacionesRecibidasUsuarios.php');
 // IMPORTANDO MODELO DE CONTEO NUMERO DE MENSAJES RECIBIDOS
 
-// DATOS DE LOCALIZACION -> IDIOMA ESPA—OL -> ZONA HORARIA EL SALVADOR (UTC-6)
+// DATOS DE LOCALIZACION -> IDIOMA ESPA√ëOL -> ZONA HORARIA EL SALVADOR (UTC-6)
 setlocale(LC_TIME, "spanish");
 date_default_timezone_set('America/El_Salvador');
 // OBTENER HORA LOCAL
@@ -15,7 +15,7 @@ $hora = new DateTime("now");
 if (!isset($_GET['CrediAgilgestion'])) {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=error-404');
 }
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE—A GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASE√ëA GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -283,17 +283,10 @@ Nav header end
                         <div class="col-sm-6 p-md-0">
                             <div class="welcome-text">
                                 <h4>Nuevo Cliente</h4>
-                                <p class="mb-0">Registro de cliente con garantÌa mobiliaria</p>
+                                <p class="mb-0">Registro de cliente con garant√≠a mobiliaria</p>
                             </div>
                         </div>
-                        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a
-                                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales">Inicio</a>
-                                </li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Nuevo Cliente</a></li>
-                            </ol>
-                        </div>
+                        
                     </div>
 
                     <!-- Stepper Form -->
@@ -312,11 +305,11 @@ Nav header end
                                     </div>
                                     <div class="step" data-step="3">
                                         <div class="step-circle">3</div>
-                                        <div class="step-label">ConfiguraciÛn del PrÈstamo</div>
+                                        <div class="step-label">Configuraci√≥n del Pr√©stamo</div>
                                     </div>
                                     <div class="step" data-step="4">
                                         <div class="step-circle">4</div>
-                                        <div class="step-label">RevisiÛn y ConfirmaciÛn</div>
+                                        <div class="step-label">Revisi√≥n y Confirmaci√≥n</div>
                                     </div>
                                 </div>
 
@@ -326,11 +319,11 @@ Nav header end
                                     <div class="step-content active" data-step="1">
                                         <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Perfil del Cliente</h5>
 
-                                        <!-- Selector de Tipo de PersonerÌa -->
+                                        <!-- Selector de Tipo de Personer√≠a -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="required-field">Tipo de PersonerÌa</label>
+                                                    <label class="required-field">Tipo de Personer√≠a</label>
                                                     <select class="form-control" id="tipo_personeria" name="tipo_personeria"
                                                         required>
                                                         <option value="">Seleccione...</option>
@@ -349,7 +342,7 @@ Nav header end
                                                         <label class="required-field">Nombre Completo</label>
                                                         <input type="text" class="form-control" id="nombre_completo"
                                                             name="nombre_completo"
-                                                            placeholder="Ej: Juan Carlos PÈrez LÛpez">
+                                                            placeholder="Ej: Juan Carlos P√©rez L√≥pez">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -362,11 +355,11 @@ Nav header end
                                                 </div>
                                             </div>
 
-                                            <!-- Datos del CÛnyuge (Opcionales) -->
+                                            <!-- Datos del C√≥nyuge (Opcionales) -->
                                             <div class="row">
                                                 <div class="col-12">
                                                     <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">
-                                                        Datos del CÛnyuge <small class="text-muted">(Opcional - dejar vacÌo
+                                                        Datos del C√≥nyuge <small class="text-muted">(Opcional - dejar vac√≠o
                                                             si no aplica)</small>
                                                     </h6>
                                                 </div>
@@ -374,15 +367,15 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Nombre del CÛnyuge</label>
+                                                        <label>Nombre del C√≥nyuge</label>
                                                         <input type="text" class="form-control" id="nombre_conyuge"
                                                             name="nombre_conyuge"
-                                                            placeholder="Ej: MarÌa Elena GarcÌa RodrÌguez">
+                                                            placeholder="Ej: Mar√≠a Elena Garc√≠a Rodr√≠guez">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>DNI del CÛnyuge</label>
+                                                        <label>DNI del C√≥nyuge</label>
                                                         <input type="text" class="form-control" id="dni_conyuge"
                                                             name="dni_conyuge" placeholder="Ej: 98765432-1" maxlength="10">
                                                         <small class="form-text text-muted">Formato: 98765432-1</small>
@@ -407,9 +400,9 @@ Nav header end
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>UrbanizaciÛn / Colonia</label>
+                                                        <label>Urbanizaci√≥n / Colonia</label>
                                                         <input type="text" class="form-control" id="domicilio_urbanizacion"
-                                                            name="domicilio_urbanizacion" placeholder="Ej: Colonia EscalÛn">
+                                                            name="domicilio_urbanizacion" placeholder="Ej: Colonia Escal√≥n">
                                                     </div>
                                                 </div>
                                             </div>
@@ -436,7 +429,7 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="required-field">RazÛn Social</label>
+                                                        <label class="required-field">Raz√≥n Social</label>
                                                         <input type="text" class="form-control" id="razon_social"
                                                             name="razon_social"
                                                             placeholder="Ej: Comercial ABC S.A. de C.V.">
@@ -456,7 +449,7 @@ Nav header end
                                                         <label class="required-field">Representante Legal</label>
                                                         <input type="text" class="form-control" id="representante_legal"
                                                             name="representante_legal"
-                                                            placeholder="Ej: Carlos Alberto MartÌnez">
+                                                            placeholder="Ej: Carlos Alberto Mart√≠nez">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -471,7 +464,7 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="required-field">Partida ElectrÛnica</label>
+                                                        <label class="required-field">Partida Electr√≥nica</label>
                                                         <input type="text" class="form-control" id="partida_electronica"
                                                             name="partida_electronica" placeholder="Ej: 123456789">
                                                     </div>
@@ -491,7 +484,7 @@ Nav header end
                                     <!-- Step 2: Datos de la Prenda -->
                                     <div class="step-content" data-step="2">
                                         <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Detalles de la Prenda
-                                            (GarantÌa Mobiliaria)</h5>
+                                            (Garant√≠a Mobiliaria)</h5>
 
                                         <!-- Selector de Tipo de Contrato -->
                                         <div class="row">
@@ -537,7 +530,7 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="required-field">AÒo</label>
+                                                        <label class="required-field">A√±o</label>
                                                         <input type="number" class="form-control" id="auto_anio"
                                                             name="auto_anio" placeholder="Ej: 2020" min="1900" max="2099">
                                                     </div>
@@ -594,7 +587,7 @@ Nav header end
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="required-field">ValorizaciÛn (S/.)</label>
+                                                        <label class="required-field">Valorizaci√≥n (S/.)</label>
                                                         <input type="number" class="form-control" id="joyas_valorizacion"
                                                             name="joyas_valorizacion" placeholder="Ej: 5000" step="0.01">
                                                     </div>
@@ -619,7 +612,7 @@ Nav header end
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label class="required-field">DescripciÛn Detallada</label>
+                                                        <label class="required-field">Descripci√≥n Detallada</label>
                                                         <textarea class="form-control" id="joyas_descripcion"
                                                             name="joyas_descripcion" rows="3"
                                                             placeholder="Ej: Anillo de oro 18k con diamante central de 0.5ct y 6 diamantes laterales"></textarea>
@@ -657,10 +650,10 @@ Nav header end
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="required-field">N˙mero de Serie (CRÕTICO)</label>
+                                                        <label class="required-field">N√∫mero de Serie (CR√çTICO)</label>
                                                         <input type="text" class="form-control" id="electro_numero_serie"
                                                             name="electro_numero_serie" placeholder="Ej: SN123456789ABC">
-                                                        <small class="form-text text-danger">?? Campo crÌtico - Verificar
+                                                        <small class="form-text text-danger">?? Campo cr√≠tico - Verificar
                                                             con cuidado</small>
                                                     </div>
                                                 </div>
@@ -671,21 +664,21 @@ Nav header end
                                                         <label>Accesorios</label>
                                                         <textarea class="form-control" id="electro_accesorios"
                                                             name="electro_accesorios" rows="2"
-                                                            placeholder="Ej: Cargador original, mouse inal·mbrico, funda protectora"></textarea>
+                                                            placeholder="Ej: Cargador original, mouse inal√°mbrico, funda protectora"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <!-- Step 3: ConfiguraciÛn del PrÈstamo -->
+                                    <!-- Step 3: Configuraci√≥n del Pr√©stamo -->
                                     <div class="step-content" data-step="3">
-                                        <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">ConfiguraciÛn del
-                                            PrÈstamo</h5>
+                                        <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Configuraci√≥n del
+                                            Pr√©stamo</h5>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="required-field">Monto del PrÈstamo (S/)</label>
+                                                    <label class="required-field">Monto del Pr√©stamo (S/)</label>
                                                     <input type="number" class="form-control" id="monto_prestamo"
                                                         name="monto_prestamo" placeholder="Ej: 10000" step="0.01" required>
                                                 </div>
@@ -693,7 +686,7 @@ Nav header end
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Plazo</label>
-                                                    <input type="text" class="form-control" value="30 dÌas calendario"
+                                                    <input type="text" class="form-control" value="30 d√≠as calendario"
                                                         readonly style="background: #f8f9fa;">
                                                     <small class="form-text text-muted">Plazo fijo del sistema</small>
                                                 </div>
@@ -702,7 +695,7 @@ Nav header end
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="required-field">Tipo de InterÈs</label>
+                                                    <label class="required-field">Tipo de Inter√©s</label>
                                                     <select class="form-control" id="tipo_interes" name="tipo_interes"
                                                         required>
                                                         <option value="">Seleccione...</option>
@@ -714,7 +707,7 @@ Nav header end
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="required-field" id="label_valor_interes">Valor del
-                                                        InterÈs</label>
+                                                        Inter√©s</label>
                                                     <input type="number" class="form-control" id="valor_interes"
                                                         name="valor_interes" placeholder="Ej: 10" step="0.01" required>
                                                     <small class="form-text text-muted" id="hint_valor_interes">Ingrese el
@@ -729,25 +722,25 @@ Nav header end
                                                     <input type="date" class="form-control" id="fecha_desembolso"
                                                         name="fecha_desembolso" required>
                                                     <small class="form-text text-muted">Fecha en que se entrega el
-                                                        prÈstamo</small>
+                                                        pr√©stamo</small>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!-- Calculadora en Tiempo Real -->
                                         <div class="calculator-result" id="calculator_result" style="display: none;">
-                                            <h4>Resumen del PrÈstamo</h4>
+                                            <h4>Resumen del Pr√©stamo</h4>
                                             <div class="result-item">
                                                 <span>Capital:</span>
                                                 <span id="display_capital">S/ 0.00</span>
                                             </div>
                                             <div class="result-item">
-                                                <span>InterÈs:</span>
+                                                <span>Inter√©s:</span>
                                                 <span id="display_interes">S/ 0.00</span>
                                             </div>
                                             <div class="result-item">
                                                 <span>Plazo:</span>
-                                                <span>30 dÌas</span>
+                                                <span>30 d√≠as</span>
                                             </div>
                                             <div class="result-item">
                                                 <span>Total a Pagar:</span>
@@ -756,9 +749,9 @@ Nav header end
                                         </div>
                                     </div>
 
-                                    <!-- Step 4: RevisiÛn y ConfirmaciÛn -->
+                                    <!-- Step 4: Revisi√≥n y Confirmaci√≥n -->
                                     <div class="step-content" data-step="4">
-                                        <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">RevisiÛn y ConfirmaciÛn
+                                        <h5 class="mb-4" style="color: #FF6B35; font-weight: 700;">Revisi√≥n y Confirmaci√≥n
                                         </h5>
 
                                         <!-- Datos del Cliente -->
@@ -782,7 +775,7 @@ Nav header end
                                         <div class="review-section">
                                             <h5>Datos de la Prenda</h5>
                                             <div class="review-item">
-                                                <strong>ClasificaciÛn:</strong>
+                                                <strong>Clasificaci√≥n:</strong>
                                                 <span id="review_clasificacion"></span>
                                             </div>
                                             <div class="review-item">
@@ -794,24 +787,24 @@ Nav header end
                                                 <span id="review_marca_modelo"></span>
                                             </div>
                                             <div class="review-item">
-                                                <strong>ValorizaciÛn:</strong>
+                                                <strong>Valorizaci√≥n:</strong>
                                                 <span id="review_valorizacion"></span>
                                             </div>
                                         </div>
 
-                                        <!-- Datos del PrÈstamo -->
+                                        <!-- Datos del Pr√©stamo -->
                                         <div class="review-section">
-                                            <h5>ConfiguraciÛn del PrÈstamo</h5>
+                                            <h5>Configuraci√≥n del Pr√©stamo</h5>
                                             <div class="review-item">
                                                 <strong>Monto:</strong>
                                                 <span id="review_monto"></span>
                                             </div>
                                             <div class="review-item">
-                                                <strong>Tipo de InterÈs:</strong>
+                                                <strong>Tipo de Inter√©s:</strong>
                                                 <span id="review_tipo_interes"></span>
                                             </div>
                                             <div class="review-item">
-                                                <strong>InterÈs Calculado:</strong>
+                                                <strong>Inter√©s Calculado:</strong>
                                                 <span id="review_interes"></span>
                                             </div>
                                             <div class="review-item"
@@ -822,8 +815,8 @@ Nav header end
                                         </div>
 
                                         <div class="alert alert-info mt-4">
-                                            <strong>Nota:</strong> Por favor revise cuidadosamente toda la informaciÛn antes
-                                            de confirmar. Una vez guardado, se generar·n los documentos legales
+                                            <strong>Nota:</strong> Por favor revise cuidadosamente toda la informaci√≥n antes
+                                            de confirmar. Una vez guardado, se generar√°n los documentos legales
                                             correspondientes.
                                         </div>
                                     </div>
@@ -859,7 +852,7 @@ Nav header end
         ***********************************-->
             <div class="footer">
                 <div class="copyright">
-                    <p>Copyright © Designed &amp; Developed by <a href="https://crediagil.com/"
+                    <p>Copyright ¬© Designed &amp; Developed by <a href="https://crediagil.com/"
                             target="_blank">CrediAgil</a> <?php echo date('Y'); ?></p>
                 </div>
             </div>
@@ -888,7 +881,7 @@ Nav header end
 
                 // ========== DYNAMIC FIELD SWITCHING ==========
 
-                // Step 1: Tipo de PersonerÌa (Persona Natural / Empresa)
+                // Step 1: Tipo de Personer√≠a (Persona Natural / Empresa)
                 $('#tipo_personeria').change(function () {
                     const tipo = $(this).val();
                     if (tipo === 'natural') {
@@ -940,7 +933,7 @@ Nav header end
                     }
                 });
 
-                // NavegaciÛn entre pasos
+                // Navegaci√≥n entre pasos
                 function showStep(step) {
                     $('.step-content').removeClass('active');
                     $(`.step-content[data-step="${step}"]`).addClass('active');
@@ -966,13 +959,13 @@ Nav header end
                         $('#btn_submit').hide();
                     }
 
-                    // Si es el paso 4, actualizar revisiÛn
+                    // Si es el paso 4, actualizar revisi√≥n
                     if (step === 4) {
                         updateReview();
                     }
                 }
 
-                // BotÛn Siguiente
+                // Bot√≥n Siguiente
                 $('#btn_next').click(function () {
                     if (validateStep(currentStep)) {
                         currentStep++;
@@ -980,13 +973,13 @@ Nav header end
                     }
                 });
 
-                // BotÛn Anterior
+                // Bot√≥n Anterior
                 $('#btn_prev').click(function () {
                     currentStep--;
                     showStep(currentStep);
                 });
 
-                // ValidaciÛn por paso
+                // Validaci√≥n por paso
                 function validateStep(step) {
                     let isValid = true;
                     $(`.step-content[data-step="${step}"] input[required], .step-content[data-step="${step}"] select[required]`).each(function () {
@@ -1010,7 +1003,7 @@ Nav header end
                     calcularPrestamo();
                 });
 
-                // Cambiar etiquetas seg˙n tipo de interÈs
+                // Cambiar etiquetas seg√∫n tipo de inter√©s
                 $('#tipo_interes').change(function () {
                     const tipo = $(this).val();
                     if (tipo === 'porcentaje') {
@@ -1050,7 +1043,7 @@ Nav header end
                     }
                 }
 
-                // Actualizar revisiÛn
+                // Actualizar revisi√≥n
                 function updateReview() {
                     // === CLIENTE ===
                     const tipoPersoneria = $('#tipo_personeria').val();
@@ -1059,11 +1052,11 @@ Nav header end
                         $('#review_nombre').text($('#nombre_completo').val() || 'No especificado');
                         $('#review_dni').text($('#dni').val() || 'No especificado');
 
-                        // Mostrar datos de cÛnyuge si existen
+                        // Mostrar datos de c√≥nyuge si existen
                         const nombreConyuge = $('#nombre_conyuge').val();
                         const dniConyuge = $('#dni_conyuge').val();
                         if (nombreConyuge || dniConyuge) {
-                            $('#review_nombre').text($('#review_nombre').text() + ' (CÛnyuge: ' + (nombreConyuge || 'N/A') + ')');
+                            $('#review_nombre').text($('#review_nombre').text() + ' (C√≥nyuge: ' + (nombreConyuge || 'N/A') + ')');
                         }
 
                         const domicilio = [
@@ -1114,7 +1107,7 @@ Nav header end
                         $('#review_valorizacion').text('Accesorios: ' + ($('#electro_accesorios').val() || 'Ninguno'));
                     }
 
-                    // === PR…STAMO ===
+                    // === PR√âSTAMO ===
                     const monto = parseFloat($('#monto_prestamo').val()) || 0;
                     $('#review_monto').text('S/ ' + monto.toFixed(2));
                     const tipoInteres = $('#tipo_interes option:selected').text();
@@ -1134,7 +1127,7 @@ Nav header end
                     e.preventDefault();
 
                     // Por ahora solo mostrar alerta (sin backend)
-                    alert('? Formulario completado correctamente!\n\nEn la siguiente fase se conectar· con la base de datos para guardar el cliente y generar los documentos legales.');
+                    alert('? Formulario completado correctamente!\n\nEn la siguiente fase se conectar√° con la base de datos para guardar el cliente y generar los documentos legales.');
 
                     // Opcional: resetear formulario
                     // this.reset();

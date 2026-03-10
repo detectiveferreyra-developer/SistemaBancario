@@ -92,6 +92,10 @@ class ComposerStaticInitd3b60eba45ef69b25e5427da5bbe8aa6
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Z' =>
+        array (
+            'ZipStream\\' => 10,
+        ),
         'S' =>
         array (
             'Svg\\' => 4,
@@ -99,10 +103,13 @@ class ComposerStaticInitd3b60eba45ef69b25e5427da5bbe8aa6
         ),
         'P' =>
         array (
+            'Psr\\SimpleCache\\' => 16,
             'PhpOffice\\PhpWord\\' => 18,
+            'PhpOffice\\PhpSpreadsheet\\' => 25,
         ),
         'M' =>
         array (
+            'Matrix\\' => 7,
             'Masterminds\\' => 12,
         ),
         'L' =>
@@ -118,9 +125,18 @@ class ComposerStaticInitd3b60eba45ef69b25e5427da5bbe8aa6
         array (
             'Dompdf\\' => 7,
         ),
+        'C' =>
+        array (
+            'Composer\\Pcre\\' => 14,
+            'Complex\\' => 8,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'ZipStream\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
+        ),
         'Svg\\' =>
         array (
             0 => __DIR__ . '/..' . '/dompdf/php-svg-lib/src/Svg',
@@ -129,9 +145,21 @@ class ComposerStaticInitd3b60eba45ef69b25e5427da5bbe8aa6
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
+        'Psr\\SimpleCache\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
         'PhpOffice\\PhpWord\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpword/src/PhpWord',
+        ),
+        'PhpOffice\\PhpSpreadsheet\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
+        ),
+        'Matrix\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
         ),
         'Masterminds\\' =>
         array (
@@ -152,6 +180,14 @@ class ComposerStaticInitd3b60eba45ef69b25e5427da5bbe8aa6
         'Dompdf\\' =>
         array (
             0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
+        ),
+        'Composer\\Pcre\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/composer/pcre/src',
+        ),
+        'Complex\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
         ),
     );
 

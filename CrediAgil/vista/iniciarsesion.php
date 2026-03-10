@@ -244,7 +244,7 @@ if (empty($_SESSION['id_usuario'])) {
                                         </div>
                                         <div class="form-group">
                                             <a style="cursor: help;"
-                                                href="<?php echo $UrlGlobal; ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=reestablecer-contrasena">¿Olvide
+                                                href="<?php echo $UrlGlobal; ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=reestablecer-contrasena">Â¿Olvide
                                                 mi contrase&ntilde;a?</a>
                                         </div>
                                     </div>

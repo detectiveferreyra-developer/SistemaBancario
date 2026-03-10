@@ -27,6 +27,7 @@ class conexion
 		} else {
 			/*echo*/
 			$mensaje = "Enhorabuena, conexion exitosa";
+			$miconexion->set_charset("utf8mb4");
 			$this->establecerconexion = $miconexion;
 		}
 		return $mensaje;

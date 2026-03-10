@@ -1,5 +1,5 @@
 <?php
-// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÑA GENERADA AUTOMATICAMENTE
+// SI LOS USUARIOS INICIAN POR PRIMERA VEZ, MOSTRAR PAGINA DONDE DEBERAN REALIZAR EL CAMBIO OBLIGATORIO DE SU CONTRASEÃ‘A GENERADA AUTOMATICAMENTE
 if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
     header('location:../controlador/cGestionesCrediAgil.php?CrediAgilgestion=gestiones-nuevos-usuarios-registrados');
     // CASO CONTRARIO, MOSTRAR PORTAL DE USUARIOS -> SEGUN ROL DE USUARIO ASIGNADO
@@ -7,26 +7,26 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
 ?>
     <!-- 
 
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦=======================================================
-¦¦              CrediAgil S.A DE C.V                                                  
-¦¦          SISTEMA FINANCIERO / BANCARIO 
-¦¦=======================================================                      
-¦¦                                                                               
-¦¦ -> AUTOR: DANIEL RIVERA                                                               
-¦¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦ -> GITHUB: (danielrivera03)                                             
-¦¦ -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦     © 2021 - 2022    
-¦¦                                                      
-¦¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦=======================================================
+Â¦Â¦              CrediAgil S.A DE C.V                                                  
+Â¦Â¦          SISTEMA FINANCIERO / BANCARIO 
+Â¦Â¦=======================================================                      
+Â¦Â¦                                                                               
+Â¦Â¦ -> AUTOR: DANIEL RIVERA                                                               
+Â¦Â¦ -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+Â¦Â¦ -> GITHUB: (danielrivera03)                                             
+Â¦Â¦ -> TODOS LOS DERECHOS RESERVADOS                           
+Â¦Â¦     Â© 2021 - 2022    
+Â¦Â¦                                                      
+Â¦Â¦ -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+Â¦Â¦    Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+Â¦Â¦
+Â¦Â¦          ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+Â¦Â¦                                                                               
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
 
 -->
     <!DOCTYPE html>
@@ -332,10 +332,10 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                                         </div>
                                                         <div class="col-9"><span><?php // OBTENER FECHA COMPLETA REGISTRADA
                                                                                     $Fecha = $Gestiones->getFechaNacimientoUsuarios();
-                                                                                    // CALCULAR EDAD ANTES DE CUMPLEAÑOS
+                                                                                    // CALCULAR EDAD ANTES DE CUMPLEAÃ‘OS
                                                                                     $FechaCumpleanos = new DateTime($Fecha);
                                                                                     $Ahora = new DateTime();
-                                                                                    // COMPRUEBA SEGUN AÑO -> MES -> DIA
+                                                                                    // COMPRUEBA SEGUN AÃ‘O -> MES -> DIA
                                                                                     $CalcularEdad = $Ahora->diff($FechaCumpleanos);
                                                                                     echo $CalcularEdad->y;
                                                                                     echo " A&ntilde;os";
@@ -374,7 +374,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                             $Dato.val($(Elemento).text()).select();
                             document.execCommand("copy");
                             $Dato.remove();
-                            toastr.success("Dato solicitado copiado con éxito", "Copiado al Portapapeles");
+                            toastr.success("Dato solicitado copiado con Ã©xito", "Copiado al Portapapeles");
                         }
                     </script>
     </body>

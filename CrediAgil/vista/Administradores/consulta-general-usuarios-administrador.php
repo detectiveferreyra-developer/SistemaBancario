@@ -114,13 +114,7 @@ Nav header end
         ***********************************-->
 			<div class="content-body">
 				<div class="container-fluid">
-					<div class="page-titles">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Inicio</a></li>
-							<li class="breadcrumb-item"><a href="javascript:void(0)">Usuarios</a></li>
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Consultar Usuarios</a></li>
-						</ol>
-					</div>
+					
 					<div class="row">
 						<div class="col-xl-12">
 							<div id="accordion-six" class="accordion accordion-with-icon accordion-danger-solid">

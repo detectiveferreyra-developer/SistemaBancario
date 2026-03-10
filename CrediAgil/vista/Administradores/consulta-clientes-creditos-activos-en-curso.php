@@ -127,14 +127,7 @@ Nav header end
 		***********************************-->
 			<div class="content-body">
 				<div class="container-fluid">
-					<div class="page-titles">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Inicio</a></li>
-							<li class="breadcrumb-item"><a href="javascript:void(0)">Cr&eacute;ditos</a></li>
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Cr&eacute;ditos Aprobados</a>
-							</li>
-						</ol>
-					</div>
+					
 
 					<!-- CUSTOM SEARCH BAR - PROMPT MAESTRO -->
 					<div class="row mb-4 justify-content-center">

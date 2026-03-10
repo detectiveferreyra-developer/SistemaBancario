@@ -6,13 +6,12 @@ if ($_SESSION['id_rol'] == 1) {
 
     // Mapa de rutas para cada item del menú
     $nav_items = [
-        'inicio' => ['inicioadministradores', 'perfiladministradores'], // Added inicioadministradores
-        'estadisticas' => ['estadisticas-generales'],
+        'inicio' => ['estadisticas-generales', 'perfiladministradores'],
         'nuevo_cliente' => ['nuevo-cliente'],
-        'creditos_pagados' => ['listado-general-creditos-cancelados'],
-        'pagos' => ['listado-general-creditos-aprobados-activos', 'orden-pago-creditos-CrediAgil-clientes'],
-        'recuperaciones' => ['consulta-listado-cuotas-clientes-morosos', 'proximos_vencer'], // Added proximos_vencer
-        'problemas' => ['registrar-ticket-problema-plataforma', 'consulta-listado-tickets-reportes-plataforma'],
+        'creditos_pagados' => ['listado_clientes', 'listado-general-creditos-aprobados-activos'],
+        'creditos_vencidos' => ['listado_morosos', 'consulta-listado-cuotas-clientes-morosos'],
+        'proximos_vencer' => ['proximos_vencer'],
+        'soporte' => ['registrar_reporte', 'registrar-ticket-problema-plataforma'],
         'notificaciones' => ['visualizar-mis-notificaciones-usuarios'],
     ];
 
@@ -29,28 +28,11 @@ if ($_SESSION['id_rol'] == 1) {
         <div class="deznav-scroll">
             <ul class="metismenu" id="menu">
 
-                <!-- INICIO (DASHBOARD ORIGINAL) -->
-                <li class="<?php echo ca_sidebar_active('inicio', $gestion_actual, $nav_items); ?>">
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="true">
-                        <svg class="w-6 h-6" fill="none" stroke="LightSlateGrey" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                            </path>
-                        </svg>
-                        <span class="nav-text">Inicio</span>
-                    </a>
-                    <ul aria-expanded="false" class="mm-collapse <?php echo ca_sidebar_active('inicio', $gestion_actual, $nav_items) ? 'mm-show' : ''; ?>">
-                        <li><a class="<?php echo ($gestion_actual == 'inicioadministradores') ? 'active-element-menu' : ''; ?>"
-                                href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=inicioadministradores">Mi Inicio</a></li>
-                        <li><a class="<?php echo ($gestion_actual == 'perfiladministradores') ? 'active-element-menu' : ''; ?>"
-                                href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=perfiladministradores">Mi Perfil</a></li>
-                    </ul>
-                </li>
 
-                <!-- ESTADÍSTICAS -->
-                <li class="<?php echo ca_sidebar_active('estadisticas', $gestion_actual, $nav_items); ?>">
-                    <a class="ai-icon <?php echo ca_link_active('estadisticas', $gestion_actual, $nav_items); ?>"
+
+                <!-- ESTADÍSTICAS (Nuevo Inicio) -->
+                <li class="<?php echo ca_sidebar_active('inicio', $gestion_actual, $nav_items); ?>">
+                    <a class="ai-icon <?php echo ca_link_active('inicio', $gestion_actual, $nav_items); ?>"
                         href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=estadisticas-generales">
                         <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
                             height="24">
@@ -79,7 +61,7 @@ if ($_SESSION['id_rol'] == 1) {
                 <!-- CRÉDITOS PAGADOS -->
                 <li class="<?php echo ca_sidebar_active('creditos_pagados', $gestion_actual, $nav_items); ?>">
                     <a class="ai-icon <?php echo ca_link_active('creditos_pagados', $gestion_actual, $nav_items); ?>"
-                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=listado-general-creditos-cancelados">
+                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=listado_clientes">
                         <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
                             height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -90,56 +72,47 @@ if ($_SESSION['id_rol'] == 1) {
                     </a>
                 </li>
 
-                <!-- PAGOS ORIGINAL -->
-                <li class="<?php echo ca_sidebar_active('pagos', $gestion_actual, $nav_items); ?>">
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="true">
-                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="none" d="M0 0h24v24H0z" />
-                            <path
-                                d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.96 9.96 0 0 1-6.383-2.302l-.244-.209.902-1.902a8 8 0 1 0-2.27-5.837l-.005.25h2.5l-2.706 5.716A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2zm1 4v2h2.5v2H10a.5.5 0 0 0-.09.992L10 11h4a2.5 2.5 0 1 1 0 5h-1v2h-2v-2H8.5v-2H14a.5.5 0 0 0 .09-.992L14 13h-4a2.5 2.5 0 1 1 0-5h1V6h2z" />
-                        </svg>
-                        <span class="nav-text">Pagos</span>
-                    </a>
-                    <ul aria-expanded="false" class="mm-collapse <?php echo ca_sidebar_active('pagos', $gestion_actual, $nav_items) ? 'mm-show' : ''; ?>">
-                        <li><a class="<?php echo ($gestion_actual == 'listado-general-creditos-aprobados-activos') ? 'active-element-menu' : ''; ?>"
-                                href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=listado-general-creditos-aprobados-activos">Listado de Clientes</a></li>
-                        <li><a class="<?php echo ($gestion_actual == 'orden-pago-creditos-CrediAgil-clientes') ? 'active-element-menu' : ''; ?>"
-                                href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=orden-pago-creditos-CrediAgil-clientes">Cobro Orden de Pago</a></li>
-                    </ul>
-                </li>
-
-                <!-- RECUPERACIONES ORIGINAL -->
-                <li class="<?php echo ca_sidebar_active('recuperaciones', $gestion_actual, $nav_items); ?>">
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="true">
+                <!-- CRÉDITOS VENCIDOS -->
+                <li class="<?php echo ca_sidebar_active('creditos_vencidos', $gestion_actual, $nav_items); ?>">
+                    <a class="ai-icon <?php echo ca_link_active('creditos_vencidos', $gestion_actual, $nav_items); ?>"
+                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=listado_morosos">
                         <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path fill="none" d="M0 0h24v24H0z" />
-                            <path d="M14 20v2H2v-2h12zM14.586.686l7.778 7.778L20.95 9.88l-1.06-.354L17.413 12l5.657 5.657-1.414 1.414L16 13.414l-2.404 2.404.283 1.132-1.415 1.414-7.778-7.778 1.415-1.414 1.13.282 6.294-6.293-.353-1.06L14.586.686z" />
+                            <path
+                                d="M14 20v2H2v-2h12zM14.586.686l7.778 7.778L20.95 9.88l-1.06-.354L17.413 12l5.657 5.657-1.414 1.414L16 13.414l-2.404 2.404.283 1.132-1.415 1.414-7.778-7.778 1.415-1.414 1.13.282 6.294-6.293-.353-1.06L14.586.686z" />
                         </svg>
-                        <span class="nav-text">Recuperaciones</span>
+                        <span class="nav-text">Créditos Vencidos</span>
                     </a>
-                    <ul aria-expanded="false" class="mm-collapse <?php echo ca_sidebar_active('recuperaciones', $gestion_actual, $nav_items) ? 'mm-show' : ''; ?>">
-                        <li><a class="<?php echo ($gestion_actual == 'consulta-listado-cuotas-clientes-morosos') ? 'active-element-menu' : ''; ?>"
-                                href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=consulta-listado-cuotas-clientes-morosos">Créditos Vencidos</a></li>
-                        <li><a class="<?php echo ($gestion_actual == 'proximos_vencer') ? 'active-element-menu' : ''; ?>"
-                                href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=proximos_vencer">Próximos a Vencer</a></li>
-                    </ul>
                 </li>
 
-                <!-- PROBLEMAS ORIGINAL -->
-                <li class="<?php echo ca_sidebar_active('problemas', $gestion_actual, $nav_items); ?>">
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="true">
-                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <!-- PRÓXIMOS A VENCER -->
+                <li class="<?php echo ca_sidebar_active('proximos_vencer', $gestion_actual, $nav_items); ?>">
+                    <a class="ai-icon <?php echo ca_link_active('proximos_vencer', $gestion_actual, $nav_items); ?>"
+                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=proximos_vencer">
+                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24">
                             <path fill="none" d="M0 0h24v24H0z" />
-                            <path d="M4 20v-6a8 8 0 1 1 16 0v6h1v2H3v-2h1zm2 0h12v-6a6 6 0 1 0-12 0v6zm5-18h2v3h-2V2zm8.778 2.808l1.414 1.414-2.12 2.121-1.415-1.414 2.121-2.121zM2.808 6.222l1.414-1.414 2.121 2.12L4.93 8.344 2.808 6.222zM7 14a5 5 0 0 1 5-5v2a3 3 0 0 0-3 3H7z" />
+                            <path
+                                d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-8h4v2h-6V7h2v5z" />
                         </svg>
-                        <span class="nav-text">Problemas / Soporte</span>
+                        <span class="nav-text">Próximos a Vencer</span>
                     </a>
-                    <ul aria-expanded="false" class="mm-collapse <?php echo ca_sidebar_active('problemas', $gestion_actual, $nav_items) ? 'mm-show' : ''; ?>">
-                        <li><a class="<?php echo ($gestion_actual == 'registrar-ticket-problema-plataforma') ? 'active-element-menu' : ''; ?>"
-                                href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=registrar-ticket-problema-plataforma">Registrar Reportes Problemas</a></li>
-                        <li><a class="<?php echo ($gestion_actual == 'consulta-listado-tickets-reportes-plataforma') ? 'active-element-menu' : ''; ?>"
-                                href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=consulta-listado-tickets-reportes-plataforma">Listado Reportes Problemas</a></li>
-                    </ul>
+                </li>
+
+
+
+                <!-- SOPORTE TÉCNICO -->
+                <li class="<?php echo ca_sidebar_active('soporte', $gestion_actual, $nav_items); ?>">
+                    <a class="ai-icon <?php echo ca_link_active('soporte', $gestion_actual, $nav_items); ?>"
+                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=registrar_reporte">
+                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M4 20v-6a8 8 0 1 1 16 0v6h1v2H3v-2h1zm2 0h12v-6a6 6 0 1 0-12 0v6zm5-18h2v3h-2V2zm8.778 2.808l1.414 1.414-2.12 2.121-1.415-1.414 2.121-2.121zM2.808 6.222l1.414-1.414 2.121 2.12L4.93 8.344 2.808 6.222zM7 14a5 5 0 0 1 5-5v2a3 3 0 0 0-3 3H7z" />
+                        </svg>
+                        <span class="nav-text">Soporte Técnico</span>
+                    </a>
                 </li>
 
                 <!-- NOTIFICACIONES -->

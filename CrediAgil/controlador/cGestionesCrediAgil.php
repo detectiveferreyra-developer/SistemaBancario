@@ -1,26 +1,26 @@
 <?php
 /*
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦==============================================
-¦¦                         CREDIÁGIL S.A DE C.V                                                  
-¦¦                       SISTEMA FINANCIERO / BANCARIO 
-¦¦==============================================                       
-¦¦                                                                               
-¦¦   -> AUTOR: DANIEL RIVERA                                                               
-¦¦   -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
-¦¦   -> GITHUB: (danielrivera03)                                             
-¦¦       https://github.com/DanielRivera03                              
-¦¦   -> TODOS LOS DERECHOS RESERVADOS                           
-¦¦       © 2021 - 2022    
-¦¦                                                      
-¦¦   -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
-¦¦      Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
-¦¦
-¦¦              ?? HECHO CON MUCHAS TAZAS DE CAFE ??
-¦¦                                                                               
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
-¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦==============================================
+Â¦Â¦                         CREDIÃGIL S.A DE C.V                                                  
+Â¦Â¦                       SISTEMA FINANCIERO / BANCARIO 
+Â¦Â¦==============================================                       
+Â¦Â¦                                                                               
+Â¦Â¦   -> AUTOR: DANIEL RIVERA                                                               
+Â¦Â¦   -> PHP 8.1, MYSQL, MVC, JAVASCRIPT, AJAX, JQUERY                       
+Â¦Â¦   -> GITHUB: (danielrivera03)                                             
+Â¦Â¦       https://github.com/DanielRivera03                              
+Â¦Â¦   -> TODOS LOS DERECHOS RESERVADOS                           
+Â¦Â¦       Â© 2021 - 2022    
+Â¦Â¦                                                      
+Â¦Â¦   -> POR FAVOR TOMAR EN CUENTA TODOS LOS COMENTARIOS
+Â¦Â¦      Y REALIZAR LOS AJUSTES PERTINENTES ANTES DE INICIAR
+Â¦Â¦
+Â¦Â¦              ?? HECHO CON MUCHAS TAZAS DE CAFE ??
+Â¦Â¦                                                                               
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦
 
 */
 
@@ -50,7 +50,7 @@ require '../PHPMailer/PHPMailer.php';
 require '../PHPMailer/SMTP.php';
 // IMPORTANDO ARCHIVO DE CONEXION
 require('../modelo/conexion.php');
-// IMPORTANDO MODELO RECUPERACION DE GESTIONES EMPRESARIALES CREDIÁGIL.
+// IMPORTANDO MODELO RECUPERACION DE GESTIONES EMPRESARIALES CREDIÃGIL.
 require('../modelo/mGestionesCrediAgil.php');
 // INICIALIZANDO VARIABLE GLOBAL DE CLASE
 $Gestiones = new GestionesClientes();
@@ -72,7 +72,7 @@ date_default_timezone_set('America/El_Salvador');
         ENCUENTRA ALOJADO TODO ESTE SISTEMA [NO TOCAR]
     */
 $UrlGlobal = "http://" . $_SERVER['SERVER_NAME'] . ":90/SistemaBancario/CrediAgil/";
-// ASIGNANDO PARAMETRO DE URL -> METODO GET (crediagil --> por defecto [nombre de la compañia])
+// ASIGNANDO PARAMETRO DE URL -> METODO GET (crediagil --> por defecto [nombre de la compaÃ±ia])
 if (isset($_GET['CrediAgilgestion'])) {
     $peticion_url = $_GET['CrediAgilgestion'];  // ENVIO GET DE VALOR ACCION {URL}
 }
@@ -82,7 +82,7 @@ else {
 } // CIERRE if (isset($_GET['CrediAgilgestion']))
 switch ($peticion_url) {
 
-    // MÓDULO DE ESTADÍSTICAS -> INTERFAZ USUARIOS LOGUEADOS NIVEL -> ADMINISTRADORES
+    // MÃ“DULO DE ESTADÃSTICAS -> INTERFAZ USUARIOS LOGUEADOS NIVEL -> ADMINISTRADORES
     case "estadisticas-generales":
         // VISTA VALIDA SOLO PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
@@ -212,9 +212,9 @@ switch ($peticion_url) {
         // VISTA VALIDA SOLO PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIOS
-            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta = $Gestiones->ConsultarDetallesUsuarios($conectarsistema, $IdUsuarios);
-            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta1 = $Gestiones->ConsultarConfiguracionCuentaUsuarios($conectarsistema1, $IdUsuarios);
             // CONSULTA DETALLE COMPLETO INICIOS DE SESIONES USUARIOS
             $consulta2 = $Gestiones->ConsultarIniciosDeSesionesUsuarios($conectarsistema2, $IdUsuarios);
@@ -238,9 +238,9 @@ switch ($peticion_url) {
         // VISTA VALIDA SOLO PARA PRESIDENCIA
         if ($_SESSION['id_rol'] == 2) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIOS
-            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta = $Gestiones->ConsultarDetallesUsuarios($conectarsistema, $IdUsuarios);
-            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta1 = $Gestiones->ConsultarConfiguracionCuentaUsuarios($conectarsistema1, $IdUsuarios);
             // CONSULTA DETALLE COMPLETO INICIOS DE SESIONES USUARIOS
             $consulta2 = $Gestiones->ConsultarIniciosDeSesionesUsuarios($conectarsistema2, $IdUsuarios);
@@ -264,9 +264,9 @@ switch ($peticion_url) {
         // VISTA VALIDA SOLO PARA GERENCIA
         if ($_SESSION['id_rol'] == 3) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIOS
-            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta = $Gestiones->ConsultarDetallesUsuarios($conectarsistema, $IdUsuarios);
-            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta1 = $Gestiones->ConsultarConfiguracionCuentaUsuarios($conectarsistema1, $IdUsuarios);
             // CONSULTA DETALLE COMPLETO INICIOS DE SESIONES USUARIOS
             $consulta2 = $Gestiones->ConsultarIniciosDeSesionesUsuarios($conectarsistema2, $IdUsuarios);
@@ -290,9 +290,9 @@ switch ($peticion_url) {
         // VISTA VALIDA SOLO PARA ATENCION AL CLIENTE [EMPLEADOS]
         if ($_SESSION['id_rol'] == 4) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIOS
-            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta = $Gestiones->ConsultarDetallesUsuarios($conectarsistema, $IdUsuarios);
-            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta1 = $Gestiones->ConsultarConfiguracionCuentaUsuarios($conectarsistema1, $IdUsuarios);
             // CONSULTA DETALLE COMPLETO INICIOS DE SESIONES USUARIOS
             $consulta2 = $Gestiones->ConsultarIniciosDeSesionesUsuarios($conectarsistema2, $IdUsuarios);
@@ -316,9 +316,9 @@ switch ($peticion_url) {
         // VISTA VALIDA SOLO PARA CLIENTES
         if ($_SESSION['id_rol'] == 5) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIOS
-            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta = $Gestiones->ConsultarDetallesUsuarios($conectarsistema, $IdUsuarios);
-            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA CONFIGURACION CUENTA DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta1 = $Gestiones->ConsultarConfiguracionCuentaUsuarios($conectarsistema1, $IdUsuarios);
             // CONSULTA DETALLE COMPLETO INICIOS DE SESIONES USUARIOS
             $consulta2 = $Gestiones->ConsultarIniciosDeSesionesUsuarios($conectarsistema2, $IdUsuarios);
@@ -346,8 +346,8 @@ switch ($peticion_url) {
             $ApellidosUsuarios = (empty($_POST['val-apellidousuario'])) ? NULL : $_POST['val-apellidousuario']; // APELLIDOS DE USUARIOS
             $CodigoUsuarios = (empty($_POST['val-usuariounico'])) ? NULL : $_POST['val-usuariounico']; // USUARIO UNICO DE USUARIOS
             $CorreoUsuarios = (empty($_POST['val-correo'])) ? NULL : $_POST['val-correo']; // CORREO DE USUARIOS
-            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÑA INGRESADA POR USUARIOS
-            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÑA INGRESADA
+            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÃ‘A INGRESADA POR USUARIOS
+            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÃ‘A INGRESADA
             /*
             --------------------------------------------------------------------------------------------
                 IMPORTANTE: EL FORMATO DE CAMBIO DE NOMBRE DE LAS FOTOGRAFIAS SUBIDAS POR
@@ -405,8 +405,8 @@ switch ($peticion_url) {
             $ApellidosUsuarios = (empty($_POST['val-apellidousuario'])) ? NULL : $_POST['val-apellidousuario']; // APELLIDOS DE USUARIOS
             $CodigoUsuarios = (empty($_POST['val-usuariounico'])) ? NULL : $_POST['val-usuariounico']; // USUARIO UNICO DE USUARIOS
             $CorreoUsuarios = (empty($_POST['val-correo'])) ? NULL : $_POST['val-correo']; // CORREO DE USUARIOS
-            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÑA INGRESADA POR USUARIOS
-            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÑA INGRESADA
+            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÃ‘A INGRESADA POR USUARIOS
+            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÃ‘A INGRESADA
             /*
             --------------------------------------------------------------------------------------------
                 IMPORTANTE: EL FORMATO DE CAMBIO DE NOMBRE DE LAS FOTOGRAFIAS SUBIDAS POR
@@ -463,8 +463,8 @@ switch ($peticion_url) {
             $NombresUsuarios = (empty($_POST['val-nombreusuario'])) ? NULL : $_POST['val-nombreusuario']; // NOMBRES DE USUARIOS
             $ApellidosUsuarios = (empty($_POST['val-apellidousuario'])) ? NULL : $_POST['val-apellidousuario']; // APELLIDOS DE USUARIOS
             $CorreoUsuarios = (empty($_POST['val-correo'])) ? NULL : $_POST['val-correo']; // CORREO DE USUARIOS
-            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÑA INGRESADA POR USUARIOS
-            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÑA INGRESADA
+            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÃ‘A INGRESADA POR USUARIOS
+            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÃ‘A INGRESADA
             /*
             --------------------------------------------------------------------------------------------
                 IMPORTANTE: EL FORMATO DE CAMBIO DE NOMBRE DE LAS FOTOGRAFIAS SUBIDAS POR
@@ -521,8 +521,8 @@ switch ($peticion_url) {
             $NombresUsuarios = (empty($_POST['val-nombreusuario'])) ? NULL : $_POST['val-nombreusuario']; // NOMBRES DE USUARIOS
             $ApellidosUsuarios = (empty($_POST['val-apellidousuario'])) ? NULL : $_POST['val-apellidousuario']; // APELLIDOS DE USUARIOS
             $CorreoUsuarios = (empty($_POST['val-correo'])) ? NULL : $_POST['val-correo']; // CORREO DE USUARIOS
-            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÑA INGRESADA POR USUARIOS
-            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÑA INGRESADA
+            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÃ‘A INGRESADA POR USUARIOS
+            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÃ‘A INGRESADA
             /*
             --------------------------------------------------------------------------------------------
                 IMPORTANTE: EL FORMATO DE CAMBIO DE NOMBRE DE LAS FOTOGRAFIAS SUBIDAS POR
@@ -579,8 +579,8 @@ switch ($peticion_url) {
             $NombresUsuarios = (empty($_POST['val-nombreusuario'])) ? NULL : $_POST['val-nombreusuario']; // NOMBRES DE USUARIOS
             $ApellidosUsuarios = (empty($_POST['val-apellidousuario'])) ? NULL : $_POST['val-apellidousuario']; // APELLIDOS DE USUARIOS
             $CorreoUsuarios = (empty($_POST['val-correo'])) ? NULL : $_POST['val-correo']; // CORREO DE USUARIOS
-            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÑA INGRESADA POR USUARIOS
-            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÑA INGRESADA
+            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÃ‘A INGRESADA POR USUARIOS
+            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÃ‘A INGRESADA
             /*
             --------------------------------------------------------------------------------------------
                 IMPORTANTE: EL FORMATO DE CAMBIO DE NOMBRE DE LAS FOTOGRAFIAS SUBIDAS POR
@@ -641,7 +641,7 @@ switch ($peticion_url) {
             $CelularUsuarios = (empty($_POST['val-telefono2'])) ? NULL : $_POST['val-telefono2']; // CELULAR USUARIOS
             $DireccionUsuarios = (empty($_POST['val-direccion1'])) ? NULL : $_POST['val-direccion1']; // DIRECCION RESIDENCIA USUARIOS
             $EmpresaUsuarios = (empty($_POST['val-nombreempresa'])) ? NULL : $_POST['val-nombreempresa']; // NOMBRE EMPRESA TRABAJO USUARIOS
-            $CargoEmpresaUsuarios = (empty($_POST['val-cargoempresa'])) ? NULL : $_POST['val-cargoempresa']; // CARGO DESEMPEÑADO USUARIOS
+            $CargoEmpresaUsuarios = (empty($_POST['val-cargoempresa'])) ? NULL : $_POST['val-cargoempresa']; // CARGO DESEMPEÃ‘ADO USUARIOS
             $DireccionTrabajoUsuarios = (empty($_POST['val-direccion2'])) ? NULL : $_POST['val-direccion2']; // DIRECCION EMPRESA USUARIOS
             $TelefonoTrabajoUsuarios = (empty($_POST['val-telefono3'])) ? NULL : $_POST['val-telefono3']; // TELEFONO TRABAJO USUARIOS
             $FechaNacimientoUsuarios = (empty($_POST['val-fechanacimiento'])) ? NULL : $_POST['val-fechanacimiento']; // FECHA DE NACIMIENTO USUARIOS
@@ -691,8 +691,8 @@ switch ($peticion_url) {
             $ApellidosUsuarios = (empty($_POST['val-apellidousuario'])) ? NULL : $_POST['val-apellidousuario']; // APELLIDOS DE USUARIOS
             $CodigoUsuarios = (empty($_POST['val-usuariounico'])) ? NULL : $_POST['val-usuariounico']; // USUARIO UNICO DE USUARIOS
             $CorreoUsuarios = (empty($_POST['val-correo'])) ? NULL : $_POST['val-correo']; // CORREO DE USUARIOS
-            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÑA INGRESADA POR USUARIOS
-            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÑA INGRESADA
+            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-contrasenia'])); // CONTRASEÃ‘A INGRESADA POR USUARIOS
+            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-contrasenia']), $cifrado); // ENCRIPTAR CONTRASEÃ‘A INGRESADA
             $IdRolUsuarios = (empty($_POST['val-rol-usuarios'])) ? NULL : $_POST['val-rol-usuarios']; // ROL ASIGNADO DE USUARIOS
             // CONTROL DE QUIENES REGISTRAN NUEVOS USUARIOS -> PARA EFECTOS DE MUESTRA SOLAMENTE
             // COMPLETAR LOS DETALLES DE USUARIOS FILTRADOS
@@ -705,7 +705,7 @@ switch ($peticion_url) {
             $_SESSION['ApellidosCliente'] = $_POST['val-apellidousuario']; // APELLIDOS DE USUARIOS
             $_SESSION['CodigoUsuarioCliente'] = $_POST['val-usuariounico']; // USUARIO UNICO DE USUARIOS
             $_SESSION['CorreoNuevoCliente'] = $_POST['val-correo']; // CORREO DE USUARIOS
-            $_SESSION['ContraseniaCliente'] = $_POST['val-contrasenia']; // CONTRASEÑA GENERADA
+            $_SESSION['ContraseniaCliente'] = $_POST['val-contrasenia']; // CONTRASEÃ‘A GENERADA
             $_SESSION['control-eliminar-datos'] = "IMPRIMIR";
             // EVITAR INGRESO VACIO {ACCIDENTAL O CON INTENCION}
             if (empty($NombresUsuarios)) {
@@ -728,7 +728,7 @@ switch ($peticion_url) {
         if ($_SESSION['id_rol'] == 1) {
             $IdUnicoNuevoUsuario = $_GET['codigounicousuario']; // ID UNICO DE USUARIO REGISTRADO
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIOS
-            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃgil} -> PERFIL DE USUARIOS
+            // CONSULTA DETALLES DE USUARIOS {EMPLEADOS, CLIENTES CrediÃƒÂgil} -> PERFIL DE USUARIOS
             $consulta = $Gestiones->ConsultarDetallesUsuarios($conectarsistema, $IdUsuarios);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta1 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema1, $IdUsuarios);
@@ -754,7 +754,7 @@ switch ($peticion_url) {
             $CelularUsuarios = (empty($_POST['val-telefono2'])) ? NULL : $_POST['val-telefono2']; // CELULAR USUARIOS
             $DireccionUsuarios = (empty($_POST['val-direccion1'])) ? NULL : $_POST['val-direccion1']; // DIRECCION RESIDENCIA USUARIOS
             $EmpresaUsuarios = (empty($_POST['val-nombreempresa'])) ? NULL : $_POST['val-nombreempresa']; // NOMBRE EMPRESA TRABAJO USUARIOS
-            $CargoEmpresaUsuarios = (empty($_POST['val-cargoempresa'])) ? NULL : $_POST['val-cargoempresa']; // CARGO DESEMPEÑADO USUARIOS
+            $CargoEmpresaUsuarios = (empty($_POST['val-cargoempresa'])) ? NULL : $_POST['val-cargoempresa']; // CARGO DESEMPEÃ‘ADO USUARIOS
             $DireccionTrabajoUsuarios = (empty($_POST['val-direccion2'])) ? NULL : $_POST['val-direccion2']; // DIRECCION EMPRESA USUARIOS
             $TelefonoTrabajoUsuarios = (empty($_POST['val-telefono3'])) ? NULL : $_POST['val-telefono3']; // TELEFONO TRABAJO USUARIOS
             $FechaNacimientoUsuarios = (empty($_POST['val-fechanacimiento'])) ? NULL : $_POST['val-fechanacimiento']; // FECHA DE NACIMIENTO USUARIOS
@@ -880,7 +880,7 @@ switch ($peticion_url) {
             unset($_SESSION['ApellidosCliente']); // RETIRAR SESION APELLIDOS USUARIOS
             unset($_SESSION['CodigoUsuarioCliente']); // RETIRAR CODIGO UNICO USUARIOS
             unset($_SESSION['CorreoNuevoCliente']); // RETIRAR SESION CORREO USUARIOS
-            unset($_SESSION['ContraseniaCliente']); // RETIRAR SESION CONTRASEÑA USUARIOS
+            unset($_SESSION['ContraseniaCliente']); // RETIRAR SESION CONTRASEÃ‘A USUARIOS
             unset($_SESSION['control-eliminar-datos']); // RETIRAR CONTROL ELIMINAR DATOS USUARIOS
             // REDIRECCIONAR NUEVAMENTE A PAGINA PRINCIPAL DE REGISTRO DE USUARIOS
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=registro-usuarios-administrador');
@@ -974,7 +974,7 @@ switch ($peticion_url) {
             $CelularUsuarios = (empty($_POST['val-telefono2'])) ? NULL : $_POST['val-telefono2'];  // CELULAR USUARIOS
             $DireccionUsuarios = (empty($_POST['val-direccion1'])) ? NULL : $_POST['val-direccion1']; // DIRECCION RESIDENCIA USUARIOS
             $EmpresaUsuarios = (empty($_POST['val-nombreempresa'])) ? NULL : $_POST['val-nombreempresa']; // NOMBRE EMPRESA TRABAJO USUARIOS
-            $CargoEmpresaUsuarios = (empty($_POST['val-cargoempresa'])) ? NULL : $_POST['val-cargoempresa']; // CARGO DESEMPEÑADO USUARIOS
+            $CargoEmpresaUsuarios = (empty($_POST['val-cargoempresa'])) ? NULL : $_POST['val-cargoempresa']; // CARGO DESEMPEÃ‘ADO USUARIOS
             $DireccionTrabajoUsuarios = (empty($_POST['val-direccion2'])) ? NULL : $_POST['val-direccion2']; // DIRECCION EMPRESA USUARIOS
             $TelefonoTrabajoUsuarios = (empty($_POST['val-telefono3'])) ? NULL : $_POST['val-telefono3']; // TELEFONO TRABAJO USUARIOS
             $FechaNacimientoUsuarios = (empty($_POST['val-fechanacimiento'])) ? NULL : $_POST['val-fechanacimiento']; // FECHA DE NACIMIENTO USUARIOS
@@ -1538,7 +1538,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] >= 1 && $_SESSION['id_rol'] <= 3)
         break;
-    // CONSULTA ESPECIFICA PRODUCTOS REGISTRADOS CrediÃgil -> ADMINISTRADORES
+    // CONSULTA ESPECIFICA PRODUCTOS REGISTRADOS CrediÃƒÂgil -> ADMINISTRADORES
     case "consulta-productos-especifica-CrediAgil":
         // VISTA VALIDA PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
@@ -1559,7 +1559,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] == 1)
         break;
-    // CONSULTA ESPECIFICA PRODUCTOS REGISTRADOS CrediÃgil -> PRESIDENCIA
+    // CONSULTA ESPECIFICA PRODUCTOS REGISTRADOS CrediÃƒÂgil -> PRESIDENCIA
     case "consulta-productos-especifica-CrediAgil-presidencia":
         // VISTA VALIDA PARA PRESIDENCIA
         if ($_SESSION['id_rol'] == 2) {
@@ -1580,7 +1580,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] == 2)
         break;
-    // CONSULTA ESPECIFICA PRODUCTOS REGISTRADOS CrediÃgil -> GERENCIA
+    // CONSULTA ESPECIFICA PRODUCTOS REGISTRADOS CrediÃƒÂgil -> GERENCIA
     case "consulta-productos-especifica-CrediAgil-gerencia":
         // VISTA VALIDA PARA GERENCIA
         if ($_SESSION['id_rol'] == 3) {
@@ -1601,7 +1601,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] == 3)
         break;
-    // CONSULTA ESPECIFICA PRODUCTOS REGISTRADOS CrediÃgil -> ATENCION AL CLIENTE
+    // CONSULTA ESPECIFICA PRODUCTOS REGISTRADOS CrediÃƒÂgil -> ATENCION AL CLIENTE
     case "consulta-productos-especifica-CrediAgil-atencion-clientes":
         // VISTA VALIDA PARA ATENCION AL CLIENTE
         if ($_SESSION['id_rol'] == 4) {
@@ -1622,7 +1622,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] == 3)
         break;
-    //  MODIFICAR PRODUCTOS REGISTRADOS CrediÃgil -> [PAGINA] {ADMINISTRADORES}
+    //  MODIFICAR PRODUCTOS REGISTRADOS CrediÃƒÂgil -> [PAGINA] {ADMINISTRADORES}
     case "modificar-productos-CrediAgil":
         // VISTA VALIDA PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
@@ -1643,7 +1643,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] == 1)
         break;
-    //  MODIFICAR PRODUCTOS REGISTRADOS CrediÃgil -> [PAGINA] {PRESIDENCIA}
+    //  MODIFICAR PRODUCTOS REGISTRADOS CrediÃƒÂgil -> [PAGINA] {PRESIDENCIA}
     case "modificar-productos-CrediAgil-presidencia":
         // VISTA VALIDA PARA PRESIDENCIA
         if ($_SESSION['id_rol'] == 2) {
@@ -2002,7 +2002,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] == 2)
         break;
-    // PAGINA DE ASIGNACION DE NUEVOS CREDITOS CLIENTES CrediÃgil [INFORMACION CLIENTES]
+    // PAGINA DE ASIGNACION DE NUEVOS CREDITOS CLIENTES CrediÃƒÂgil [INFORMACION CLIENTES]
     case "gestor-creditos-clientes-informacion":
         // VISTA VALIDA PARA ADMINISTRADORES, PRESIDENCIA, GERENCIA, ATENCION AL CLIENTE
         // LOS EMPLEADOS DE [ATENCION AL CLIENTE] SON QUIENES PRINCIPALMENTE GESTIONARAN TODAS LAS NUEVAS SOLICITUDES CREDITICIAS -> EN CASOS MUY PUNTUALES PUEDE HACERLO LOS OTROS ROLES DE USUARIOS EXCLUYENDO A [CLIENTES]
@@ -2035,7 +2035,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] >= 1 && $_SESSION['id_rol'] <= 4)
         break;
-    // PAGINA DE ASIGNACION DE NUEVOS CREDITOS CLIENTES CrediÃgil [PRESTAMOS PERSONALES]
+    // PAGINA DE ASIGNACION DE NUEVOS CREDITOS CLIENTES CrediÃƒÂgil [PRESTAMOS PERSONALES]
     case "gestor-creditos-clientes-asignacion-prestamo-personal":
         // VISTA VALIDA PARA ADMINISTRADORES, PRESIDENCIA, GERENCIA, ATENCION AL CLIENTE
         // LOS EMPLEADOS DE [ATENCION AL CLIENTE] SON QUIENES PRINCIPALMENTE GESTIONARAN TODAS LAS NUEVAS SOLICITUDES CREDITICIAS -> EN CASOS MUY PUNTUALES PUEDE HACERLO LOS OTROS ROLES DE USUARIOS EXCLUYENDO A [CLIENTES]
@@ -2071,7 +2071,7 @@ switch ($peticion_url) {
             $CuotaMensualCredito = (empty($_POST['cuotamensualasignada'])) ? NULL : $_POST['cuotamensualasignada']; // CUOTA MENSUAL ASIGNADA CREDITO
             $FechaSolicitud = (empty($_POST['valfechaingresosolicitud'])) ? NULL : $_POST['valfechaingresosolicitud']; // FECHA INGRESO SOLICITUD CREDITO
             $SalarioCliente = (empty($_POST['valsalariocliente'])) ? NULL : $_POST['valsalariocliente']; // SALARIO - INGRESO / CLIENTES
-            // IMPORTANTE -> ESTE CAMPO REFLEJA EL SALDO ACTUAL DEL CREDITO SEGUN EL TRANSCURSO DEL MISMO APLICADO EN EL PLAZO ACORDADO CON EL CLIENTE. SEGUN LOS PAGARÉ DE SU RESPONSABILIDAD CREDITICIA EL MISMO DISMINUYE AUTOMATICAMENTE --> INFORMACION REFLEJADA EN EL PORTAL DE CLIENTES Y DEMAS PORTALES DE INTERES DENTRO DE LA EMPRESA
+            // IMPORTANTE -> ESTE CAMPO REFLEJA EL SALDO ACTUAL DEL CREDITO SEGUN EL TRANSCURSO DEL MISMO APLICADO EN EL PLAZO ACORDADO CON EL CLIENTE. SEGUN LOS PAGARÃ‰ DE SU RESPONSABILIDAD CREDITICIA EL MISMO DISMINUYE AUTOMATICAMENTE --> INFORMACION REFLEJADA EN EL PORTAL DE CLIENTES Y DEMAS PORTALES DE INTERES DENTRO DE LA EMPRESA
             $SaldoActualCreditos = (empty($_POST['valmontocreditoclientes'])) ? NULL : $_POST['valmontocreditoclientes']; // SALDO ACTUAL DE CREDITO
             $ObservacionesCredito = (empty($_POST['valobservaciones'])) ? NULL : $_POST['valobservaciones'];  // OBSERVACIONES SOLICITUD CREDITO CLIENTES
             $CodigoEmpleadoGestion = $_SESSION['usuario_unico']; // CODIGO UNICO DE EMPLEADO QUE GESTIONA CREDITO
@@ -2090,7 +2090,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] >= 1 && $_SESSION['id_rol'] <= 4)
         break;
-    // PAGINA DE ASIGNACION DE REFERENCIAS PERSONALES CLIENTES NUEVOS / ANTIGUOS -> CrediÃgil
+    // PAGINA DE ASIGNACION DE REFERENCIAS PERSONALES CLIENTES NUEVOS / ANTIGUOS -> CrediÃƒÂgil
     case "gestor-creditos-referencias-personales-clientes":
         // VISTA VALIDA PARA ADMINISTRADORES, PRESIDENCIA, GERENCIA, ATENCION AL CLIENTE
         // LOS EMPLEADOS DE [ATENCION AL CLIENTE] SON QUIENES PRINCIPALMENTE GESTIONARAN TODAS LAS NUEVAS SOLICITUDES CREDITICIAS -> EN CASOS MUY PUNTUALES PUEDE HACERLO LOS OTROS ROLES DE USUARIOS EXCLUYENDO A [CLIENTES]
@@ -2182,7 +2182,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] >= 1 && $_SESSION['id_rol'] <= 4)
         break;
-    // PAGINA DE ASIGNACION DE NUEVOS CREDITOS CLIENTES CrediÃgil [PRESTAMOS HIPOTECARIOS]
+    // PAGINA DE ASIGNACION DE NUEVOS CREDITOS CLIENTES CrediÃƒÂgil [PRESTAMOS HIPOTECARIOS]
     case "gestor-creditos-clientes-asignacion-prestamo-hipotecario":
         // VISTA VALIDA PARA ADMINISTRADORES, PRESIDENCIA, GERENCIA, ATENCION AL CLIENTE
         // LOS EMPLEADOS DE [ATENCION AL CLIENTE] SON QUIENES PRINCIPALMENTE GESTIONARAN TODAS LAS NUEVAS SOLICITUDES CREDITICIAS -> EN CASOS MUY PUNTUALES PUEDE HACERLO LOS OTROS ROLES DE USUARIOS EXCLUYENDO A [CLIENTES]
@@ -2204,7 +2204,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] >= 1 && $_SESSION['id_rol'] <= 4)
         break;
-    // PAGINA DE ASIGNACION DE NUEVOS CREDITOS CLIENTES CrediÃgil [PRESTAMOS HIPOTECARIOS]
+    // PAGINA DE ASIGNACION DE NUEVOS CREDITOS CLIENTES CrediÃƒÂgil [PRESTAMOS HIPOTECARIOS]
     case "gestor-creditos-clientes-asignacion-prestamo-vehiculos":
         // VISTA VALIDA PARA ADMINISTRADORES, PRESIDENCIA, GERENCIA, ATENCION AL CLIENTE
         // LOS EMPLEADOS DE [ATENCION AL CLIENTE] SON QUIENES PRINCIPALMENTE GESTIONARAN TODAS LAS NUEVAS SOLICITUDES CREDITICIAS -> EN CASOS MUY PUNTUALES PUEDE HACERLO LOS OTROS ROLES DE USUARIOS EXCLUYENDO A [CLIENTES]
@@ -2411,7 +2411,7 @@ switch ($peticion_url) {
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
             // CONSULTA PRODUCTOS ACTIVOS -> ASIGNACIONES NUEVOS CREDITOS
             $consulta1 = $Gestiones->ConsultarProductosActivosNuevosCreditos($conectarsistema1);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             // CONSULTA VALIDA CUANDO LAS RESPECTIVAS CUOTAS SE HAYAN REGISTRADO EN EL SISTEMA
             $consulta2 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema2, $IdUsuarios);
             // CONSULTA NOMBRE COPIA CONTRATO SUSCRITO -> CREDITOS CLIENTES
@@ -2436,7 +2436,7 @@ switch ($peticion_url) {
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
             // CONSULTA PRODUCTOS ACTIVOS -> ASIGNACIONES NUEVOS CREDITOS
             $consulta1 = $Gestiones->ConsultarProductosActivosNuevosCreditos($conectarsistema1);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             // CONSULTA VALIDA CUANDO LAS RESPECTIVAS CUOTAS SE HALLAN REGISTRADO EN EL SISTEMA
             $consulta2 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema2, $IdUsuarios);
             // CONSULTA NOMBRE COPIA CONTRATO SUSCRITO -> CREDITOS CLIENTES
@@ -2461,7 +2461,7 @@ switch ($peticion_url) {
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
             // CONSULTA PRODUCTOS ACTIVOS -> ASIGNACIONES NUEVOS CREDITOS
             $consulta1 = $Gestiones->ConsultarProductosActivosNuevosCreditos($conectarsistema1);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             // CONSULTA VALIDA CUANDO LAS RESPECTIVAS CUOTAS SE HAYAN REGISTRADO EN EL SISTEMA
             $consulta2 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema2, $IdUsuarios);
             // CONSULTA NOMBRE COPIA CONTRATO SUSCRITO -> CREDITOS CLIENTES
@@ -2486,7 +2486,7 @@ switch ($peticion_url) {
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
             // CONSULTA PRODUCTOS ACTIVOS -> ASIGNACIONES NUEVOS CREDITOS
             $consulta1 = $Gestiones->ConsultarProductosActivosNuevosCreditos($conectarsistema1);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             // CONSULTA VALIDA CUANDO LAS RESPECTIVAS CUOTAS SE HAYAN REGISTRADO EN EL SISTEMA
             $consulta2 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema2, $IdUsuarios);
             // CONSULTA NOMBRE COPIA CONTRATO SUSCRITO -> CREDITOS CLIENTES
@@ -2504,14 +2504,14 @@ switch ($peticion_url) {
         break;
     // PAGINA DE ESTADO DE CUENTA QUE SERA ENTREGADO A LOS CLIENTES QUE INICIEN SUS CREDITOS CON ESTA EMPRESA // VALIDO PARA CLIENTES [QUIENES HAN ADQUIRIDO UN PRODUCTO DE LA EMPRESA]
     case "impresion-estado-cuenta-cuotas-nuevos-creditos-portal-clientes":
-        // VISTA VALIDA PARA CLIENTES [PORTAL DE CLIENTES CrediÃgil]
+        // VISTA VALIDA PARA CLIENTES [PORTAL DE CLIENTES CrediÃƒÂgil]
         if ($_SESSION['id_rol'] == 5) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIOS
             // CONSULTA COMPLETA DE CLIENTE CON TODOS LOS REQUERIMIENTOS SOLICITADOS EN SOLICITUD DE CREDITO
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
             // CONSULTA PRODUCTOS ACTIVOS -> ASIGNACIONES NUEVOS CREDITOS
             $consulta1 = $Gestiones->ConsultarProductosActivosNuevosCreditos($conectarsistema1);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             // CONSULTA VALIDA CUANDO LAS RESPECTIVAS CUOTAS SE HAYAN REGISTRADO EN EL SISTEMA
             $consulta2 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema2, $IdUsuarios);
             // CONSULTA NOMBRE COPIA CONTRATO SUSCRITO -> CREDITOS CLIENTES
@@ -2565,7 +2565,7 @@ switch ($peticion_url) {
                 /*
                 RECALCULAR FECHAS DE PAGOS SI LA SOLICITUD FUE INGRESADA EN LOS DIAS: [25,26,27,28,29,30 Y 31 DE CUALQUIER MES]
 
-                -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÑO ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO Y EVITAR FECHAS INVALIDAS [NO EXISTENTES] AL MOMENTO DE RECALCULAR LAS FECHAS DE PAGO
+                -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÃ‘O ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO Y EVITAR FECHAS INVALIDAS [NO EXISTENTES] AL MOMENTO DE RECALCULAR LAS FECHAS DE PAGO
 
                 --> EL MAXIMO DIA PARA RECALCULAR FECHAS DE PAGOS ES <<24>> DE CADA MES, DE 25 A 31 SEGUN MES EN CURSO, LAS ULTIMAS FECHAS DE PAGO SIEMPRE SERAN CADA 28 DE MES 
 
@@ -2608,13 +2608,13 @@ switch ($peticion_url) {
                             ********************************************************************************
                         RECALCULAR FECHAS DE PAGOS SI LA SOLICITUD FUE INGRESADA EN LOS DIAS: [29, 30 Y 31 DE CUALQUIER MES]
 
-                        -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÑO ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO.
+                        -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÃ‘O ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO.
 
                         -> PARA ESTE CONDICION NO SE EXCLUYEN LOS SABADOS Y DOMINGOS, MOTIVOS POR EL CUAL EL TRATAMIENTO A ESTOS CLIENTES ES DIFERENTE Y SU FECHA DE PAGO DEBE SER ANTES DE LA FECHA INDICADA SI EL DIA DE PAGO ASIGNADO ES SABADO O DOMINGO
                         ********************************************************************************
                         */
-                        // FORMATO FECHA DE REGISTRO -> AÑO/MES/DIA = YYYY/MM/DD
-                        // FORMATO FECHA DE MUESTRA CLIENTES -> DIA/MES/AÑO = DD/MM/YYYY
+                        // FORMATO FECHA DE REGISTRO -> AÃ‘O/MES/DIA = YYYY/MM/DD
+                        // FORMATO FECHA DE MUESTRA CLIENTES -> DIA/MES/AÃ‘O = DD/MM/YYYY
                         $DiaLaboral = $DiaAsignado->format('N');
                         // RECALCULAR SI ES DOMINGO
                         if ($DiaLaboral == '7') {
@@ -2650,7 +2650,7 @@ switch ($peticion_url) {
                             ********************************************************************************
                         RECALCULAR FECHAS DE PAGOS SI LA SOLICITUD FUE INGRESADA EN LOS DIAS: [29, 30 Y 31 DE CUALQUIER MES]
 
-                        -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÑO ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO.
+                        -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÃ‘O ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO.
 
                         -> PARA ESTE CONDICION NO SE EXCLUYEN LOS SABADOS Y DOMINGOS, MOTIVOS POR EL CUAL EL TRATAMIENTO A ESTOS CLIENTES ES DIFERENTE Y SU FECHA DE PAGO DEBE SER ANTES DE LA FECHA INDICADA SI EL DIA DE PAGO ASIGNADO ES SABADO O DOMINGO
                         ********************************************************************************
@@ -2782,7 +2782,7 @@ switch ($peticion_url) {
                 /*
                     RECALCULAR FECHAS DE PAGOS SI LA SOLICITUD FUE INGRESADA EN LOS DIAS: [25,26,27,28,29,30 Y 31 DE CUALQUIER MES]
 
-                    -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÑO ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO Y EVITAR FECHAS INVALIDAS [NO EXISTENTES] AL MOMENTO DE RECALCULAR LAS FECHAS DE PAGO
+                    -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÃ‘O ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO Y EVITAR FECHAS INVALIDAS [NO EXISTENTES] AL MOMENTO DE RECALCULAR LAS FECHAS DE PAGO
 
                     --> EL MAXIMO DIA PARA RECALCULAR FECHAS DE PAGOS ES <<24>> DE CADA MES, DE 25 A 31 SEGUN MES EN CURSO, LAS ULTIMAS FECHAS DE PAGO SIEMPRE SERAN CADA 28 DE MES 
 
@@ -2825,13 +2825,13 @@ switch ($peticion_url) {
                                 ********************************************************************************
                             RECALCULAR FECHAS DE PAGOS SI LA SOLICITUD FUE INGRESADA EN LOS DIAS: [29, 30 Y 31 DE CUALQUIER MES]
 
-                            -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÑO ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO.
+                            -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÃ‘O ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO.
 
                             -> PARA ESTE CONDICION NO SE EXCLUYEN LOS SABADOS Y DOMINGOS, MOTIVOS POR EL CUAL EL TRATAMIENTO A ESTOS CLIENTES ES DIFERENTE Y SU FECHA DE PAGO DEBE SER ANTES DE LA FECHA INDICADA SI EL DIA DE PAGO ASIGNADO ES SABADO O DOMINGO
                             ********************************************************************************
                             */
-                        // FORMATO FECHA DE REGISTRO -> AÑO/MES/DIA = YYYY/MM/DD
-                        // FORMATO FECHA DE MUESTRA CLIENTES -> DIA/MES/AÑO = DD/MM/YYYY
+                        // FORMATO FECHA DE REGISTRO -> AÃ‘O/MES/DIA = YYYY/MM/DD
+                        // FORMATO FECHA DE MUESTRA CLIENTES -> DIA/MES/AÃ‘O = DD/MM/YYYY
                         $DiaLaboral = $DiaAsignado->format('N');
                         // RECALCULAR SI ES DOMINGO
                         if ($DiaLaboral == '7') {
@@ -2867,7 +2867,7 @@ switch ($peticion_url) {
                                 ********************************************************************************
                             RECALCULAR FECHAS DE PAGOS SI LA SOLICITUD FUE INGRESADA EN LOS DIAS: [29, 30 Y 31 DE CUALQUIER MES]
 
-                            -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÑO ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO.
+                            -> MOTIVO: PARA EVITAR CALCULOS ERRONEOS DE FECHAS EN EL MES DE FEBRERO PRINCIPALMENTE, CUANDO EL AÃ‘O ES BISIESTO O SIMPLEMENTE EL INGRESO DE LA SOLICITUD EXCEDE LOS 28 DIAS DEL << X >> MES DE INGRESO Y REGISTRO.
 
                             -> PARA ESTE CONDICION NO SE EXCLUYEN LOS SABADOS Y DOMINGOS, MOTIVOS POR EL CUAL EL TRATAMIENTO A ESTOS CLIENTES ES DIFERENTE Y SU FECHA DE PAGO DEBE SER ANTES DE LA FECHA INDICADA SI EL DIA DE PAGO ASIGNADO ES SABADO O DOMINGO
                             ********************************************************************************
@@ -3021,7 +3021,7 @@ switch ($peticion_url) {
             $IdUsuarios = (empty($_POST['idusuariocredito'])) ? NULL : $_POST['idusuariocredito']; // ID UNICO DE CLIENTE QUE HA SOLICITADO CREDITO
             $Placa = (empty($_POST['val-numeroplacavehiculo'])) ? NULL : $_POST['val-numeroplacavehiculo']; // NUMERO DE PLACA VEHICULO
             $Clase = (empty($_POST['val-tipoclasevehiculo'])) ? NULL : $_POST['val-tipoclasevehiculo']; // CLASE DE VEHICULO
-            $Anio = (empty($_POST['val-aniovehiculo'])) ? NULL : $_POST['val-aniovehiculo']; // AÑO DE FABRICACION DE VEHICULO
+            $Anio = (empty($_POST['val-aniovehiculo'])) ? NULL : $_POST['val-aniovehiculo']; // AÃ‘O DE FABRICACION DE VEHICULO
             $Capacidad = (empty($_POST['val-capacidadvehiculo'])) ? NULL : $_POST['val-capacidadvehiculo']; // NUMERO DE CAPACIDAD DE VEHICULO
             $Asientos = (empty($_POST['val-asientosvehiculo'])) ? NULL : $_POST['val-asientosvehiculo']; // NUMERO DE ASIENTOS DE VEHICULOI
             $Marca = (empty($_POST['val-marcavehiculo'])) ? NULL : $_POST['val-marcavehiculo']; // MARCA DE VEHICULO
@@ -3222,7 +3222,7 @@ switch ($peticion_url) {
     // LISTADO GENERAL DE CLIENTES A LOS QUE LES HA SIDO APROBADA SU SOLICITUD CREDITICIA [UNICAMENTE CREDITOS ACTIVOS -> EN CURSO] [DISPONIBLE PARA ADMINISTRADORES, PRESIDENCIA, GERENCIA Y ATENCION AL CLIENTE]
 
     // ======================================================
-    // ALIAS ROUTES — Nuevos nombres del menú refactorizado
+    // ALIAS ROUTES Â— Nuevos nombres del menÃº refactorizado
     // ======================================================
     case "listado_clientes":
         // Alias: "Creditos Pagados" -> redirige al listado general de creditos activos
@@ -3437,7 +3437,7 @@ switch ($peticion_url) {
             $IdUsuarioSistema = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             // CONSULTA GENERAL DATOS CREDITICIOS CLIENTES [TODO EL CONJUNTO DE DATOS DE CREDITOS]
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             $consulta1 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema1, $IdUsuarios);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta2 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema3, $IdUsuarioSistema);
@@ -3463,7 +3463,7 @@ switch ($peticion_url) {
             $IdUsuarioSistema = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             // CONSULTA GENERAL DATOS CREDITICIOS CLIENTES [TODO EL CONJUNTO DE DATOS DE CREDITOS]
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesHistorico($conectarsistema, $IdUsuarios, $IdCreditos);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             $consulta1 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosCanceladosHistoricos($conectarsistema1, $IdUsuarios, $IdCreditos);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta2 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema3, $IdUsuarioSistema);
@@ -3489,7 +3489,7 @@ switch ($peticion_url) {
             $IdUsuarioSistema = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             // CONSULTA GENERAL DATOS CREDITICIOS CLIENTES [TODO EL CONJUNTO DE DATOS DE CREDITOS]
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesHistorico($conectarsistema, $IdUsuarios, $IdCreditos);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             $consulta1 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosCanceladosHistoricos($conectarsistema1, $IdUsuarios, $IdCreditos);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta2 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema3, $IdUsuarioSistema);
@@ -3514,7 +3514,7 @@ switch ($peticion_url) {
             $IdUsuarioSistema = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             // CONSULTA GENERAL DATOS CREDITICIOS CLIENTES [TODO EL CONJUNTO DE DATOS DE CREDITOS]
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             $consulta1 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema1, $IdUsuarios);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta2 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema3, $IdUsuarioSistema);
@@ -3539,7 +3539,7 @@ switch ($peticion_url) {
             $IdUsuarioSistema = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             // CONSULTA GENERAL DATOS CREDITICIOS CLIENTES [TODO EL CONJUNTO DE DATOS DE CREDITOS]
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             $consulta1 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema1, $IdUsuarios);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta2 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema3, $IdUsuarioSistema);
@@ -3564,7 +3564,7 @@ switch ($peticion_url) {
             $IdUsuarioSistema = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             // CONSULTA GENERAL DATOS CREDITICIOS CLIENTES [TODO EL CONJUNTO DE DATOS DE CREDITOS]
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             $consulta1 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema1, $IdUsuarios);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta2 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema3, $IdUsuarioSistema);
@@ -3800,7 +3800,7 @@ switch ($peticion_url) {
         } // CIERRE if($_SESSION['id_rol'] >=1 && $_SESSION['id_rol'] <=5)
         break;
     // CONSULTA COMPLETA DE TODOS LOS REPORTES DE FALLOS REGISTRADOS POR LOS USUARIOS -> VALIDO EXCLUSIVAMENTE PARA USUARIOS ADMINISTRADORES Y PRESIDENCIA [SOLAMENTE CONSULTAS SIN LA POSIBILIDAD DE GESTIONAR DICHOS REPORTES]
-    /* DEPRECATED — eliminado del menú: Listado Reportes Problemas
+    /* DEPRECATED Â— eliminado del menÃº: Listado Reportes Problemas
         // VISTA VALIDA PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
@@ -3883,7 +3883,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if($_SESSION['id_rol'] == 1)
         break;
-    // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃgil -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
+    // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃƒÂgil -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
     case "sistema-pagos-creditos-CrediAgil-clientes":
         // VISTA VALIDA PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
@@ -3891,7 +3891,7 @@ switch ($peticion_url) {
             $IdUsuarioSistema = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             // CONSULTA GENERAL DATOS CREDITICIOS CLIENTES [TODO EL CONJUNTO DE DATOS DE CREDITOS]
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             $consulta1 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema1, $IdUsuarios);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta2 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema3, $IdUsuarioSistema);
@@ -3908,7 +3908,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if($_SESSION['id_rol'] == 1)
         break;
-    // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃgil -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
+    // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃƒÂgil -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
     case "sistema-pagos-creditos-CrediAgil-clientes-atencion-al-cliente":
         // VISTA VALIDA PARA ATENCION AL CLIENTE
         if ($_SESSION['id_rol'] == 4) {
@@ -3916,7 +3916,7 @@ switch ($peticion_url) {
             $IdUsuarioSistema = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             // CONSULTA GENERAL DATOS CREDITICIOS CLIENTES [TODO EL CONJUNTO DE DATOS DE CREDITOS]
             $consulta = $Gestiones->ConsultaDatosSolicitudesCreditosClientesAprobados($conectarsistema, $IdUsuarios);
-            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃgil
+            // CONSULTA GENERAL DE CUOTAS GENERADAS SEGUN PRODUCTO ASOCIADO CLIENTES CrediÃƒÂgil
             $consulta1 = $Gestiones->ConsultaCompletaCuotasGeneradas_CreditosActivos($conectarsistema1, $IdUsuarios);
             // LISTADO RECORTADO DE NOTIFICACIONES -> BARRA DE HERRAMIENTAS PLATAFORMA
             $consulta2 = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema3, $IdUsuarioSistema);
@@ -3933,8 +3933,8 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if($_SESSION['id_rol'] == 4)
         break;
-    // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃgil [ESPECIFICAMENTE ORDENES DE PAGO SEGUN LA CUOTA A CANCELAR {ID DE CUOTA GENERADA EN SISTEMA}] -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
-    /* DEPRECATED  eliminado del menú: Cobro Orden de Pago
+    // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃƒÂgil [ESPECIFICAMENTE ORDENES DE PAGO SEGUN LA CUOTA A CANCELAR {ID DE CUOTA GENERADA EN SISTEMA}] -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
+    /* DEPRECATED  eliminado del menÃº: Cobro Orden de Pago
         // VISTA VALIDA PARA ADMINISTRADORES
         if ($_SESSION['id_rol'] == 1) {
             $IdCuotas = (empty($_GET['idcuota'])) ? NULL : $_GET['idcuota']; // ID CUOTA UNICO ASOCIADO A CLIENTE -> PRODUCTO -> CREDITO
@@ -3956,7 +3956,7 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if($_SESSION['id_rol'] == 1)
         break;  */ /* DEPRECATED END */
-    // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃgil [ESPECIFICAMENTE ORDENES DE PAGO SEGUN LA CUOTA A CANCELAR {ID DE CUOTA GENERADA EN SISTEMA}] -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
+    // PAGINA DE SISTEMA DE PAGOS CUOTAS CREDITOS CLIENTES CrediÃƒÂgil [ESPECIFICAMENTE ORDENES DE PAGO SEGUN LA CUOTA A CANCELAR {ID DE CUOTA GENERADA EN SISTEMA}] -> DISPONIBLE PARA LOS USUARIOS ADMINISTRATIVOS -> [ADMINISTRADORES Y ATENCION AL CLIENTE]
     case "orden-pago-creditos-CrediAgil-clientes-atencion-al-cliente":
         // VISTA VALIDA PARA ATENCION AL CLIENTE
         if ($_SESSION['id_rol'] == 4) {
@@ -4406,8 +4406,8 @@ switch ($peticion_url) {
         if ($_SESSION['id_rol'] >= 1 && $_SESSION['id_rol'] <= 5) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             $CodigoUnicoUsuario = (empty($_POST['val-usuariounico'])) ? NULL : $_POST['val-usuariounico']; // CODIGO DE USUARIO UNICO
-            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-password'])); // CONTRASEÑA INGRESADA POR USUARIOS
-            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-password']), $cifrado); // ENCRIPTAR CONTRASEÑA INGRESADA
+            $cifrado = sha1($conectarsistema->real_escape_string($_POST['val-password'])); // CONTRASEÃ‘A INGRESADA POR USUARIOS
+            $ContraseniaUsuarios = crypt($conectarsistema->real_escape_string($_POST['val-password']), $cifrado); // ENCRIPTAR CONTRASEÃ‘A INGRESADA
             $ComprobadorNuevoUsuario = "no"; // AL REALIZAR LA ANTERIOR PETICION, AUTOMATICAMENTE LOS USUARIOS DEJAN DE SER NUEVOS USUARIOS [ENTIENDASE PARA CAMBIO DE CAMPOS PREVIAMENTE EXPLICADOS A LOS MISMOS]
             // -> EVITAR INGRESO VACIO [ACCIDENTAL O CON INTENCION]
             if (empty($CodigoUnicoUsuario)) {
@@ -4441,7 +4441,7 @@ switch ($peticion_url) {
         break;
     // PAGINA DE BIENVENIDA NUEVOS CLIENTES, A QUIENES SU SOLICITUD CREDITICIA AUN NO HA SIDO APROBADA
     case "bienvenida-clientes":
-        // VISTA EXCLUSIVA UNICAMENTE PARA CLIENTES CrediÃgil
+        // VISTA EXCLUSIVA UNICAMENTE PARA CLIENTES CrediÃƒÂgil
         if ($_SESSION['id_rol'] == 5) {
             $IdUsuarios = $_SESSION['id_usuario']; // ID UNICO DE USUARIO REGISTRADO
             $consulta = $Gestiones->ConsultarEstadoSolicitudCrediticia_PortalNuevosClientes($conectarsistema, $IdUsuarios);

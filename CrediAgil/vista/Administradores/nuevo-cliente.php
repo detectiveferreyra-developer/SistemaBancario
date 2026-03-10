@@ -332,145 +332,184 @@ Nav header end
 
                                         <!-- Campos para Persona Natural -->
                                         <div id="campos_persona_natural" style="display: none;">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Nombre Completo</label>
-                                                        <input type="text" class="form-control" id="nombre_completo"
-                                                            name="nombre_completo"
-                                                            placeholder="Ej: Juan Carlos Perez Lopez">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="required-field">DNI / DUI</label>
-                                                        <input type="text" class="form-control" id="dni" name="dni"
-                                                            placeholder="Ej: 12345678-9" maxlength="10">
-                                                        <small class="form-text text-muted">Formato: 12345678-9</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Datos del Conyuge (Opcionales) -->
+                                            <!-- SECCION: DATOS DEL CLIENTE -->
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">
-                                                        Datos del Conyuge <small class="text-muted">(Opcional - dejar vacio
-                                                            si no aplica)</small>
+                                                    <h6 class="mt-2 mb-3" style="color: #FF6B35; font-weight: 700; border-bottom: 2px solid #eee; padding-bottom: 5px;">
+                                                        <i class="fa fa-user mr-2"></i> Datos del Cliente
                                                     </h6>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Nombre del Conyuge</label>
-                                                        <input type="text" class="form-control" id="nombre_conyuge"
-                                                            name="nombre_conyuge"
-                                                            placeholder="Ej: Maria Elena Garcia Rodriguez">
+                                                        <label class="required-field">Nombre Completo</label>
+                                                        <input type="text" class="form-control" id="nombre_completo" name="nombre_completo" placeholder="Ej: Juan Carlos Perez Lopez">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="required-field">DNI / DUI</label>
+                                                        <input type="text" class="form-control" id="dni" name="dni" placeholder="Ej: 12345678-9" maxlength="10">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="required-field">Estado Civil</label>
+                                                        <select class="form-control" id="estado_civil" name="estado_civil">
+                                                            <option value="">Seleccione...</option>
+                                                            <option value="SOLTERO(A)">Soltero(a)</option>
+                                                            <option value="CASADO(A)">Casado(a)</option>
+                                                            <option value="VIUDO(A)">Viudo(a)</option>
+                                                            <option value="DIVORCIADO(A)">Divorciado(a)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Nacionalidad</label>
+                                                        <input type="text" class="form-control" id="nacionalidad_cliente" name="nacionalidad_cliente" placeholder="Ej: Salvadoreña" value="SALVADOREÑA">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Profesión / Oficio</label>
+                                                        <input type="text" class="form-control" id="profesion_cliente" name="profesion_cliente" placeholder="Ej: Ingeniero, Comerciante">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Sub-Seccion: Domicilio del Cliente -->
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <h6 style="color: #6c757d; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Domicilio</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label class="required-field">Dirección / Calle / Pasaje</label>
+                                                        <input type="text" class="form-control" id="direccion_cliente" name="direccion_cliente" placeholder="Ej: Av. Los Pinos 123">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Urbanización / Colonia</label>
+                                                        <input type="text" class="form-control" id="distrito_cliente" name="distrito_cliente" placeholder="Ej: Urb. Las Flores">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Municipio / Distrito</label>
+                                                        <input type="text" class="form-control" id="provincia_cliente" name="provincia_cliente" placeholder="Ej: San Salvador">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Departamento</label>
+                                                        <input type="text" class="form-control" id="departamento_cliente" name="departamento_cliente" placeholder="Ej: San Salvador">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Manzana</label>
+                                                        <input type="text" class="form-control" id="domicilio_manzana" name="domicilio_manzana" placeholder="Ej: A">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Lote</label>
+                                                        <input type="text" class="form-control" id="domicilio_lote" name="domicilio_lote" placeholder="Ej: 5">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Sub-Seccion: Contacto del Cliente -->
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <h6 style="color: #6c757d; font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Contacto</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Teléfono Fijo</label>
+                                                        <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" placeholder="Ej: 01-5551234">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="required-field">Celular / WhatsApp</label>
+                                                        <input type="text" class="form-control" id="celular_cliente" name="celular_cliente" placeholder="Ej: 999 277 396">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Correo Electrónico</label>
+                                                        <input type="email" class="form-control" id="email_cliente" name="email_cliente" placeholder="Ej: cliente@correo.com">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- SECCION: DATOS DEL CONYUGE -->
+                                            <div class="row mt-4">
+                                                <div class="col-12">
+                                                    <h6 class="mb-3" style="color: #FF6B35; font-weight: 700; border-bottom: 2px solid #eee; padding-bottom: 5px;">
+                                                        <i class="fa fa-heart mr-2"></i> Datos del Cónyuge <small class="text-muted">(Opcional)</small>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Nombre del Cónyuge</label>
+                                                        <input type="text" class="form-control" id="nombre_conyuge" name="nombre_conyuge" placeholder="Ej: Maria Elena Garcia Rodriguez">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>DNI del Conyuge</label>
-                                                        <input type="text" class="form-control" id="dni_conyuge"
-                                                            name="dni_conyuge" placeholder="Ej: 98765432-1" maxlength="10">
-                                                        <small class="form-text text-muted">Formato: 98765432-1</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Domicilio del Cliente -->
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">
-                                                        Domicilio del Cliente</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label class="required-field">Direccion Completa</label>
-                                                        <input type="text" class="form-control" id="domicilio_calle"
-                                                            name="domicilio_calle"
-                                                            placeholder="Ej: Av. Los Pinos 123, Urb. Las Flores">
+                                                        <label>DNI del Cónyuge</label>
+                                                        <input type="text" class="form-control" id="dni_conyuge" name="dni_conyuge" placeholder="Ej: 98765432-1">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Nacionalidad Cónyuge</label>
+                                                        <input type="text" class="form-control" id="nacionalidad_conyuge" name="nacionalidad_conyuge" placeholder="Ej: Salvadoreña">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Profesión Cónyuge</label>
+                                                        <input type="text" class="form-control" id="profesion_conyuge" name="profesion_conyuge" placeholder="Ej: Profesora">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Contacto del Cónyuge integrado -->
+                                            <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Urbanizacion</label>
-                                                        <input type="text" class="form-control" id="domicilio_urbanizacion"
-                                                            name="domicilio_urbanizacion" placeholder="Ej: Las Flores">
+                                                        <label>Teléfono Cónyuge</label>
+                                                        <input type="text" class="form-control" id="telefono_conyuge" name="telefono_conyuge" placeholder="Ej: 2222-1111">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Manzana</label>
-                                                        <input type="text" class="form-control" id="domicilio_manzana"
-                                                            name="domicilio_manzana" placeholder="Ej: A">
+                                                        <label>Celular Cónyuge</label>
+                                                        <input type="text" class="form-control" id="celular_conyuge" name="celular_conyuge" placeholder="Ej: 7777-8888">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Lote</label>
-                                                        <input type="text" class="form-control" id="domicilio_lote"
-                                                            name="domicilio_lote" placeholder="Ej: 5">
+                                                        <label>Correo electrónico Cónyuge</label>
+                                                        <input type="email" class="form-control" id="email_conyuge" name="email_conyuge" placeholder="Ej: conyuge@correo.com">
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Contacto del Cliente -->
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">Contacto del Cliente</h6>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Teléfono Fijo</label>
-                                                    <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" placeholder="Ej: 01-5551234">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="required-field">Celular / WhatsApp</label>
-                                                    <input type="text" class="form-control" id="celular_cliente" name="celular_cliente" placeholder="Ej: 999 277 396">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Correo Electrónico</label>
-                                                    <input type="email" class="form-control" id="email_cliente" name="email_cliente" placeholder="Ej: cliente@correo.com">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Contacto del Cónyuge -->
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h6 class="mt-3 mb-3" style="color: #6c757d; font-weight: 600;">Contacto del Cónyuge</h6>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Teléfono Fijo del Cónyuge</label>
-                                                    <input type="text" class="form-control" id="telefono_conyuge" name="telefono_conyuge" placeholder="Ej: 01-5551234">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Celular / WhatsApp del Cónyuge</label>
-                                                    <input type="text" class="form-control" id="celular_conyuge" name="celular_conyuge" placeholder="Ej: 999 277 396">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Correo Electrónico del Cónyuge</label>
-                                                    <input type="email" class="form-control" id="email_conyuge" name="email_conyuge" placeholder="Ej: conyuge@correo.com">
                                                 </div>
                                             </div>
                                         </div>
@@ -479,18 +518,23 @@ Nav header end
                                         <!-- Campos para Empresa -->
                                         <div id="campos_empresa" style="display: none;">
                                             <div class="row">
+                                                <div class="col-12">
+                                                    <h6 class="mt-2 mb-3" style="color: #FF6B35; font-weight: 700; border-bottom: 2px solid #eee; padding-bottom: 5px;">
+                                                        <i class="fa fa-building mr-2"></i> Datos de la Empresa
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="required-field">Razon Social</label>
-                                                        <input type="text" class="form-control" id="razon_social"
-                                                            name="razon_social" placeholder="Ej: Inversiones ABC E.I.R.L.">
+                                                        <input type="text" class="form-control" id="razon_social" name="razon_social" placeholder="Ej: Inversiones ABC E.I.R.L.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="required-field">RUC</label>
-                                                        <input type="text" class="form-control" id="ruc" name="ruc"
-                                                            placeholder="Ej: 20601767920" maxlength="11">
+                                                        <input type="text" class="form-control" id="ruc" name="ruc" placeholder="Ej: 20601767920" maxlength="11">
                                                     </div>
                                                 </div>
                                             </div>
@@ -498,41 +542,64 @@ Nav header end
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="required-field">Domicilio Fiscal</label>
-                                                        <input type="text" class="form-control" id="domicilio_fiscal"
-                                                            name="domicilio_fiscal"
-                                                            placeholder="Ej: Jr. Las Alenas 200, Lima">
+                                                        <input type="text" class="form-control" id="domicilio_fiscal" name="domicilio_fiscal" placeholder="Ej: Jr. Las Alenas 200, Lima">
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Sub-Seccion: Domicilio de la Empresa -->
                                             <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Distrito</label>
+                                                        <input type="text" class="form-control" id="distrito_rep_legal" name="distrito_rep_legal" placeholder="Ej: San Salvador">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Provincia</label>
+                                                        <input type="text" class="form-control" id="provincia_rep_legal" name="provincia_rep_legal" placeholder="Ej: San Salvador">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Departamento</label>
+                                                        <input type="text" class="form-control" id="departamento_rep_legal" name="departamento_rep_legal" placeholder="Ej: San Salvador">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4">
                                                 <div class="col-12">
-                                                    <h6 class="mt-3 mb-2" style="color:#6c757d;font-weight:600;">
-                                                        Representante Legal</h6>
+                                                    <h6 class="mb-3" style="color:#FF6B35; font-weight:700; border-bottom: 2px solid #eee; padding-bottom: 5px;">
+                                                        <i class="fa fa-id-card mr-2"></i> Representante Legal
+                                                    </h6>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="required-field">Nombre del Representante Legal</label>
-                                                        <input type="text" class="form-control" id="representante_legal"
-                                                            name="representante_legal" placeholder="Ej: Carlos Martinez">
+                                                        <input type="text" class="form-control" id="representante_legal" name="representante_legal" placeholder="Ej: Carlos Martinez">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="required-field">DNI del Representante</label>
-                                                        <input type="text" class="form-control" id="dni_representante"
-                                                            name="dni_representante" placeholder="Ej: 12345678"
-                                                            maxlength="8">
+                                                        <input type="text" class="form-control" id="dni_representante" name="dni_representante" placeholder="Ej: 12345678" maxlength="8">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-12">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="required-field">Partida Electronica N#</label>
-                                                        <input type="text" class="form-control" id="partida_electronica"
-                                                            name="partida_electronica" placeholder="Ej: 13782080">
+                                                        <input type="text" class="form-control" id="partida_electronica" name="partida_electronica" placeholder="Ej: 13782080">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Dirección del Representante</label>
+                                                        <input type="text" class="form-control" id="direccion_rep_legal" name="direccion_rep_legal" placeholder="Ej: Av. Las Roses 444">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1047,17 +1114,17 @@ Nav header end
 
                 $('#tipo_personeria').change(function () {
                     const tipo = $(this).val();
-                    if (tipo === 'natural') {
-                        $('#campos_persona_natural').slideDown();
-                        $('#campos_empresa').slideUp();
-                        $('#nombre_completo, #dni, #domicilio_calle').attr('required', true);
-                        $('#razon_social, #ruc, #representante_legal, #dni_representante, #partida_electronica, #domicilio_fiscal').attr('required', false);
-                    } else if (tipo === 'empresa') {
-                        $('#campos_persona_natural').slideUp();
-                        $('#campos_empresa').slideDown();
-                        $('#razon_social, #ruc, #representante_legal, #dni_representante, #partida_electronica, #domicilio_fiscal').attr('required', true);
-                        $('#nombre_completo, #dni, #domicilio_calle').attr('required', false);
-                    } else {
+                        if (tipo === 'natural') {
+                            $('#campos_persona_natural').slideDown();
+                            $('#campos_empresa').slideUp();
+                            $('#nombre_completo, #dni, #direccion_cliente, #celular_cliente').attr('required', true);
+                            $('#razon_social, #ruc, #representante_legal, #dni_representante, #partida_electronica, #domicilio_fiscal').attr('required', false);
+                        } else if (tipo === 'empresa') {
+                            $('#campos_persona_natural').slideUp();
+                            $('#campos_empresa').slideDown();
+                            $('#razon_social, #ruc, #representante_legal, #dni_representante, #partida_electronica, #domicilio_fiscal').attr('required', true);
+                            $('#nombre_completo, #dni, #direccion_cliente, #celular_cliente').attr('required', false);
+                        } else {
                         $('#campos_persona_natural, #campos_empresa').slideUp();
                     }
                 });

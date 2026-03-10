@@ -145,15 +145,15 @@ $nombre_display = ($tipo_personeria === 'empresa')
 
 // Dirección del cliente
 $direccion_cliente = ($tipo_personeria === 'empresa')
-    ? $up('domicilio_fiscal')
-    : implode(', ', array_filter([$raw('domicilio_calle'), $raw('domicilio_urbanizacion')]));
+    ? $up('domicilio_fiscal', '')
+    : implode(', ', array_filter([$up('direccion_cliente', ''), $up('distrito_cliente', '')]));
 
-$distrito_cliente = ($tipo_personeria === 'empresa') ? $up('distrito_rep_legal') : $up('domicilio_distrito');
-$provincia_cliente = ($tipo_personeria === 'empresa') ? $up('provincia_rep_legal') : $up('domicilio_provincia');
-$departamento_cliente = ($tipo_personeria === 'empresa') ? $up('departamento_rep_legal') : $up('domicilio_departamento');
+$distrito_cliente = ($tipo_personeria === 'empresa') ? $up('distrito_rep_legal', '') : $up('distrito_cliente', '');
+$provincia_cliente = ($tipo_personeria === 'empresa') ? $up('provincia_rep_legal', '') : $up('provincia_cliente', '');
+$departamento_cliente = ($tipo_personeria === 'empresa') ? $up('departamento_rep_legal', '') : $up('departamento_cliente', '');
 
 // DNI del cliente
-$dni_cliente = ($tipo_personeria === 'empresa') ? $raw('ruc') : $raw('dni');
+$dni_cliente = ($tipo_personeria === 'empresa') ? $raw('ruc', '') : $raw('dni', '');
 
 // Descripcion de la prenda
 $descripcion_prenda = '';
@@ -219,6 +219,8 @@ $reemplazos_dj = [
     'CHECK_MENAJE'            => $check_menaje,
     'CHECK_EQUIPOS'           => $check_equipos,
     'DESCRIPCION_PRENDA'      => $descripcion_prenda,
+    'NACIONALIDAD_CLIENTE'    => $up('nacionalidad_cliente', ''),
+    'PROFESION_CLIENTE'       => $up('profesion_cliente', ''),
     'FECHA_CONTRATO_LETRAS'   => strtoupper($fecha_contrato_letras),
 ];
 

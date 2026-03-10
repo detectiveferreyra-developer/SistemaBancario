@@ -279,17 +279,15 @@ $replacements = [
     'DNI_APODERADO_CA' => $dni_apoderado,
 
     // ── Persona Natural ───────────────────────────────────────────────────
-    'NOMBRE_CLIENTE' => $up('nombre_completo'),
-    'DNI_CLIENTE' => $raw('dni'),
-    'DIRECCION_CLIENTE' => $up('direccion_cliente'),
-    'DISTRITO_CLIENTE' => $up('distrito_cliente'),
-    'PROVINCIA_CLIENTE' => $up('provincia_cliente'),
-    'DEPARTAMENTO_CLIENTE' => $up('departamento_cliente'),
+    'NOMBRE_CLIENTE'        => $up('nombre_completo', ''),
+    'DNI_CLIENTE'           => $raw('dni', ''),
     'DIRECCION_CLIENTE'     => $domicilio_completo,
     'DOMICILIO_CLIENTE'     => $domicilio_completo,
     'TELEFONO_CLIENTE'      => $telefono_cliente,
     'CELULAR_CLIENTE'       => $celular_cliente,
     'EMAIL_CLIENTE'         => $email_cliente,
+    'NACIONALIDAD_CLIENTE'  => $up('nacionalidad_cliente', ''),
+    'PROFESION_CLIENTE'     => $up('profesion_cliente', ''),
 
     // Cónyuge del cliente (persona natural)
     'NOMBRE_CONYUGE' => $nombre_conyuge,

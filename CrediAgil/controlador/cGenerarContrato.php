@@ -281,10 +281,14 @@ $replacements = [
     // ── Persona Natural ───────────────────────────────────────────────────
     'NOMBRE_CLIENTE'        => $up('nombre_completo', ''),
     'DNI_CLIENTE'           => $raw('dni', ''),
-    'DIRECCION_CLIENTE'     => $domicilio_completo,
-    'DOMICILIO_CLIENTE'     => $domicilio_completo,
+    'DIRECCION_CLIENTE'     => $up('direccion_cliente', ''),
+    'DISTRITO_CLIENTE'      => $up('distrito_cliente', ''),
+    'PROVINCIA_CLIENTE'     => $up('provincia_cliente', ''),
+    'DEPARTAMENTO_CLIENTE'  => $up('departamento_cliente', ''),
+    'DOMICILIO_CLIENTE'     => $domicilio_completo, // Mantener por si acaso otros templates lo usan
     'TELEFONO_CLIENTE'      => $telefono_cliente,
     'CELULAR_CLIENTE'       => $celular_cliente,
+    'TEL_CLIENTE'           => $celular_cliente, // Alias para el fragmento enviado por el usuario
     'EMAIL_CLIENTE'         => $email_cliente,
     'NACIONALIDAD_CLIENTE'  => $up('nacionalidad_cliente', ''),
     'PROFESION_CLIENTE'     => $up('profesion_cliente', ''),
@@ -301,6 +305,7 @@ $replacements = [
     'NACIONALIDAD_CONYUGE'  => $nacionalidad_conyuge,
     'TELEFONO_CONYUGE'      => $telefono_conyuge,
     'CELULAR_CONYUGE'       => $celular_conyuge,
+    'TEL_CONYUGE'           => $celular_conyuge, // Alias para el fragmento enviado por el usuario
     'EMAIL_CONYUGE'         => $email_conyuge,
 
     // ── Empresa ───────────────────────────────────────────────────────────

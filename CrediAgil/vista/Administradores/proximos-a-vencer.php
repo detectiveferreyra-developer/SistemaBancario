@@ -138,6 +138,52 @@ Nav header end
 			<div class="content-body">
 				<div class="container-fluid">
 					
+					<!-- CUSTOM SEARCH BAR - PROMPT MAESTRO -->
+					<div class="row mb-4 justify-content-center">
+						<div class="col-xl-10 col-lg-10 col-md-12">
+							<div class="input-group search-area d-lg-inline-flex d-none"
+								style="width: 100%; max-width: 800px; margin: 0 auto; display: flex !important; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+								<input type="text" id="customSearch" class="form-control"
+									placeholder="Buscar cliente por DNI o Nombre..."
+									style="height: 60px; font-size: 1.1rem; border: 1px solid var(--crediagil-blue); background: #fff; color: #333; border-radius: 10px;">
+								<div class="input-group-append">
+									<span class="input-group-text"
+										style="background: var(--crediagil-orange); border-color: var(--crediagil-orange); border-top-right-radius: 10px; border-bottom-right-radius: 10px; cursor: pointer;">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+												stroke="white" stroke-width="2" stroke-linecap="round"
+												stroke-linejoin="round" />
+										</svg>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<style>
+						/* HIDE DEFAULT DATATABLE FILTER */
+						.dataTables_filter {
+							display: none !important;
+						}
+					</style>
+
+					<script>
+						// BIND CUSTOM SEARCH TO DATATABLE
+						document.addEventListener("DOMContentLoaded", function () {
+							var interval = setInterval(function () {
+								if (window.jQuery && $.fn.DataTable && $('#example5').DataTable) {
+									clearInterval(interval);
+									var table = $('#example5').DataTable();
+									$('#customSearch').on('keyup', function () {
+										table.search(this.value).draw();
+									});
+								}
+							}, 500);
+						});
+					</script>
+
 					<div class="row">
 						<div class="card-body">
 							<!-- Nav tabs -->
@@ -162,39 +208,43 @@ Nav header end
 											<table style="width: 100%;" id="example5" class="display min-w850">
 												<thead>
 													<tr>
-														<th>Id Cuota</th>
-														<th>Producto</th>
 														<th>Cliente</th>
-														<th>Dui</th>
+														<th>DNI</th>
 														<th>Cuota</th>
+														<th>Teléfono</th>
+														<th>Fecha Vence Contrato</th>
+														<th>Veces Préstamo</th>
 														<th>D&iacute;a(s) Restantes</th>
 														<th></th>
 													</tr>
 												</thead>
 												<tbody>
 													<?php
-													while ($filas = mysqli_fetch_array($consulta)) {
+													while ($filas = mysqli_fetch_array($consultaLista)) {
+                                                        $telf = !empty($filas['celular']) ? $filas['celular'] : $filas['telefono'];
+                                                        $fechaVenc = date("d/m/Y", strtotime($filas['fecha_vencimiento']));
 														echo ' 
 													<tr>
-                                                    <td><span class="badge badge-rounded badge-primary">';
-														echo $filas['idcuotas'];
-														echo '</span></td>
-                                                    <td>';
-														echo $filas['nombreproducto'];
-														echo '</td>
 													<td>';
-														echo $filas['nombres'];
-														echo ' ';
-														echo $filas['apellidos'];
+														echo htmlspecialchars($filas['nombres'] . ' ' . $filas['apellidos']);
 														echo '</td>
                                                     <td><span class="badge badge-rounded badge-info">';
-														echo $filas['dui'];
+														echo htmlspecialchars($filas['dni']);
 														echo '</span></td>
 													<td><span class="badge badge-rounded badge-light"> $';
-														echo number_format($filas['montocancelar'], 2);
+														echo number_format($filas['saldocredito'], 2);
 														echo ' USD</span></td>
-													<td><a href="javascript:void()" class="badge badge-rounded badge-danger">';
-														echo $filas['dias_restantes'];
+                                                    <td>';
+														echo htmlspecialchars($telf);
+														echo '</td>
+                                                    <td><span class="text-primary font-w600">';
+														echo htmlspecialchars($fechaVenc);
+														echo '</span></td>
+                                                    <td><span class="badge badge-rounded badge-dark">';
+														echo htmlspecialchars($filas['veces_prestamo']);
+														echo '</span></td>
+													<td><a href="javascript:void()" class="badge badge-rounded ' . ($filas['dias_restantes'] <= 5 ? 'badge-danger' : 'badge-warning') . '">';
+														echo htmlspecialchars($filas['dias_restantes']);
 														echo ' d&iacute;a(s)</a></td>
 													<td>
 													<div class="dropdown ml-auto text-right">

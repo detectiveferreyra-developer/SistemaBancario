@@ -58,6 +58,20 @@ if ($_SESSION['id_rol'] == 1) {
                     </a>
                 </li>
 
+                <!-- PRÓXIMOS A VENCER -->
+                <li class="<?php echo ca_sidebar_active('proximos_vencer', $gestion_actual, $nav_items); ?>">
+                    <a class="ai-icon <?php echo ca_link_active('proximos_vencer', $gestion_actual, $nav_items); ?>"
+                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=proximos_vencer">
+                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-8h4v2h-6V7h2v5z" />
+                        </svg>
+                        <span class="nav-text">Próximos a Vencer</span>
+                    </a>
+                </li>
+
                 <!-- CRÉDITOS PAGADOS -->
                 <li class="<?php echo ca_sidebar_active('creditos_pagados', $gestion_actual, $nav_items); ?>">
                     <a class="ai-icon <?php echo ca_link_active('creditos_pagados', $gestion_actual, $nav_items); ?>"
@@ -82,20 +96,6 @@ if ($_SESSION['id_rol'] == 1) {
                                 d="M14 20v2H2v-2h12zM14.586.686l7.778 7.778L20.95 9.88l-1.06-.354L17.413 12l5.657 5.657-1.414 1.414L16 13.414l-2.404 2.404.283 1.132-1.415 1.414-7.778-7.778 1.415-1.414 1.13.282 6.294-6.293-.353-1.06L14.586.686z" />
                         </svg>
                         <span class="nav-text">Créditos Vencidos</span>
-                    </a>
-                </li>
-
-                <!-- PRÓXIMOS A VENCER -->
-                <li class="<?php echo ca_sidebar_active('proximos_vencer', $gestion_actual, $nav_items); ?>">
-                    <a class="ai-icon <?php echo ca_link_active('proximos_vencer', $gestion_actual, $nav_items); ?>"
-                        href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=proximos_vencer">
-                        <svg fill="LightSlateGrey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                            height="24">
-                            <path fill="none" d="M0 0h24v24H0z" />
-                            <path
-                                d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-8h4v2h-6V7h2v5z" />
-                        </svg>
-                        <span class="nav-text">Próximos a Vencer</span>
                     </a>
                 </li>
 

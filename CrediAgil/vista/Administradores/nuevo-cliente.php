@@ -36,6 +36,10 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
         <link href="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
             rel="stylesheet">
         <link href="<?php echo $UrlGlobal; ?>vista/css/style.css" rel="stylesheet">
+        <!-- Toastr -->
+        <link rel="stylesheet" href="<?php echo $UrlGlobal; ?>vista/vendor/toastr/css/toastr.min.css">
+        <!-- SweetAlert2 -->
+        <link href="<?php echo $UrlGlobal; ?>vista/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
         <!-- CrediAgil Corporate Theme -->
         <link href="<?php echo $UrlGlobal; ?>vista/css/crediagil-theme.css" rel="stylesheet">
         <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
@@ -349,7 +353,7 @@ Nav header end
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label class="required-field">DNI / DUI</label>
+                                                        <label class="required-field">DNI</label>
                                                         <input type="text" class="form-control" id="dni" name="dni" placeholder="Ej: 12345678-9" maxlength="10">
                                                     </div>
                                                 </div>
@@ -366,79 +370,32 @@ Nav header end
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Nacionalidad</label>
-                                                        <input type="text" class="form-control" id="nacionalidad_cliente" name="nacionalidad_cliente" placeholder="Ej: Salvadoreña" value="SALVADOREÑA">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Profesión / Oficio</label>
-                                                        <input type="text" class="form-control" id="profesion_cliente" name="profesion_cliente" placeholder="Ej: Ingeniero, Comerciante">
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             <!-- Sub-Seccion: Domicilio del Cliente -->
-                                            <div class="row mt-2">
-                                                <div class="col-12">
-                                                    <h6 style="color: #6c757d; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Domicilio</h6>
-                                                </div>
-                                            </div>
                                             <div class="row">
-                                                <div class="col-md-8">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="required-field">Dirección / Calle / Pasaje</label>
+                                                        <label class="required-field">Dirección</label>
                                                         <input type="text" class="form-control" id="direccion_cliente" name="direccion_cliente" placeholder="Ej: Av. Los Pinos 123">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Urbanización / Colonia</label>
-                                                        <input type="text" class="form-control" id="distrito_cliente" name="distrito_cliente" placeholder="Ej: Urb. Las Flores">
+                                                        <label class="required-field">Distrito</label>
+                                                        <input type="text" class="form-control" id="distrito_cliente" name="distrito_cliente" placeholder="Ej: Miraflores">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="required-field">Provincia</label>
+                                                        <input type="text" class="form-control" id="provincia_cliente" name="provincia_cliente" placeholder="Ej: Lima">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Municipio / Distrito</label>
-                                                        <input type="text" class="form-control" id="provincia_cliente" name="provincia_cliente" placeholder="Ej: San Salvador">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Departamento</label>
-                                                        <input type="text" class="form-control" id="departamento_cliente" name="departamento_cliente" placeholder="Ej: San Salvador">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>Manzana</label>
-                                                        <input type="text" class="form-control" id="domicilio_manzana" name="domicilio_manzana" placeholder="Ej: A">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>Lote</label>
-                                                        <input type="text" class="form-control" id="domicilio_lote" name="domicilio_lote" placeholder="Ej: 5">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Sub-Seccion: Contacto del Cliente -->
-                                            <div class="row mt-2">
-                                                <div class="col-12">
-                                                    <h6 style="color: #6c757d; font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Contacto</h6>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Teléfono Fijo</label>
-                                                        <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" placeholder="Ej: 01-5551234">
+                                                        <label class="required-field">Departamento</label>
+                                                        <input type="text" class="form-control" id="departamento_cliente" name="departamento_cliente" placeholder="Ej: Lima">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -449,17 +406,17 @@ Nav header end
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Correo Electrónico</label>
+                                                        <label class="required-field">Correo Electrónico</label>
                                                         <input type="email" class="form-control" id="email_cliente" name="email_cliente" placeholder="Ej: cliente@correo.com">
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>iv>
 
                                             <!-- SECCION: DATOS DEL CONYUGE -->
                                             <div class="row mt-4">
                                                 <div class="col-12">
                                                     <h6 class="mb-3" style="color: #FF6B35; font-weight: 700; border-bottom: 2px solid #eee; padding-bottom: 5px;">
-                                                        <i class="fa fa-heart mr-2"></i> Datos del Cónyuge <small class="text-muted">(Opcional)</small>
+                                                        <i class="fa fa-user mr-2"></i> Datos del Cónyuge <small class="text-muted">(Opcional)</small>
                                                     </h6>
                                                 </div>
                                             </div>
@@ -470,44 +427,49 @@ Nav header end
                                                         <input type="text" class="form-control" id="nombre_conyuge" name="nombre_conyuge" placeholder="Ej: Maria Elena Garcia Rodriguez">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>DNI del Cónyuge</label>
+                                                        <label>DNI</label>
                                                         <input type="text" class="form-control" id="dni_conyuge" name="dni_conyuge" placeholder="Ej: 98765432-1">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Nacionalidad Cónyuge</label>
-                                                        <input type="text" class="form-control" id="nacionalidad_conyuge" name="nacionalidad_conyuge" placeholder="Ej: Salvadoreña">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>Profesión Cónyuge</label>
-                                                        <input type="text" class="form-control" id="profesion_conyuge" name="profesion_conyuge" placeholder="Ej: Profesora">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Contacto del Cónyuge integrado -->
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Teléfono Cónyuge</label>
-                                                        <input type="text" class="form-control" id="telefono_conyuge" name="telefono_conyuge" placeholder="Ej: 2222-1111">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Celular Cónyuge</label>
+                                                        <label>Celular</label>
                                                         <input type="text" class="form-control" id="celular_conyuge" name="celular_conyuge" placeholder="Ej: 7777-8888">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>Correo electrónico Cónyuge</label>
+                                                        <label>Dirección</label>
+                                                        <input type="text" class="form-control" id="direccion_conyuge" name="direccion_conyuge" placeholder="Ej: Av. Los Pinos 123">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Distrito</label>
+                                                        <input type="text" class="form-control" id="distrito_conyuge" name="distrito_conyuge" placeholder="Ej: Miraflores">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Provincia</label>
+                                                        <input type="text" class="form-control" id="provincia_conyuge" name="provincia_conyuge" placeholder="Ej: Lima">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Departamento</label>
+                                                        <input type="text" class="form-control" id="departamento_conyuge" name="departamento_conyuge" placeholder="Ej: Lima">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Correo electrónico</label>
                                                         <input type="email" class="form-control" id="email_conyuge" name="email_conyuge" placeholder="Ej: conyuge@correo.com">
                                                     </div>
                                                 </div>
@@ -1007,7 +969,7 @@ Nav header end
                 <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
                     <div class="modal-content" style="border:none;border-radius:12px;overflow:hidden;">
                         <div class="modal-header"
-                            style="background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;border:none;padding:1.5rem 2rem;">
+                            style="background: var(--crediagil-orange, #FF8C42);color:#fff;border:none;padding:1.5rem 2rem;">
                             <div>
                                 <h5 class="modal-title" style="font-weight:700;margin:0;">Generación de Documentos Puesto en Marcha</h5>
                                 <div style="font-size:0.85rem;opacity:0.85;margin-top:4px;" id="modal_num_contrato">N&#176; &mdash;</div>
@@ -1106,6 +1068,13 @@ Nav header end
         <script src="<?php echo $UrlGlobal; ?>vista/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/js/custom.min.js"></script>
         <script src="<?php echo $UrlGlobal; ?>vista/js/deznav-init.js"></script>
+
+        <!-- Toastr -->
+        <script src="<?php echo $UrlGlobal; ?>vista/vendor/toastr/js/toastr.min.js"></script>
+        <script src="<?php echo $UrlGlobal; ?>vista/js/plugins-init/toastr-init.js"></script>
+
+        <!-- SweetAlert2 -->
+        <script src="<?php echo $UrlGlobal; ?>vista/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -1300,7 +1269,7 @@ Nav header end
 
                     // Paso 1: Generar Contrato Principal
                     $.ajax({
-                        url: '../controlador/cGenerarContrato.php',
+                        url: '<?php echo $UrlGlobal; ?>controlador/cGenerarContrato.php',
                         type: 'POST',
                         data: formData,
                         processData: false,
@@ -1329,7 +1298,7 @@ Nav header end
                                     $btn.html('<i class="fa fa-spinner fa-spin mr-2"></i> Generando Anexos...').prop('disabled', true);
                                     
                                     $.ajax({
-                                        url: '../controlador/cGenerarDocumentos.php',
+                                        url: '<?php echo $UrlGlobal; ?>controlador/cGenerarDocumentos.php',
                                         type: 'POST',
                                         data: formData,
                                         processData: false,
@@ -1416,75 +1385,102 @@ Nav header end
                 const originalHtml = $btn.html();
                 $btn.html('<i class="fa fa-spinner fa-spin mr-2"></i> Guardando Todo...').prop('disabled', true);
 
-                // Paso 1: Guardar Contrato
+                // Guardar permanentemente Cliente en DB y todos los documentos
                 $.ajax({
-                    url: '../controlador/cGuardarContrato.php',
+                    url: '<?php echo $UrlGlobal; ?>controlador/cGuardarCliente.php',
                     type: 'POST',
-                    data: {
-                        docx_filename: currentDocxFile,
-                        cliente_nombre: currentClienteNombre
-                    },
-                    success: function (res1) {
+                    data: new FormData($('#nuevo-cliente-form')[0]),
+                    processData: false,
+                    contentType: false,
+                    success: function (resClient) {
                         try {
-                            const r1 = typeof res1 === 'string' ? JSON.parse(res1) : res1;
-                            if (r1.status === 'ok') {
-                                // Paso 2: Guardar Anexos
+                            const rC = typeof resClient === 'string' ? JSON.parse(resClient) : resClient;
+                            if (rC.status === 'ok') {
+                                // Paso 1: Guardar Contrato
                                 $.ajax({
-                                    url: '../controlador/cGuardarDocumentos.php',
+                                    url: '<?php echo $UrlGlobal; ?>controlador/cGuardarContrato.php',
                                     type: 'POST',
                                     data: {
-                                        cliente_nombre:   currentClienteNombre,
-                                        dj_docx:          currentDocsResults.dj_docx          || '',
-                                        dj_pdf:           currentDocsResults.dj_pdf            || '',
-                                        pagare_docx:      currentDocsResults.pagare_docx       || '',
-                                        pagare_pdf:       currentDocsResults.pagare_pdf         || '',
-                                        cronograma_xlsx:  currentDocsResults.cronograma_xlsx   || '',
+                                        docx_filename: currentDocxFile,
+                                        cliente_nombre: currentClienteNombre
                                     },
-                                    success: function (res2) {
-                                        $btn.html(originalHtml).prop('disabled', false);
+                                    success: function (res1) {
                                         try {
-                                            const r2 = typeof res2 === 'string' ? JSON.parse(res2) : res2;
-                                            if (r2.status === 'ok') {
-                                                $('#documentosModal').modal('hide');
-                                                toastr.success('Todos los 4 documentos han sido guardados exitosamente en la carpeta del cliente.', '¡Éxito!', {
-                                                    timeOut: 4000,
-                                                    closeButton: true,
-                                                    progressBar: true,
-                                                    onHidden: function() {
-                                                        window.location.reload();
+                                            const r1 = typeof res1 === 'string' ? JSON.parse(res1) : res1;
+                                            if (r1.status === 'ok') {
+                                                // Paso 2: Guardar Anexos
+                                                $.ajax({
+                                                    url: '<?php echo $UrlGlobal; ?>controlador/cGuardarDocumentos.php',
+                                                    type: 'POST',
+                                                    data: {
+                                                        cliente_nombre:   currentClienteNombre,
+                                                        dj_docx:          currentDocsResults.dj_docx          || '',
+                                                        dj_pdf:           currentDocsResults.dj_pdf            || '',
+                                                        pagare_docx:      currentDocsResults.pagare_docx       || '',
+                                                        pagare_pdf:       currentDocsResults.pagare_pdf         || '',
+                                                        cronograma_xlsx:  currentDocsResults.cronograma_xlsx   || '',
+                                                    },
+                                                    success: function (res2) {
+                                                        $btn.html(originalHtml).prop('disabled', false);
+                                                        try {
+                                                            const r2 = typeof res2 === 'string' ? JSON.parse(res2) : res2;
+                                                            if (r2.status === 'ok') {
+                                                                $('#documentosModal').modal('hide');
+                                                                toastr.success('Cliente registrado y documentos guardados exitosamente.', '¡Éxito!', {
+                                                                    timeOut: 4000,
+                                                                    closeButton: true,
+                                                                    progressBar: true,
+                                                                    onHidden: function() {
+                                                                        window.location.reload();
+                                                                    }
+                                                                });
+                                                            } else {
+                                                                toastr.error('Cliente registrado pero error en anexos: ' + (r2.message || 'Error al guardar documentos.'), 'Error');
+                                                                setTimeout(() => window.location.reload(), 3000);
+                                                            }
+                                                        } catch (ex) {
+                                                            toastr.error('Cliente registrado. Error al procesar respuesta de anexos.', 'Error');
+                                                            setTimeout(() => window.location.reload(), 3000);
+                                                        }
+                                                    },
+                                                    error: function (xhr) {
+                                                        $btn.html(originalHtml).prop('disabled', false);
+                                                        toastr.error('Cliente registrado. Error de conexión al guardar anexos.', 'Error');
+                                                        setTimeout(() => window.location.reload(), 3000);
                                                     }
                                                 });
                                             } else {
-                                                toastr.error('Contrato guardado pero error en anexos: ' + (r2.message || 'Error al guardar documentos.'), 'Error');
-                                                setTimeout(() => window.location.reload(), 3000);
+                                                $btn.html(originalHtml).prop('disabled', false);
+                                                toastr.error('Error: ' + (r1.message || 'Error al guardar el contrato principal.'), 'Error');
                                             }
                                         } catch (ex) {
-                                            toastr.error('Contrato guardado. Error al procesar respuesta de anexos.', 'Error');
-                                            setTimeout(() => window.location.reload(), 3000);
+                                            $btn.html(originalHtml).prop('disabled', false);
+                                            toastr.error('Error al procesar la respuesta del servidor al guardar contrato.', 'Error');
                                         }
                                     },
                                     error: function (xhr) {
                                         $btn.html(originalHtml).prop('disabled', false);
-                                        toastr.error('Contrato guardado. Error de conexión al guardar anexos.', 'Error');
-                                        setTimeout(() => window.location.reload(), 3000);
+                                        toastr.error('Error de conexión al guardar contrato.', 'Error');
                                     }
                                 });
                             } else {
                                 $btn.html(originalHtml).prop('disabled', false);
-                                toastr.error('Error: ' + (r1.message || 'Error al guardar el contrato principal.'), 'Error');
+                                toastr.error('Error: ' + (rC.message || 'Error al registrar el cliente en la base de datos.'), 'Error');
                             }
                         } catch (ex) {
+                            console.error("AJAX Error parsing JSON:", ex, "Raw response:", resClient);
                             $btn.html(originalHtml).prop('disabled', false);
-                            toastr.error('Error al procesar la respuesta del servidor al guardar contrato.', 'Error');
+                            toastr.error('Error al procesar la respuesta de guardar cliente. Revisa la consola.', 'Error');
                         }
                     },
                     error: function (xhr) {
                         $btn.html(originalHtml).prop('disabled', false);
-                        toastr.error('Error de conexión al guardar contrato.', 'Error');
+                        toastr.error('Error de conexión al registrar cliente.', 'Error');
                     }
                 });
             });
         </script>
+
 
     </body>
 

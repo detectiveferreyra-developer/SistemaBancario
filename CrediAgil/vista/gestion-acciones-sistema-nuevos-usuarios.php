@@ -62,7 +62,7 @@ if ($_SESSION['comprobar_iniciosesion_primeravez'] == "si") {
                                     <div class="auth-form">
                                         <img class="logo-abbr logo-formulario" src="<?php echo $UrlGlobal; ?>images/CrediAgil.png" alt="logo-simple">
                                         <h4 class="text-center mb-4">Gesti&oacute;n Nuevos Usuarios</h4>
-                                        <form id="gestion-nuevos-usuarios" class="form-valide" method="POST" action="<?php echo $UrlGlobal; ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=recuperar-cuentas">
+                                        <form id="gestion-nuevos-usuarios" class="form-valide" method="POST" action="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=envio-datos-gestiones-nuevos-usuarios-registrados">
                                             <div class="form-group">
                                                 <label><strong>C&oacute;digo Usuario &Uacute;nico:</strong></label>
                                                 <div class="input-group">

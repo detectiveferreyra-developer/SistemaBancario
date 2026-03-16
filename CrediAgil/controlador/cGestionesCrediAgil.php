@@ -111,6 +111,19 @@ switch ($peticion_url) {
             header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
         } // CIERRE if ($_SESSION['id_rol'] == 1)
         break;
+    // NUEVO MÓDULO: PRÓXIMOS A VENCER
+    case "proximos_vencer":
+        if ($_SESSION['id_rol'] == 1) {
+            $IdUsuarios = $_SESSION['id_usuario'];
+            $consulta = $Gestiones->MostrarListadoNotificacionesRecortadaRecibidasUsuarios($conectarsistema, $IdUsuarios);
+            $consultaLista = $Gestiones->ConsultaClientesProximosVencer($conectarsistema1);
+            require("../vista/Administradores/proximos-a-vencer.php");
+            $conectarsistema->close();
+            $conectarsistema1->close();
+        } else {
+            header('location:cGestionesCrediAgil.php?CrediAgilgestion=redirecciones-sistema-CrediAgil');
+        }
+        break;
     // PAGINA PRINCIPAL [INDEX] INTERFAZ USUARIOS LOGUEADOS NIVEL -> PRESIDENCIA
     case "iniciopresidencia":
         if ($_SESSION['id_rol'] == 2) {

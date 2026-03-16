@@ -76,6 +76,19 @@ if ($_SESSION['id_rol'] == 1) {
                                 </a>
                             </li>
 
+                            <!-- Próximos a Vencer -->
+                            <li class="<?php echo ca_nav_li_active('proximos_vencer', $gestion_actual, $nav_items); ?>">
+                                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=proximos_vencer"
+                                    class="ai-icon <?php echo ca_nav_a_active('proximos_vencer', $gestion_actual, $nav_items); ?>">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z" />
+                                        <path
+                                            d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-8h4v2h-6V7h2v5z" />
+                                    </svg>
+                                    <span class="nav-text">Pr&oacute;ximos a Vencer</span>
+                                </a>
+                            </li>
+
                             <!-- Créditos Pagados -->
                             <li class="<?php echo ca_nav_li_active('creditos_pagados', $gestion_actual, $nav_items); ?>">
                                 <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=listado_clientes"
@@ -99,19 +112,6 @@ if ($_SESSION['id_rol'] == 1) {
                                             d="M14 20v2H2v-2h12zM14.586.686l7.778 7.778L20.95 9.88l-1.06-.354L17.413 12l5.657 5.657-1.414 1.414L16 13.414l-2.404 2.404.283 1.132-1.415 1.414-7.778-7.778 1.415-1.414 1.13.282 6.294-6.293-.353-1.06L14.586.686z" />
                                     </svg>
                                     <span class="nav-text">Cr&eacute;ditos Vencidos</span>
-                                </a>
-                            </li>
-
-                            <!-- Próximos a Vencer -->
-                            <li class="<?php echo ca_nav_li_active('proximos_vencer', $gestion_actual, $nav_items); ?>">
-                                <a href="<?php echo $UrlGlobal; ?>controlador/cGestionesCrediAgil.php?CrediAgilgestion=proximos_vencer"
-                                    class="ai-icon <?php echo ca_nav_a_active('proximos_vencer', $gestion_actual, $nav_items); ?>">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                        <path fill="none" d="M0 0h24v24H0z" />
-                                        <path
-                                            d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-8h4v2h-6V7h2v5z" />
-                                    </svg>
-                                    <span class="nav-text">Pr&oacute;ximos a Vencer</span>
                                 </a>
                             </li>
 
@@ -210,4 +210,106 @@ if ($_SESSION['id_rol'] == 1) {
     <!--**********************************
         Header end
     ***********************************-->
+    <?php
+    // OBTENER TITULO PARA EL BANNER ANIMADO
+    $modulos_titulos = [
+        'estadisticas-generales' => 'Estadísticas Generales',
+        'nuevo-cliente' => 'Nuevo Cliente',
+        'listado_clientes' => 'Créditos Pagados',
+        'listado-general-creditos-aprobados-activos' => 'Créditos Pagados',
+        'listado_morosos' => 'Créditos Vencidos',
+        'consulta-listado-cuotas-clientes-morosos' => 'Créditos Vencidos',
+        'proximos_vencer' => 'Próximos a Vencer',
+        'registrar_reporte' => 'Soporte Técnico',
+        'registrar-ticket-problema-plataforma' => 'Soporte Técnico',
+        'visualizar-mis-notificaciones-usuarios' => 'Notificaciones',
+        'perfiladministradores' => 'Mi Perfil'
+    ];
+    $titulo_animado = isset($modulos_titulos[$gestion_actual]) ? $modulos_titulos[$gestion_actual] : 'CrediAgil';
+    ?>
+    <style>
+    /* Ocultar los antiguos titulos feos si existen */
+    .page-titles { display: none !important; }
+
+    /* Eliminar el espacio superior e izquierdo SOLO del contenedor donde inyectamos el banner */
+    .content-body .container-fluid { 
+        padding-top: 0 !important; 
+        padding-left: 0 !important; 
+    }
+
+    .animated-banner-wrapper {
+        width: 100%;
+        margin-bottom: 30px;
+        overflow: hidden;
+        padding: 0;
+        margin-top: 0;
+        margin-left: -3.75rem !important; /* Desplazado 30px más a la izquierda (-60px total) */
+    }
+
+    .animated-banner-strip {
+        background: linear-gradient(90deg, #4b5259 0%, #768088 100%);
+        height: 85px; /* Más grueso */
+        width: 48%; 
+        display: flex;
+        align-items: center;
+        border-bottom-right-radius: 0; /* Totalmente rectangular */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        transform: translateX(-100%);
+        animation: slideInBanner 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+        position: relative;
+    }
+
+    .animated-banner-strip::after {
+        content: '';
+        position: absolute;
+        right: -6px;
+        top: 0;
+        height: 100%;
+        width: 6px;
+        background: #FF6B35;
+        border-bottom-right-radius: 0; /* Totalmente rectangular */
+    }
+
+    .animated-banner-text {
+        color: #ffffff;
+        font-size: 1.8rem; /* Aumento de tamaño para proporciones */
+        font-weight: 700;
+        margin-left: 95px; /* Desplazado otros 30px más a la derecha (total 95px) */
+        letter-spacing: 0.5px;
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: fadeInText 0.5s ease-out 0.6s forwards;
+    }
+
+    @keyframes slideInBanner {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(0); }
+    }
+
+    @keyframes fadeInText {
+        0% { opacity: 0; transform: translateX(-20px); }
+        100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 768px) {
+        .animated-banner-strip { width: 90%; }
+        .animated-banner-text { font-size: 1.2rem; }
+    }
+    </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var bodyMsg = document.querySelector(".content-body");
+        if (bodyMsg) {
+            var bannerHTML = `
+                <div class="animated-banner-wrapper">
+                    <div class="animated-banner-strip">
+                        <span class="animated-banner-text"><?php echo addslashes($titulo_animado); ?></span>
+                    </div>
+                </div>
+            `;
+            bodyMsg.insertAdjacentHTML('afterbegin', bannerHTML);
+        }
+    });
+    </script>
 <?php } ?>

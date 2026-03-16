@@ -237,16 +237,12 @@ if (empty($_SESSION['id_usuario'])) {
                                                 <div class="custom-control custom-checkbox ml-1">
                                                     <input type="checkbox" name="recordar" class="custom-control-input"
                                                         id="basic_checkbox_1" checked>
-                                                    <label class="custom-control-label" for="basic_checkbox_1">Recordar
+                                                    <label class="custom-control-label" for="basic_checkbox_1" style="color: black !important;">Recordar
                                                         Usuario</label>
                                                 </div>
                                             <?php } ?>
                                         </div>
-                                        <div class="form-group">
-                                            <a style="cursor: help;"
-                                                href="<?php echo $UrlGlobal; ?>controlador/cIniciosSesionesUsuarios.php?CrediAgil=reestablecer-contrasena">¿Olvide
-                                                mi contrase&ntilde;a?</a>
-                                        </div>
+
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary btn-block">Iniciar

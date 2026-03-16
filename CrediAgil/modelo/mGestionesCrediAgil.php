@@ -2840,4 +2840,35 @@ class GestionesClientes
             return "ERROR";
         }
     }
+    // CONSULTA PARA MODULO PROXIMOS A VENCER
+    public function ConsultaClientesProximosVencer($conectarsistema)
+    {
+        $query = "SELECT 
+                    u.idusuarios,
+                    u.nombres,
+                    u.apellidos,
+                    u.codigousuario AS dni,
+                    c.cuotamensual,
+                    c.saldocredito,
+                    d.telefono,
+                    d.celular,
+                    (SELECT COUNT(*) FROM creditos WHERE idusuarios = u.idusuarios) AS veces_prestamo,
+                    DATE_ADD(c.fechasolicitud, INTERVAL c.plazocredito DAY) AS fecha_vencimiento,
+                    DATEDIFF(DATE_ADD(c.fechasolicitud, INTERVAL c.plazocredito DAY), CURDATE()) AS dias_restantes
+                  FROM usuarios u
+                  INNER JOIN (
+                      SELECT idusuarios, MAX(telefono) AS telefono, MAX(celular) AS celular 
+                      FROM detalleusuarios 
+                      GROUP BY idusuarios
+                  ) d ON u.idusuarios = d.idusuarios
+                  INNER JOIN creditos c ON u.idusuarios = c.idusuarios
+                  WHERE u.idrol = 5
+                  AND c.enviaralhistorico = 'no'
+                  AND c.proceso_finalizado = 'no'
+                  AND DATEDIFF(DATE_ADD(c.fechasolicitud, INTERVAL c.plazocredito DAY), CURDATE()) >= 0
+                  ORDER BY dias_restantes ASC";
+        
+        $resultado = mysqli_query($conectarsistema, $query);
+        return $resultado;
+    }
 }// CIERRE class GestionesClientes
